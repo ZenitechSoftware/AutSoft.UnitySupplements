@@ -1,8 +1,8 @@
 {
-    "name": "com.autsoft.unitysupplements.resourcegenerator",
+    "name": "com.autsoft.unitysupplements.vitamins",
     "version": "1.0.0",
-    "displayName": "Resource Generator",
-    "description": "Generate path strings for Resources.Load and others",
+    "displayName": "Vitamins",
+    "description": "Commonly used extension methods and helper classes for Unity",
     "license": "MIT",
     "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements//blob/main/LICENSE.md",
     "changelogUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/CHANGELOG.md",
