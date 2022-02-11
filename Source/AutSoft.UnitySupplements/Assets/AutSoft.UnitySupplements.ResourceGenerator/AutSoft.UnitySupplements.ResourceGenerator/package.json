@@ -1,0 +1,20 @@
+{
+    "name": "com.autsoft.unitysupplements.resourcegenerator",
+    "version": "1.0.0",
+    "displayName": "Resource Generator",
+    "description": "Generate path strings for Resources.Load and others",
+    "license": "MIT",
+    "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements//blob/main/LICENSE.md",
+    "changelogUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/CHANGELOG.md",
+    "documentationUrl": "https://autsoft.github.io/UnityResourceGenerator/",
+    "unity": "2021.2",
+    "keywords": [
+        "Editor",
+        "Resources"
+    ],
+    "author": {
+        "name": "AutSoft Zrt.",
+        "email": "info@autsoft.hu",
+        "url": "https://github.com/AutSoft/AutSoft.UnitySupplements"
+    }
+}

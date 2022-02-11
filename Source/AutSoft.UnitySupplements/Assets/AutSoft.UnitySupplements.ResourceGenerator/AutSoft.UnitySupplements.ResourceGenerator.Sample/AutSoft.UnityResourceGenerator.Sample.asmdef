@@ -1,0 +1,15 @@
+{
+    "name": "AutSoft.UnitySupplements.ResourceGenerator.Sample",
+    "references": [
+        "AutSoft.UnitySupplements.ResourceGenerator"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
