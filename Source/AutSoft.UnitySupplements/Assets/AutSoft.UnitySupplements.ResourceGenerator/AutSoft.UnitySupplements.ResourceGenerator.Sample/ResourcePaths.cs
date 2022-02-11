@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
@@ -52,8 +52,8 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
             public const string CoinSpin = "Coin Spin";
             public static AudioClip LoadCoinSpin() => Resources.Load<AudioClip>(CoinSpin);
 
-            public const string _1Coin1 = "1Coin 1";
-            public static AudioClip Load_1Coin1() => Resources.Load<AudioClip>(_1Coin1);
+            public const string Coin1 = "Coin 1";
+            public static AudioClip LoadCoin1() => Resources.Load<AudioClip>(Coin1);
 
             public const string Coin = "Coin";
             public static AudioClip LoadCoin() => Resources.Load<AudioClip>(Coin);

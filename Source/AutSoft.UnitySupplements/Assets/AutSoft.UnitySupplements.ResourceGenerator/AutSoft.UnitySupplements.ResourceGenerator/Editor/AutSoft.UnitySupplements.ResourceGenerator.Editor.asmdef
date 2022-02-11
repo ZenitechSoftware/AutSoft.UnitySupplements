@@ -1,6 +1,6 @@
 {
     "name": "AutSoft.UnitySupplements.ResourceGenerator",
-    "rootNamespace": "AutSoft.UnitySupplements.ResourceGenerator",
+    "rootNamespace": "",
     "references": [],
     "includePlatforms": [
         "Editor"

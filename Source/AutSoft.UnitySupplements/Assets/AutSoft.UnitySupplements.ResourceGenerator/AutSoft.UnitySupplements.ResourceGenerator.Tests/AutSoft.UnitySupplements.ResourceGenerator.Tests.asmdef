@@ -1,6 +1,6 @@
 {
     "name": "AutSoft.UnitySupplements.ResourceGenerator.Tests",
-    "rootNamespace": "AutSoft.UnitySupplements.ResourceGenerator.Tests",
+    "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
