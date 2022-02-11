@@ -1,5 +1,6 @@
 {
     "name": "AutSoft.UnitySupplements.ResourceGenerator.Sample",
+    "rootNamespace": "AutSoft.UnitySupplements.ResourceGenerator.Sample",
     "references": [
         "AutSoft.UnitySupplements.ResourceGenerator"
     ],
