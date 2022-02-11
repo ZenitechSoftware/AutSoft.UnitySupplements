@@ -22,6 +22,7 @@
         "com.autsoft.unitysupplements.vitamins": "1.0.0",
         "org.nuget.injecter": "6.1.2",
         "com.cysharp.unitask": "2.2.5",
-        "com.unity.textmeshpro": "1.2.1"
+        "com.unity.textmeshpro": "1.2.1",
+        "com.unity.test-framework": "1.1.30"
     }
 }
