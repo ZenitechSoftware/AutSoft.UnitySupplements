@@ -1,0 +1,271 @@
+# To learn more about .editorconfig see https://aka.ms/editorconfigdocs
+###############################
+# Core EditorConfig Options   #
+###############################
+# All files
+root = true
+[*]
+indent_style = space
+# Code files
+[*.{cs,csx,vb,vbx}]
+indent_size = 4
+insert_final_newline = true
+charset = utf-8-bom
+###############################
+# .NET Coding Conventions     #
+###############################
+[*.{cs,vb}]
+# Organize usings
+dotnet_sort_system_directives_first = false
+# this. preferences
+dotnet_style_qualification_for_field = false:warning
+dotnet_style_qualification_for_property = false:warning
+dotnet_style_qualification_for_method = false:warning
+dotnet_style_qualification_for_event = false:warning
+# Language keywords vs BCL types preferences
+dotnet_style_predefined_type_for_locals_parameters_members = true:warning
+dotnet_style_predefined_type_for_member_access = true:warning
+# Parentheses preferences
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:warning
+dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:warning
+dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:warning
+dotnet_style_parentheses_in_other_operators = never_if_unnecessary:warning
+# Modifier preferences
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:warning
+dotnet_style_readonly_field = true:suggestion
+# Expression-level preferences
+dotnet_style_object_initializer = true:suggestion
+dotnet_style_collection_initializer = true:suggestion
+dotnet_style_explicit_tuple_names = true:suggestion
+dotnet_style_null_propagation = true:suggestion
+dotnet_style_coalesce_expression = true:suggestion
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true:warning
+dotnet_style_prefer_inferred_tuple_names = true:suggestion
+dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
+dotnet_style_prefer_auto_properties = true:warning
+dotnet_style_prefer_conditional_expression_over_assignment = true:warning
+dotnet_style_prefer_conditional_expression_over_return = true:none
+###############################
+# Naming Conventions          #
+###############################
+# Style Definitions
+dotnet_naming_style.pascal_case_style.capitalization             = pascal_case
+# Use PascalCase for constant fields  
+dotnet_naming_rule.constant_fields_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.constant_fields_should_be_pascal_case.symbols  = constant_fields
+dotnet_naming_rule.constant_fields_should_be_pascal_case.style    = pascal_case_style
+dotnet_naming_symbols.constant_fields.applicable_kinds            = field
+dotnet_naming_symbols.constant_fields.applicable_accessibilities  = *
+dotnet_naming_symbols.constant_fields.required_modifiers          = const
+dotnet_naming_rule.private_members_with_underscore.symbols  = private_fields
+dotnet_naming_rule.private_members_with_underscore.style    = prefix_underscore
+dotnet_naming_rule.private_members_with_underscore.severity = suggestion
+
+dotnet_naming_symbols.private_fields.applicable_kinds           = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+
+dotnet_naming_style.prefix_underscore.capitalization = camel_case
+dotnet_naming_style.prefix_underscore.required_prefix = _
+###############################
+# C# Coding Conventions       #
+###############################
+[*.cs]
+# var preferences
+csharp_style_var_for_built_in_types = true:warning
+csharp_style_var_when_type_is_apparent = true:warning
+csharp_style_var_elsewhere = true:warning
+# Expression-bodied members
+csharp_style_expression_bodied_methods = true:warning
+csharp_style_expression_bodied_constructors = true:warning
+csharp_style_expression_bodied_operators = true:warning
+csharp_style_expression_bodied_properties = true:warning
+csharp_style_expression_bodied_indexers = true:warning
+csharp_style_expression_bodied_accessors = true:warning
+# Pattern matching preferences
+csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
+csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
+# Null-checking preferences
+csharp_style_throw_expression = true:suggestion
+csharp_style_conditional_delegate_call = true:suggestion
+# Modifier preferences
+csharp_preferred_modifier_order = public,private,protected,internal,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,volatile,async:suggestion
+# Expression-level preferences
+csharp_prefer_braces = when_multiline:warning
+csharp_style_deconstructed_variable_declaration = true:suggestion
+csharp_prefer_simple_default_expression = true:suggestion
+csharp_style_pattern_local_over_anonymous_function = true:suggestion
+csharp_style_inlined_variable_declaration = true:suggestion
+###############################
+# C# Formatting Rules         #
+###############################
+# New line preferences
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types = true
+csharp_new_line_between_query_expression_clauses = true
+# Indentation preferences
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+csharp_indent_labels = flush_left
+# Space preferences
+csharp_space_after_cast = false
+csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_between_method_call_parameter_list_parentheses = false
+csharp_space_between_method_declaration_parameter_list_parentheses = false
+csharp_space_between_parentheses = false
+csharp_space_before_colon_in_inheritance_clause = true
+csharp_space_after_colon_in_inheritance_clause = true
+csharp_space_around_binary_operators = before_and_after
+csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
+csharp_space_between_method_call_name_and_opening_parenthesis = false
+csharp_space_between_method_call_empty_parameter_list_parentheses = false
+# Wrapping preferences
+csharp_preserve_single_line_statements = true
+csharp_preserve_single_line_blocks = true
+
+# RCS1090: Call 'ConfigureAwait(false)'.
+dotnet_diagnostic.RCS1090.severity = none
+
+# IDE0021: Use block body for constructors
+csharp_style_expression_bodied_constructors = true:warning
+
+# IDE0005: Using directive is unnecessary.
+dotnet_diagnostic.IDE0005.severity = warning
+
+# RCS1124: Inline local variable.
+dotnet_diagnostic.RCS1124.severity = warning
+
+# IDE0069: Disposable fields should be disposed
+dotnet_diagnostic.IDE0069.severity = warning
+
+# # RCS1031: Remove unnecessary braces.
+# dotnet_diagnostic.RCS1031.severity = none
+
+# S2259: Null pointers should not be dereferenced
+dotnet_diagnostic.S2259.severity = warning
+
+# RCS1079: Throwing of new NotImplementedException.
+dotnet_diagnostic.RCS1079.severity = warning
+
+# RCS1197: Optimize StringBuilder.Append/AppendLine call.
+dotnet_diagnostic.RCS1197.severity = warning
+
+# RCS1077: Optimize LINQ method call.
+dotnet_diagnostic.RCS1077.severity = warning
+
+# RCS1036: Remove redundant empty line.
+dotnet_diagnostic.RCS1036.severity = warning
+
+# S2365: Properties should not make collection or array copies
+dotnet_diagnostic.S2365.severity = warning
+
+# S2696: Instance members should not write to "static" fields
+dotnet_diagnostic.S2696.severity = warning
+
+# CS0642: Possible mistaken empty statement
+dotnet_diagnostic.CS0642.severity = warning
+
+# S1116: Empty statements should be removed
+dotnet_diagnostic.S1116.severity = warning
+
+# S108: Nested blocks of code should not be left empty
+dotnet_diagnostic.S108.severity = warning
+
+# S3241: Methods should not return values that are never used
+dotnet_diagnostic.S3241.severity = suggestion
+
+# CA1825: Avoid zero-length array allocations.
+dotnet_diagnostic.CA1825.severity = warning
+
+# S3168: "async" methods should not return "void"
+dotnet_diagnostic.S3168.severity = warning
+
+# S1104: Fields should not have public accessibility
+dotnet_diagnostic.S1104.severity = warning
+
+# RCS1221: Use pattern matching instead of combination of 'as' operator and null check.
+dotnet_diagnostic.RCS1221.severity = warning
+
+# RCS1156: Use string.Length instead of comparison with empty string.
+dotnet_diagnostic.RCS1156.severity = warning
+
+# RCS1206: Use conditional access instead of conditional expression.
+dotnet_diagnostic.RCS1206.severity = warning
+
+# RCS1123: Add parentheses according to operator precedence.
+dotnet_diagnostic.RCS1123.severity = warning
+
+# RCS1213: Remove unused member declaration.
+dotnet_diagnostic.RCS1213.severity = warning
+
+# RCS1169: Make field read-only.
+dotnet_diagnostic.RCS1169.severity = none
+
+# RCS1029: Format binary operator on next line.
+dotnet_diagnostic.RCS1029.severity = warning
+
+# RCS1222: Merge preprocessor directives
+dotnet_diagnostic.RCS1222.severity = warning
+
+# RCS1168: Parameter name differs from base name.
+dotnet_diagnostic.RCS1168.severity = none
+
+# S927: parameter names should match base declaration and other partial definitions
+dotnet_diagnostic.S927.severity = none
+
+# CS0618: Type or member is obsolete
+dotnet_diagnostic.CS0618.severity = warning
+
+# S4457: Parameter validation in "async"/"await" methods should be wrapped
+dotnet_diagnostic.S4457.severity = none
+
+# RCS1225: Make class sealed.
+dotnet_diagnostic.RCS1225.severity = warning
+
+# RCS1171: Simplify lazy initialization.
+dotnet_diagnostic.RCS1171.severity = warning
+
+# IDE0047: Remove unnecessary parentheses
+dotnet_diagnostic.IDE0047.severity = warning
+
+# S3453: Classes should not have only "private" constructors
+dotnet_diagnostic.S3453.severity = none
+
+# IDE0083: Use pattern matching
+dotnet_diagnostic.IDE0083.severity = warning
+
+# CA1826: Do not use Enumerable methods on indexable collections
+dotnet_diagnostic.CA1826.severity = warning
+
+# RCS1246: Use element access.
+dotnet_diagnostic.RCS1246.severity = warning
+
+# CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+dotnet_diagnostic.CS8632.severity = warning
+
+# S3904: Assemblies should have version information
+dotnet_diagnostic.S3904.severity = none
+
+# RCS1089: Use --/++ operator instead of assignment.
+dotnet_diagnostic.RCS1089.severity = none
+
+# RCS1194: Implement exception constructors.
+dotnet_diagnostic.RCS1194.severity = warning
+
+# S3925: "ISerializable" should be implemented correctly
+dotnet_diagnostic.S3925.severity = warning
+
+# S3358: Ternary operators should not be nested
+dotnet_diagnostic.S3358.severity = none
+
+# S1135: Track of TODO comments
+dotnet_diagnostic.S1135.severity = none
+
+# RCS1037: Remove trailing white-space
+dotnet_diagnostic.RCS1037.severity = warning
+
+roslynator.RCS1018.roslynator_accessibility_modifiers = explicit
+roslynator.RCS1096.roslynator_enum_has_flag_style = method

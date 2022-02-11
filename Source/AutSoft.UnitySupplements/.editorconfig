@@ -1,0 +1,12 @@
+root = false
+
+[*.cs]
+
+# S3168: "async" methods should not return "void"
+dotnet_diagnostic.S3168.severity = none
+
+# RCS1213: Remove unused member declaration.
+roslynator.RCS1213.suppress_unity_script_methods = true
+
+roslynator.RCS1018.roslynator_accessibility_modifiers = explicit
+roslynator.RCS1096.roslynator_enum_has_flag_style = method
