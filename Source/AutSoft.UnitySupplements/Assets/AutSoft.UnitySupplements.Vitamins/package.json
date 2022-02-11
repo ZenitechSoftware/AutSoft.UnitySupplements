@@ -16,5 +16,8 @@
         "name": "AutSoft Zrt.",
         "email": "info@autsoft.hu",
         "url": "https://github.com/AutSoft/AutSoft.UnitySupplements"
+    },    
+    "dependencies": {
+        "com.unity.textmeshpro": "1.2.1"
     }
 }

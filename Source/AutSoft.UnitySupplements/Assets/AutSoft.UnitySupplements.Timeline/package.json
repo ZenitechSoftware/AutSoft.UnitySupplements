@@ -1,8 +1,8 @@
 {
-    "name": "com.autsoft.unitysupplements.eventbus",
+    "name": "com.autsoft.unitysupplements.timeline",
     "version": "1.0.0",
-    "displayName": "EventBus",
-    "description": "Simple eventbus implementation for Unity",
+    "displayName": "Timeline",
+    "description": "Timeline for controlling objects based on time",
     "license": "MIT",
     "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements//blob/main/LICENSE.md",
     "changelogUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/CHANGELOG.md",
@@ -18,8 +18,10 @@
         "url": "https://github.com/AutSoft/AutSoft.UnitySupplements"
     },
     "dependencies": {
-        "org.nuget.microsoft.extensions.dependencyinjection.abstractions": "6.0.0",
-        "org.nuget.microsoft.extensions.logging.abstractions": "6.0.0",
-        "org.nuget.microsoft.extensions.dependencymodel": "6.0.0"
+        "com.autsoft.unitysupplements.eventbus": "1.0.0",
+        "com.autsoft.unitysupplements.vitamins": "1.0.0",
+        "org.nuget.injecter": "6.1.2",
+        "com.cysharp.unitask": "2.2.5",
+        "com.unity.textmeshpro": "1.2.1"
     }
 }
