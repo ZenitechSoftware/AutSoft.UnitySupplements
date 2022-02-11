@@ -7,6 +7,7 @@
     "com.unity.test-framework": "1.1.30",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.ugui": "1.0.0",
+    "org.nuget.injecter": "6.1.2",
     "org.nuget.microsoft.extensions.logging": "6.0.0",
     "org.nuget.roslynator.analyzers": "4.0.2",
     "org.nuget.sonaranalyzer.csharp": "8.35.0-42613",
@@ -40,7 +41,8 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "com.cysharp.unitask": "2.2.5"
   },
   "scopedRegistries": [
     {
@@ -54,6 +56,7 @@
       "name": "package.openupm.com",
       "url": "https://package.openupm.com",
       "scopes": [
+        "com.cysharp.unitask",
         "com.openupm"
       ]
     }
