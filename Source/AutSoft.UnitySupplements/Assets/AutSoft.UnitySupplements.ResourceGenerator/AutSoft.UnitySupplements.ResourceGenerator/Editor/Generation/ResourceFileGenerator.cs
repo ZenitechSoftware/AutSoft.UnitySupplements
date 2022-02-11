@@ -8,7 +8,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
 {
     public static class ResourceFileGenerator
     {
-        private static readonly Regex NormalizedLineEndings = new Regex(@"\r\n|\n\r|\n|\r", RegexOptions.Compiled, TimeSpan.FromSeconds(10));
+        private static readonly Regex _normalizedLineEndings = new(@"\r\n|\n\r|\n|\r", RegexOptions.Compiled, TimeSpan.FromSeconds(10));
 
         /// <summary>
         /// Main generator. Loads and calls all implementations of <see cref="IModuleGenerator"/> and <see cref="IResourcePostProcessor"/>
@@ -75,7 +75,7 @@ public static partial class {1}
                 .OrderByDescending(p => p.PostProcessPriority)
                 .Aggregate(fileContent, (current, processor) => processor.PostProcess(context, current));
 
-            fileContent = NormalizedLineEndings.Replace(fileContent, "\r\n");
+            fileContent = _normalizedLineEndings.Replace(fileContent, "\r\n");
 
             return fileContent;
         }

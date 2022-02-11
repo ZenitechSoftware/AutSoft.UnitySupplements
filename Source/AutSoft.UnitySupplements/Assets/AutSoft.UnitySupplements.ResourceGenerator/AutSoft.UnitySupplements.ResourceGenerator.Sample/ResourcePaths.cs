@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace AutSoft.UnitySupplements.ResourceGenerator.Sample

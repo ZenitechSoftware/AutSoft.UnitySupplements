@@ -15,8 +15,8 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
     /// </summary>
     public sealed class AllResources : IModuleGenerator
     {
-        private static readonly Regex NonAlphaNumeric = new Regex(@"[^a-zA-Z0-9]", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
-        private static readonly Regex StartsWithNumber = new Regex(@"^\d", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
+        private static readonly Regex _nonAlphaNumeric = new("[^a-zA-Z0-9]", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
+        private static readonly Regex _startsWithNumber = new(@"^\d", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
 
         public string Generate(ResourceContext context) =>
             new StringBuilder()
@@ -34,14 +34,14 @@ $@"        public static partial class {data.ClassName}
 
 ";
             // ReSharper disable once MissingIndent
-            const string classEnd = @"        }";
+            const string classEnd = "        }";
 
             var values = data
                 .FileExtensions
                 .SelectMany(ext => Directory.EnumerateFiles(context.AssetsFolder, ext, SearchOption.AllDirectories))
                 .Select(filePath =>
                 {
-                    var (canLoad, baseFolder) = GetBaseFolder(filePath, context, data);
+                    var (canLoad, baseFolder) = GetBaseFolder(filePath, context);
                     if (!canLoad) return (null, null, null);
 
                     var resourcePath = filePath
@@ -58,9 +58,9 @@ $@"        public static partial class {data.ClassName}
 
                     var name = Path.GetFileNameWithoutExtension(filePath).Replace(" ", string.Empty);
 
-                    if (StartsWithNumber.IsMatch(name)) name = name.Insert(0, "_");
+                    if (_startsWithNumber.IsMatch(name)) name = name.Insert(0, "_");
 
-                    name = NonAlphaNumeric.Replace(name, "_");
+                    name = _nonAlphaNumeric.Replace(name, "_");
 
                     return
                     (
@@ -118,7 +118,7 @@ $@"        public static partial class {data.ClassName}
             void LogFinished() => context.Info($"Finished generating {data.ClassName}");
         }
 
-        private static (bool canLoad, string baseFolder) GetBaseFolder(string filePath, ResourceContext context, IResourceData data)
+        private static (bool canLoad, string baseFolder) GetBaseFolder(string filePath, ResourceContext context)
         {
             if (Path.GetExtension(filePath) == ".unity") return (true, context.AssetsFolder);
 

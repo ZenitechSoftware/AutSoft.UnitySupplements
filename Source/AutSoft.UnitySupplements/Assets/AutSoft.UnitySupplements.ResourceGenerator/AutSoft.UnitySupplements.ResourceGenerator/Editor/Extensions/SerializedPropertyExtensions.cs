@@ -10,7 +10,9 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Extensions
 {
     internal static class SerializedPropertyExtensions
     {
+        /// <summary>
         /// (Extension) Set the value of the serialized property.
+        /// </summary>
         public static void SetValue(this SerializedProperty property, object value)
         {
             Undo.RecordObject(property.serializedObject.targetObject, $"Set {property.name}");
@@ -21,8 +23,10 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Extensions
             property.serializedObject.ApplyModifiedProperties();
         }
 
+        /// <summary>
         /// (Extension) Set the value of the serialized property, but do not record the change.
         /// The change will not be persisted unless you call SetDirty and ApplyModifiedProperties.
+        /// </summary>
         private static void SetValueNoRecord(this SerializedProperty property, object value)
         {
             var propertyPath = property.propertyPath;
@@ -48,7 +52,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Extensions
             public int ElementIndex;
         }
 
-        private static readonly Regex ArrayElementRegex = new Regex(@"\GArray\.data\[(\d+)\]", RegexOptions.Compiled);
+        private static readonly Regex _arrayElementRegex = new(@"\GArray\.data\[(\d+)\]", RegexOptions.Compiled);
 
         private static bool NextPathComponent(string propertyPath, ref int index, out PropertyPathComponent component)
         {
@@ -57,7 +61,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Extensions
             if (index >= propertyPath.Length)
                 return false;
 
-            var arrayElementMatch = ArrayElementRegex.Match(propertyPath, index);
+            var arrayElementMatch = _arrayElementRegex.Match(propertyPath, index);
             if (arrayElementMatch.Success)
             {
                 index += arrayElementMatch.Length + 1; // Skip past next '.'
@@ -68,12 +72,12 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Extensions
             var dot = propertyPath.IndexOf('.', index);
             if (dot == -1)
             {
-                component.PropertyName = propertyPath.Substring(index);
+                component.PropertyName = propertyPath[index..];
                 index = propertyPath.Length;
             }
             else
             {
-                component.PropertyName = propertyPath.Substring(index, dot - index);
+                component.PropertyName = propertyPath[index..dot];
                 index = dot + 1; // Skip past next '.'
             }
 
@@ -102,8 +106,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Extensions
             if (container == null)
                 return null;
             var type = container.GetType();
-            var members = type.GetMember(name, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-            foreach (var member in members)
+            foreach (var member in type.GetMember(name, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance))
             {
                 switch (member)
                 {
@@ -120,8 +123,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Extensions
         private static void SetMemberValue(object container, string name, object value)
         {
             var type = container.GetType();
-            var members = type.GetMember(name, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-            foreach (var member in members)
+            foreach (var member in type.GetMember(name, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance))
             {
                 switch (member)
                 {

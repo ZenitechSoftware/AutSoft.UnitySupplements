@@ -100,10 +100,10 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
 
         [SettingsProvider]
         public static SettingsProvider CreateSettingsProvider() =>
-            new SettingsProvider("Project/ResourceGenerator", SettingsScope.Project)
+            new("Project/ResourceGenerator", SettingsScope.Project)
             {
                 label = "ResourceGenerator",
-                guiHandler = searchContext =>
+                guiHandler = _ =>
                 {
                     var settings = new SerializedObject(GetOrCreateSettings());
 

@@ -60,7 +60,6 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
         /// </summary>
         public Action<string> Error { get; }
 
-
         /// <summary>
         /// Data used by <see cref="AllResources"/>
         /// </summary>
