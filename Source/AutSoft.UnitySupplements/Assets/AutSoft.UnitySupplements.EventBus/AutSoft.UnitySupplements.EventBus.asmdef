@@ -1,3 +1,14 @@
 {
-	"name": "AutSoft.UnitySupplements.EventBus"
+    "name": "AutSoft.UnitySupplements.EventBus",
+    "rootNamespace": "",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

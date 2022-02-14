@@ -2,10 +2,10 @@
     "name": "AutSoft.UnitySupplements.Timeline",
     "rootNamespace": "",
     "references": [
-        "GUID:222e794e7fcddcd4293d6ea1a324a5d1",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:1a84e733b2e2a3045a66c81b815deebe",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+        "AutSoft.UnitySupplements.EventBus",
+        "Unity.TextMeshPro",
+        "AutSoft.UnitySupplements.Vitamins",
+        "UniTask"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
