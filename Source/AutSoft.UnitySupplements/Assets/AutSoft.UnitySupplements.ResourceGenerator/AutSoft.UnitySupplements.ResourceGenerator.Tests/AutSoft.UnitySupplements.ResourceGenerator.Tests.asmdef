@@ -4,7 +4,7 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "AutSoft.UnitySupplements.ResourceGenerator.Sample"
+        "AutSoft.Unity.Supplements.Samples"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

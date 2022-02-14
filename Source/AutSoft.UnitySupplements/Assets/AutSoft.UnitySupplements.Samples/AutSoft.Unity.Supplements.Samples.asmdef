@@ -1,0 +1,23 @@
+{
+    "name": "AutSoft.Unity.Supplements.Samples",
+    "rootNamespace": "",
+    "references": [
+        "GUID:068ddee9e10c39448b098695066f8997",
+        "GUID:b2fe0ff3acbd9a941b2b72f6d513d500",
+        "GUID:222e794e7fcddcd4293d6ea1a324a5d1",
+        "GUID:dc002411b65591a4eb3c2d30e740cc5e",
+        "GUID:ebcad7e3972724c43aa595f17cf4d103",
+        "GUID:71fc3484f203a6e44808ed95fef65c9b",
+        "GUID:1a84e733b2e2a3045a66c81b815deebe",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

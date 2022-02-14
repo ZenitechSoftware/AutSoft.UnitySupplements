@@ -13,15 +13,19 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
         public static partial class Scenes
         {
 
-            public const string CreatePrefab = "AutSoft.UnitySupplements.ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Sample/Scenes/CreatePrefab";
+            public const string TimelineSample = "AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.Timeline.Sample/TimelineSample";
+            public static void LoadTimelineSample(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(TimelineSample, mode);
+            public static AsyncOperation LoadAsyncTimelineSample(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(TimelineSample, mode);
+
+            public const string CreatePrefab = "AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.ResourceGenerator.Sample/Scenes/CreatePrefab";
             public static void LoadCreatePrefab(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(CreatePrefab, mode);
             public static AsyncOperation LoadAsyncCreatePrefab(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(CreatePrefab, mode);
 
-            public const string LoadSceneInitial = "AutSoft.UnitySupplements.ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Sample/Scenes/LoadSceneInitial";
+            public const string LoadSceneInitial = "AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.ResourceGenerator.Sample/Scenes/LoadSceneInitial";
             public static void LoadLoadSceneInitial(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(LoadSceneInitial, mode);
             public static AsyncOperation LoadAsyncLoadSceneInitial(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(LoadSceneInitial, mode);
 
-            public const string LoadSceneNext = "AutSoft.UnitySupplements.ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Sample/Scenes/LoadSceneNext";
+            public const string LoadSceneNext = "AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.ResourceGenerator.Sample/Scenes/LoadSceneNext";
             public static void LoadLoadSceneNext(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(LoadSceneNext, mode);
             public static AsyncOperation LoadAsyncLoadSceneNext(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(LoadSceneNext, mode);
 
@@ -44,6 +48,12 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
             public const string CubeAlt = "CubeAlt";
             public static Material LoadCubeAlt() => Resources.Load<Material>(CubeAlt);
 
+            public const string LiberationSansSDF_DropShadow = "Fonts & Materials/LiberationSans SDF - Drop Shadow";
+            public static Material LoadLiberationSansSDF_DropShadow() => Resources.Load<Material>(LiberationSansSDF_DropShadow);
+
+            public const string LiberationSansSDF_Outline = "Fonts & Materials/LiberationSans SDF - Outline";
+            public static Material LoadLiberationSansSDF_Outline() => Resources.Load<Material>(LiberationSansSDF_Outline);
+
         }
 
         public static partial class AudioClips
@@ -57,6 +67,17 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
 
             public const string Coin = "Coin";
             public static AudioClip LoadCoin() => Resources.Load<AudioClip>(Coin);
+
+        }
+
+        public static partial class TextAssets
+        {
+
+            public const string LineBreakingFollowingCharacters = "LineBreaking Following Characters";
+            public static TextAsset LoadLineBreakingFollowingCharacters() => Resources.Load<TextAsset>(LineBreakingFollowingCharacters);
+
+            public const string LineBreakingLeadingCharacters = "LineBreaking Leading Characters";
+            public static TextAsset LoadLineBreakingLeadingCharacters() => Resources.Load<TextAsset>(LineBreakingLeadingCharacters);
 
         }
 
