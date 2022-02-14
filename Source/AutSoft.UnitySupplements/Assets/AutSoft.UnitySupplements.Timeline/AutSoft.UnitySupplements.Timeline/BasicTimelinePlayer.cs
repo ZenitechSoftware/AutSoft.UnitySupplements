@@ -25,11 +25,8 @@ namespace AutSoft.UnitySupplements.Timeline
         [SerializeField] private Button _stopButton = default!;
         [SerializeField] private TMP_Dropdown _speedDropdown = default!;
         [SerializeField] private TMP_Text _currentTimeLabel = default!;
-        [SerializeField] private Button _startDateButton = default!;
+        [SerializeField] private TMP_Text _startDateText = default!;
         [SerializeField] private TMP_Text _endDateText = default!;
-        [Header("External")]
-        [SerializeField] private DatePickerDialog _datePickerDialog = default!;
-        [SerializeField] private bool _isTimeUserEditable = true;
 
         private long _flightDurationInTicks;
         public DateTimeOffset StartTime { get; private set; }
@@ -44,7 +41,7 @@ namespace AutSoft.UnitySupplements.Timeline
             this.CheckSerializedField(_stopButton, nameof(_stopButton));
             this.CheckSerializedField(_speedDropdown, nameof(_speedDropdown));
             this.CheckSerializedField(_currentTimeLabel, nameof(_currentTimeLabel));
-            this.CheckSerializedField(_startDateButton, nameof(_startDateButton));
+            this.CheckSerializedField(_startDateText, nameof(_startDateText));
             this.CheckSerializedField(_endDateText, nameof(_endDateText));
 
             AddEventTrigger(EventTriggerType.Drag, SetCurrentTimeFromSliderValue);
@@ -57,16 +54,6 @@ namespace AutSoft.UnitySupplements.Timeline
             _playPauseButton.onClick.AddListener(OnPlayPauseClicked);
             _stopButton.onClick.AddListener(OnStopClicked);
             _speedDropdown.onValueChanged.AddListener(OnSpeedChanged);
-
-            if (_isTimeUserEditable)
-            {
-                this.CheckSerializedField(_datePickerDialog, nameof(_datePickerDialog));
-                _startDateButton.onClick.AddListener(OnStartDateClicked);
-            }
-            else
-            {
-                _startDateButton.interactable = false;
-            }
         }
 
         private void Update()
@@ -83,10 +70,6 @@ namespace AutSoft.UnitySupplements.Timeline
             _playPauseButton.onClick.RemoveListener(OnPlayPauseClicked);
             _stopButton.onClick.RemoveListener(OnStopClicked);
             _speedDropdown.onValueChanged.RemoveListener(OnSpeedChanged);
-            if (_isTimeUserEditable)
-            {
-                _startDateButton.onClick.RemoveListener(OnStartDateClicked);
-            }
 
             _sliderEvents.triggers.ForEach(t => t.callback.RemoveAllListeners());
             _sliderEvents.triggers.Clear();
@@ -117,7 +100,7 @@ namespace AutSoft.UnitySupplements.Timeline
             StartTime = start;
             EndTime = end;
             _flightDurationInTicks = end.Ticks - start.Ticks;
-            _startDateButton.GetComponentInChildren<TMP_Text>().text = $"{start:g}";
+            _startDateText.text = $"{start:g}";
             _endDateText.text = $"{end:g}";
             _timeLine.SetTimeRange(start, end);
         }
@@ -136,19 +119,6 @@ namespace AutSoft.UnitySupplements.Timeline
         private void OnStopClicked() => _timeLine.Stop();
 
         private void OnCurrentTimeChanged(CurrentTimeChanged timeUpdated) => SetSliderValue(timeUpdated.CurrentTime.Ticks);
-
-        private async void OnStartDateClicked()
-        {
-            try
-            {
-                var date = await _datePickerDialog.ShowDialog("Mission start date", StartTime);
-                _eventBus.Invoke(new TimeRangeChanged(date, EndTime));
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Failed setting new time range");
-            }
-        }
 
         private void AddEventTrigger(EventTriggerType eventId, Action action)
         {
