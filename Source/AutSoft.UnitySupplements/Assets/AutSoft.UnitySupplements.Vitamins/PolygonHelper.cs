@@ -7,33 +7,6 @@ namespace AutSoft.UnitySupplements.Vitamins
 {
     public static class PolygonHelper
     {
-        public static Mesh GeneratePolygon(Vector3[] vertices)
-        {
-            if (vertices.Length < 3) throw new ArgumentException("At least 3 vertices must be provided to generate polygon mesh.");
-
-            //generate triangle indices
-            var triangleCount = vertices.Length - 2;
-            var vertexIndexCount = triangleCount * 3;
-            Span<int> vertexIndices = stackalloc int[vertexIndexCount];
-            var v = 0;
-            for (var i = 0; i < triangleCount; i++)
-            {
-                vertexIndices[v++] = 0;
-                vertexIndices[v++] = i + 1;
-                vertexIndices[v++] = i + 2;
-            }
-
-            Span<Vector3> normals = stackalloc Vector3[vertices.Length];
-            normals.Fill(Vector3.up);
-
-            return new Mesh
-            {
-                vertices = vertices,
-                triangles = vertexIndices.ToArray(),
-                normals = normals.ToArray(),
-            };
-        }
-
         public static Mesh GenerateTriangulatedMesh(Vector3[] vertices)
         {
             var triangles = Triangulate(vertices);
