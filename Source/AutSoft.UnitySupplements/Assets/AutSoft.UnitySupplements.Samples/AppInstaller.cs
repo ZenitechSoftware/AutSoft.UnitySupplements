@@ -1,4 +1,5 @@
 ﻿using AutSoft.UnitySupplements.EventBus;
+using AutSoft.UnitySupplements.ResourceGenerator.Sample;
 using AutSoft.UnitySupplements.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter.Hosting.Unity;
@@ -54,9 +55,15 @@ namespace AutSoft.UnitySupplements.Samples
             }
         }
 
-        public static IHostBuilder ConfigureHost(this IHostBuilder builder, Serilog.ILogger logger) =>
-            builder
-                .UseUnity(_ => { }, false, false, Array.Empty<TextAsset>())
+        public static IHostBuilder ConfigureHost(this IHostBuilder builder, Serilog.ILogger logger)
+        {
+            var jsons = new[]
+            {
+                ResourcePaths.TextAssets.LoadAppSettings()
+            };
+
+            return builder
+                .UseUnity(_ => { }, false, false, jsons)
                 .ConfigureServices(ConfigureServices)
                 .UseDefaultServiceProvider(o =>
                 {
@@ -64,6 +71,7 @@ namespace AutSoft.UnitySupplements.Samples
                     o.ValidateScopes = true;
                 })
                 .UseSerilog(logger);
+        }
 
         public static void ConfigureServices(HostBuilderContext builder, IServiceCollection services)
         {

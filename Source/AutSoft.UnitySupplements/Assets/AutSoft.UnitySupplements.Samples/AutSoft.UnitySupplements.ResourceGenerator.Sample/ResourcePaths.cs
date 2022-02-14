@@ -79,6 +79,9 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
             public const string LineBreakingLeadingCharacters = "LineBreaking Leading Characters";
             public static TextAsset LoadLineBreakingLeadingCharacters() => Resources.Load<TextAsset>(LineBreakingLeadingCharacters);
 
+            public const string AppSettings = "AppSettings";
+            public static TextAsset LoadAppSettings() => Resources.Load<TextAsset>(AppSettings);
+
         }
 
     }
