@@ -23,6 +23,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
                 settings.ClassName,
                 settings.LogInfo ? Debug.Log : LogEmpty,
                 settings.LogError ? Debug.LogError : LogEmpty,
+                settings.GenerateLayers,
                 settings.Data,
                 settings.Usings
             );

@@ -17,6 +17,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
             string className,
             Action<string> info,
             Action<string> error,
+            bool generateLayers,
             IReadOnlyList<IResourceData> data,
             IReadOnlyList<string> usings)
         {
@@ -26,6 +27,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
             ClassName = className;
             Info = info;
             Error = error;
+            GenerateLayers = generateLayers;
             Data = data;
             Usings = usings;
         }
@@ -59,6 +61,11 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
         /// Error level logger
         /// </summary>
         public Action<string> Error { get; }
+
+        /// <summary>
+        /// Generate layers paths and masks
+        /// </summary>
+        public bool GenerateLayers { get; }
 
         /// <summary>
         /// Data used by <see cref="AllResources"/>

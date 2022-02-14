@@ -45,12 +45,14 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
         [SerializeField] private bool _logError;
         [SerializeField] private List<string> _usings;
         [SerializeField] private List<ResourceData> _data;
+        [SerializeField] private bool _generateLayers;
 
         public string FolderPath => _folderPath;
         public string BaseNamespace => _baseNamespace;
         public string ClassName => _className;
         public bool LogInfo => _logInfo;
         public bool LogError => _logError;
+        public bool GenerateLayers => _generateLayers;
         public IReadOnlyList<string> Usings => _usings;
         public IReadOnlyList<ResourceData> Data => _data;
 
@@ -66,6 +68,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
             settings._className = "ResourcePaths";
             settings._logInfo = false;
             settings._logError = true;
+            settings._generateLayers = true;
 
             var (data, usings) = CreateDefaultFileMappings();
 
@@ -112,6 +115,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_className)), new GUIContent("Class name"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_logInfo)), new GUIContent("Log Infos"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_logError)), new GUIContent("Log Errors"));
+                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(_generateLayers)), new GUIContent("Generate Layers"));
 
                     if (GUILayout.Button("Reset file mappings"))
                     {

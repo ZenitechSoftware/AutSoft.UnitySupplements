@@ -1,7 +1,8 @@
-﻿using System;
+﻿using AutSoft.UnitySupplements.Timeline;
+using System;
 using UnityEngine;
 
-namespace AutSoft.UnitySupplements.Timeline.Sample
+namespace AutSoft.UnitySupplements.Samples
 {
     public class TimelineInitializer : MonoBehaviour
     {

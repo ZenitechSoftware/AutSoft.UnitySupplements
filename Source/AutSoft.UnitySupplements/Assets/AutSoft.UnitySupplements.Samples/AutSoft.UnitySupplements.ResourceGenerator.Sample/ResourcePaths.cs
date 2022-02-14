@@ -84,5 +84,25 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
 
         }
 
+        public static partial class Layers
+        {
+
+            public const string Default = "Default";
+            public static int GetDefaultIndex() => LayerMask.NameToLayer(Default);
+            public static int GetDefaultMask() => LayerMask.GetMask(Default);
+            public const string TransparentFX = "TransparentFX";
+            public static int GetTransparentFXIndex() => LayerMask.NameToLayer(TransparentFX);
+            public static int GetTransparentFXMask() => LayerMask.GetMask(TransparentFX);
+            public const string IgnoreRaycast = "Ignore Raycast";
+            public static int GetIgnoreRaycastIndex() => LayerMask.NameToLayer(IgnoreRaycast);
+            public static int GetIgnoreRaycastMask() => LayerMask.GetMask(IgnoreRaycast);
+            public const string Water = "Water";
+            public static int GetWaterIndex() => LayerMask.NameToLayer(Water);
+            public static int GetWaterMask() => LayerMask.GetMask(Water);
+            public const string UI = "UI";
+            public static int GetUIIndex() => LayerMask.NameToLayer(UI);
+            public static int GetUIMask() => LayerMask.GetMask(UI);
+        }
+
     }
 }

@@ -1,11 +1,12 @@
 ﻿using AutSoft.UnitySupplements.EventBus;
+using AutSoft.UnitySupplements.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;
 using System.Globalization;
 using TMPro;
 using UnityEngine;
 
-namespace AutSoft.UnitySupplements.Timeline.Sample
+namespace AutSoft.UnitySupplements.Samples
 {
     public class TimeReactor : MonoBehaviour
     {
