@@ -2,7 +2,6 @@
 using AutSoft.UnitySupplements.EventBus;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;
-using Microsoft.Extensions.Logging;
 using System;
 using TMPro;
 using UnityEngine;
@@ -15,7 +14,6 @@ namespace AutSoft.UnitySupplements.Timeline
     {
         [Inject] private readonly IEventBus _eventBus = default!;
         [Inject] private readonly ITimelineCounter _timeLine = default!;
-        [Inject] private readonly ILogger<BasicTimelinePlayer> _logger = default!;
 
         [Header("Controls")]
         [SerializeField] private Slider _timeSlider = default!;
