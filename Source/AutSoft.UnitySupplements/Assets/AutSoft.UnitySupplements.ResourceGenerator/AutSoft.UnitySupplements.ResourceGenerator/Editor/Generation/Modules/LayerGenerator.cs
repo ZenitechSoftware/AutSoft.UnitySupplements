@@ -9,6 +9,8 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
     {
         public string Generate(ResourceContext context)
         {
+            if (!context.GenerateLayers) return string.Empty;
+
             var layers = Enumerable.Range(0, 32)
                 .Select(l => LayerMask.LayerToName(l))
                 .Where(l => !string.IsNullOrWhiteSpace(l))

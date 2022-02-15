@@ -17,9 +17,11 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
             string className,
             Action<string> info,
             Action<string> error,
-            bool generateLayers,
             IReadOnlyList<IResourceData> data,
-            IReadOnlyList<string> usings)
+            IReadOnlyList<string> usings,
+            bool generateLayers,
+            bool generateSceneButtons,
+            IReadOnlyList<string> sceneNames)
         {
             AssetsFolder = assetsFolder;
             FolderPath = folderPath;
@@ -28,6 +30,8 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
             Info = info;
             Error = error;
             GenerateLayers = generateLayers;
+            GenerateSceneButtons = generateSceneButtons;
+            SceneNames = sceneNames;
             Data = data;
             Usings = usings;
         }
@@ -63,11 +67,6 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
         public Action<string> Error { get; }
 
         /// <summary>
-        /// Generate layers paths and masks
-        /// </summary>
-        public bool GenerateLayers { get; }
-
-        /// <summary>
         /// Data used by <see cref="AllResources"/>
         /// </summary>
         public IReadOnlyList<IResourceData> Data { get; }
@@ -76,5 +75,20 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
         /// User defined custom usings
         /// </summary>
         public IReadOnlyList<string> Usings { get; }
+
+        /// <summary>
+        /// Generate layers paths and masks
+        /// </summary>
+        public bool GenerateLayers { get; }
+
+        /// <summary>
+        /// Generate buttons to load scenes
+        /// </summary>
+        public bool GenerateSceneButtons { get; }
+
+        /// <summary>
+        /// Names of scenes to generate load button for
+        /// </summary>
+        public IReadOnlyList<string> SceneNames { get; }
     }
 }

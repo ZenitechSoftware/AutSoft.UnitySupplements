@@ -104,5 +104,50 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
             public static int GetUIMask() => LayerMask.GetMask(UI);
         }
 
+#if UNITY_EDITOR
+        public static partial class LoadSceneButtons
+        {
+
+            [UnityEditor.MenuItem("Load Scene / TimelineSample")]
+            public static void LoadTimelineSample()
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\AutSoft.UnitySupplements.Timeline.Sample\TimelineSample.unity");
+            }
+            [UnityEditor.MenuItem("Load Scene / CreatePrefab")]
+            public static void LoadCreatePrefab()
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\AutSoft.UnitySupplements.ResourceGenerator.Sample\Scenes\CreatePrefab.unity");
+            }
+            [UnityEditor.MenuItem("Load Scene / LoadSceneInitial")]
+            public static void LoadLoadSceneInitial()
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\AutSoft.UnitySupplements.ResourceGenerator.Sample\Scenes\LoadSceneInitial.unity");
+            }
+            [UnityEditor.MenuItem("Load Scene / LoadSceneNext")]
+            public static void LoadLoadSceneNext()
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\AutSoft.UnitySupplements.ResourceGenerator.Sample\Scenes\LoadSceneNext.unity");
+            }
+
+            [UnityEditor.MenuItem("Play Scene / TimelineSample")]
+            public static void PlayTimelineSample()
+            {
+                if (UnityEditor.EditorApplication.isPlaying)
+                {
+                    UnityEditor.EditorApplication.isPlaying = false;
+                    return;
+                }
+
+                UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\AutSoft.UnitySupplements.Timeline.Sample\TimelineSample.unity");
+                UnityEditor.EditorApplication.isPlaying = true;
+            }
+        }
+#endif
+
     }
 }

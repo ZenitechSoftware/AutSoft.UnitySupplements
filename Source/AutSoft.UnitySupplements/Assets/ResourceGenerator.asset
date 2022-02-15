@@ -83,3 +83,7 @@ MonoBehaviour:
     - '*.otf'
     - '*.ttc'
     _dataType: Font
+  _generateLayers: 1
+  _generateSceneButtons: 1
+  _sceneNames:
+  - TimelineSample

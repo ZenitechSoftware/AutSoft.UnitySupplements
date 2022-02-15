@@ -34,6 +34,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
 
         private const string SettingsPath = "Assets/ResourceGenerator.asset";
 
+        [Header("General settings")]
         [SerializeField] private string _baseNamespace;
         [SerializeField] private string _className;
 
@@ -43,9 +44,14 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
 
         [SerializeField] private bool _logInfo;
         [SerializeField] private bool _logError;
+        [Header("Resources")]
         [SerializeField] private List<string> _usings;
         [SerializeField] private List<ResourceData> _data;
+        [Header("Layers")]
         [SerializeField] private bool _generateLayers;
+        [Header("Scene buttons")]
+        [SerializeField] private bool _generateSceneButtons;
+        [SerializeField] private List<string> _sceneNames;
 
         public string FolderPath => _folderPath;
         public string BaseNamespace => _baseNamespace;
@@ -53,6 +59,8 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
         public bool LogInfo => _logInfo;
         public bool LogError => _logError;
         public bool GenerateLayers => _generateLayers;
+        public bool GenerateSceneButtons => _generateSceneButtons;
+        public IReadOnlyList<string> SceneNames => _sceneNames;
         public IReadOnlyList<string> Usings => _usings;
         public IReadOnlyList<ResourceData> Data => _data;
 
@@ -68,12 +76,16 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
             settings._className = "ResourcePaths";
             settings._logInfo = false;
             settings._logError = true;
-            settings._generateLayers = true;
 
             var (data, usings) = CreateDefaultFileMappings();
 
             settings._data = data;
             settings._usings = usings;
+
+            settings._generateLayers = true;
+
+            settings._generateSceneButtons = true;
+            settings._sceneNames = new();
 
             AssetDatabase.CreateAsset(settings, SettingsPath);
             AssetDatabase.SaveAssets();
@@ -115,7 +127,6 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_className)), new GUIContent("Class name"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_logInfo)), new GUIContent("Log Infos"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_logError)), new GUIContent("Log Errors"));
-                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(_generateLayers)), new GUIContent("Generate Layers"));
 
                     if (GUILayout.Button("Reset file mappings"))
                     {
@@ -126,6 +137,10 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
 
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_usings)), new GUIContent("Using directives"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_data)), new GUIContent("Data"));
+
+                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(_generateLayers)), new GUIContent("Generate Layers"));
+                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(_generateSceneButtons)), new GUIContent("Generate Scene Buttons"));
+                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(_sceneNames)), new GUIContent("Scene names"));
 
                     settings.ApplyModifiedProperties();
                 },
