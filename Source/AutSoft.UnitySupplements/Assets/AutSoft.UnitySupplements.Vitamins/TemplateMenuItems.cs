@@ -4,21 +4,6 @@ namespace AutSoft.UnitySupplements.Vitamins
 {
     public static class TemplateMenuItems
     {
-        [MenuItem("Assets/Create/AutSoft/C# Empty script", false, 1)]
-        private static void CreateEmptyScript() =>
-            ProjectWindowUtil.CreateAssetWithContent(
-                "NewEmptyScript.cs",
-@"using UnityEngine;
-
-namespace Namespace
-{
-    public class NewEmptyScript : MonoBehaviour
-    {
-
-    }
-}
-");
-
         [MenuItem("Assets/Create/AutSoft/AppInstaller", false,2)]
         private static void CreateAppInstaller() => ProjectWindowUtil.CreateAssetWithContent(
             "AppInstaller.cs",
