@@ -1481,7 +1481,7 @@ GameObject:
   - component: {fileID: 532062627224030085}
   - component: {fileID: 922906508}
   m_Layer: 5
-  m_Name: TimelinePlayer
+  m_Name: UpmAsset_TimelinePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
