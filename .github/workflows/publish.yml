@@ -1,0 +1,42 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+      - feature/add-workflows
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Publish ResourceGenerator to OpenUPM
+        uses: butlerlogic/action-autotag@stable
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          root: "Source/Assets/AutSoft.UnitySupplements/AutSoft.UnitySupplements.ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator"
+          tag_prefix: "resourcegenerator/"
+
+      - name: Publish EventBus to OpenUPM
+        uses: butlerlogic/action-autotag@stable
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          root: "Source/Assets/AutSoft.UnitySupplements/AutSoft.UnitySupplements.EventBus"
+          tag_prefix: "eventbus/"
+
+      - name: Publish Timeline to OpenUPM
+        uses: butlerlogic/action-autotag@stable
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          root: "Source/Assets/AutSoft.UnitySupplements/AutSoft.UnitySupplements.Timeline/AutSoft.UnitySupplements.Timeline"
+          tag_prefix: "timeline/"
+
+      - name: Publish Vitamins to OpenUPM
+        uses: butlerlogic/action-autotag@stable
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          root: "Source/Assets/AutSoft.UnitySupplements/AutSoft.UnitySupplements.Vitamins"
+          tag_prefix: "vitamins/"
