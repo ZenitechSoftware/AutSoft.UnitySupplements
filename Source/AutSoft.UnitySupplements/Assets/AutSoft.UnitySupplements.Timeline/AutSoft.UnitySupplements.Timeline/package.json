@@ -1,8 +1,8 @@
 {
-    "name": "com.autsoft.unitysupplements.resourcegenerator",
-    "version": "1.0.0",
-    "displayName": "Resource Generator",
-    "description": "Generate path strings for Resources.Load and others",
+    "name": "com.autsoft.unitysupplements.timeline",
+    "version": "0.1.0",
+    "displayName": "Timeline",
+    "description": "Timeline for controlling objects based on time",
     "license": "MIT",
     "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements//blob/main/LICENSE.md",
     "changelogUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/CHANGELOG.md",
@@ -18,8 +18,11 @@
         "url": "https://github.com/AutSoft/AutSoft.UnitySupplements"
     },
     "dependencies": {
-        "com.unity.test-framework": "1.1.30",
-        "org.nuget.morelinq": "3.3.2"
+        "com.autsoft.unitysupplements.eventbus": "0.1.0",
+        "com.autsoft.unitysupplements.vitamins": "0.1.0",
+        "org.nuget.injecter": "6.1.2",
+        "com.cysharp.unitask": "2.2.5",
+        "com.unity.textmeshpro": "1.2.1",
+        "com.unity.test-framework": "1.1.30"
     }
-
 }
