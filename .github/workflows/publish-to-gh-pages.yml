@@ -1,0 +1,35 @@
+name: Publish To GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - add-docfx
+
+jobs:
+  Deploy:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Unity
+        shell: pwsh
+        run: choco install unity --params="'/InstallationPath:C:\Program Files\Unity\Hub\Editor\2019.4.0f1'" --version=2019.4.0 --no-progress -y --ignore-package-exit-codes=3010
+
+      - name: Build DocFX
+        shell: pwsh
+        run: ./build.ps1 BuildDocs --unity-email $env:UNITY_EMAIL --unity-password $env:UNITY_PASSWORD --unity-serial $env:UNITY_SERIAL --is-ci 
+        env:
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: Documentation/_site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
