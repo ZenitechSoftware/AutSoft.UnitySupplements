@@ -25,11 +25,29 @@ MonoBehaviour:
     m_Scopes: []
     m_IsDefault: 1
     m_Capabilities: 7
-  m_UserSelectedRegistryName: 
+  - m_Id: scoped:Unity NuGet
+    m_Name: Unity NuGet
+    m_Url: https://unitynuget-registry.azurewebsites.net
+    m_Scopes:
+    - org.nuget
+    m_IsDefault: 0
+    m_Capabilities: 0
+  - m_Id: scoped:package.openupm.com
+    m_Name: package.openupm.com
+    m_Url: https://package.openupm.com
+    m_Scopes:
+    - com.cysharp.unitask
+    - com.injecter.hosting.unity
+    - com.injecter.unity
+    - com.openupm
+    - com.serilog.sinks.unity3d
+    m_IsDefault: 0
+    m_Capabilities: 0
+  m_UserSelectedRegistryName: package.openupm.com
   m_UserAddingNewScopedRegistry: 0
   m_RegistryInfoDraft:
     m_Modified: 0
     m_ErrorMessage: 
-    m_UserModificationsInstanceId: -830
-    m_OriginalInstanceId: -832
+    m_UserModificationsInstanceId: -824
+    m_OriginalInstanceId: -828
   m_LoadAssets: 0

@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "com.cysharp.unitask": "2.2.5",
+    "com.injecter.hosting.unity": "6.1.2",
+    "com.injecter.unity": "6.1.2",
+    "com.serilog.sinks.unity3d": "2.0.1",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.12",
     "com.unity.ide.visualstudio": "2.0.14",
@@ -7,6 +11,15 @@
     "com.unity.test-framework": "1.1.30",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.ugui": "1.0.0",
+    "org.nuget.injecter": "6.1.2",
+    "org.nuget.microsoft.extensions.dependencymodel": "6.0.0",
+    "org.nuget.microsoft.extensions.hosting": "6.0.1",
+    "org.nuget.microsoft.extensions.logging": "6.0.0",
+    "org.nuget.morelinq": "3.3.2",
+    "org.nuget.roslynator.analyzers": "4.0.2",
+    "org.nuget.serilog": "2.10.0",
+    "org.nuget.serilog.extensions.hosting": "4.2.0",
+    "org.nuget.sonaranalyzer.csharp": "8.35.0-42613",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -38,5 +51,25 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "Unity NuGet",
+      "url": "https://unitynuget-registry.azurewebsites.net",
+      "scopes": [
+        "org.nuget"
+      ]
+    },
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.cysharp.unitask",
+        "com.injecter.hosting.unity",
+        "com.injecter.unity",
+        "com.openupm",
+        "com.serilog.sinks.unity3d"
+      ]
+    }
+  ]
 }

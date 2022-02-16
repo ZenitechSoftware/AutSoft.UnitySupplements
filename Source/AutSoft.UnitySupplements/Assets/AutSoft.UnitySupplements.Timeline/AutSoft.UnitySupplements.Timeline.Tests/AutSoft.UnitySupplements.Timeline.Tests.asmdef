@@ -1,0 +1,21 @@
+{
+    "name": "AutSoft.UnitySupplements.Timeline.Tests",
+    "rootNamespace": "",
+    "references": [
+        "AutSoft.UnitySupplements.Timeline",
+        "Unity.TextMeshPro",
+        "AutSoft.UnitySupplements.EventBus",
+        "AutSoft.UnitySupplements.Vitamins",
+        "UnityEditor.TestRunner",
+        "UnityEngine.TestRunner"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
