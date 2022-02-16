@@ -17,26 +17,26 @@ jobs:
         uses: butlerlogic/action-autotag@stable
         with:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          root: "Source/Assets/AutSoft.UnitySupplements/AutSoft.UnitySupplements.ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator"
+          root: "Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator"
           tag_prefix: "resourcegenerator/"
 
       - name: Publish EventBus to OpenUPM
         uses: butlerlogic/action-autotag@stable
         with:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          root: "Source/Assets/AutSoft.UnitySupplements/AutSoft.UnitySupplements.EventBus"
+          root: "Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.EventBus"
           tag_prefix: "eventbus/"
 
       - name: Publish Timeline to OpenUPM
         uses: butlerlogic/action-autotag@stable
         with:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          root: "Source/Assets/AutSoft.UnitySupplements/AutSoft.UnitySupplements.Timeline/AutSoft.UnitySupplements.Timeline"
+          root: "Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.Timeline/AutSoft.UnitySupplements.Timeline"
           tag_prefix: "timeline/"
 
       - name: Publish Vitamins to OpenUPM
         uses: butlerlogic/action-autotag@stable
         with:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          root: "Source/Assets/AutSoft.UnitySupplements/AutSoft.UnitySupplements.Vitamins"
+          root: "Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.Vitamins"
           tag_prefix: "vitamins/"
