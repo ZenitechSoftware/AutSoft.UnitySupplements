@@ -1,4 +1,4 @@
-# Unity Resource Generator
+# Unity Resource Generator [![openupm](https://img.shields.io/npm/v/com.autsoft.unitysupplements.resourcegenerator?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.autsoft.unitysupplements.resourcegenerator/)
 
 Automatically generate a helper class for `Resources.Load` in Unity with the press of a button.
 
