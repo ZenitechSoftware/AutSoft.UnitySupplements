@@ -1,2 +1,13 @@
-- name: Introduction
-  href: intro.md
+- name: UnityResourceGenerator
+  href: UnityResourceGenerator.md
+  items:
+  - name: Getting Started
+    href: GettingStarted.md
+  - name: Customization
+    href: Customization.md
+  - name: Extensibility
+    href: Extensibility.md
+  - name: Known Issues
+    href: KnownIssues.md
+  - name: Upgrade Guide
+    href: UpgradeGuide.md
