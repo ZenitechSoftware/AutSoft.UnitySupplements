@@ -1,13 +1,19 @@
+- name: EventBus
+  href: EventBus/EventBus.md
 - name: UnityResourceGenerator
-  href: UnityResourceGenerator.md
+  href: ResourceGenerator/UnityResourceGenerator.md
   items:
   - name: Getting Started
-    href: GettingStarted.md
+    href: ResourceGenerator/GettingStarted.md
   - name: Customization
-    href: Customization.md
+    href: ResourceGenerator/Customization.md
   - name: Extensibility
-    href: Extensibility.md
+    href: ResourceGenerator/Extensibility.md
   - name: Known Issues
     href: KnownIssues.md
   - name: Upgrade Guide
-    href: UpgradeGuide.md
+    href: ResourceGenerator/UpgradeGuide.md
+- name: Vitamins
+  href: Vitamins/Vitamins.md
+- name: Timeline
+  href: Timeline/Timeline.md
