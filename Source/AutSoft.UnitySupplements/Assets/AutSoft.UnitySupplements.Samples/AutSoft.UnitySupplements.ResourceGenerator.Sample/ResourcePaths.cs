@@ -106,6 +106,9 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
             public const string UI = "UI";
             public static int GetUIIndex() => LayerMask.NameToLayer(UI);
             public static int GetUIMask() => LayerMask.GetMask(UI);
+            public const string Sample = "Sample";
+            public static int GetSampleIndex() => LayerMask.NameToLayer(Sample);
+            public static int GetSampleMask() => LayerMask.GetMask(Sample);
         }
 
 #if UNITY_EDITOR
