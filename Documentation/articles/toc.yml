@@ -10,7 +10,7 @@
   - name: Extensibility
     href: ResourceGenerator/Extensibility.md
   - name: Known Issues
-    href: KnownIssues.md
+    href: ResourceGenerator/KnownIssues.md
   - name: Upgrade Guide
     href: ResourceGenerator/UpgradeGuide.md
 - name: Vitamins
