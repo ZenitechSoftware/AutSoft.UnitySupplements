@@ -4,7 +4,7 @@ After pressing the `Generate Resource Paths` button, or visiting the `ResourceGe
 
 ## Built-in settings
 
-![Generate Button](~/images/Customization/DefaultSettings.png)
+![Generate Button](~/images/ResourceGenerator/Customization/DefaultSettings.png)
 
 ### Basic settings
 

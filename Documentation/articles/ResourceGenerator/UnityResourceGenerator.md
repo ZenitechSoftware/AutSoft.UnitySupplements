@@ -2,7 +2,7 @@
 
 Automatically generate a helper class for `Resources.Load` in Unity with the press of a button.
 
-![Generate Button](~/images/intro/GenerateButton.png)
+![Generate Button](~/images/ResourceGenerator/intro/GenerateButton.png)
 
 With this folder structure:
 
@@ -55,7 +55,7 @@ namespace Sample
  
  If the generate layers option is selected from the following layers:
  
-![Layers](~/images/intro/Layers.png)
+![Layers](~/images/ResourceGenerator/intro/Layers.png)
 
 The following code will also be generated inside the *ResourcePaths.cs* file
 
@@ -86,13 +86,13 @@ public static partial class Layers
 
 If the generate scene buttons options are selected like this:
 
-![SceneButtonsSettings](~/images/intro/SceneButtonsSettings.png)
+![SceneButtonsSettings](~/images/ResourceGenerator/intro/SceneButtonsSettings.png)
 
 These menus will also be created:
 
-![LoadSceneButtons](~/images/intro/LoadSceneButtons.png)
+![LoadSceneButtons](~/images/ResourceGenerator/intro/LoadSceneButtons.png)
 
-![PlaySceneButtons](~/images/intro/PlaySceneButtons.png)
+![PlaySceneButtons](~/images/ResourceGenerator/intro/PlaySceneButtons.png)
 
 ## Installation
 

@@ -16,7 +16,7 @@ openupm add com.autsoft.unityresourcegenerator
 
 The tool will create new button in the Editor at `Tools / Generate Resource Paths`
 
-![Generate Button](~/images/intro/GenerateButton.png)
+![Generate Button](~/images/ResourceGenerator/intro/GenerateButton.png)
 
 If your click the button the helper class will be generated in the root of the `Assets` folder
 
