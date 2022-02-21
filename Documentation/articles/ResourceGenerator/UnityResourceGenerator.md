@@ -6,6 +6,8 @@ Automatically generate a helper class for `Resources.Load` in Unity with the pre
 
 With this folder structure:
 
+## Resources
+
 ```
 Assets/
 ├─ Resources/
@@ -52,8 +54,10 @@ namespace Sample
     }
 }
 ```
- 
- If the generate layers option is selected from the following layers:
+
+## Layers
+
+If the generate layers option is selected from the following layers:
  
 ![Layers](~/images/ResourceGenerator/intro/Layers.png)
 
@@ -83,6 +87,8 @@ public static partial class Layers
     public static int GetSampleMask() => LayerMask.GetMask(Sample);
 }
 ```
+
+## Buttons
 
 If the generate scene buttons options are selected like this:
 

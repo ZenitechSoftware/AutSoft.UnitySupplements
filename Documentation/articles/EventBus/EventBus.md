@@ -31,7 +31,7 @@ After that you can inject *IEventBus* into your monobehaviours. This interfaces 
 - **UnSubscribe**: Method to remove the previously registered handler
 - **Invoke**: Method to invoke an event
 
-We can create as many events as we want, but all event must inherit from the **IEvent** interface. Below is an example of a sample event.
+We can create as many events as we want, but all event must implement from the **IEvent** interface. Below is an example of a sample event.
 
 ### Example
 ```csharp
@@ -66,7 +66,7 @@ public class SubscriberClass : MonoBehaviour
         _eventBus.Subscribe<SampleEvent>(OnSampleEvent);
     }
 
-    private void Destroy()
+    private void OnDestroy()
     {
         _eventBus.UnSubscribe<SampleEvent>(OnSampleEvent);
     }
@@ -77,6 +77,9 @@ public class SubscriberClass : MonoBehaviour
     }
 }
 ```
+
+> [!WARNING]
+> Dont forget to UnSubscribe your events in the OnDestroy method
 
 ### EventHandler
 Another way to call a method when an event gets invoked is to implement the **IEventHandler** interface in a separate class. 

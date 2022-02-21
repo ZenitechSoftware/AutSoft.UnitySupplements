@@ -9,7 +9,7 @@ UPM Packages to help development of Unity applications.
 
 ## Installation
 All packages should be installed using [OpenUPM](https://openupm.com/).
-For example package named example should be installed with the following command
+For example the vitamins package is installed with the following command
 ```
-openupm add com.autsoft.unitysupplements.example
+openupm add com.autsoft.unitysupplements.vitamins
 ```

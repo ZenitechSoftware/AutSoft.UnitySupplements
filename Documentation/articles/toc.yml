@@ -11,8 +11,6 @@
     href: ResourceGenerator/Extensibility.md
   - name: Known Issues
     href: ResourceGenerator/KnownIssues.md
-  - name: Upgrade Guide
-    href: ResourceGenerator/UpgradeGuide.md
 - name: Vitamins
   href: Vitamins/Vitamins.md
 - name: Timeline
