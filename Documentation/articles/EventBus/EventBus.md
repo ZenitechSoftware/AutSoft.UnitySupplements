@@ -12,6 +12,7 @@ openupm add com.autsoft.unitysupplements.eventbus
 
 ## Getting started
 To make it easier to use the event bus, you may want to use a dependency injection container. We have several options for this when using Unity. For *Microsoft.Extensions.DependencyInjection* an extension method you can use to register our event bus implementation like this:
+
 ```csharp
 public static void ConfigureServices(HostBuilderContext builder, IServiceCollection services)
 {
@@ -93,6 +94,8 @@ public class HandlerClass : IEventHandler<SampleEvent>
     }
 }
 ```
+
+If we used the *AddEventBus* extension method to register the eventbus to the DI container, all the classes that implement the *IEventHandler* will also be registered.
 
 ### EventBus
 You can also create your own eventbus implementation with the **IEventBus** interface.
