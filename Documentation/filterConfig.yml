@@ -1,0 +1,7 @@
+apiRules:
+  - exclude:
+    uidRegex: \Samples?\b
+    type: Namespace
+  - exclude:
+    uidRegex: \Tests?\b
+    type: Namespace

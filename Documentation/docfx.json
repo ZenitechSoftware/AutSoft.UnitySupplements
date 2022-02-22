@@ -3,20 +3,67 @@
     {
       "src": [
         {
-          "files": "Source/AutSoft.UnitySupplements/**.csproj",
+          "files": "Source/AutSoft.UnitySupplements/AutSoft.UnitySupplements.EventBus.csproj",
           "src": "../"
         }
       ],
-      "dest": "api",
+      "dest": "api/Eventbus",
       "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "disableDefaultFilter": false,
+      "filter": "filterConfig.yml"
+    },
+    {
+      "src": [
+        {
+          "files": "Source/AutSoft.UnitySupplements/AutSoft.UnitySupplements.EventBus.csproj",
+          "src": "../"
+        }
+      ],
+      "dest": "api/Eventbus",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false,
+      "filter": "filterConfig.yml"
+    },    {
+      "src": [
+        {
+          "files": "Source/AutSoft.UnitySupplements/AutSoft.UnitySupplements.ResourceGenerator.csproj",
+          "src": "../"
+        }
+      ],
+      "dest": "api/ResourceGenerator",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false,
+      "filter": "filterConfig.yml"
+    },    {
+      "src": [
+        {
+          "files": "Source/AutSoft.UnitySupplements/AutSoft.UnitySupplements.Timeline.csproj",
+          "src": "../"
+        }
+      ],
+      "dest": "api/Timeline",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false,
+      "filter": "filterConfig.yml"
+    },    {
+      "src": [
+        {
+          "files": "Source/AutSoft.UnitySupplements/AutSoft.UnitySupplements.Vitamins.csproj",
+          "src": "../"
+        }
+      ],
+      "dest": "api/Vitamins",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false,
+      "filter": "filterConfig.yml"
     }
   ],
   "build": {
     "content": [
       {
         "files": [
-          "api/**.yml",
+          "api/**/**.yml",
+          "apimerge/**",
           "api/index.md"
         ]
       },
