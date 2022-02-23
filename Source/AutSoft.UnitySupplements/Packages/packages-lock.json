@@ -8,16 +8,16 @@
       "url": "https://package.openupm.com"
     },
     "com.injecter.hosting.unity": {
-      "version": "6.1.2",
+      "version": "7.0.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.injecter.unity": "6.1.2"
+        "com.injecter.unity": "7.0.2"
       },
       "url": "https://package.openupm.com"
     },
     "com.injecter.unity": {
-      "version": "6.1.2",
+      "version": "7.0.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -137,7 +137,7 @@
       }
     },
     "org.nuget.injecter": {
-      "version": "6.1.2",
+      "version": "7.0.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {

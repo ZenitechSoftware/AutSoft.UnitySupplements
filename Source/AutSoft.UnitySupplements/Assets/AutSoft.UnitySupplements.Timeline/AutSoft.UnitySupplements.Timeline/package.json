@@ -20,7 +20,7 @@
     "dependencies": {
         "com.autsoft.unitysupplements.eventbus": "0.1.0",
         "com.autsoft.unitysupplements.vitamins": "0.1.0",
-        "org.nuget.injecter": "6.1.2",
+        "org.nuget.injecter": "7.0.2",
         "com.cysharp.unitask": "2.2.5",
         "com.unity.textmeshpro": "1.2.1",
         "com.unity.test-framework": "1.1.30"
