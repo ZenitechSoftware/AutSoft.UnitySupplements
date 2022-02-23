@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 
 namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
 {
@@ -16,11 +15,6 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
     /// </summary>
     public sealed class AllResources : IModuleGenerator
     {
-        private static readonly Regex _nonAlphaNumeric =
-            new("[^a-zA-Z0-9]", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
-
-        private static readonly Regex _startsWithNumber = new(@"^\d", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
-
         public string Generate(ResourceContext context) =>
             new StringBuilder()
                 .AppendMultipleLines(context.Data.Select(d => Generate(context, d)))
@@ -60,11 +54,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
                         )
                         .Replace('\\', '/');
 
-                    var name = Path.GetFileNameWithoutExtension(filePath).Replace(" ", string.Empty);
-
-                    if (_startsWithNumber.IsMatch(name)) name = name.Insert(0, "_");
-
-                    name = _nonAlphaNumeric.Replace(name, "_");
+                    var name = PropertyNameGenerator.GeneratePropertyName(filePath);
 
                     return new ResourceProperty
                     (

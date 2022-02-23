@@ -30,7 +30,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
 
             layers.ForEach(l =>
             {
-                var layerCsName = l.Replace(" ", string.Empty);
+                var layerCsName = PropertyNameGenerator.GeneratePropertyName(l);
                 builder.Append("            public const string ").Append(layerCsName).Append(" = \"").Append(l).AppendLine("\";");
                 builder.Append("            public static int Get").Append(layerCsName).Append("Index() => LayerMask.NameToLayer(").Append(layerCsName).AppendLine(");");
                 builder.Append("            public static int Get").Append(layerCsName).Append("Mask() => LayerMask.GetMask(").Append(layerCsName).AppendLine(");");

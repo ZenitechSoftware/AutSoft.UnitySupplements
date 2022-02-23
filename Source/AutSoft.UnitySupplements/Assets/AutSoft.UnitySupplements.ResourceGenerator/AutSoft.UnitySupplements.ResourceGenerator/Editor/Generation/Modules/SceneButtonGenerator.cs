@@ -36,7 +36,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
             scenes.ForEach(s =>
             {
                 var sceneFileName = Path.GetFileNameWithoutExtension(s);
-                var sceneCsName = sceneFileName.Replace(" ", string.Empty);
+                var sceneCsName = PropertyNameGenerator.GeneratePropertyName(sceneFileName);
                 builder.Append("            [UnityEditor.MenuItem(\"Load Scene / ").Append(sceneFileName).AppendLine("\")]");
                 builder.Append("            public static void Load").Append(sceneCsName).AppendLine("()");
                 builder.AppendLine("            {");
