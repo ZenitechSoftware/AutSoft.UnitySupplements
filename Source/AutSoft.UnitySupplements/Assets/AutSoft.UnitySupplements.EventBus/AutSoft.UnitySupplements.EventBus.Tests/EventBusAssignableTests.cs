@@ -12,16 +12,10 @@ namespace AutSoft.UnitySupplements.EventBus.AutSoft.UnitySupplements.EventBus.Te
         private class BaseEvent : IEvent { }
         private class DerivedEvent : BaseEvent { }
 
-        private class BaseHandlerEvent : IEvent
-        {
-            public int Called { get; set; }
-            public BaseHandlerEvent() => Called = 0;
-        }
-        private class DerivedHandlerEvent : BaseHandlerEvent { }
-
         private IEventBus _eventBus = default!;
         private int _baseCalled;
         private int _derivedCalled;
+        private EventHandlerCounter _counter;
 
         [SetUp]
         public void Init()
@@ -33,10 +27,11 @@ namespace AutSoft.UnitySupplements.EventBus.AutSoft.UnitySupplements.EventBus.Te
 
             serviceCollection.AddEventBus(typeof(EventBusAssignableTests).Assembly);
             serviceCollection.AddLogging(builder => builder.AddSerilog(new LoggerConfiguration().WriteTo.Unity3D().CreateLogger()));
-
+            serviceCollection.AddSingleton<EventHandlerCounter>();
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
             _eventBus = serviceProvider.GetRequiredService<IEventBus>();
+            _counter = serviceProvider.GetRequiredService<EventHandlerCounter>();
         }
 
         [Test]
@@ -74,44 +69,52 @@ namespace AutSoft.UnitySupplements.EventBus.AutSoft.UnitySupplements.EventBus.Te
             _eventBus.UnSubscribe<DerivedEvent>(OnDerivedCalled);
         }
 
+        private void OnDerivedCalled(DerivedEvent message) => _derivedCalled++;
+        private void OnBaseCalled(BaseEvent message) => _baseCalled++;
+
         [Test]
         public void EventHandlerWork()
         {
-            var baseEvent = new BaseHandlerEvent();
-            _eventBus.Invoke(baseEvent);
+            _eventBus.Invoke(new BaseEvent());
 
-            Assert.AreEqual(1, baseEvent.Called);
+            Assert.AreEqual(1, _counter.BaseCalled);
         }
 
         [Test]
         public void DerivedEventHandlerWork()
         {
-            var baseEvent = new BaseHandlerEvent();
+            _eventBus.Invoke(new BaseEvent());
 
-            var derBaseHandlerEvent = new BaseHandlerEvent();
-            _eventBus.Invoke(baseEvent);
+            Assert.AreEqual(1, _counter.BaseCalled);
+            Assert.AreEqual(0, _counter.DerivedCalled);
 
-            Assert.AreEqual(1, baseEvent.Called);
-            Assert.AreEqual(0, derBaseHandlerEvent.Called);
+            _eventBus.Invoke(new DerivedEvent());
 
-            _eventBus.Invoke(derBaseHandlerEvent);
-
-            Assert.AreEqual(2, baseEvent.Called);
-            Assert.AreEqual(1, derBaseHandlerEvent.Called);
+            Assert.AreEqual(2, _counter.BaseCalled);
+            Assert.AreEqual(1, _counter.DerivedCalled);
         }
 
-        private void OnDerivedCalled(DerivedEvent message) => _derivedCalled++;
-
-        private void OnBaseCalled(BaseEvent message) => _baseCalled++;
-
-        private class BaseTestEventHandler : IEventHandler<BaseHandlerEvent>
+        private class BaseTestEventHandler<T> : IEventHandler<T> where T : BaseEvent
         {
-            public void Handle(BaseHandlerEvent message) => message.Called++;
+            private readonly EventHandlerCounter _counter;
+
+            public BaseTestEventHandler(EventHandlerCounter counter) => _counter = counter;
+
+            public void Handle(T message) => _counter.BaseCalled++;
         }
 
-        private class DerivedTestEventHandler : IEventHandler<DerivedHandlerEvent>
+        private class DerivedTestEventHandler : IEventHandler<DerivedEvent>
         {
-            public void Handle(DerivedHandlerEvent message) => message.Called++;
+            private readonly EventHandlerCounter _counter;
+
+            public DerivedTestEventHandler(EventHandlerCounter counter) => _counter = counter;
+            public void Handle(DerivedEvent message) => _counter.DerivedCalled++;
+        }
+
+        private class EventHandlerCounter
+        {
+            public int BaseCalled { get; set; }
+            public int DerivedCalled { get; set; }
         }
     }
 }
