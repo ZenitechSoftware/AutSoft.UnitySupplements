@@ -36,23 +36,23 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
         private const string SettingsPath = "Assets/ResourceGenerator.asset";
 
         [Header("General settings")]
-        [SerializeField] private string _baseNamespace;
-        [SerializeField] private string _className;
+        [SerializeField] private string _baseNamespace = default!;
+        [SerializeField] private string _className = default!;
 
         [SerializeField]
         [Tooltip("Relative path from the Assets folder")]
-        private string _folderPath;
+        private string _folderPath = default!;
 
         [SerializeField] private bool _logInfo;
         [SerializeField] private bool _logError;
         [Header("Resources")]
-        [SerializeField] private List<string> _usings;
-        [SerializeField] private List<ResourceData> _data;
+        [SerializeField] private List<string> _usings = default!;
+        [SerializeField] private List<ResourceData> _data = default!;
         [Header("Layers")]
         [SerializeField] private bool _generateLayers;
         [Header("Scene buttons")]
         [SerializeField] private bool _generateSceneButtons;
-        [SerializeField] private List<string> _sceneNames;
+        [SerializeField] private List<string> _sceneNames = default!;
 
         public string FolderPath => _folderPath;
         public string BaseNamespace => _baseNamespace;

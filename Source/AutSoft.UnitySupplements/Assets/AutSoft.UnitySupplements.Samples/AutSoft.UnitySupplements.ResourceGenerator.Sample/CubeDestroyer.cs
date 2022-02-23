@@ -7,7 +7,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
     [RequireComponent(typeof(Rigidbody))]
     public sealed class CubeDestroyer : MonoBehaviour
     {
-        private Rigidbody _rigidbody;
+        private Rigidbody _rigidbody = default!;
 
         private void Start()
         {
