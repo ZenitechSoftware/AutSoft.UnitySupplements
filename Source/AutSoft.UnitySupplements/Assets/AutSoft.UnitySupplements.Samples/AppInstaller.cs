@@ -3,6 +3,7 @@ using AutSoft.UnitySupplements.EventBus;
 using AutSoft.UnitySupplements.ResourceGenerator.Sample;
 using AutSoft.UnitySupplements.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
+using Injecter;
 using Injecter.Hosting.Unity;
 using Injecter.Unity;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,14 +35,14 @@ namespace AutSoft.UnitySupplements.Samples
                     .ConfigureHost(logger)
                     .Build();
 
+                CompositionRoot.ServiceProvider = host.Services;
+
                 host.Start();
-                host.RegisterInjectionsOnSceneLoad();
 
                 Application.quitting += OnQuitting;
 
                 void OnQuitting()
                 {
-                    host.Dispose();
                     Log.CloseAndFlush();
 
                     host = null!;
@@ -83,7 +84,7 @@ namespace AutSoft.UnitySupplements.Samples
                 sceneInjectorOptions =>
                 {
                     sceneInjectorOptions.DontDestroyOnLoad = true;
-                    sceneInjectorOptions.InjectionBehavior = SceneInjectorOptions.Behavior.Factory;
+                    sceneInjectorOptions.InjectionBehavior = SceneInjectorOptions.Behavior.CompositionRoot;
                 });
 
             services.AddHostedServices(assemblies);
@@ -100,7 +101,5 @@ namespace AutSoft.UnitySupplements.Samples
                 .AddClasses(classes => classes.AssignableTo<IHostedService>())
                 .AsSelfWithInterfaces()
                 .WithSingletonLifetime());
-
-        public static void RegisterInjectionsOnSceneLoad(this IHost host) => InjectionHelper.RegisterInjectionsOnSceneLoad(host.Services);
     }
 }

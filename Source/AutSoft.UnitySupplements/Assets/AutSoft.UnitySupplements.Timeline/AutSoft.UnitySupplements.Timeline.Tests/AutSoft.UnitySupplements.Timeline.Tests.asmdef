@@ -7,7 +7,8 @@
         "AutSoft.UnitySupplements.EventBus",
         "AutSoft.UnitySupplements.Vitamins",
         "UnityEditor.TestRunner",
-        "UnityEngine.TestRunner"
+        "UnityEngine.TestRunner",
+        "Injecter.Unity"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

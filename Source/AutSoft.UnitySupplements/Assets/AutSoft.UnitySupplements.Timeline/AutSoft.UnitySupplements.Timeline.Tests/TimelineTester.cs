@@ -2,6 +2,7 @@
 using AutSoft.UnitySupplements.EventBus;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;
+using Injecter.Unity;
 using Microsoft.Extensions.Logging;
 using System;
 using TMPro;
@@ -10,7 +11,7 @@ using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.Timeline.AutSoft.UnitySupplements.Timeline.Tests
 {
-    public sealed class TimelineTester : MonoBehaviour
+    public sealed class TimelineTester : MonoBehaviourScoped
     {
         [Inject] private readonly IEventBus _eventBus = default!;
         [Inject] private readonly ILogger<TimelineTester> _logger = default!;
@@ -25,8 +26,9 @@ namespace AutSoft.UnitySupplements.Timeline.AutSoft.UnitySupplements.Timeline.Te
 
         [SerializeField] private BasicTimelinePlayer _timelinePlayer = default!;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             this.CheckSerializedField(_currentTimeText, nameof(_currentTimeText));
             this.CheckSerializedField(_isPlayingText, nameof(_isPlayingText));
             this.CheckSerializedField(_setTimesButton, nameof(_setTimesButton));
@@ -45,13 +47,14 @@ namespace AutSoft.UnitySupplements.Timeline.AutSoft.UnitySupplements.Timeline.Te
             _updateTimesButton.onClick.AddListener(OnUpdateTimesClicked);
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
             _eventBus.UnSubscribe<CurrentTimeChanged>(DisplayCurrentTime);
             _eventBus.UnSubscribe<TimelinePlayingChanged>(OnPlayingChanged);
 
             _setTimesButton.onClick.RemoveListener(OnSetTimesClicked);
             _updateTimesButton.onClick.RemoveListener(OnUpdateTimesClicked);
+            base.OnDestroy();
         }
 
         private void DisplayCurrentTime(CurrentTimeChanged c)

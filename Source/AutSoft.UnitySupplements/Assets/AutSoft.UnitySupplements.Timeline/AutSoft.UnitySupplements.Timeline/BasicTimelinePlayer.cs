@@ -2,6 +2,7 @@
 using AutSoft.UnitySupplements.EventBus;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;
+using Injecter.Unity;
 using System;
 using TMPro;
 using UnityEngine;
@@ -10,7 +11,7 @@ using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.Timeline
 {
-    public class BasicTimelinePlayer : MonoBehaviour
+    public class BasicTimelinePlayer : MonoBehaviourScoped
     {
         [Inject] private readonly IEventBus _eventBus = default!;
         [Inject] private readonly ITimelineCounter _timeLine = default!;
@@ -60,7 +61,7 @@ namespace AutSoft.UnitySupplements.Timeline
             _currentTimeLabel.text = $"{CurrentTime:G}";
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
             _eventBus.UnSubscribe<CurrentTimeChanged>(OnCurrentTimeChanged);
             _eventBus.UnSubscribe<TimeRangeChanged>(OnTimeRangeChanged);
@@ -71,6 +72,7 @@ namespace AutSoft.UnitySupplements.Timeline
 
             _sliderEvents.triggers.ForEach(t => t.callback.RemoveAllListeners());
             _sliderEvents.triggers.Clear();
+            base.OnDestroy();
         }
 
         public void Initialize(DateTimeOffset start, DateTimeOffset end)
