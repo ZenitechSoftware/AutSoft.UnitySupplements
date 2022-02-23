@@ -1,4 +1,6 @@
-﻿namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
+﻿#nullable enable
+
+namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
 {
     /// <summary>
     /// Used by the file generation pipeline.

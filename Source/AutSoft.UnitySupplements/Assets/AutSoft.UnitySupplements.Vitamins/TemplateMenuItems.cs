@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿#nullable enable
+using UnityEditor;
 
 namespace AutSoft.UnitySupplements.Vitamins
 {
@@ -13,7 +14,8 @@ namespace AutSoft.UnitySupplements.Vitamins
         [MenuItem("Assets/Create/AutSoft/AppInstaller", false,2)]
         private static void CreateAppInstaller() => ProjectWindowUtil.CreateAssetWithContent(
             "AppInstaller.cs",
-@"using AutSoft.UnitySupplements.ResourceGenerator.Sample;
+@"#nullable enable
+using AutSoft.UnitySupplements.ResourceGenerator.Sample;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter.Hosting.Unity;
 using Injecter.Unity;

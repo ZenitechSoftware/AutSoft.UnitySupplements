@@ -1,4 +1,5 @@
-﻿using AutSoft.UnitySupplements.EventBus;
+﻿#nullable enable
+using AutSoft.UnitySupplements.EventBus;
 using AutSoft.UnitySupplements.ResourceGenerator.Sample;
 using AutSoft.UnitySupplements.Timeline;
 using AutSoft.UnitySupplements.Vitamins;

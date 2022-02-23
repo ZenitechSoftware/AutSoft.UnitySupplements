@@ -1,4 +1,5 @@
-﻿using AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules;
+﻿#nullable enable
+using AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules;
 using System;
 using System.Collections.Generic;
 

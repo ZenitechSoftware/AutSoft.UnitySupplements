@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#nullable enable
+using System.Collections;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEditor;

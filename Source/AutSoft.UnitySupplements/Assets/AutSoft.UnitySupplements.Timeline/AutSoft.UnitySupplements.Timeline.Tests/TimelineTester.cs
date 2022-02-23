@@ -1,4 +1,5 @@
-﻿using AutSoft.UnitySupplements.EventBus;
+﻿#nullable enable
+using AutSoft.UnitySupplements.EventBus;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;
 using Microsoft.Extensions.Logging;

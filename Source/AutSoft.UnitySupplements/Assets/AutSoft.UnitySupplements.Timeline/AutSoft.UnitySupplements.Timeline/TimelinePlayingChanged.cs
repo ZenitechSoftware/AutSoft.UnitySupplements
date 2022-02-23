@@ -1,4 +1,5 @@
-﻿using AutSoft.UnitySupplements.EventBus;
+﻿#nullable enable
+using AutSoft.UnitySupplements.EventBus;
 
 namespace AutSoft.UnitySupplements.Timeline
 {

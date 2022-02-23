@@ -1,4 +1,5 @@
-﻿using MoreLinq;
+﻿#nullable enable
+using MoreLinq;
 using System.IO;
 using System.Linq;
 using System.Text;
