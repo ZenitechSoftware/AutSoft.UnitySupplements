@@ -6,7 +6,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
 {
     public sealed class SpawnCubes : MonoBehaviour
     {
-        [SerializeField] private Transform _target = default;
+        [SerializeField] private Transform _target = default!;
 
         private void Start() => StartCoroutine(SpawnCubesContinuously());
 

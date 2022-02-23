@@ -8,7 +8,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
 {
     public sealed class LoadSceneInitial : MonoBehaviour
     {
-        [SerializeField] private Button _loadButton = default;
+        [SerializeField] private Button _loadButton = default!;
 
         private void Start()
         {

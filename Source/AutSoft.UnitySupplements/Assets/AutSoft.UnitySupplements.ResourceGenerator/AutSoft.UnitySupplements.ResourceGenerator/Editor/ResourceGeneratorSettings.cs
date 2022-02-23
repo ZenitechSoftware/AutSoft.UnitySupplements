@@ -13,9 +13,9 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
         [Serializable]
         public sealed class ResourceData : IResourceData
         {
-            [SerializeField] private string _className = default;
-            [SerializeField] private string[] _fileExtensions = default;
-            [SerializeField] private string _dataType = default;
+            [SerializeField] private string _className = default!;
+            [SerializeField] private string[] _fileExtensions = default!;
+            [SerializeField] private string _dataType = default!;
 
             public ResourceData()
             {
