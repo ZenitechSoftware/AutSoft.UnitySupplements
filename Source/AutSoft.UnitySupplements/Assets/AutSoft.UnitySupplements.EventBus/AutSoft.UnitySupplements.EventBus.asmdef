@@ -1,7 +1,9 @@
 {
     "name": "AutSoft.UnitySupplements.EventBus",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:1a84e733b2e2a3045a66c81b815deebe"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
