@@ -105,12 +105,6 @@ namespace Namespace
             services.AddSingleton<ICancellation, Cancellation>();
         }
 
-        private static void AddHostedServices(this IServiceCollection services, params Assembly[] assemblies) =>
-            services.Scan(scan => scan
-                .FromAssemblies(assemblies)
-                .AddClasses(classes => classes.AssignableTo<IHostedService>())
-                .AsSelfWithInterfaces()
-                .WithSingletonLifetime());
     }
 }
 

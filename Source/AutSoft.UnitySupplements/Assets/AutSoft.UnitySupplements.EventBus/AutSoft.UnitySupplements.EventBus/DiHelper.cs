@@ -12,12 +12,23 @@ namespace AutSoft.UnitySupplements.EventBus
             services.AddSingleton<IEventBus, SimpleEventBus>();
             services.AddTransient<ServiceFactory>(sp => sp.GetRequiredService);
 
-            services.Scan(scan => scan
-                .FromAssemblies(assemblies)
-                .AddClasses(classes =>
-                    classes.Where(t => t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IEventHandler<>))))
-                .AsImplementedInterfaces()
-                .WithTransientLifetime());
+            var eventHandlerType = typeof(IEventHandler<>);
+            foreach (var type in assemblies
+                         .SelectMany(a => a.GetTypes())
+                         .Where(t => t.GetInterfaces()
+                                .Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == eventHandlerType)))
+            {
+                if (type.IsAbstract || type.IsInterface) continue;
+                if (!type.IsGenericType)
+                {
+                    var eventType = type.GetInterfaces().First(i => i.GetGenericTypeDefinition() == eventHandlerType).GetGenericArguments()[0];
+                    services.AddTransient(eventHandlerType.MakeGenericType(eventType), type);
+                }
+                else
+                {
+                    services.AddTransient(eventHandlerType, type);
+                }
+            }
         }
     }
 }

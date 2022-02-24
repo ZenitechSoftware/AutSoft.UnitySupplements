@@ -87,7 +87,6 @@ namespace AutSoft.UnitySupplements.Samples
                     sceneInjectorOptions.InjectionBehavior = SceneInjectorOptions.Behavior.CompositionRoot;
                 });
 
-            services.AddHostedServices(assemblies);
             services.AddEventBus(assemblies);
 
             services.AddSingleton<ICancellation, Cancellation>();
@@ -95,11 +94,5 @@ namespace AutSoft.UnitySupplements.Samples
             services.AddTimeline();
         }
 
-        private static void AddHostedServices(this IServiceCollection services, params Assembly[] assemblies) =>
-            services.Scan(scan => scan
-                .FromAssemblies(assemblies)
-                .AddClasses(classes => classes.AssignableTo<IHostedService>())
-                .AsSelfWithInterfaces()
-                .WithSingletonLifetime());
-    }
+          }
 }
