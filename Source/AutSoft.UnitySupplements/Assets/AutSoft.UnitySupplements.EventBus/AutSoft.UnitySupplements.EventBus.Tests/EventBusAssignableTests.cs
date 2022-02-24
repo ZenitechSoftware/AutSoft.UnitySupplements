@@ -4,7 +4,7 @@ using NUnit.Framework;
 using Serilog;
 using Serilog.Sinks.Unity3D;
 
-namespace AutSoft.UnitySupplements.EventBus.AutSoft.UnitySupplements.EventBus.Tests
+namespace AutSoft.UnitySupplements.EventBus.Tests
 {
     [TestFixture]
     public class EventBusAssignableTests
@@ -15,7 +15,7 @@ namespace AutSoft.UnitySupplements.EventBus.AutSoft.UnitySupplements.EventBus.Te
         private IEventBus _eventBus = default!;
         private int _baseCalled;
         private int _derivedCalled;
-        private EventHandlerCounter _counter;
+        private EventHandlerCounter _counter = default!;
 
         [SetUp]
         public void Init()
