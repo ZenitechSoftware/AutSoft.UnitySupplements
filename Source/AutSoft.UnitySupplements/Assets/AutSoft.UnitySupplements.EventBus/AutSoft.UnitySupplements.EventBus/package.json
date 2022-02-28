@@ -20,6 +20,7 @@
     "dependencies": {
         "org.nuget.microsoft.extensions.dependencyinjection.abstractions": "6.0.0",
         "org.nuget.microsoft.extensions.logging.abstractions": "6.0.0",
-        "org.nuget.microsoft.extensions.dependencymodel": "6.0.0"
+        "org.nuget.microsoft.extensions.dependencymodel": "6.0.0",
+        "come.autsoft.unitysupplements.vitamins": "0.1.0"
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿#nullable enable
+using UnityEditor;
 using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Timeline

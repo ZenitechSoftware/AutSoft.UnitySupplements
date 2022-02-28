@@ -1,13 +1,8 @@
 {
-    "name": "AutSoft.UnitySupplements.Timeline.Tests",
+    "name": "AutSoft.UnitySupplements.EventBus",
     "rootNamespace": "",
     "references": [
-        "AutSoft.UnitySupplements.Timeline",
-        "Unity.TextMeshPro",
-        "AutSoft.UnitySupplements.EventBus",
-        "AutSoft.UnitySupplements.Vitamins",
-        "UnityEditor.TestRunner",
-        "UnityEngine.TestRunner"
+        "GUID:1a84e733b2e2a3045a66c81b815deebe"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

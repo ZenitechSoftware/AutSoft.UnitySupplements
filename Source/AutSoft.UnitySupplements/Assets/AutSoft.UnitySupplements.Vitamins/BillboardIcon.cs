@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿#nullable enable
+using TMPro;
 using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Vitamins

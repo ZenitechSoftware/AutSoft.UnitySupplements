@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
 {
     public sealed class LoadSceneInitial : MonoBehaviour
     {
-        [SerializeField] private Button _loadButton = default;
+        [SerializeField] private Button _loadButton = default!;
 
         private void Start()
         {

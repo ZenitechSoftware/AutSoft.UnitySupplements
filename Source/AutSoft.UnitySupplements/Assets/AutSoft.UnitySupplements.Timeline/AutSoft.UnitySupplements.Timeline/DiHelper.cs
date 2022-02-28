@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿#nullable enable
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AutSoft.UnitySupplements.Timeline
 {
@@ -8,7 +9,6 @@ namespace AutSoft.UnitySupplements.Timeline
         /// Don't forget to register EventBus
         /// </summary>
         /// <param name="services"></param>
-        /// <returns></returns>
         public static IServiceCollection AddTimeline(this IServiceCollection services)
         {
             services.AddSingleton<ITimelineCounter, TimelineCounter>();

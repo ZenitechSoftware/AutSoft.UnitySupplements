@@ -5,7 +5,8 @@
         "AutSoft.UnitySupplements.EventBus",
         "Unity.TextMeshPro",
         "AutSoft.UnitySupplements.Vitamins",
-        "UniTask"
+        "UniTask",
+        "Injecter.Unity"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

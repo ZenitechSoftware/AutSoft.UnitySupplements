@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AutSoft.UnitySupplements.EventBus
 {
@@ -74,17 +75,19 @@ namespace AutSoft.UnitySupplements.EventBus
                 }
             }
 
-            if (!_handlers.TryGetValue(typeof(T), out var handlers)) return;
-
-            foreach (var handler in handlers)
+            foreach (var superType in _handlers.Keys.Where(k => k.IsAssignableFrom(typeof(T))))
             {
-                try
+                if (!_handlers.TryGetValue(superType, out var handlers)) continue;
+                foreach (var handler in handlers)
                 {
-                    ((Handler<T>)handler)(item);
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex, "Failed to invoke subscribed handler for type {TypeName} for message {Message}", typeof(T).FullName, item);
+                    try
+                    {
+                        ((Handler<T>)handler)(item);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "Failed to invoke subscribed handler for type {TypeName} for message {Message}", typeof(T).FullName, item);
+                    }
                 }
             }
         }

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿#nullable enable
+using System.IO;
 using System.Runtime.InteropServices;
 using Unity.CodeEditor;
 using UnityEditor;

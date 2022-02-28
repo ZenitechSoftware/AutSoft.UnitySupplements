@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#nullable enable
+using System.Collections;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEditor;
@@ -30,7 +31,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Extensions
         private static void SetValueNoRecord(this SerializedProperty property, object value)
         {
             var propertyPath = property.propertyPath;
-            object container = property.serializedObject.targetObject;
+            object? container = property.serializedObject.targetObject;
 
             var i = 0;
             NextPathComponent(propertyPath, ref i, out var deferredToken);
@@ -40,15 +41,15 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Extensions
                 deferredToken = token;
             }
 
-            Debug.Assert(!container.GetType().IsValueType, $"Cannot use SerializedObject.SetValue on a struct object, as the result will be set on a temporary.  Either change {container.GetType().Name} to a class, or use SetValue with a parent member.");
-            SetPathComponentValue(container, deferredToken, value);
+            Debug.Assert(container?.GetType().IsValueType == false, $"Cannot use SerializedObject.SetValue on a struct object, as the result will be set on a temporary.  Either change {container?.GetType().Name} to a class, or use SetValue with a parent member.");
+            SetPathComponentValue(container!, deferredToken, value);
         }
 
         // Union type representing either a property name or array element index.  The element
         // index is valid only if propertyName is null.
         private struct PropertyPathComponent
         {
-            public string PropertyName;
+            public string? PropertyName;
             public int ElementIndex;
         }
 
@@ -84,10 +85,14 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Extensions
             return true;
         }
 
-        private static object GetPathComponentValue(object container, PropertyPathComponent component) =>
-            component.PropertyName == null
+        private static object? GetPathComponentValue(object? container, PropertyPathComponent component)
+        {
+            if (container == null) return null;
+
+            return component.PropertyName == null
                 ? ((IList)container)[component.ElementIndex]
                 : GetMemberValue(container, component.PropertyName);
+        }
 
         private static void SetPathComponentValue(object container, PropertyPathComponent component, object value)
         {
@@ -101,7 +106,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Extensions
             }
         }
 
-        private static object GetMemberValue(object container, string name)
+        private static object? GetMemberValue(object? container, string name)
         {
             if (container == null)
                 return null;

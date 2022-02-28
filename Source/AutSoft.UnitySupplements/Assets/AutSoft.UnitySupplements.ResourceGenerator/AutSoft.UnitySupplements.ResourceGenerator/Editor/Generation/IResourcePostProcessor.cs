@@ -1,4 +1,6 @@
-﻿namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
+﻿#nullable enable
+
+namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
 {
     /// <summary>
     /// Implement this interface to do post processing of the generated file

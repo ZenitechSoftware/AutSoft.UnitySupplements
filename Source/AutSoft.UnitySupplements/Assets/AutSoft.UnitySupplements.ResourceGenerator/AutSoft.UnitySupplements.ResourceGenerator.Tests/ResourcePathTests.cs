@@ -1,4 +1,5 @@
-﻿using AutSoft.UnitySupplements.ResourceGenerator.Sample;
+﻿#nullable enable
+using AutSoft.UnitySupplements.ResourceGenerator.Sample;
 using NUnit.Framework;
 
 namespace AutSoft.UnitySupplements.ResourceGenerator.Tests

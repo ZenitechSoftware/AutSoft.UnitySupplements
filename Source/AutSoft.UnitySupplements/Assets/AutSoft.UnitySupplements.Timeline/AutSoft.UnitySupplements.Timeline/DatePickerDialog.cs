@@ -1,4 +1,5 @@
-﻿using AutSoft.UnitySupplements.Vitamins;
+﻿#nullable enable
+using AutSoft.UnitySupplements.Vitamins;
 using Cysharp.Threading.Tasks;
 using System;
 using TMPro;
