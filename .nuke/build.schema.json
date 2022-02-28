@@ -76,6 +76,7 @@
             "type": "string",
             "enum": [
               "BuildDocs",
+              "CleanApiMetadata",
               "CompileUnity",
               "CreateMetadata",
               "GenerateUnitySolution",
@@ -92,6 +93,7 @@
             "type": "string",
             "enum": [
               "BuildDocs",
+              "CleanApiMetadata",
               "CompileUnity",
               "CreateMetadata",
               "GenerateUnitySolution",

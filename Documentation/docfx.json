@@ -4,19 +4,12 @@
       "src": [
         {
           "files": "Source/AutSoft.UnitySupplements/AutSoft.UnitySupplements.EventBus.csproj",
-          "src": "../"
-        }
-      ],
-      "dest": "api/Eventbus",
-      "disableGitFeatures": false,
-      "disableDefaultFilter": false,
-      "filter": "filterConfig.yml"
-    },
-    {
-      "src": [
-        {
-          "files": "Source/AutSoft.UnitySupplements/AutSoft.UnitySupplements.EventBus.csproj",
-          "src": "../"
+          "src": "../",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "_site/**"
+          ]
         }
       ],
       "dest": "api/Eventbus",
@@ -27,7 +20,12 @@
       "src": [
         {
           "files": "Source/AutSoft.UnitySupplements/AutSoft.UnitySupplements.ResourceGenerator.csproj",
-          "src": "../"
+          "src": "../",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "_site/**"
+          ]
         }
       ],
       "dest": "api/ResourceGenerator",
@@ -38,7 +36,12 @@
       "src": [
         {
           "files": "Source/AutSoft.UnitySupplements/AutSoft.UnitySupplements.Timeline.csproj",
-          "src": "../"
+          "src": "../",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "_site/**"
+          ]
         }
       ],
       "dest": "api/Timeline",
@@ -49,7 +52,12 @@
       "src": [
         {
           "files": "Source/AutSoft.UnitySupplements/AutSoft.UnitySupplements.Vitamins.csproj",
-          "src": "../"
+          "src": "../",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "_site/**"
+          ]
         }
       ],
       "dest": "api/Vitamins",
