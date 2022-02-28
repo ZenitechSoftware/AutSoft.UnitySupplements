@@ -89,15 +89,9 @@ public class SubscriberClass : MonoBehaviour
 {
     [Inject] private readonly IEventBus _eventBus = default!;
 
-    private void Start()
-    {
-        _eventBus.SubscribedWeak(this, OnSampleEvent);
-    }
+    private void Start() => _eventBus.SubscribeWeak(this, OnSampleEvent);
 
-    private void OnSampleEvent(SampleEvent event)
-    {
-        Debug.Log(event.EventData); // Prints "12" to unity log when SampleEvent is invoked
-    }
+    private void OnSampleEvent(SampleEvent event) => Debug.Log(event.EventData); // Prints "12" to unity log when SampleEvent is invoked
 }
 ```
 
