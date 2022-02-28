@@ -1,5 +1,4 @@
-﻿using Nuke.Common.IO;
-using Nuke.Common.Tooling;
+﻿using Nuke.Common.Tooling;
 using Nuke.Common.Tools.GitVersion;
 using Nuke.Common.Tools.Unity;
 using Nuke.Common.Utilities.Collections;
@@ -7,9 +6,7 @@ using Serilog;
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using static Nuke.Common.Tools.Chocolatey.ChocolateyTasks;

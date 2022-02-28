@@ -2,7 +2,7 @@
     "name": "AutSoft.UnitySupplements.EventBus",
     "rootNamespace": "",
     "references": [
-        "GUID:1a84e733b2e2a3045a66c81b815deebe"
+        "AutSoft.UnitySupplements.Vitamins"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

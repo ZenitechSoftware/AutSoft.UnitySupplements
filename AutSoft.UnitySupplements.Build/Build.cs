@@ -20,6 +20,7 @@ class Build : NukeBuild
     public static int Main() => Execute<Build>(x => x.CompileUnity);
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0052:Remove unread private members", Justification = "Will be used later")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
 
     [Parameter("Password for Unity license")] string? UnityPassword;
@@ -127,8 +128,8 @@ class Build : NukeBuild
         .DependsOn(CreateMetadata)
         .Executes(() => DocFX($"build {DocFxJsonPath}"));
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Called from CLI")]
     Target ServeDocs => _ => _
         .DependsOn(BuildDocs)
         .Executes(() => DocFX($"{DocFxJsonPath} --serve"));
-
 }

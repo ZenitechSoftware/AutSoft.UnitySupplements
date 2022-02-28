@@ -4,20 +4,16 @@
     "displayName": "Vitamins",
     "description": "Commonly used extension methods and helper classes for Unity",
     "license": "MIT",
-    "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements//blob/main/LICENSE.md",
+    "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/LICENSE.md",
     "changelogUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/CHANGELOG.md",
     "documentationUrl": "https://autsoft.github.io/AutSoft.UnitySupplements/",
     "unity": "2021.2",
     "keywords": [
-        "Editor",
-        "Resources"
+        "Utilities"
     ],
     "author": {
         "name": "AutSoft Zrt.",
         "email": "info@autsoft.hu",
         "url": "https://github.com/AutSoft/AutSoft.UnitySupplements"
-    },    
-    "dependencies": {
-        "com.unity.textmeshpro": "1.2.1"
     }
 }
