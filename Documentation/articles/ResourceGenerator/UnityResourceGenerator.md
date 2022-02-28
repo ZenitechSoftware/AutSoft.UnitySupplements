@@ -11,7 +11,7 @@ The generation of the class is customizable by default and the library also lets
 Use [OpenUPM](https://openupm.com/) to install the package.
 
 ```
-openupm add com.autsoft.unityresourcegenerator
+openupm add com.autsoft.unitysupplements.resourcegenerator
 ```
 
 ### Running the tool
@@ -119,7 +119,7 @@ public static partial class Layers
 }
 ```
 
-### Buttons
+### Scene buttons
 
 If the generate scene buttons options are selected like this:
 
@@ -195,11 +195,11 @@ The library lets you to inject code into the generation pipeline. To access this
 
 ### Module generation
 
-A module is single string that is placed inside the main generated class. To create a custom module implement the [IModuleGenerator](xref:AutSoft.UnityResourceGenerator.Editor.Generation.IModuleGenerator) interface. The implementation must provide a parameterless constructor.
+A module is single string that is placed inside the main generated class. To create a custom module implement the [IModuleGenerator](xref:AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.IModuleGenerator) interface. The implementation must provide a parameterless constructor.
 
 ### Post processing
 
-A post processor is a piece of code that is run after all modules are produced, and the final file text is created. To create a post processor implement the [IResourcePostProcessor](xref:AutSoft.UnityResourceGenerator.Editor.Generation.IResourcePostProcessor) interface. The implementation must provide a parameterless constructor.
+A post processor is a piece of code that is run after all modules are produced, and the final file text is created. To create a post processor implement the [IResourcePostProcessor](xref:AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.IResourcePostProcessor) interface. The implementation must provide a parameterless constructor.
 
 The input of the processor is the current state of the generated file and it returns the new state of the generated file. Post processors also provide a Priority property which determines the ordering of them.
 
