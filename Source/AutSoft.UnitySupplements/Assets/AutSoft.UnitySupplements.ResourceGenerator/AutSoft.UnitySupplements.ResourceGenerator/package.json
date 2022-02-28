@@ -4,13 +4,13 @@
     "displayName": "Resource Generator",
     "description": "Generate path strings for Resources.Load and others",
     "license": "MIT",
-    "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements//blob/main/LICENSE.md",
+    "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/LICENSE.md",
     "changelogUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/CHANGELOG.md",
     "documentationUrl": "https://autsoft.github.io/AutSoft.UnitySupplements/",
     "unity": "2021.2",
     "keywords": [
-        "Editor",
-        "Resources"
+        "Utilities",
+        "Code Generation"
     ],
     "author": {
         "name": "AutSoft Zrt.",
@@ -20,5 +20,4 @@
     "dependencies": {
         "org.nuget.morelinq": "3.3.2"
     }
-
 }

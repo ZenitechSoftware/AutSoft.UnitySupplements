@@ -4,13 +4,13 @@
     "displayName": "EventBus",
     "description": "Simple eventbus implementation for Unity",
     "license": "MIT",
-    "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements//blob/main/LICENSE.md",
+    "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/LICENSE.md",
     "changelogUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/CHANGELOG.md",
     "documentationUrl": "https://autsoft.github.io/AutSoft.UnitySupplements/",
     "unity": "2021.2",
     "keywords": [
-        "Editor",
-        "Resources"
+        "Frameworks",
+        "Utilities"
     ],
     "author": {
         "name": "AutSoft Zrt.",

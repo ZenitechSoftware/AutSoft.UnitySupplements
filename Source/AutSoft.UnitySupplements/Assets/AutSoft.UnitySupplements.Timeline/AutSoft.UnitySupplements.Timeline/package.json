@@ -4,13 +4,13 @@
     "displayName": "Timeline",
     "description": "Timeline for controlling objects based on time",
     "license": "MIT",
-    "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements//blob/main/LICENSE.md",
+    "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/LICENSE.md",
     "changelogUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/CHANGELOG.md",
     "documentationUrl": "https://autsoft.github.io/AutSoft.UnitySupplements/",
     "unity": "2021.2",
     "keywords": [
-        "Editor",
-        "Resources"
+        "Utilities",
+        "GUI"
     ],
     "author": {
         "name": "AutSoft Zrt.",
@@ -22,7 +22,6 @@
         "com.autsoft.unitysupplements.vitamins": "0.1.0",
         "org.nuget.injecter": "7.0.2",
         "com.cysharp.unitask": "2.2.5",
-        "com.unity.textmeshpro": "1.2.1",
-        "com.unity.test-framework": "1.1.30"
+        "com.unity.textmeshpro": "1.2.1"
     }
 }
