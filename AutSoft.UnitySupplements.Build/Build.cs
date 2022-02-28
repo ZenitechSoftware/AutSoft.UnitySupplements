@@ -1,14 +1,18 @@
 ﻿using Nuke.Common;
 using Nuke.Common.Execution;
 using Nuke.Common.IO;
+using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.MSBuild;
+using Nuke.Common.Utilities.Collections;
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using static Nuke.Common.Tools.MSBuild.MSBuildTasks;
 using static Nuke.Common.Tools.DocFX.DocFXTasks;
 using static Nuke.Common.Tools.Unity.UnityTasks;
+using static Nuke.Common.IO.FileSystemTasks;
 using static UnityHelper;
 // ReSharper disable InconsistentNaming
 
@@ -120,7 +124,14 @@ class Build : NukeBuild
         .Executes(async () => await ChocoInstallUnity(UnityProjectPath));
 
 
+    Target CleanApiMetadata => _ => _
+        .Executes(() => Enumerable.Empty<string>()
+            .Concat(Directory.EnumerateFiles(RootDirectory / "Documentation" / "api", "*.yml", SearchOption.AllDirectories))
+            .Concat(Directory.EnumerateFiles(RootDirectory / "Documentation" / "api", "*.manifest", SearchOption.AllDirectories))
+            .ForEach(DeleteFile));
+
     Target CreateMetadata => _ => _
+        .DependsOn(CleanApiMetadata)
         .DependsOn(CompileUnity)
         .Executes(() => DocFX($"metadata {DocFxJsonPath}"));
 
