@@ -11,7 +11,6 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Sinks.Unity3D;
 using System;
-using System.Reflection;
 using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Samples
@@ -93,6 +92,5 @@ namespace AutSoft.UnitySupplements.Samples
 
             services.AddTimeline();
         }
-
-          }
+    }
 }
