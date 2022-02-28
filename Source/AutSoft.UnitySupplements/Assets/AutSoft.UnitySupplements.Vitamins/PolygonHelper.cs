@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Vitamins
 {
+    /// <summary>
+    /// Class for generating triangulated mesh
+    /// </summary>
     public static class PolygonHelper
     {
         public static Mesh GenerateTriangulatedMesh(Vector3[] vertices)

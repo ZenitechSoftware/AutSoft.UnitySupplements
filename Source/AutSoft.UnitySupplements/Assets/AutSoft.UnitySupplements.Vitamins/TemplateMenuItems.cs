@@ -2,8 +2,14 @@
 
 namespace AutSoft.UnitySupplements.Vitamins
 {
+    /// <summary>
+    /// Buttons that create commonly used classes
+    /// </summary>
     public static class TemplateMenuItems
     {
+        /// <summary>
+        /// Creates a basic AppInstaller.cs file in project root
+        /// </summary>
         [MenuItem("Assets/Create/AutSoft/AppInstaller", false,2)]
         private static void CreateAppInstaller() => ProjectWindowUtil.CreateAssetWithContent(
             "AppInstaller.cs",

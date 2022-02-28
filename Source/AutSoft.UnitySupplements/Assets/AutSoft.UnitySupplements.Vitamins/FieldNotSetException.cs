@@ -3,6 +3,9 @@ using System.Runtime.Serialization;
 
 namespace AutSoft.UnitySupplements.Vitamins
 {
+    /// <summary>
+    /// Exception used by <see cref="MonoBehaviourExtensions.CheckSerializedField{T}"/>
+    /// </summary>
     [Serializable]
     public class FieldNotSetException : Exception
     {

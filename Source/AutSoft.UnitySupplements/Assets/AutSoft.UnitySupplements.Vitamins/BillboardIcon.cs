@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Vitamins
 {
+    /// <summary>
+    /// Sets the text rotation to match the camera's rotation
+    /// </summary>
     public class BillboardIcon : MonoBehaviour
     {
         [SerializeField] private TMP_Text _iconText = default!;

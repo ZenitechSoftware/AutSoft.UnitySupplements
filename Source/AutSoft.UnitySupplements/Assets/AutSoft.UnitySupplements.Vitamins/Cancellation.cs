@@ -3,11 +3,17 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Vitamins
 {
+    /// <summary>
+    /// Interface that contains a CancellationToken property <see cref="UnityLifetime"/>
+    /// </summary>
     public interface ICancellation
     {
         CancellationToken UnityLifetime { get; }
     }
 
+    /// <summary>
+    /// Implements <see cref="ICancellation"/>, cancels the token when application is closed or editor is stopped
+    /// </summary>
     public sealed class Cancellation : ICancellation
     {
         private readonly CancellationTokenSource _cts = new();
