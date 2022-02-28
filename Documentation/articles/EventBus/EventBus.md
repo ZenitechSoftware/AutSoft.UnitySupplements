@@ -82,6 +82,25 @@ public class SubscriberClass : MonoBehaviour
 > [!WARNING]
 > Dont forget to UnSubscribe your events in the OnDestroy method
 
+You can also use the *SubscribeWeak* extension method, which uses the [DestroyDetector](xref:AutSoft.UnitySupplements.Vitamins.DestroyDetector) component to unsubscribe automatically when the object is destroyed.
+
+```csharp
+public class SubscriberClass : MonoBehaviour
+{
+    [Inject] private readonly IEventBus _eventBus = default!;
+
+    private void Start()
+    {
+        _eventBus.SubscribedWeak(this, OnSampleEvent);
+    }
+
+    private void OnSampleEvent(SampleEvent event)
+    {
+        Debug.Log(event.EventData); // Prints "12" to unity log when SampleEvent is invoked
+    }
+}
+```
+
 ### EventHandler
 Another way to call a method when an event gets invoked is to implement the **IEventHandler** interface in a separate class. 
 

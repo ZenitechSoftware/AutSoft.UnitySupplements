@@ -5,7 +5,10 @@
         "UnityEditor.TestRunner",
         "UnityEngine.TestRunner",
         "AutSoft.UnitySupplements.EventBus",
-        "Serilog.Sinks.Unity3D"
+        "Serilog.Sinks.Unity3D",
+        "AutSoft.UnitySupplements.Vitamins",
+        "Injecter.Unity",
+        "Injecter.Hosting.Unity"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -19,7 +22,7 @@
         "Microsoft.Extensions.Logging.dll",
         "Serilog.dll",
         "Serilog.Extensions.Logging.dll",
-        "Scrutor.dll"
+        "Injecter.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [
