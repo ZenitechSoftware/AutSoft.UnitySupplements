@@ -10,6 +10,7 @@
     "com.unity.ide.vscode": "1.2.5",
     "com.unity.test-framework": "1.1.30",
     "com.unity.textmeshpro": "3.0.6",
+    "com.unity.toolchain.win-x86_64-linux-x86_64": "1.0.0",
     "com.unity.ugui": "1.0.0",
     "org.nuget.injecter": "7.0.2",
     "org.nuget.microsoft.extensions.dependencymodel": "6.0.0",
