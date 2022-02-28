@@ -18,7 +18,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
                 .ToArray();
 
             const string classBegin =
-                @"        public static partial class Layers
+@"        public static partial class Layers
         {
 
 ";

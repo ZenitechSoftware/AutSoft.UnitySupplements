@@ -26,7 +26,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
 
             // ReSharper disable once MissingIndent
             var classBegin =
-                $@"        public static partial class {data.ClassName}
+$@"        public static partial class {data.ClassName}
         {{
 
 ";
