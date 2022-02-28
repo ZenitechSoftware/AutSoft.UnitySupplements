@@ -1,0 +1,23 @@
+{
+    "name": "AutSoft.Unity.Supplements.Samples",
+    "rootNamespace": "",
+    "references": [
+        "AutSoft.UnitySupplements.Timeline",
+        "AutSoft.UnitySupplements.ResourceGenerator",
+        "AutSoft.UnitySupplements.EventBus",
+        "Injecter.Hosting.Unity",
+        "Serilog.Sinks.Unity3D",
+        "Injecter.Unity",
+        "AutSoft.UnitySupplements.Vitamins",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
