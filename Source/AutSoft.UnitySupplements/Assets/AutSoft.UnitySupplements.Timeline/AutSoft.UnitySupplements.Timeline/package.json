@@ -1,6 +1,6 @@
 {
     "name": "com.autsoft.unitysupplements.timeline",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "displayName": "Timeline",
     "description": "Timeline for controlling objects based on time",
     "license": "MIT",
