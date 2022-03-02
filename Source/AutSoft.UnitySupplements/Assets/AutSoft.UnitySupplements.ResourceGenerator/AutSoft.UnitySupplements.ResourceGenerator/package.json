@@ -1,6 +1,6 @@
 {
     "name": "com.autsoft.unitysupplements.resourcegenerator",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "displayName": "Resource Generator",
     "description": "Generate path strings for Resources.Load and others",
     "license": "MIT",
@@ -16,8 +16,5 @@
         "name": "AutSoft Zrt.",
         "email": "info@autsoft.hu",
         "url": "https://github.com/AutSoft/AutSoft.UnitySupplements"
-    },
-    "dependencies": {
-        "org.nuget.morelinq": "3.3.2"
     }
 }

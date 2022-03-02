@@ -1,6 +1,6 @@
 {
     "name": "com.autsoft.unitysupplements.timeline",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "displayName": "Timeline",
     "description": "Timeline for controlling objects based on time",
     "license": "MIT",
@@ -18,9 +18,8 @@
         "url": "https://github.com/AutSoft/AutSoft.UnitySupplements"
     },
     "dependencies": {
-        "com.autsoft.unitysupplements.eventbus": "0.1.1",
+        "com.autsoft.unitysupplements.eventbus": "0.1.2",
         "com.autsoft.unitysupplements.vitamins": "0.1.0",
-        "org.nuget.injecter": "7.0.2",
         "com.cysharp.unitask": "2.2.5",
         "com.unity.textmeshpro": "1.2.1"
     }
