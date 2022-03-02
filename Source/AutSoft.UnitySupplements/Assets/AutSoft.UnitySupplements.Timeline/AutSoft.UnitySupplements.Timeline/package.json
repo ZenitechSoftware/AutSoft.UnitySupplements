@@ -21,6 +21,7 @@
         "com.autsoft.unitysupplements.eventbus": "0.1.2",
         "com.autsoft.unitysupplements.vitamins": "0.1.0",
         "com.cysharp.unitask": "2.2.5",
-        "com.unity.textmeshpro": "1.2.1"
+        "com.unity.textmeshpro": "1.2.1",
+        "com.injecter.unity": "7.1.0"
     }
 }
