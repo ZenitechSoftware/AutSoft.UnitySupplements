@@ -4,7 +4,7 @@ This article demonstrates the process of how to setup Unity projects to be able 
 ## Adding eventbus
 After creating the project we can add one of our packages to the project with openupm. For example to add the eventbus package open a terminel in the new project root and type the following command:
 
-```
+```PowerShell
 openupm add com.autsoft.unitysupplements.eventbus
 ```
 
@@ -12,7 +12,8 @@ After adding this you will see multiple errors appear in your console, this is b
 ## Adding nuget scope and packages
 To be able to add nuget packages first we need to add the following scope to the **scopedRegistries** array inside the *Packages/manifest.json* file.
 
-```{
+```json
+{
       "name": "Unity NuGet",
       "url": "https://unitynuget-registry.azurewebsites.net",
       "scopes": [
@@ -21,7 +22,7 @@ To be able to add nuget packages first we need to add the following scope to the
 }
 ```
 
-After that you can add nuget packages in the package manager window according to the Depenedcies described [here](xref:Dependencies.md).
+After that you can add nuget packages in the package manager window according to the Depenedcies described [**here**](xref:Dependencies.md).
 
 ![PackageManager](~/images/ProjectSample/PackageManager.png)
 
@@ -30,7 +31,7 @@ Adding these dependencies fixes all the errors we had.
 ## Adding Injecter DI
 To make it possible to inject the eventbus into monobeheviours we are going to use [Injecter](https://openupm.com/packages/com.injecter.unity/) and [Injecter.Hosting](https://openupm.com/packages/com.injecter.hosting.unity/?subPage=deps) from OpenUPM with the following command.
 
-```
+```PowerShell
 openupm add com.injecter.hosting.unity
 ```
 
@@ -50,7 +51,7 @@ To easily setup the DI container add the AppInstaller file with right clicking i
 
 After that add the following UPM package: [Serilog.Sinks](https://openupm.com/packages/com.serilog.sinks.unity3d/)
 
-```
+```PowerShell
 openupm add com.serilog.sinks.unity3d
 ```
 
@@ -65,8 +66,9 @@ Now you can add the following line to the **ConfigureServices** method inside th
 ```
 
 ## Adding timeline
-Adding more packages becomes really easy after the initial setup we just need to add the UPM package
-```
+Adding more packages becomes more simple after the initial setup,we just need to add the UPM package
+
+```PowerShell
 openupm add com.autsoft.unitysupplements.timeline
 ```
 
