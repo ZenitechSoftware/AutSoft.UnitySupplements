@@ -2,4 +2,4 @@
 
 This package contains extensions and components that can be used while developing unity applications. Some of these components are used by our other packages as well.
 
-You can read about all the current funcionality in the [api doc](xref:AutSoft.UnitySupplements.Vitamins).
+You can read about all the current functionality in the [api doc](xref:AutSoft.UnitySupplements.Vitamins).
