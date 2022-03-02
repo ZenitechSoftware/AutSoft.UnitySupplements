@@ -26,9 +26,9 @@ public static void ConfigureServices(HostBuilderContext builder, IServiceCollect
 }
 ```
 
-After that you can inject *IEventBus* into your monobehaviours. This interfaces contains three main functions:
+After that you can inject *IEventBus* into your `MonoBehaviour` classes. This interfaces contains three main functions:
 
-- **Subsribe**: Method to register a handler to an event
+- **Subscribe**: Method to register a handler to an event
 - **UnSubscribe**: Method to remove the previously registered handler
 - **Invoke**: Method to invoke an event
 
@@ -80,7 +80,7 @@ public class SubscriberClass : MonoBehaviour
 ```
 
 > [!WARNING]
-> Dont forget to UnSubscribe your events in the OnDestroy method
+> Don't forget to UnSubscribe your events in the OnDestroy method
 
 You can also use the *SubscribeWeak* extension method, which uses the [DestroyDetector](xref:AutSoft.UnitySupplements.Vitamins.DestroyDetector) component to unsubscribe automatically when the object is destroyed.
 

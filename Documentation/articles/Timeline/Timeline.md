@@ -28,7 +28,7 @@ On the BasicTimelinePlayer prefab provided by the package you can
 - Change speed of playback
 - Scrub
 
-The two events useb by the basic implementation is **CurrentTimeChanged** and **TimeRangeChanged**. The first one notifies of the whenever the slider on the timeline moves. The second one is for when the start or end date changes. 
+The two events used by the basic implementation is **CurrentTimeChanged** and **TimeRangeChanged**. The first one notifies of the whenever the slider on the timeline moves. The second one is for when the start or end date changes. 
 
 You can subscribe to these events at other parts of you application, for example in the sample scene we write the current time to a UI text element like so:
 ```csharp

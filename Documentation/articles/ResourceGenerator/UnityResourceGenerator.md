@@ -165,8 +165,8 @@ The default mappings are created from the [Unity documentation](https://docs.uni
 
 #### Other settings
 
-- **Generate layers**: Wheter to generate layers functions
-- **Generate scene buttons**: Wheter to generate load scene buttons to Unity menu
+- **Generate layers**: Whether to generate layers functions
+- **Generate scene buttons**: Whether to generate load scene buttons to Unity menu
   - **Scene names**: Names of the scenes for which play buttons will also    be created
 
 ### Extending the generated classes
@@ -191,7 +191,7 @@ public static partial class ResourcePaths
 
 ## Extensibility
 
-The library lets you to inject code into the generation pipeline. To access this feature, create a new Editor project, and reference `AutSoft.UnityResourceGenerator.Editor`. The included functionality is implemented using these mehtods.
+The library lets you to inject code into the generation pipeline. To access this feature, create a new Editor project, and reference `AutSoft.UnityResourceGenerator.Editor`. The included functionality is implemented using these methods.
 
 ### Module generation
 

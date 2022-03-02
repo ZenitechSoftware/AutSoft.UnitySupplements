@@ -1,3 +1,5 @@
+- name: Project setup sample
+  href: ProjectSample.md
 - name: EventBus
   href: EventBus/EventBus.md
 - name: UnityResourceGenerator
@@ -6,7 +8,5 @@
   href: Vitamins/Vitamins.md
 - name: Timeline
   href: Timeline/Timeline.md
-- name: Project setup sample
-  href: ProjectSample.md
 - name: Dependencies
   href: Dependencies.md
