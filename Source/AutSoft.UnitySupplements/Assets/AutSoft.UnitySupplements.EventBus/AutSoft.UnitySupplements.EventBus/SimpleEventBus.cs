@@ -75,10 +75,10 @@ namespace AutSoft.UnitySupplements.EventBus
                 }
             }
 
-            foreach (var superType in _handlers.Keys.Where(k => k.IsAssignableFrom(typeof(T))))
+            foreach (var superType in _handlers.Keys.Where(k => k.IsAssignableFrom(typeof(T))).ToArray())
             {
                 if (!_handlers.TryGetValue(superType, out var handlers)) continue;
-                foreach (var handler in handlers)
+                foreach (var handler in handlers.ToArray())
                 {
                     try
                     {
