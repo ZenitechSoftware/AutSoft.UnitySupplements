@@ -18,7 +18,7 @@
         "url": "https://github.com/AutSoft/AutSoft.UnitySupplements"
     },
     "dependencies": {
-        "com.autsoft.unitysupplements.eventbus": "0.1.2",
+        "com.autsoft.unitysupplements.eventbus": "0.1.3",
         "com.autsoft.unitysupplements.vitamins": "0.1.0",
         "com.cysharp.unitask": "2.2.5",
         "com.unity.textmeshpro": "1.2.1",
