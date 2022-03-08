@@ -5,13 +5,24 @@ using UnityEngine;
 namespace AutSoft.UnitySupplements.Vitamins
 {
     /// <summary>
-    /// Sets the transform rotation to match the camera's rotation
+    /// Sets the transform rotation to match the given camera's rotation, uses main camera by default
     /// </summary>
     public class Billboard : MonoBehaviour
     {
         [SerializeField] private Camera _camera = default!;
 
-        private void Awake() => this.CheckSerializedField(_camera, nameof(_camera));
+        private void Awake()
+        {
+            const string fieldName = nameof(_camera);
+            var gameObjectName = gameObject.name;
+            _camera = _camera == null && Camera.main != null
+                ? Camera.main
+                : throw new FieldNotSetException(
+                    $"Field: {fieldName} is not set on Component: {name} on GameObject: {gameObjectName}",
+                    gameObjectName,
+                    name,
+                    fieldName);
+        }
 
         private void Update() => transform.rotation = _camera.transform.rotation;
 
