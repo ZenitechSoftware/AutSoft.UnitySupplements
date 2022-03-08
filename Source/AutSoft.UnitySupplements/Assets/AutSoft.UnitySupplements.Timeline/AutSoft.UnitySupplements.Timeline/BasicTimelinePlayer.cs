@@ -32,8 +32,9 @@ namespace AutSoft.UnitySupplements.Timeline
         public DateTimeOffset EndTime { get; private set; }
         public DateTimeOffset CurrentTime => _timeLine.CurrentTime;
 
-        private void Start()
+        protected override void Awake()
         {
+            base.Awake();
             this.CheckSerializedField(_timeSlider, nameof(_timeSlider));
             this.CheckSerializedField(_sliderEvents, nameof(_sliderEvents));
             this.CheckSerializedField(_playPauseButton, nameof(_playPauseButton));
