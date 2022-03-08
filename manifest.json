@@ -1,0 +1,871 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/a/AutSoft.UnitySupplements/AutSoft.UnitySupplements/Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.DiHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.DiHelper.html",
+          "hash": "3WFSn6VXLMpyLm8HbL5lKAsbGz3KhjgpA58n7fGAipk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.EventBusExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.EventBusExtensions.html",
+          "hash": "vCLv1nBRfwBfzKVVVLuq1TmpWgnDeOlvEwK5c4OtWlQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.Handler-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.Handler-1.html",
+          "hash": "WUJDvlLYURxYdoFi7QIk5Ausx1XHGq/eQUMiYUjqxoA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.IEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.IEvent.html",
+          "hash": "+PEV1RrvjT0h7gFX7r6uWUrpbFkvPZ3L6clIb+wI51s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.IEventBus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.IEventBus.html",
+          "hash": "kY7NxWpDQxYRijB5y7toL3zVd6Ed23LZJ2mymZY5Zag="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.IEventHandler-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.IEventHandler-1.html",
+          "hash": "deVXrJm9QZVA4hIIZL7mNwGg6GxSqUn4soYaba9Tb3U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.ServiceFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.ServiceFactory.html",
+          "hash": "RMbAgC261uo2gvkph0ucM+LbiCsziX82SQdFi0b9XrU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.ServiceFactoryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.ServiceFactoryExtensions.html",
+          "hash": "ll/ALYW52z3b8Atme5iyQWa6E72sCQENgtbtT6idskE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.SimpleEventBus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.SimpleEventBus.html",
+          "hash": "JwXTroFeCA/+uK+XFvPozRcYO/vvEHKY8NAvZkB5iqk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Eventbus/AutSoft.UnitySupplements.EventBus.html",
+          "hash": "rFYzIDmAQaS0QWGT8F2IKo5MgYj9pudN9JteeLaNOlU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.IModuleGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.IModuleGenerator.html",
+          "hash": "ARELaVM6iKPQ740gW++RmNc+7T6usmN57N4/C4b9rqU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.IResourceData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.IResourceData.html",
+          "hash": "K1U+4Pqu/1uJKaco8hfMS73nB9R1yQnHpucr+56PRg4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.IResourcePostProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.IResourcePostProcessor.html",
+          "hash": "4/e1WA5k76xA3W+xLnzOcupnaIhrMzfwGi74xn2GP9s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules.AllResources.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules.AllResources.html",
+          "hash": "G/hVfVHsoh7iQC20P3PD/uGZHY+8SdylryCLcr+sZxI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules.LayerGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules.LayerGenerator.html",
+          "hash": "fHTKlnf9mMAtmq45uak1D378+MM4JMW0MnPuTkCOIQY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules.PropertyNameGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules.PropertyNameGenerator.html",
+          "hash": "xXLjd/CP5tnDuY7I2zs6TGOV3YVoJl1fPS5/KuRvX48="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules.SceneButtonGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules.SceneButtonGenerator.html",
+          "hash": "8s587M58aMdy+YUDe31YmUytkcxfyNCaQKBTDmXOjHU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules.html",
+          "hash": "DCL9j5U96o6/G0OtRoH6ZR48UgZAJhUcvdqqfknZzFc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.PostProcessors.RemoveDuplicateNewLines.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.PostProcessors.RemoveDuplicateNewLines.html",
+          "hash": "WJEXSelq1oCI170pmnh2d1WXYVwx4m1LdKqJj/UegFQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.PostProcessors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.PostProcessors.html",
+          "hash": "L5G/ekIvkZojDf6qDMO6wYeEwjLmReFkfzt6BfNhBi8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.ResourceContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.ResourceContext.html",
+          "hash": "KjboKk2kKv34UlNK9PoBd733g1gjqI80mOUDe+EN2yg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.ResourceFileGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.ResourceFileGenerator.html",
+          "hash": "TAc7J/ZT0EwWJxxPGPZFd0eE98eqbwvQ4X2kcnOgnP0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.html",
+          "hash": "/GtCH1JghYb44C2DwSc1SGa0LE3OO/Qu2nQg6mRmQgM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.ResourceFileMenu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.ResourceFileMenu.html",
+          "hash": "0xYnulMGsT/7V+w9NutR5rZMeJg+s+ydOlqVIQ5fGNA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.ResourceGeneratorSettings.ResourceData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.ResourceGeneratorSettings.ResourceData.html",
+          "hash": "/YpMBZs2aU0mAGDdHPGJK1dorHV4pPuZOjeKJmYxdZ4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.ResourceGeneratorSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.ResourceGeneratorSettings.html",
+          "hash": "FfYcA4adKYSQoVJInPL6qEszXgrQUW2MfKDjtNp5uuk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.html",
+          "hash": "d1gsQYbRO0XOhBnLbwYxKt3TLCE6608YAOPgV0WlZqc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.BasicTimelinePlayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.BasicTimelinePlayer.html",
+          "hash": "goepKCtgrGrYkw5J4RPd1c9BQ6gQBX0BJpPcZ80Ej7U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.CurrentTimeChanged.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.CurrentTimeChanged.html",
+          "hash": "nMK5vuzJ5xRN59AVehg/jV6Ld4r23rzyZr8r1jcZeIA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.DiHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.DiHelper.html",
+          "hash": "mB++1g9Za69dO9D+xEC6z6FzTt05ObXhMIL2qkCHpMs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.ITimelineCounter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.ITimelineCounter.html",
+          "hash": "ksqHKgzVVqao3RDmU3Zi/oC5yOsN8isKHHZGafP4rs0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.TimeRangeChanged.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.TimeRangeChanged.html",
+          "hash": "PGs1IdepfRNRvrVbg6RPDAr01Vqo3nKXp07VlmHxpjg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.TimelineCounter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.TimelineCounter.html",
+          "hash": "+udrdOzM2qW7/SgXATZ93e7cDf45DOS4NQGpRFhZB5M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.TimelinePlayingChanged.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.TimelinePlayingChanged.html",
+          "hash": "lBvjkZCVy93Cn9lW+XDtQK2EIf+wmx3XJU1o6a9scVw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Timeline/AutSoft.UnitySupplements.Timeline.html",
+          "hash": "MpNXVHXOdkdV6NHdduHcPEDCY/TWB4CH4S/F7HN7IAU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.Billboard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.Billboard.html",
+          "hash": "MIooo/AVwnHzEzlNVmJh2VwWY5KLPXXWFvshpTmHOoA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.Binder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.Binder.html",
+          "hash": "UUByzVANuDSeSZMTQVEvdoj6ApkuA2YWYU4vfm11OhE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.Cancellation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.Cancellation.html",
+          "hash": "F9rXTgKfngm8KHcAXEPMhJKU52/rhjBgTVJISkL+xMU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.DestroyDetector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.DestroyDetector.html",
+          "hash": "nYJq1XWRRFfo/lgUQW05NuIue2JjRTDKH611d5G+bKo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.FieldNotSetException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.FieldNotSetException.html",
+          "hash": "zv8q5Z4efsIL4NWC99BQhNTAAQynSklc9suzlkmjVYk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.GameObjectExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.GameObjectExtensions.html",
+          "hash": "LbiNHzOog9YqNmZVuVm91BkN0pDfiMezyLa2ylJLVWY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.ICancellation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.ICancellation.html",
+          "hash": "ag3SHFbEnNvG/V2TtkcR9SDP0P9B5PXaccLl3WON59k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.MonoBehaviourExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.MonoBehaviourExtensions.html",
+          "hash": "5ICzzGYHKDFTgT8d9qN7vvgsvwhTNsSVqe8PMy/bX38="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.PolygonHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.PolygonHelper.html",
+          "hash": "7VFCzptvlBaXwYreVNKdFUl4j8XP6KV8wLcsIu9kn9s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.TransformExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.TransformExtensions.html",
+          "hash": "+fJaXOhDTeTOrTehNi6ha2BBRdJP61P1KgE8Oo/l2Zg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Vitamins/AutSoft.UnitySupplements.Vitamins.html",
+          "hash": "s5GYgRbIANUvBnkieGr82fzMwKL3mIYdUY6pRSjQ6e8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "apimerge/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "apimerge/index.html",
+          "hash": "ILOiVQJakrW+l2avtrmPMF6AT8cmIgs8LqtsbvhP8CA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "apimerge/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apimerge/toc.html",
+          "hash": "ar39zfRirwqRVK6FjVrCJ2pjHJHOjbw7pHukTTMd8Sg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Dependencies.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Dependencies.html",
+          "hash": "VIcrromI2Tn9FiUxgou1z921tj51207G68TwNYjq7xA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/EventBus/EventBus.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/EventBus/EventBus.html",
+          "hash": "EJ7CQvGNNOOfWFIMPl5a+jzbZzIE64KBrvrO+zUkv7Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "UidNotFound"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "articles/ProjectSample.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/ProjectSample.html",
+          "hash": "n/6VlGcxwTCAst9otk7uArjHOemMwhrEX9aoDMTwDFw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/ResourceGenerator/UnityResourceGenerator.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/ResourceGenerator/UnityResourceGenerator.html",
+          "hash": "xFAP7WBC2Q+5vie3AGG8epZzaSh0JPwLrLIOlCMqQh8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Timeline/Timeline.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Timeline/Timeline.html",
+          "hash": "H8bMnX5KGb9pzt7oWJNKRk2YdKCQKpnoLT+3r23PVmk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Vitamins/Vitamins.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Vitamins/Vitamins.html",
+          "hash": "ftT9umrMn67YKMLGVC4MDB1M2xCnkWLgJETtEcKc644="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "p46LqrYCBtnBrNWXIPX+8/xv3qs0ph6rcFid/iZVQAc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ProjectSample/AppInstallerCreate.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/ProjectSample/AppInstallerCreate.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ProjectSample/AsmdefSetup.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/ProjectSample/AsmdefSetup.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ProjectSample/PackageManager.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/ProjectSample/PackageManager.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ResourceGenerator/Customization/DefaultSettings.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/ResourceGenerator/Customization/DefaultSettings.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ResourceGenerator/intro/GenerateButton.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/ResourceGenerator/intro/GenerateButton.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ResourceGenerator/intro/LoadSceneButtons.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/ResourceGenerator/intro/LoadSceneButtons.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ResourceGenerator/intro/PlaySceneButtons.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/ResourceGenerator/intro/PlaySceneButtons.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ResourceGenerator/intro/SceneButtonsSettings.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/ResourceGenerator/intro/SceneButtonsSettings.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ResourceGenerator/intro/layers.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/ResourceGenerator/intro/layers.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/Timeline/addingtimeline.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/Timeline/addingtimeline.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/Timeline/timelinesample.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/Timeline/timelinesample.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "bNMFE4TyRnJIer+s9tHxuz6SL75X4YQDWh7kGWn5vz0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "Ti585530K2Kciz4xyPDJzudZlHRkoguabFc44aEhHwY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 8,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 54,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

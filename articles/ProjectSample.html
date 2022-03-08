@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Project sample </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Project sample ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="project-sample">Project sample</h1>
+
+<p>This article demonstrates the process of how to setup Unity projects to be able to use the supplement packages.</p>
+<h2 id="adding-the-eventbus-package">Adding the eventbus package</h2>
+<p>After creating the project we can add one of our packages to the project with OpenUPM. For example to add the eventbus package open a terminal in the new project root and type the following command:</p>
+<pre><code class="lang-PowerShell">openupm add com.autsoft.unitysupplements.eventbus
+</code></pre>
+<p>After adding this you will see multiple errors appear in your console, this is because some dependencies from NuGet still need to be added.</p>
+<h2 id="adding-nuget-scope-and-packages">Adding NuGet scope and packages</h2>
+<p>One way to add NuGet packages inside Unity is to add the following scope to the <strong>scopedRegistries</strong> array inside the <em>Packages/manifest.json</em> file.</p>
+<pre><code class="lang-json">{
+      &quot;name&quot;: &quot;Unity NuGet&quot;,
+      &quot;url&quot;: &quot;https://unitynuget-registry.azurewebsites.net&quot;,
+      &quot;scopes&quot;: [
+        &quot;org.nuget&quot;
+      ]
+}
+</code></pre>
+<p>After that you can add NuGet packages in the package manager window according to the dependencies described <a href="xref:Dependencies.md"><strong>here</strong></a>.</p>
+<p><img src="../images/ProjectSample/PackageManager.png" alt="PackageManager"></p>
+<p>Adding these dependencies fixes all the errors we had.</p>
+<h2 id="adding-the-injecter-di">Adding the Injecter DI</h2>
+<p>To make it possible to inject the eventbus into <code>MonoBehaviour</code> classes we are going to use <a href="https://openupm.com/packages/com.injecter.unity/">Injecter</a> and <a href="https://openupm.com/packages/com.injecter.hosting.unity/?subPage=deps">Injecter.Hosting</a> from OpenUPM with the following command.</p>
+<pre><code class="lang-PowerShell">openupm add com.injecter.hosting.unity
+</code></pre>
+<p>Once again we need to add:</p>
+<ul>
+<li><a href="https://www.nuget.org/packages/Injecter/">Injecter</a></li>
+<li><a href="https://www.nuget.org/packages/Microsoft.Extensions.Hosting">Hosting</a></li>
+<li><a href="https://www.nuget.org/packages/Serilog.Extensions.Hosting/">Serilog.Hosting</a></li>
+</ul>
+<p>NuGet packages from the package manager to get rid of the errors.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you receive Assembly Version Validation errors you can turn these off in: <code>Project Settings -&gt; Player -&gt; Other Settings -&gt; Configuration -&gt; Assembly Version Validation</code></p>
+</div>
+<p>To easily setup the DI container add the AppInstaller file with right clicking in one of your folders and selecting <code>Injecter-&gt;AppInstallerCompositionRoot</code></p>
+<p><img src="../images/ProjectSample/AppInstallerCreate.png" alt="AddAppInstaller"></p>
+<p>After that add the following UPM package: <a href="https://openupm.com/packages/com.serilog.sinks.unity3d/">Serilog.Sinks.Unity3D</a></p>
+<pre><code class="lang-PowerShell">openupm add com.serilog.sinks.unity3d
+</code></pre>
+<p>Create an Assembly definition and add the following references:</p>
+<p><img src="../images/ProjectSample/AsmdefSetup.png" alt="AsmdefSetup"></p>
+<p>Now you can add the following line to the <strong>ConfigureServices</strong> method inside the <em>AppInstallerCompositionRoot.cs</em></p>
+<pre><code class="lang-csharp">    services.AddEventBus();
+</code></pre>
+<h2 id="adding-the-timeline-package">Adding the timeline package</h2>
+<p>Adding more packages becomes more simple after the initial setup,we just need to add the UPM package</p>
+<pre><code class="lang-PowerShell">openupm add com.autsoft.unitysupplements.timeline
+</code></pre>
+<p>And the dependencies found <a href="xref:Dependencies.md">here</a>. Since injecter is already added we can skip that. So we just add  <code>AutSoft.UnitySupplements.Timeline</code> to the .asmdef references. And add the following line to <strong>ConfigureServices</strong> method inside the <code>AppInstallerCompositionRoot.cs</code> like before:</p>
+<pre><code class="lang-csharp">    services.AddTimeline();
+</code></pre>
+<p>Now the timeline packages is ready to use, in the right click menu we can create a basic timeline player, it can be found under <code>AutSoft-&gt;Timeline.</code></p>
+<h2 id="testing">Testing</h2>
+<p>To test everything we are going to create a component which uses an injected <strong>eventbus</strong> to subscribe to the <strong>CurrentTimeChanged</strong> event of the timeline. So it prints the current state of the timeline to the console.</p>
+<pre><code class="lang-csharp">#nullable enable
+using System;
+using AutSoft.UnitySupplements.EventBus;
+using AutSoft.UnitySupplements.Timeline;
+using AutSoft.UnitySupplements.Vitamins;
+using Injecter;
+using Injecter.Unity;
+using UnityEngine;
+
+public class EventSubscriber : MonoBehaviourScoped
+{
+    [Inject] private readonly IEventBus _eventBus = default!;
+
+    [SerializeField] private BasicTimelinePlayer _timeline = default!;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        this.CheckSerializedField(_timeline, nameof(_timeline));
+
+        _eventBus.SubscribeWeak&lt;CurrentTimeChanged&gt;(this, message =&gt; Debug.Log($&quot;Timeline time changed to: {message.CurrentTime.ToLocalTime()}&quot;));
+    }
+
+    private void Start() =&gt; _timeline.Initialize(DateTimeOffset.Now, DateTimeOffset.Now.AddHours(1));
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/Documentation/articles/ProjectSample.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <a href="https://autsoft.net/">AutSoft Zrt.</a> Generated By <b>DocFX<b> 
+            
+          </b></b></div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

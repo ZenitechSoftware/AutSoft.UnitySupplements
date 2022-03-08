@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IEventBus
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IEventBus
+   ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../apimerge/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AutSoft.UnitySupplements.EventBus.IEventBus">
+  
+  
+  <h1 id="AutSoft_UnitySupplements_EventBus_IEventBus" data-uid="AutSoft.UnitySupplements.EventBus.IEventBus" class="text-break">Interface IEventBus
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AutSoft.UnitySupplements.EventBus.html">AutSoft.UnitySupplements.EventBus</a></h6>
+  <h6><strong>Assembly</strong>: AutSoft.UnitySupplements.EventBus.dll</h6>
+  <h5 id="AutSoft_UnitySupplements_EventBus_IEventBus_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IEventBus</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/AutSoft/AutSoft.UnitySupplements/new/main/apiSpec/new?filename=AutSoft_UnitySupplements_EventBus_IEventBus_Invoke__1___0_.md&amp;value=---%0Auid%3A%20AutSoft.UnitySupplements.EventBus.IEventBus.Invoke%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.EventBus/AutSoft.UnitySupplements.EventBus/IEventBus.cs/#L8">View Source</a>
+  </span>
+  <a id="AutSoft_UnitySupplements_EventBus_IEventBus_Invoke_" data-uid="AutSoft.UnitySupplements.EventBus.IEventBus.Invoke*"></a>
+  <h4 id="AutSoft_UnitySupplements_EventBus_IEventBus_Invoke__1___0_" data-uid="AutSoft.UnitySupplements.EventBus.IEventBus.Invoke``1(``0)">Invoke&lt;T&gt;(T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Invoke&lt;T&gt;(T item)
+    where T : IEvent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/AutSoft/AutSoft.UnitySupplements/new/main/apiSpec/new?filename=AutSoft_UnitySupplements_EventBus_IEventBus_Subscribe__1_AutSoft_UnitySupplements_EventBus_Handler___0__.md&amp;value=---%0Auid%3A%20AutSoft.UnitySupplements.EventBus.IEventBus.Subscribe%60%601(AutSoft.UnitySupplements.EventBus.Handler%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.EventBus/AutSoft.UnitySupplements.EventBus/IEventBus.cs/#L6">View Source</a>
+  </span>
+  <a id="AutSoft_UnitySupplements_EventBus_IEventBus_Subscribe_" data-uid="AutSoft.UnitySupplements.EventBus.IEventBus.Subscribe*"></a>
+  <h4 id="AutSoft_UnitySupplements_EventBus_IEventBus_Subscribe__1_AutSoft_UnitySupplements_EventBus_Handler___0__" data-uid="AutSoft.UnitySupplements.EventBus.IEventBus.Subscribe``1(AutSoft.UnitySupplements.EventBus.Handler{``0})">Subscribe&lt;T&gt;(Handler&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Subscribe&lt;T&gt;(Handler&lt;T&gt; handler)
+    where T : IEvent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AutSoft.UnitySupplements.EventBus.Handler-1.html">Handler</a>&lt;T&gt;</td>
+        <td><span class="parametername">handler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/AutSoft/AutSoft.UnitySupplements/new/main/apiSpec/new?filename=AutSoft_UnitySupplements_EventBus_IEventBus_UnSubscribe__1_AutSoft_UnitySupplements_EventBus_Handler___0__.md&amp;value=---%0Auid%3A%20AutSoft.UnitySupplements.EventBus.IEventBus.UnSubscribe%60%601(AutSoft.UnitySupplements.EventBus.Handler%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.EventBus/AutSoft.UnitySupplements.EventBus/IEventBus.cs/#L7">View Source</a>
+  </span>
+  <a id="AutSoft_UnitySupplements_EventBus_IEventBus_UnSubscribe_" data-uid="AutSoft.UnitySupplements.EventBus.IEventBus.UnSubscribe*"></a>
+  <h4 id="AutSoft_UnitySupplements_EventBus_IEventBus_UnSubscribe__1_AutSoft_UnitySupplements_EventBus_Handler___0__" data-uid="AutSoft.UnitySupplements.EventBus.IEventBus.UnSubscribe``1(AutSoft.UnitySupplements.EventBus.Handler{``0})">UnSubscribe&lt;T&gt;(Handler&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void UnSubscribe&lt;T&gt;(Handler&lt;T&gt; handler)
+    where T : IEvent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AutSoft.UnitySupplements.EventBus.Handler-1.html">Handler</a>&lt;T&gt;</td>
+        <td><span class="parametername">handler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="AutSoft.UnitySupplements.EventBus.EventBusExtensions.html#AutSoft_UnitySupplements_EventBus_EventBusExtensions_SubscribeWeak__1_AutSoft_UnitySupplements_EventBus_IEventBus_UnityEngine_Component_AutSoft_UnitySupplements_EventBus_Handler___0__">EventBusExtensions.SubscribeWeak&lt;T&gt;(IEventBus, Component, Handler&lt;T&gt;)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/AutSoft/AutSoft.UnitySupplements/new/main/apiSpec/new?filename=AutSoft_UnitySupplements_EventBus_IEventBus.md&amp;value=---%0Auid%3A%20AutSoft.UnitySupplements.EventBus.IEventBus%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.EventBus/AutSoft.UnitySupplements.EventBus/IEventBus.cs/#L4" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <a href="https://autsoft.net/">AutSoft Zrt.</a> Generated By <b>DocFX<b> 
+            
+          </b></b></div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

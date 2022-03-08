@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>EventBus  </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="EventBus  ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="eventbus-openupm">EventBus <a href="https://openupm.com/packages/com.autsoft.unitysupplements.eventbus/"><img src="https://img.shields.io/npm/v/com.autsoft.unitysupplements.eventbus?label=openupm&amp;registry_uri=https://package.openupm.com" alt="openupm"></a></h1>
+
+<p>This package contains an implementation of a event bus.</p>
+<h2 id="installation">Installation</h2>
+<p>Use <a href="https://openupm.com/">OpenUPM</a> to install the package.</p>
+<pre><code>openupm add com.autsoft.unitysupplements.eventbus
+</code></pre>
+<h2 id="getting-started">Getting started</h2>
+<p>To make it easier to use the event bus, you may want to use a dependency injection container. We have several options for this when using Unity. For <em>Microsoft.Extensions.DependencyInjection</em> an extension method you can use to register our event bus implementation like this:</p>
+<pre><code class="lang-csharp">public static void ConfigureServices(HostBuilderContext builder, IServiceCollection services)
+{
+    var assemblies = new[] { typeof(AppInstaller).Assembly };
+
+    services.AddEventBus(assemblies);
+    .
+    .
+    .
+    // other registrations
+}
+</code></pre>
+<p>After that you can inject <em>IEventBus</em> into your <code>MonoBehaviour</code> classes. This interfaces contains three main functions:</p>
+<ul>
+<li><strong>Subscribe</strong>: Method to register a handler to an event</li>
+<li><strong>UnSubscribe</strong>: Method to remove the previously registered handler</li>
+<li><strong>Invoke</strong>: Method to invoke an event</li>
+</ul>
+<p>We can create as many events as we want, but all event must implement from the <strong>IEvent</strong> interface. Below is an example of a sample event.</p>
+<h3 id="example">Example</h3>
+<pre><code class="lang-csharp">public sealed class SampleEvent : IEvent
+{
+    public SampleEvent(int eventData) =&gt; EventData = eventData;
+    public int EventData { get; }
+}
+</code></pre>
+<p>And you can invoke and subscribe to an event like so:</p>
+<pre><code class="lang-csharp">public class InvokingClass : MonoBehaviour
+{
+    [Inject] private readonly IEventBus _eventBus = default!;
+
+    public void SomeMethod()
+    {
+        _eventBus.Invoke(new SampleEvent(12));
+    }
+}
+</code></pre>
+<pre><code class="lang-csharp">public class SubscriberClass : MonoBehaviour
+{
+    [Inject] private readonly IEventBus _eventBus = default!;
+
+    private void Start()
+    {
+        _eventBus.Subscribe&lt;SampleEvent&gt;(OnSampleEvent);
+    }
+
+    private void OnDestroy()
+    {
+        _eventBus.UnSubscribe&lt;SampleEvent&gt;(OnSampleEvent);
+    }
+
+    private void OnSampleEvent(SampleEvent event)
+    {
+        Debug.Log(event.EventData); // Prints &quot;12&quot; to unity log when SampleEvent is invoked
+    }
+}
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Don't forget to UnSubscribe your events in the OnDestroy method</p>
+</div>
+<p>You can also use the <em>SubscribeWeak</em> extension method, which uses the <a class="xref" href="../../api/Vitamins/AutSoft.UnitySupplements.Vitamins.DestroyDetector.html">DestroyDetector</a> component to unsubscribe automatically when the object is destroyed.</p>
+<pre><code class="lang-csharp">public class SubscriberClass : MonoBehaviour
+{
+    [Inject] private readonly IEventBus _eventBus = default!;
+
+    private void Start() =&gt; _eventBus.SubscribeWeak(this, OnSampleEvent);
+
+    private void OnSampleEvent(SampleEvent event) =&gt; Debug.Log(event.EventData); // Prints &quot;12&quot; to unity log when SampleEvent is invoked
+}
+</code></pre>
+<h3 id="eventhandler">EventHandler</h3>
+<p>Another way to call a method when an event gets invoked is to implement the <strong>IEventHandler</strong> interface in a separate class.</p>
+<pre><code class="lang-csharp">public class HandlerClass : IEventHandler&lt;SampleEvent&gt;
+{
+    public void Handle(SampleEvent message)
+    {
+        Debug.Log(message.EventData);
+    }
+}
+</code></pre>
+<p>If we used the <em>AddEventBus</em> extension method to register the eventbus to the DI container, all the classes that implement the <em>IEventHandler</em> will also be registered.</p>
+<h3 id="eventbus">EventBus</h3>
+<p>You can also create your own eventbus implementation with the <strong>IEventBus</strong> interface.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/Documentation/articles/EventBus/EventBus.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <a href="https://autsoft.net/">AutSoft Zrt.</a> Generated By <b>DocFX<b> 
+            
+          </b></b></div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

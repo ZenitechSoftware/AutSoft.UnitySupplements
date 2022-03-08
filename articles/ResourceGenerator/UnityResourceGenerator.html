@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Unity Resource Generator  </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Unity Resource Generator  ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="unity-resource-generator-openupm">Unity Resource Generator <a href="https://openupm.com/packages/com.autsoft.unitysupplements.resourcegenerator/"><img src="https://img.shields.io/npm/v/com.autsoft.unitysupplements.resourcegenerator?label=openupm&amp;registry_uri=https://package.openupm.com" alt="openupm"></a></h1>
+
+<h2 id="getting-started">Getting Started</h2>
+<p>The Unity Resource Generator is a Unity Editor tool which can generate a helper class which will create a helper class that contains paths to loadable Unity resources. Additionally it will also generate helper methods to load scenes.</p>
+<p>The generation of the class is customizable by default and the library also lets developers create custom code to run during generation.</p>
+<h3 id="installation">Installation</h3>
+<p>Use <a href="https://openupm.com/">OpenUPM</a> to install the package.</p>
+<pre><code>openupm add com.autsoft.unitysupplements.resourcegenerator
+</code></pre>
+<h3 id="running-the-tool">Running the tool</h3>
+<p>The tool will create new button in the Editor at <code>Tools / Generate Resource Paths</code></p>
+<p><img src="../../images/ResourceGenerator/intro/GenerateButton.png" alt="Generate Button"></p>
+<p>If your click the button the helper class will be generated in the root of the <code>Assets</code> folder</p>
+<h3 id="name-generation-rules">Name generation rules</h3>
+<p>The generated method and filed names are slightly different from the actual file names, because not all valid file names are valid C# identifier names. The following rules apply:</p>
+<ul>
+<li>Whitespaces are removed</li>
+<li>If the file name starts with a number a <code>_</code> character is added to the start of the identifier</li>
+<li>All non-alphanumeric characters are replaced by the <code>_</code> character</li>
+</ul>
+<h3 id="generator">Generator</h3>
+<p>Automatically generate a helper class for <code>Resources.Load</code> in Unity with the press of a button.</p>
+<p>With this folder structure:</p>
+<h3 id="resources">Resources</h3>
+<pre><code>Assets/
+├─ Resources/
+│  ├─ Coin.prefab
+│  ├─ Coin.mp3
+├─ Scenes/
+│  ├─ CoinRain.unity
+</code></pre>
+<p>The following helper class is generated:</p>
+<pre><code class="lang-csharp">using UnityEngine;
+using UnityEngine.SceneManagement;
+
+namespace Sample
+{
+    // ReSharper disable PartialTypeWithSinglePart
+    public static partial class ResourcePaths
+    {
+
+        public static partial class Scenes
+        {
+            public const string CoinRain = &quot;Scenes/CoinRain&quot;;
+
+            public static void LoadCoinRain(LoadSceneMode mode = LoadSceneMode.Single) =&gt;
+                SceneManager.LoadScene(CoinRain, mode);
+
+            public static AsyncOperation LoadAsyncCoinRain(LoadSceneMode mode = LoadSceneMode.Single) =&gt;
+                SceneManager.LoadSceneAsync(CoinRain, mode);
+        }
+
+        public static partial class Prefabs
+        {
+            public const string Coin = &quot;Coin&quot;;
+            public static GameObject LoadCube() =&gt; Resources.Load&lt;GameObject&gt;(Coin);
+        }
+
+        public static partial class AudioClips
+        {
+            public const string Coin = &quot;Coin&quot;;
+            public static AudioClip LoadCoin() =&gt; Resources.Load&lt;AudioClip&gt;(Coin);
+        }
+    }
+}
+</code></pre>
+<h3 id="layers">Layers</h3>
+<p>If the generate layers option is selected from the following layers:</p>
+<p><img src="../../images/ResourceGenerator/intro/layers.png" alt="Layers"></p>
+<p>The following code will also be generated inside the <em>ResourcePaths.cs</em> file</p>
+<pre><code class="lang-csharp">public static partial class Layers
+{
+
+    public const string Default = &quot;Default&quot;;
+    public static int GetDefaultIndex() =&gt; LayerMask.NameToLayer(Default);
+    public static int GetDefaultMask() =&gt; LayerMask.GetMask(Default);
+    public const string TransparentFX = &quot;TransparentFX&quot;;
+    public static int GetTransparentFXIndex() =&gt; LayerMask.NameToLayer(TransparentFX);
+    public static int GetTransparentFXMask() =&gt; LayerMask.GetMask(TransparentFX);
+    public const string IgnoreRaycast = &quot;Ignore Raycast&quot;;
+    public static int GetIgnoreRaycastIndex() =&gt; LayerMask.NameToLayer(IgnoreRaycast);
+    public static int GetIgnoreRaycastMask() =&gt; LayerMask.GetMask(IgnoreRaycast);
+    public const string Water = &quot;Water&quot;;
+    public static int GetWaterIndex() =&gt; LayerMask.NameToLayer(Water);
+    public static int GetWaterMask() =&gt; LayerMask.GetMask(Water);
+    public const string UI = &quot;UI&quot;;
+    public static int GetUIIndex() =&gt; LayerMask.NameToLayer(UI);
+    public static int GetUIMask() =&gt; LayerMask.GetMask(UI);
+    public const string Sample = &quot;Sample&quot;;
+    public static int GetSampleIndex() =&gt; LayerMask.NameToLayer(Sample);
+    public static int GetSampleMask() =&gt; LayerMask.GetMask(Sample);
+}
+</code></pre>
+<h3 id="scene-buttons">Scene buttons</h3>
+<p>If the generate scene buttons options are selected like this:</p>
+<p><img src="../../images/ResourceGenerator/intro/SceneButtonsSettings.png" alt="SceneButtonsSettings"></p>
+<p>These menus will also be created:</p>
+<p><img src="../../images/ResourceGenerator/intro/LoadSceneButtons.png" alt="LoadSceneButtons"></p>
+<p><img src="../../images/ResourceGenerator/intro/PlaySceneButtons.png" alt="PlaySceneButtons"></p>
+<h2 id="customization">Customization</h2>
+<p>After pressing the <code>Generate Resource Paths</code> button, or visiting the <code>ResourceGenerator</code> page in the Project Settings an asset will be generated in the Assets folder, which will contain settings for the code generation.</p>
+<h3 id="built-in-settings">Built-in settings</h3>
+<p><img src="../../images/ResourceGenerator/Customization/DefaultSettings.png" alt="Generate Button"></p>
+<h4 id="basic-settings">Basic settings</h4>
+<ul>
+<li><strong>Folder from Assets</strong>: Relative path to the folder where you want the generated class</li>
+<li><strong>Namespace</strong>: The namespace of the generated class</li>
+<li><strong>Class name</strong>: The name of the generated class. The file name will be the same</li>
+<li><strong>Log Infos</strong>: Whether to log Info level logs. Turned off by default</li>
+<li><strong>Log Errors</strong>: Whether to log Error level logs. Turned on by default</li>
+</ul>
+<h4 id="advanced-settings">Advanced settings</h4>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you unrecoverably mess up your settings press the <code>Reset file mappings</code> button to restore the default file mappings</p>
+</div>
+<p>The data section describes the automatically generated file mappings. The data is an array. For each element of the array it will create a new inner class of the main generated one.</p>
+<ul>
+<li><strong>Class Name</strong>: The name of the generated class</li>
+<li><strong>File Extensions</strong>: Search pattern for the files</li>
+<li><strong>Data Type</strong>: The C# type returned by <code>Resurces.Load</code></li>
+</ul>
+<p>The default mappings are created from the <a href="https://docs.unity3d.com/Manual/BuiltInImporters.html">Unity documentation</a>. If you know of any valid file mapping that the documentation does not state, please fork and create a Pull Request, or create an <a href="https://github.com/AutSoft/UnityResourceGenerator/issues/new">Issue</a>.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Scenes have special handling during the file generation, because of the way scenes paths are used by the SceneManager. Scenes are identified by the file ending <code>.unity</code></p>
+</div>
+<h4 id="other-settings">Other settings</h4>
+<ul>
+<li><strong>Generate layers</strong>: Whether to generate layers functions</li>
+<li><strong>Generate scene buttons</strong>: Whether to generate load scene buttons to Unity menu
+<ul>
+<li><strong>Scene names</strong>: Names of the scenes for which play buttons will also    be created</li>
+</ul>
+</li>
+</ul>
+<h3 id="extending-the-generated-classes">Extending the generated classes</h3>
+<p>The generated classes are <code>partial</code> by default. This means that if you want to add custom methods, simply create another <code>partial</code> class and add your code there.</p>
+<pre><code class="lang-csharp">public static partial class ResourcePaths
+{
+    public static partial class Scenes
+    {
+        public static string[] MainScenes { get; } = new []
+        {
+            Coins,
+            Level1,
+            Level2,
+            // ...
+        }
+    }
+}
+</code></pre>
+<h2 id="extensibility">Extensibility</h2>
+<p>The library lets you to inject code into the generation pipeline. To access this feature, create a new Editor project, and reference <code>AutSoft.UnityResourceGenerator.Editor</code>. The included functionality is implemented using these methods.</p>
+<h3 id="module-generation">Module generation</h3>
+<p>A module is single string that is placed inside the main generated class. To create a custom module implement the <a class="xref" href="../../api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.IModuleGenerator.html">IModuleGenerator</a> interface. The implementation must provide a parameterless constructor.</p>
+<h3 id="post-processing">Post processing</h3>
+<p>A post processor is a piece of code that is run after all modules are produced, and the final file text is created. To create a post processor implement the <a class="xref" href="../../api/ResourceGenerator/AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.IResourcePostProcessor.html">IResourcePostProcessor</a> interface. The implementation must provide a parameterless constructor.</p>
+<p>The input of the processor is the current state of the generated file and it returns the new state of the generated file. Post processors also provide a Priority property which determines the ordering of them.</p>
+<h3 id="using-directives">Using directives</h3>
+<p>The generated using directives are also customizable under the settings window. If your custom generated code will require other using directives, there is no need to generate them, simply add them in the settings</p>
+<h2 id="known-issues">Known issues</h2>
+<h3 id="010---">0.1.0 - *</h3>
+<ul>
+<li>Duplicate file names in the same class module will break the generated file. The solution for this requires further investigation</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/Documentation/articles/ResourceGenerator/UnityResourceGenerator.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <a href="https://autsoft.net/">AutSoft Zrt.</a> Generated By <b>DocFX<b> 
+            
+          </b></b></div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
