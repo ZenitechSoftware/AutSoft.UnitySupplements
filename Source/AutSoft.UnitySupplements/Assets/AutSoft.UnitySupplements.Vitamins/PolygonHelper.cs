@@ -14,18 +14,18 @@ namespace AutSoft.UnitySupplements.Vitamins
         {
             var triangles = Triangulate(vertices);
 
-            Span<Vector3> normals = stackalloc Vector3[vertices.Length];
-            normals.Fill(Vector3.up);
+            var normals = new Vector3[vertices.Length];
+            Array.Fill(normals, Vector3.up);
 
             return new Mesh
             {
                 vertices = vertices,
                 triangles = triangles,
-                normals = normals.ToArray(),
+                normals = normals,
             };
         }
 
-        private static int[] Triangulate(Span<Vector3> vertices)
+        private static int[] Triangulate(Vector3[] vertices)
         {
             var indices = new List<int>();
 
@@ -88,7 +88,7 @@ namespace AutSoft.UnitySupplements.Vitamins
             return indices.ToArray();
         }
 
-        private static float Area(Span<Vector3> vertices)
+        private static float Area(Vector3[] vertices)
         {
             var n = vertices.Length;
             var A = 0.0f;
@@ -101,7 +101,7 @@ namespace AutSoft.UnitySupplements.Vitamins
             return A * 0.5f;
         }
 
-        private static bool Snip(Span<Vector3> vertices, int u, int v, int w, int n, int[] V)
+        private static bool Snip(Vector3[] vertices, int u, int v, int w, int n, int[] V)
         {
             int p;
             var A = vertices[V[u]];
