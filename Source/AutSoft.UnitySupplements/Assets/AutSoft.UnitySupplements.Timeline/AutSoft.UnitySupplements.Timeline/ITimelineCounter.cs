@@ -21,7 +21,8 @@ namespace AutSoft.UnitySupplements.Timeline
         /// <param name="start">Start date of timeline</param>
         /// <param name="end">End date of timeline</param>
         /// <param name="speed">Starting speed multiplier of timeline</param>
-        void Initialize(DateTimeOffset start, DateTimeOffset end, float speed);
+        /// <param name="dateTimeOffset"></param>
+        void Initialize(DateTimeOffset start, DateTimeOffset end, float speed, DateTimeOffset? currentTime);
 
         /// <summary>
         /// Called when the user stops scrubbing the timeline
