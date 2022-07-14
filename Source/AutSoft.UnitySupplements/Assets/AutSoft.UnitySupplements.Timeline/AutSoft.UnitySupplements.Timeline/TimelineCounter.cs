@@ -74,13 +74,13 @@ namespace AutSoft.UnitySupplements.Timeline
         public void Pause() => IsPlaying = false;
         public void SwitchState() => IsPlaying = !IsPlaying;
 
-        public void Initialize(DateTimeOffset start, DateTimeOffset end, float speed)
+        public void Initialize(DateTimeOffset start, DateTimeOffset end, float speed, DateTimeOffset? currentTime)
         {
             PlaySpeed = speed;
 
             SetTimeRange(start, end);
 
-            CurrentTime = _startTime;
+            CurrentTime = currentTime ?? _startTime;
         }
 
         public void SetSpeed(float speed) => PlaySpeed = speed;
