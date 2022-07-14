@@ -76,9 +76,9 @@ namespace AutSoft.UnitySupplements.Timeline
             base.OnDestroy();
         }
 
-        public void Initialize(DateTimeOffset start, DateTimeOffset end)
+        public void Initialize(DateTimeOffset start, DateTimeOffset end, DateTimeOffset? currentTime = null)
         {
-            _timeLine.Initialize(start, end, ParseSpeed());
+            _timeLine.Initialize(start, end, ParseSpeed(), currentTime);
 
             SetDuration(start, end);
 
