@@ -83,7 +83,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
             settings._logInfo = false;
             settings._logError = true;
 
-            var (data, usings, preferences) = CreateDefaultFileMappings();
+            var (data, usings) = CreateDefaultFileMappings();
 
             settings._data = data;
             settings._usings = usings;
@@ -93,7 +93,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
             settings._generateSceneButtons = true;
             settings._sceneNames = new();
 
-            settings._preferences = preferences;
+            settings._preferences = CreateDefaultPreferences();
 
             AssetDatabase.CreateAsset(settings, SettingsPath);
             AssetDatabase.SaveAssets();
@@ -101,7 +101,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
             return settings;
         }
 
-        private static (List<ResourceData> data, List<string> usings, List<Preference> preferences) CreateDefaultFileMappings() =>
+        private static (List<ResourceData> data, List<string> usings) CreateDefaultFileMappings() =>
             // https://docs.unity3d.com/Manual/BuiltInImporters.html
             (
                 new List<ResourceData>
@@ -118,23 +118,24 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
                 {
                     "UnityEngine",
                     "UnityEngine.SceneManagement",
-                },
-                new List<Preference>
-                {
-                    new Preference("Android", "JdkUseEmbedded", DataType.Bool),
-                    new Preference("Android", "SdkUseEmbedded", DataType.Bool),
-                    new Preference("Android", "NdkUseEmbedded", DataType.Bool),
-                    new Preference("Android", "GradleUseEmbedded", DataType.Bool),
-
-                    new Preference("Android", "JdkPath", DataType.String),
-                    new Preference("Android", "AndroidSdkRoot", DataType.String),
-                    new Preference("Android", "AndroidNdkRootR21D", DataType.String),
-                    new Preference("Android", "GradlePath", DataType.String),
-
-                    new Preference("CodeEditor", "kScriptsDefaultApp", DataType.String),
-                    new Preference("CodeEditor", "unity_project_generation_flag", DataType.Int),
                 }
             );
+
+        private static List<Preference> CreateDefaultPreferences() => new()
+        {
+            new Preference("Android", "JdkUseEmbedded", DataType.Bool),
+            new Preference("Android", "SdkUseEmbedded", DataType.Bool),
+            new Preference("Android", "NdkUseEmbedded", DataType.Bool),
+            new Preference("Android", "GradleUseEmbedded", DataType.Bool),
+
+            new Preference("Android", "JdkPath", DataType.String),
+            new Preference("Android", "AndroidSdkRoot", DataType.String),
+            new Preference("Android", "AndroidNdkRootR21D", DataType.String),
+            new Preference("Android", "GradlePath", DataType.String),
+
+            new Preference("CodeEditor", "kScriptsDefaultApp", DataType.String),
+            new Preference("CodeEditor", "unity_project_generation_flag", DataType.Int),
+        };
 
         [SettingsProvider]
         public static SettingsProvider CreateSettingsProvider() =>
@@ -153,10 +154,9 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
 
                     if (GUILayout.Button("Reset file mappings"))
                     {
-                        var (data, usings, preferences) = CreateDefaultFileMappings();
+                        var (data, usings) = CreateDefaultFileMappings();
                         settings.FindProperty(nameof(_data)).SetValue(data);
                         settings.FindProperty(nameof(_usings)).SetValue(usings);
-                        settings.FindProperty(nameof(_preferences)).SetValue(preferences);
                     }
 
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_usings)), new GUIContent("Using directives"));
@@ -169,6 +169,11 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
 
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_generatePreferences)), new GUIContent("Generate Known Preferences"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_preferences)), new GUIContent("Preferences"));
+                    if (GUILayout.Button("Reset known Editor preferences"))
+                    {
+                        var preferences = CreateDefaultPreferences();
+                        settings.FindProperty(nameof(_preferences)).SetValue(preferences);
+                    }
 
                     settings.ApplyModifiedProperties();
                 },
