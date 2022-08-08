@@ -1,6 +1,7 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.ResourceGenerator.Editor.Extensions;
 using AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation;
+using AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
@@ -53,6 +54,9 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
         [Header("Scene buttons")]
         [SerializeField] private bool _generateSceneButtons;
         [SerializeField] private List<string> _sceneNames = default!;
+        [Header("Editor prefs")]
+        [SerializeField] private bool _generatePreferences;
+        [SerializeField] private List<Preference> _preferences = default!;
 
         public string FolderPath => _folderPath;
         public string BaseNamespace => _baseNamespace;
@@ -64,6 +68,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
         public IReadOnlyList<string> SceneNames => _sceneNames;
         public IReadOnlyList<string> Usings => _usings;
         public IReadOnlyList<ResourceData> Data => _data;
+        public EditorPrefsData EditorPrefsData => new(_generatePreferences, _preferences);
 
         public static ResourceGeneratorSettings GetOrCreateSettings()
         {
@@ -78,7 +83,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
             settings._logInfo = false;
             settings._logError = true;
 
-            var (data, usings) = CreateDefaultFileMappings();
+            var (data, usings, preferences) = CreateDefaultFileMappings();
 
             settings._data = data;
             settings._usings = usings;
@@ -88,13 +93,15 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
             settings._generateSceneButtons = true;
             settings._sceneNames = new();
 
+            settings._preferences = preferences;
+
             AssetDatabase.CreateAsset(settings, SettingsPath);
             AssetDatabase.SaveAssets();
 
             return settings;
         }
 
-        private static (List<ResourceData> data, List<string> usings) CreateDefaultFileMappings() =>
+        private static (List<ResourceData> data, List<string> usings, List<Preference> preferences) CreateDefaultFileMappings() =>
             // https://docs.unity3d.com/Manual/BuiltInImporters.html
             (
                 new List<ResourceData>
@@ -111,6 +118,21 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
                 {
                     "UnityEngine",
                     "UnityEngine.SceneManagement",
+                },
+                new List<Preference>
+                {
+                    new Preference("Android", "JdkUseEmbedded", DataType.Bool),
+                    new Preference("Android", "SdkUseEmbedded", DataType.Bool),
+                    new Preference("Android", "NdkUseEmbedded", DataType.Bool),
+                    new Preference("Android", "GradleUseEmbedded", DataType.Bool),
+
+                    new Preference("Android", "JdkPath", DataType.String),
+                    new Preference("Android", "AndroidSdkRoot", DataType.String),
+                    new Preference("Android", "AndroidNdkRootR21D", DataType.String),
+                    new Preference("Android", "GradlePath", DataType.String),
+
+                    new Preference("CodeEditor", "kScriptsDefaultApp", DataType.String),
+                    new Preference("CodeEditor", "unity_project_generation_flag", DataType.Int),
                 }
             );
 
@@ -131,17 +153,22 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
 
                     if (GUILayout.Button("Reset file mappings"))
                     {
-                        var (data, usings) = CreateDefaultFileMappings();
+                        var (data, usings, preferences) = CreateDefaultFileMappings();
                         settings.FindProperty(nameof(_data)).SetValue(data);
                         settings.FindProperty(nameof(_usings)).SetValue(usings);
+                        settings.FindProperty(nameof(_preferences)).SetValue(preferences);
                     }
 
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_usings)), new GUIContent("Using directives"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_data)), new GUIContent("Data"));
 
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_generateLayers)), new GUIContent("Generate Layers"));
+
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_generateSceneButtons)), new GUIContent("Generate Scene Buttons"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(_sceneNames)), new GUIContent("Scene names"));
+
+                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(_generatePreferences)), new GUIContent("Generate Known Preferences"));
+                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(_preferences)), new GUIContent("Preferences"));
 
                     settings.ApplyModifiedProperties();
                 },

@@ -88,6 +88,73 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
 
         }
 
+#if UNITY_EDITOR
+        public static partial class KnownEditorPrefs
+        {
+
+            public static partial class Android
+            {
+
+                public static string JdkUseEmbedded { get; } = "JdkUseEmbedded";
+                public static bool GetJdkUseEmbedded() => UnityEditor.EditorPrefs.GetBool(JdkUseEmbedded);
+                public static void SetJdkUseEmbedded(bool value) => UnityEditor.EditorPrefs.SetBool(JdkUseEmbedded, value);
+                public static void DeleteJdkUseEmbedded() => UnityEditor.EditorPrefs.DeleteKey(JdkUseEmbedded);
+
+                public static string SdkUseEmbedded { get; } = "SdkUseEmbedded";
+                public static bool GetSdkUseEmbedded() => UnityEditor.EditorPrefs.GetBool(SdkUseEmbedded);
+                public static void SetSdkUseEmbedded(bool value) => UnityEditor.EditorPrefs.SetBool(SdkUseEmbedded, value);
+                public static void DeleteSdkUseEmbedded() => UnityEditor.EditorPrefs.DeleteKey(SdkUseEmbedded);
+
+                public static string NdkUseEmbedded { get; } = "NdkUseEmbedded";
+                public static bool GetNdkUseEmbedded() => UnityEditor.EditorPrefs.GetBool(NdkUseEmbedded);
+                public static void SetNdkUseEmbedded(bool value) => UnityEditor.EditorPrefs.SetBool(NdkUseEmbedded, value);
+                public static void DeleteNdkUseEmbedded() => UnityEditor.EditorPrefs.DeleteKey(NdkUseEmbedded);
+
+                public static string GradleUseEmbedded { get; } = "GradleUseEmbedded";
+                public static bool GetGradleUseEmbedded() => UnityEditor.EditorPrefs.GetBool(GradleUseEmbedded);
+                public static void SetGradleUseEmbedded(bool value) => UnityEditor.EditorPrefs.SetBool(GradleUseEmbedded, value);
+                public static void DeleteGradleUseEmbedded() => UnityEditor.EditorPrefs.DeleteKey(GradleUseEmbedded);
+
+                public static string JdkPath { get; } = "JdkPath";
+                public static string GetJdkPath() => UnityEditor.EditorPrefs.GetString(JdkPath);
+                public static void SetJdkPath(string value) => UnityEditor.EditorPrefs.SetString(JdkPath, value);
+                public static void DeleteJdkPath() => UnityEditor.EditorPrefs.DeleteKey(JdkPath);
+
+                public static string AndroidSdkRoot { get; } = "AndroidSdkRoot";
+                public static string GetAndroidSdkRoot() => UnityEditor.EditorPrefs.GetString(AndroidSdkRoot);
+                public static void SetAndroidSdkRoot(string value) => UnityEditor.EditorPrefs.SetString(AndroidSdkRoot, value);
+                public static void DeleteAndroidSdkRoot() => UnityEditor.EditorPrefs.DeleteKey(AndroidSdkRoot);
+
+                public static string AndroidNdkRootR21D { get; } = "AndroidNdkRootR21D";
+                public static string GetAndroidNdkRootR21D() => UnityEditor.EditorPrefs.GetString(AndroidNdkRootR21D);
+                public static void SetAndroidNdkRootR21D(string value) => UnityEditor.EditorPrefs.SetString(AndroidNdkRootR21D, value);
+                public static void DeleteAndroidNdkRootR21D() => UnityEditor.EditorPrefs.DeleteKey(AndroidNdkRootR21D);
+
+                public static string GradlePath { get; } = "GradlePath";
+                public static string GetGradlePath() => UnityEditor.EditorPrefs.GetString(GradlePath);
+                public static void SetGradlePath(string value) => UnityEditor.EditorPrefs.SetString(GradlePath, value);
+                public static void DeleteGradlePath() => UnityEditor.EditorPrefs.DeleteKey(GradlePath);
+
+            }
+
+            public static partial class CodeEditor
+            {
+
+                public static string kScriptsDefaultApp { get; } = "kScriptsDefaultApp";
+                public static string GetkScriptsDefaultApp() => UnityEditor.EditorPrefs.GetString(kScriptsDefaultApp);
+                public static void SetkScriptsDefaultApp(string value) => UnityEditor.EditorPrefs.SetString(kScriptsDefaultApp, value);
+                public static void DeletekScriptsDefaultApp() => UnityEditor.EditorPrefs.DeleteKey(kScriptsDefaultApp);
+
+                public static string unity_project_generation_flag { get; } = "unity_project_generation_flag";
+                public static int Getunity_project_generation_flag() => UnityEditor.EditorPrefs.GetInt(unity_project_generation_flag);
+                public static void Setunity_project_generation_flag(int value) => UnityEditor.EditorPrefs.SetInt(unity_project_generation_flag, value);
+                public static void Deleteunity_project_generation_flag() => UnityEditor.EditorPrefs.DeleteKey(unity_project_generation_flag);
+
+            }
+
+        }
+#endif
+
         public static partial class Layers
         {
 
