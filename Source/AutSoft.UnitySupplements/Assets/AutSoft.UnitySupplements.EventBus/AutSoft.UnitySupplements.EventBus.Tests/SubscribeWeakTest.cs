@@ -1,4 +1,5 @@
-﻿using Injecter;
+﻿#nullable enable
+using Injecter;
 using Injecter.Unity;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
@@ -13,8 +14,8 @@ namespace AutSoft.UnitySupplements.EventBus.Tests
 {
     public class SubscribeWeakTest
     {
-        private IEventBus _eventBus;
-        private EventHandlerCounter _counter;
+        private IEventBus _eventBus = default!;
+        private EventHandlerCounter _counter = default!;
 
         [SetUp]
         public void Init()
@@ -57,20 +58,22 @@ namespace AutSoft.UnitySupplements.EventBus.Tests
 
         private class TestComponent : MonoBehaviourScoped
         {
-            [Inject] private IEventBus _eventBus = default!;
-            [Inject] private EventHandlerCounter _counter = default!;
+            [Inject] private readonly IEventBus _eventBus = default!;
+            [Inject] private readonly EventHandlerCounter _counter = default!;
 
+            [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "False positive")]
+            [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S1144:Unused private types or members should be removed", Justification = "False positive")]
             private void Start() => _eventBus.SubscribeWeak<BaseEvent>(this, OnBaseCalled);
 
-            private void OnBaseCalled(BaseEvent message)
-            {
-                _counter.BaseCalled++;
-            }
+            private void OnBaseCalled(BaseEvent message) => _counter.BaseCalled++;
         }
 
         private class EventHandlerCounter
         {
             public int BaseCalled { get; set; }
+
+            [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "False positive")]
+            [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S1144:Unused private types or members should be removed", Justification = "Used implicitly")]
             public int DerivedCalled { get; set; }
         }
     }
