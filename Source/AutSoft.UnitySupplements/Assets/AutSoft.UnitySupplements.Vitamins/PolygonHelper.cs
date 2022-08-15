@@ -13,7 +13,7 @@ namespace AutSoft.UnitySupplements.Vitamins
         public static void GenerateTriangulatedMesh(Mesh mesh, Vector3[] vertices)
         {
             var indices = ArrayPool<int>.Shared.Rent((vertices.Length - 2) * 3);
-            Triangulate(vertices, indices, out var indicesCount);
+            var indicesCount = Triangulate(vertices, indices);
 
             mesh.Clear();
             mesh.SetVertices(vertices, 0, vertices.Length);
@@ -23,13 +23,13 @@ namespace AutSoft.UnitySupplements.Vitamins
             ArrayPool<int>.Shared.Return(indices);
         }
 
-        private static void Triangulate(Vector3[] vertices, int[] indices, out int indicesCount)
+        private static int Triangulate(Vector3[] vertices, int[] indices)
         {
-            indicesCount = 0;
+            var indicesCount = 0;
             var n = vertices.Length;
             if (n < 3)
             {
-                return;
+                return indicesCount;
             }
 
             var V = new int[n];
@@ -53,7 +53,7 @@ namespace AutSoft.UnitySupplements.Vitamins
             for (var v = nv - 1; nv > 2;)
             {
                 if (count-- <= 0)
-                    return;
+                    return indicesCount;
 
                 var u = v;
                 if (nv <= u)
@@ -82,6 +82,8 @@ namespace AutSoft.UnitySupplements.Vitamins
             }
 
             Array.Reverse(indices, 0, indicesCount);
+
+            return indicesCount;
         }
 
         private static float Area(Vector3[] vertices)
