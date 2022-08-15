@@ -1,6 +1,6 @@
 {
     "name": "com.autsoft.unitysupplements.vitamins",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "displayName": "Vitamins",
     "description": "Commonly used extension methods and helper classes for Unity",
     "license": "MIT",

@@ -1,6 +1,6 @@
 ﻿#nullable enable
 using System;
-using System.Collections.Generic;
+using System.Buffers;
 using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Vitamins
@@ -10,29 +10,26 @@ namespace AutSoft.UnitySupplements.Vitamins
     /// </summary>
     public static class PolygonHelper
     {
-        public static Mesh GenerateTriangulatedMesh(Vector3[] vertices)
+        public static void GenerateTriangulatedMesh(Mesh mesh, Vector3[] vertices)
         {
-            var triangles = Triangulate(vertices);
+            var indices = ArrayPool<int>.Shared.Rent((vertices.Length - 2) * 3);
+            var indicesCount = Triangulate(vertices, indices);
 
-            var normals = new Vector3[vertices.Length];
-            Array.Fill(normals, Vector3.up);
+            mesh.Clear();
+            mesh.SetVertices(vertices, 0, vertices.Length);
+            mesh.SetTriangles(indices, 0, indicesCount, 0);
+            mesh.RecalculateNormals();
 
-            return new Mesh
-            {
-                vertices = vertices,
-                triangles = triangles,
-                normals = normals,
-            };
+            ArrayPool<int>.Shared.Return(indices);
         }
 
-        private static int[] Triangulate(Vector3[] vertices)
+        private static int Triangulate(Vector3[] vertices, int[] indices)
         {
-            var indices = new List<int>();
-
+            var indicesCount = 0;
             var n = vertices.Length;
             if (n < 3)
             {
-                return indices.ToArray();
+                return indicesCount;
             }
 
             var V = new int[n];
@@ -56,7 +53,7 @@ namespace AutSoft.UnitySupplements.Vitamins
             for (var v = nv - 1; nv > 2;)
             {
                 if (count-- <= 0)
-                    return indices.ToArray();
+                    return indicesCount;
 
                 var u = v;
                 if (nv <= u)
@@ -74,9 +71,9 @@ namespace AutSoft.UnitySupplements.Vitamins
                     a = V[u];
                     b = V[v];
                     c = V[w];
-                    indices.Add(a);
-                    indices.Add(b);
-                    indices.Add(c);
+                    indices[indicesCount++] = a;
+                    indices[indicesCount++] = b;
+                    indices[indicesCount++] = c;
                     for (s = v, t = v + 1; t < nv; s++, t++)
                         V[s] = V[t];
                     nv--;
@@ -84,8 +81,9 @@ namespace AutSoft.UnitySupplements.Vitamins
                 }
             }
 
-            indices.Reverse();
-            return indices.ToArray();
+            Array.Reverse(indices, 0, indicesCount);
+
+            return indicesCount;
         }
 
         private static float Area(Vector3[] vertices)
