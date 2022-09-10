@@ -14,7 +14,11 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
             set => SetProperty(ref _input, value);
         }
 
-        public void Alphabetize() => Input = new string(Input.OrderBy(c => c).ToArray());
+        public void Alphabetize()
+        {
+            if (Input is null) return;
+            Input = new string(Input.OrderBy(c => c).ToArray());
+        }
 
         public void RemoveLastCharacter()
         {
