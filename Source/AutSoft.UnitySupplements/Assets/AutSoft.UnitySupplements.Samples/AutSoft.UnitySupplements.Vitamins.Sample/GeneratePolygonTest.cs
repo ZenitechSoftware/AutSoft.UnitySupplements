@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#nullable enable
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,7 +7,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
 {
     public class GeneratePolygonTest : MonoBehaviour
     {
-        private MeshFilter _meshFilter;
+        private MeshFilter _meshFilter = default!;
 
         private void Awake()
         {
