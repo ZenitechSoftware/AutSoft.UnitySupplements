@@ -12,12 +12,14 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
         [SerializeField] private TMP_InputField _inputField = default!;
         [SerializeField] private TMP_Text _inputShowcase = default!;
         [SerializeField] private Button _removeLastCharacterButton = default!;
+        [SerializeField] private Button _alphabetizeButton = default!;
 
         private void Awake()
         {
             this.CheckSerializedField(x => x._inputField);
             this.CheckSerializedField(x => x._removeLastCharacterButton);
             this.CheckSerializedField(x => x._inputShowcase);
+            this.CheckSerializedField(x => x._alphabetizeButton);
 
             _data.BindTwoWay
             (
@@ -30,12 +32,9 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
 
             _data.BindOneWay<string>(gameObject, nameof(_data.Input), i => _inputShowcase.text = i);
 
-            _removeLastCharacterButton.onClick.AddWeak(gameObject, () =>
-            {
-                if (_data.Input?.Length == 0) return;
+            _removeLastCharacterButton.onClick.AddWeak(gameObject, _data.RemoveLastCharacter);
 
-                _data.Input = _data.Input?[..^1];
-            });
+            _alphabetizeButton.onClick.AddWeak(gameObject, _data.Alphabetize);
         }
     }
 }
