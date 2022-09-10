@@ -38,7 +38,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
                 foreach(var item in items)
                 {
                     var itemObject = _factory.Instantiate(_itemsPrefab, _contentParent, true);
-                    itemObject.GetComponent<ListItem>().Initialize(item);
+                    itemObject.GetComponent<ListItem>().Initialize(item, true);
                 }
             });
 
@@ -49,6 +49,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
             });
 
             _orderButton.onClick.AddWeak(gameObject, _data.Order);
+            _removeButton.onClick.AddWeak(gameObject, _data.RemoveSelected);
         }
     }
 }
