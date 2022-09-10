@@ -57,15 +57,12 @@ namespace AutSoft.UnitySupplements.EventBus.Tests
 
         private class TestComponent : MonoBehaviourScoped
         {
-            [Inject] private IEventBus _eventBus = default!;
-            [Inject] private EventHandlerCounter _counter = default!;
+            [Inject] private readonly IEventBus _eventBus = default!;
+            [Inject] private readonly EventHandlerCounter _counter = default!;
 
             private void Start() => _eventBus.SubscribeWeak<BaseEvent>(this, OnBaseCalled);
 
-            private void OnBaseCalled(BaseEvent message)
-            {
-                _counter.BaseCalled++;
-            }
+            private void OnBaseCalled(BaseEvent message) => _counter.BaseCalled++;
         }
 
         private class EventHandlerCounter
