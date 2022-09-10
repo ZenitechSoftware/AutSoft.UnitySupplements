@@ -1,24 +1,24 @@
 {
   "dependencies": {
     "com.cysharp.unitask": {
-      "version": "2.2.5",
+      "version": "2.3.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
     "com.injecter.hosting.unity": {
-      "version": "7.0.2",
+      "version": "8.0.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.injecter.unity": "7.0.2"
+        "com.injecter.unity": "8.0.1"
       },
       "url": "https://package.openupm.com"
     },
     "com.injecter.unity": {
-      "version": "7.0.2",
-      "depth": 0,
+      "version": "8.0.1",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"
@@ -163,7 +163,7 @@
       }
     },
     "org.nuget.injecter": {
-      "version": "7.0.2",
+      "version": "8.0.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -514,21 +514,21 @@
       "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "org.nuget.roslynator.analyzers": {
-      "version": "4.0.2",
+      "version": "4.1.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "org.nuget.serilog": {
-      "version": "2.10.0",
+      "version": "2.11.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "org.nuget.serilog.extensions.hosting": {
-      "version": "4.2.0",
+      "version": "5.0.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -551,7 +551,7 @@
       "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "org.nuget.sonaranalyzer.csharp": {
-      "version": "8.36.0-43782",
+      "version": "8.44.0-52574",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
