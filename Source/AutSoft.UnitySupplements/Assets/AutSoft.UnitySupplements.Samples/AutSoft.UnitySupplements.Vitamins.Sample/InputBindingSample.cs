@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.Vitamins.Sample
 {
-    public class BindingSample : MonoBehaviour
+    public class InputBindingSample : MonoBehaviour
     {
-        private readonly SampleData _data = new();
+        private readonly InputData _data = new();
 
         [SerializeField] private TMP_InputField _inputField = default!;
         [SerializeField] private TMP_Text _inputShowcase = default!;

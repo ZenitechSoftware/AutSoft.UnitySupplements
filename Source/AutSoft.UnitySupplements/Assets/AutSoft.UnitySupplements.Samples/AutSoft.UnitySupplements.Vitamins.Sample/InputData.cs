@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace AutSoft.UnitySupplements.Vitamins.Sample
 {
-    public class SampleData : ObservableObject
+    public class InputData : ObservableObject
     {
         private string? _input;
 
