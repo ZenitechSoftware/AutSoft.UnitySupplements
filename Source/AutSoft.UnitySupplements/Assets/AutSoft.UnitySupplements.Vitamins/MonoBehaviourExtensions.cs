@@ -1,6 +1,6 @@
 ﻿#nullable enable
-using System.Linq.Expressions;
 using System;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -55,5 +55,14 @@ namespace AutSoft.UnitySupplements.Vitamins
             }
 #endif
         }
+
+        /// <summary>
+        /// Get the given component or add it to the gameobject
+        /// </summary>
+        /// <typeparam name="T">Type of the component</typeparam>
+        /// <param name="monoBehaviour">Owner component</param>
+        /// <returns>The given component</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static T GetOrAddComponent<T>(this MonoBehaviour monoBehaviour) where T : Component => monoBehaviour.gameObject.GetOrAddComponent<T>();
     }
 }
