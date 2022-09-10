@@ -3,7 +3,9 @@ using AutSoft.UnitySupplements.EventBus;
 using AutSoft.UnitySupplements.ResourceGenerator.Sample;
 using AutSoft.UnitySupplements.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
+using AutSoft.UnitySupplements.Vitamins.Sample;
 using Injecter;
+using Injecter.Hosting.Unity;
 using Injecter.Unity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,6 +39,8 @@ namespace AutSoft.UnitySupplements.Samples
                 CompositionRoot.ServiceProvider = serviceProvider;
 
                 Application.quitting += OnQuitting;
+
+                InjectionHelper.RegisterInjectionsOnSceneLoad(serviceProvider);
 
                 void OnQuitting()
                 {
@@ -89,6 +93,8 @@ namespace AutSoft.UnitySupplements.Samples
             services.AddSingleton<ICancellation, Cancellation>();
 
             services.AddTimeline();
+
+            services.AddSingleton<ListBindingData>();
 
             return services;
         }
