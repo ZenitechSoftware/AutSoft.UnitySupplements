@@ -16,6 +16,7 @@
     "org.nuget.microsoft.extensions.dependencymodel": "6.0.0",
     "org.nuget.microsoft.extensions.hosting": "6.0.1",
     "org.nuget.microsoft.extensions.logging": "6.0.0",
+    "org.nuget.microsoft.toolkit.mvvm": "7.1.2",
     "org.nuget.morelinq": "3.3.2",
     "org.nuget.roslynator.analyzers": "4.1.1",
     "org.nuget.serilog": "2.11.0",
