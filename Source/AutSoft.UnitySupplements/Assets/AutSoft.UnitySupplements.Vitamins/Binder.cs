@@ -13,8 +13,10 @@ namespace AutSoft.UnitySupplements.Vitamins
     public static class Binder
     {
         private static readonly Dictionary<Type, Dictionary<string, PropertyInfo>> _properties = new();
+
         public static void BindOneWay<T>(this INotifyPropertyChanged source, GameObject gameObject, string propertyName, Action<T> update) =>
             BindSourceToTarget(source, gameObject, propertyName, update);
+
         public static void BindTwoWay<TSource, TTarget>
         (
             this INotifyPropertyChanged source,
@@ -28,11 +30,13 @@ namespace AutSoft.UnitySupplements.Vitamins
             var (sourceType, destroyDetector) = BindSourceToTarget(source, gameObject, propertyName, updateTarget);
             BindTargetToSource(source, unityEvent, propertyName, updateSource, sourceType, destroyDetector);
         }
+
         public static void BindOneTime<T>(this INotifyPropertyChanged source, string propertyName, Action<T> update)
         {
             var sourceType = source.GetType();
             SetValueFirstTime(source, propertyName, update, sourceType);
         }
+
         public static void BindOneWayToSource<TSource, TTarget>
         (
             this INotifyPropertyChanged source,
@@ -50,6 +54,7 @@ namespace AutSoft.UnitySupplements.Vitamins
             property.SetValue(source, value);
             BindTargetToSource(source, unityEvent, propertyName, updateSource, sourceType, destroyDetector);
         }
+
         private static void BindTargetToSource<TSource, TTarget>
         (
             INotifyPropertyChanged source,
@@ -69,6 +74,7 @@ namespace AutSoft.UnitySupplements.Vitamins
             unityEvent.AddListener(UpdateProperty);
             destroyDetector.Destroyed += () => unityEvent.RemoveListener(UpdateProperty);
         }
+
         private static (Type sourceType, DestroyDetector destroyDetector) BindSourceToTarget<T>
         (
             INotifyPropertyChanged source,
@@ -90,6 +96,7 @@ namespace AutSoft.UnitySupplements.Vitamins
             SetValueFirstTime(source, propertyName, update, sourceType);
             return (sourceType, destroyDetector);
         }
+
         private static void SetValueFirstTime<T>
         (
             INotifyPropertyChanged source,
@@ -101,6 +108,7 @@ namespace AutSoft.UnitySupplements.Vitamins
             var property = GetProperty<T>(propertyName, sourceType);
             update((T)property.GetValue(source));
         }
+
         private static PropertyInfo GetProperty<T>(string propertyName, Type sourceType)
         {
             PropertyInfo property;
@@ -115,6 +123,7 @@ namespace AutSoft.UnitySupplements.Vitamins
                 properties.Add(propertyName, property);
             }
             return property;
+
             static PropertyInfo GetPropertyOrThrow(string propertyName, Type sourceType)
             {
                 var property = sourceType.GetProperty(propertyName) ?? throw new InvalidOperationException($"Could not find Property {propertyName} on Type {sourceType.FullName}");
