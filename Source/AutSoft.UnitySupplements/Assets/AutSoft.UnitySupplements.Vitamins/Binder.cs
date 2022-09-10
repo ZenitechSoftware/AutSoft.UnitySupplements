@@ -15,12 +15,12 @@ namespace AutSoft.UnitySupplements.Vitamins
     {
         private static readonly Dictionary<Type, Dictionary<string, PropertyInfo>> _properties = new();
 
-        public static void BindOneWay<T>(this INotifyPropertyChanged source, GameObject gameObject, string propertyName, Action<T> update) =>
+        public static void BindOneWay<TSource>(this INotifyPropertyChanged source, GameObject gameObject, string propertyName, Action<TSource> update) =>
             BindSourceToTarget(source, gameObject, propertyName, update);
 
-        public static void BindOneWay<TProperty, TSource>(this TSource source, GameObject gameObject, Expression<Func<TSource,TProperty>> memberExpression, Action<TProperty> update)
-            where TSource : INotifyPropertyChanged =>
-            BindOneWay(source, gameObject, ((MemberExpression)memberExpression.Body).Member.Name, update);
+        public static void BindOneWay<TSource, TBindingSource>(this TBindingSource source, GameObject gameObject, Expression<Func<TBindingSource, TSource>> memberExpression, Action<TSource> update)
+            where TBindingSource : INotifyPropertyChanged =>
+            BindOneWay(source, gameObject, GetMemberName(memberExpression), update);
 
         public static void BindTwoWay<TSource, TTarget>
         (
@@ -36,11 +36,27 @@ namespace AutSoft.UnitySupplements.Vitamins
             BindTargetToSource(source, unityEvent, propertyName, updateSource, sourceType, destroyDetector);
         }
 
-        public static void BindOneTime<T>(this INotifyPropertyChanged source, string propertyName, Action<T> update)
+        public static void BindTwoWay<TSource, TTarget, TBindingSource>
+        (
+            this TBindingSource source,
+            GameObject gameObject,
+            UnityEvent<TSource> unityEvent,
+            Expression<Func<TBindingSource, TSource>> memberExpression,
+            Action<TTarget> updateTarget,
+            Func<TSource, TTarget> updateSource
+        )
+            where TBindingSource : INotifyPropertyChanged =>
+            BindTwoWay(source, gameObject, unityEvent, GetMemberName(memberExpression), updateTarget, updateSource);
+
+        public static void BindOneTime<TSource>(this INotifyPropertyChanged source, string propertyName, Action<TSource> update)
         {
             var sourceType = source.GetType();
             SetValueFirstTime(source, propertyName, update, sourceType);
         }
+
+        public static void BindOneTime<TSource, TBindingSource>(this TBindingSource source, Expression<Func<TBindingSource, TSource>> memberExpression, Action<TSource> update)
+            where TBindingSource : INotifyPropertyChanged =>
+            BindOneTime(source, GetMemberName(memberExpression), update);
 
         public static void BindOneWayToSource<TSource, TTarget>
         (
@@ -59,6 +75,20 @@ namespace AutSoft.UnitySupplements.Vitamins
             property.SetValue(source, value);
             BindTargetToSource(source, unityEvent, propertyName, updateSource, sourceType, destroyDetector);
         }
+
+        public static void BindOneWayToSource<TSource, TTarget, TBindingSource>
+        (
+            this INotifyPropertyChanged source,
+            GameObject gameObject,
+            UnityEvent<TSource> unityEvent,
+            Expression<Func<TBindingSource, TSource>> memberExpression,
+            Func<TSource> getValue,
+            Func<TSource, TTarget> updateSource
+        )
+            where TBindingSource : INotifyPropertyChanged =>
+            BindOneWayToSource(source, gameObject, unityEvent, GetMemberName(memberExpression), getValue, updateSource);
+
+        private static string GetMemberName<T, R>(Expression<Func<T, R>> memberExpression) => ((MemberExpression)memberExpression.Body).Member.Name;
 
         private static void BindTargetToSource<TSource, TTarget>
         (

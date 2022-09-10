@@ -25,7 +25,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
             (
                 gameObject,
                 _inputField.onValueChanged,
-                nameof(_data.Input),
+                x => x.Input,
                 updateTarget: x => _inputField.text = x,
                 updateSource: x => x
             );
