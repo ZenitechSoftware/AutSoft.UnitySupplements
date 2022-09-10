@@ -1,4 +1,5 @@
 ﻿#nullable enable
+#if UNITY_EDITOR
 using System.IO;
 using System.Runtime.InteropServices;
 using Unity.CodeEditor;
@@ -36,3 +37,4 @@ namespace AutSoft.UnitySupplements.Samples
         }
     }
 }
+#endif

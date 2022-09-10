@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.Vitamins.Sample/Scenes/Binding.unity
+    guid: f73298950366a9d43836574bbdba2870
   - enabled: 0
     path: Assets/AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.Timeline.Sample/TimelineSample.unity
     guid: ae5dee00aa6f5bd479103ce417635d68
-  - enabled: 1
+  - enabled: 0
     path: Assets/AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.ResourceGenerator.Sample/Scenes/LoadSceneNext.unity
     guid: 30c67a1856c767e4ba1c273f5c55bfbb
-  - enabled: 1
+  - enabled: 0
     path: Assets/AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.ResourceGenerator.Sample/Scenes/LoadSceneInitial.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0

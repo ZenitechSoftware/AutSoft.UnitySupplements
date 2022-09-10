@@ -1,4 +1,5 @@
 ﻿#nullable enable
+#if UNITY_EDITOR
 using System;
 using System.Reflection;
 using UnityEditor;
@@ -18,3 +19,4 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
         }
     }
 }
+#endif
