@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq.Expressions;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,6 +17,10 @@ namespace AutSoft.UnitySupplements.Vitamins
 
         public static void BindOneWay<T>(this INotifyPropertyChanged source, GameObject gameObject, string propertyName, Action<T> update) =>
             BindSourceToTarget(source, gameObject, propertyName, update);
+
+        public static void BindOneWay<TProperty, TSource>(this TSource source, GameObject gameObject, Expression<Func<TSource,TProperty>> memberExpression, Action<TProperty> update)
+            where TSource : INotifyPropertyChanged =>
+            BindOneWay(source, gameObject, ((MemberExpression)memberExpression.Body).Member.Name, update);
 
         public static void BindTwoWay<TSource, TTarget>
         (

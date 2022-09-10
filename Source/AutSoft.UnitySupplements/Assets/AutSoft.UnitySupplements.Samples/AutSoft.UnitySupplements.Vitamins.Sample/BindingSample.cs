@@ -30,7 +30,12 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
                 updateSource: x => x
             );
 
-            _data.BindOneWay<string>(gameObject, nameof(_data.Input), i => _inputShowcase.text = i);
+            _data.BindOneWay
+            (
+                gameObject,
+                x => x.Input,
+                i => _inputShowcase.text = i
+            );
 
             _removeLastCharacterButton.onClick.AddWeak(gameObject, _data.RemoveLastCharacter);
 
