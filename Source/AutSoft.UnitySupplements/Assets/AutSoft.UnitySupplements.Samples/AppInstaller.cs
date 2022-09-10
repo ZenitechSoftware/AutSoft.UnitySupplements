@@ -4,13 +4,13 @@ using AutSoft.UnitySupplements.ResourceGenerator.Sample;
 using AutSoft.UnitySupplements.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;
-using Injecter.Hosting.Unity;
 using Injecter.Unity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Sinks.Unity3D;
 using System;
+using System.IO;
 using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Samples
@@ -30,13 +30,11 @@ namespace AutSoft.UnitySupplements.Samples
 
             try
             {
-                var host = new HostBuilder()
-                    .ConfigureHost(logger)
-                    .Build();
+                var serviceProvider = new ServiceCollection()
+                    .Configure(logger)
+                    .BuildServiceProvider(true);
 
-                CompositionRoot.ServiceProvider = host.Services;
-
-                host.Start();
+                CompositionRoot.ServiceProvider = serviceProvider;
 
                 Application.quitting += OnQuitting;
 
@@ -44,7 +42,7 @@ namespace AutSoft.UnitySupplements.Samples
                 {
                     Log.CloseAndFlush();
 
-                    host = null!;
+                    serviceProvider = null!;
 
                     Application.quitting -= OnQuitting;
                 }
@@ -56,25 +54,23 @@ namespace AutSoft.UnitySupplements.Samples
             }
         }
 
-        public static IHostBuilder ConfigureHost(this IHostBuilder builder, Serilog.ILogger logger)
+        public static IServiceCollection Configure(this IServiceCollection serviceCollection, Serilog.ILogger logger)
         {
             var jsons = new[]
             {
-                ResourcePaths.TextAssets.LoadAppSettings()
+                ResourcePaths.TextAssets.LoadAppSettings(),
             };
 
-            return builder
-                .UseUnity(_ => { }, false, false, jsons)
-                .ConfigureServices(ConfigureServices)
-                .UseDefaultServiceProvider(o =>
-                {
-                    o.ValidateOnBuild = true;
-                    o.ValidateScopes = true;
-                })
-                .UseSerilog(logger);
+            var config = new ConfigurationBuilder()
+                .AddJsonStream(new MemoryStream(jsons[0].bytes))
+                .Build();
+
+            return serviceCollection
+                .AddLogging(b => b.AddSerilog(logger))
+                .ConfigureServices(config);
         }
 
-        public static void ConfigureServices(HostBuilderContext builder, IServiceCollection services)
+        public static IServiceCollection ConfigureServices(this IServiceCollection services, IConfigurationRoot config)
         {
             var assemblies = new[] { typeof(AppInstaller).Assembly };
 
@@ -91,6 +87,8 @@ namespace AutSoft.UnitySupplements.Samples
             services.AddSingleton<ICancellation, Cancellation>();
 
             services.AddTimeline();
+
+            return services;
         }
     }
 }
