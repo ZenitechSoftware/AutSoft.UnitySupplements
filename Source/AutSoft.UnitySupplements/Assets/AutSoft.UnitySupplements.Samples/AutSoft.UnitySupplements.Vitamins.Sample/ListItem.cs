@@ -21,8 +21,10 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
             this.CheckSerializedField(x => x._numberText);
         }
 
-        public void Initialize(ListItemData data)
+        public void Initialize(ListItemData? data)
         {
+            if (data is null) return;
+
             _data = data;
 
             _data.Bind(gameObject, x => x.Title, t => _titleText.text = t);

@@ -1,20 +1,13 @@
 ﻿#nullable enable
 using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace AutSoft.UnitySupplements.Vitamins.Sample
 {
     public class ListBindingData : ObservableObject
     {
-        private ListItemData[] _items = Array.Empty<ListItemData>();
-
-        public IReadOnlyList<ListItemData> Items
-        {
-            get => _items;
-            private set => SetProperty(ref _items, value.ToArray());
-        }
+        public ObservableCollection<ListItemData> Items { get; } = new();
 
         private ListItemData? _selected;
 
@@ -24,16 +17,26 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
             set => SetProperty(ref _selected, value);
         }
 
-        public void Add(ListItemData item) => Items = Items.Append(item).ToArray();
+        public void Add(ListItemData item) => Items.Add(item);
 
         public void RemoveSelected()
         {
             if (Selected is null) return;
-            Items = Items.Except(new[] { Selected }).ToArray();
+            Items.Remove(Selected);
             Selected = null;
         }
 
-        public void Order() => Items = Items.OrderBy(i => i.Number).ToArray();
+        public void Order()
+        {
+            var orderedItems = Items.OrderBy(i => i.Number).ToArray();
+
+            Items.Clear();
+
+            foreach (var item in orderedItems)
+            {
+                Items.Add(item);
+            }
+        }
     }
 
     public class ListItemData : ObservableObject

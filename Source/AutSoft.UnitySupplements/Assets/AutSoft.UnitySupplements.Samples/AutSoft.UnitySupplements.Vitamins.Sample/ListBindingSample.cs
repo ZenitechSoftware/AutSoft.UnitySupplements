@@ -1,6 +1,8 @@
 ﻿#nullable enable
 using Injecter;
 using Injecter.Unity;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,14 +37,20 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
 
         private void Start()
         {
-            _data.Bind(gameObject, x => x.Items, items =>
+            _data.Items.Bind<ObservableCollection<ListItemData>, ListItemData>(gameObject, args =>
             {
-                _contentParent.DestroyChildren();
-
-                foreach (var item in items)
+                if (args.Action == NotifyCollectionChangedAction.Add)
                 {
                     var itemObject = _factory.Instantiate(_itemsPrefab, _contentParent, true);
-                    itemObject.GetComponent<ListItem>().Initialize(item);
+                    itemObject.GetComponent<ListItem>().Initialize(args.NewItem);
+                }
+                else if (args.Action == NotifyCollectionChangedAction.Remove)
+                {
+                    Destroy(_contentParent.transform.GetChild(args.OldStartingIndex).gameObject);
+                }
+                else if (args.Action == NotifyCollectionChangedAction.Reset)
+                {
+                    _contentParent.DestroyChildren();
                 }
             });
 
