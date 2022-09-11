@@ -7,7 +7,9 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
 {
     public class ListBindingData : ObservableObject
     {
-        public ObservableCollection<ListItemData> Items { get; } = new();
+        private readonly ObservableCollection<ListItemData> _items = new();
+
+        public ReadOnlyObservableCollection<ListItemData> Items { get; }
 
         private ListItemData? _selected;
 
@@ -17,12 +19,14 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
             set => SetProperty(ref _selected, value);
         }
 
-        public void Add(ListItemData item) => Items.Add(item);
+        public ListBindingData() => Items = new(_items);
+
+        public void Add(ListItemData item) => _items.Add(item);
 
         public void RemoveSelected()
         {
             if (Selected is null) return;
-            Items.Remove(Selected);
+            _items.Remove(Selected);
             Selected = null;
         }
 
@@ -30,11 +34,11 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
         {
             var orderedItems = Items.OrderBy(i => i.Number).ToArray();
 
-            Items.Clear();
+            _items.Clear();
 
             foreach (var item in orderedItems)
             {
-                Items.Add(item);
+                _items.Add(item);
             }
         }
     }

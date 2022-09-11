@@ -1,6 +1,7 @@
 ﻿#nullable enable
 using Injecter;
 using Injecter.Unity;
+using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using UnityEngine;
@@ -37,7 +38,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
 
         private void Start()
         {
-            _data.Items.Bind<ObservableCollection<ListItemData>, ListItemData>(gameObject, args =>
+            _data.Items.Bind<ReadOnlyObservableCollection<ListItemData>, ListItemData>(gameObject, args =>
             {
                 if (args.Action == NotifyCollectionChangedAction.Add)
                 {
@@ -51,6 +52,12 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
                 else if (args.Action == NotifyCollectionChangedAction.Reset)
                 {
                     _contentParent.DestroyChildren();
+                }
+                else
+                {
+#pragma warning disable S3928 // Parameter names used into ArgumentException constructors should match an existing one 
+                    throw new ArgumentOutOfRangeException(nameof(args.Action), args.Action, "Could not handle collection change type");
+#pragma warning restore S3928 // Parameter names used into ArgumentException constructors should match an existing one 
                 }
             });
 
