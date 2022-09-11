@@ -1,4 +1,5 @@
-﻿using Injecter;
+﻿#nullable enable
+using Injecter;
 using Injecter.Unity;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
@@ -13,8 +14,8 @@ namespace AutSoft.UnitySupplements.EventBus.Tests
 {
     public class SubscribeWeakTest
     {
-        private IEventBus _eventBus;
-        private EventHandlerCounter _counter;
+        private IEventBus _eventBus = default!;
+        private EventHandlerCounter _counter = default!;
 
         [SetUp]
         public void Init()
