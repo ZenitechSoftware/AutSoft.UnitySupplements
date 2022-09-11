@@ -26,10 +26,10 @@ namespace AutSoft.UnitySupplements.Vitamins
         (
             this INotifyPropertyChanged source,
             GameObject gameObject,
-            UnityEvent<TSource> unityEvent,
+            UnityEvent<TTarget> unityEvent,
             string propertyName,
-            Action<TTarget> updateTarget,
-            Func<TSource, TTarget> updateSource
+            Action<TSource> updateTarget,
+            Func<TTarget,TSource> updateSource
         )
         {
             var (sourceType, destroyDetector) = BindSourceToTarget(source, gameObject, propertyName, updateTarget);
@@ -40,10 +40,10 @@ namespace AutSoft.UnitySupplements.Vitamins
         (
             this TBindingSource source,
             GameObject gameObject,
-            UnityEvent<TSource> unityEvent,
+            UnityEvent<TTarget> unityEvent,
             Expression<Func<TBindingSource, TSource>> memberExpression,
-            Action<TTarget> updateTarget,
-            Func<TSource, TTarget> updateSource
+            Action<TSource> updateTarget,
+            Func<TTarget, TSource> updateSource
         )
             where TBindingSource : INotifyPropertyChanged =>
             BindTwoWay(source, gameObject, unityEvent, GetMemberName(memberExpression), updateTarget, updateSource);
@@ -93,14 +93,14 @@ namespace AutSoft.UnitySupplements.Vitamins
         private static void BindTargetToSource<TSource, TTarget>
         (
             INotifyPropertyChanged source,
-            UnityEvent<TSource> unityEvent,
+            UnityEvent<TTarget> unityEvent,
             string propertyName,
-            Func<TSource, TTarget> updateSource,
+            Func<TTarget, TSource> updateSource,
             Type sourceType,
             DestroyDetector destroyDetector
         )
         {
-            void UpdateProperty(TSource value)
+            void UpdateProperty(TTarget value)
             {
                 var property = _properties[sourceType][propertyName];
                 var nextValue = updateSource(value);
