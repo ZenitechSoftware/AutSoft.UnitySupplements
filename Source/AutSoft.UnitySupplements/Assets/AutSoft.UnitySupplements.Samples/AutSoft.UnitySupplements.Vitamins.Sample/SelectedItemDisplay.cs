@@ -20,7 +20,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
         }
 
         private void Start() =>
-            _listBindingData.BindOneWay(gameObject, x => x.Selected, s =>
+            _listBindingData.Bind(gameObject, x => x.Selected, s =>
             {
                 _transformParent.DestroyChildren();
                 if (s is null) return;

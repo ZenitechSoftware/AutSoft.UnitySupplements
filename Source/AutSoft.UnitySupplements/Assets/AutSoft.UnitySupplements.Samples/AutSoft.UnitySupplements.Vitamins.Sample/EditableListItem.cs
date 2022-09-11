@@ -16,7 +16,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
             this.CheckSerializedField(x => x._titleText);
             this.CheckSerializedField(x => x._numberText);
 
-            Data.BindTwoWay
+            Data.Bind
             (
                 gameObject,
                 _titleText.onValueChanged,
@@ -25,7 +25,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
                 i => i
             );
 
-            Data.BindTwoWay
+            Data.Bind
             (
                 gameObject,
                 _numberText.onValueChanged,

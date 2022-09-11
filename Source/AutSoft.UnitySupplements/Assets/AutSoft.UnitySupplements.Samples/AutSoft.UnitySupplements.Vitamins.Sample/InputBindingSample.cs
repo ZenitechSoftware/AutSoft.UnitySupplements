@@ -23,7 +23,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
             this.CheckSerializedField(x => x._inputShowcase);
             this.CheckSerializedField(x => x._alphabetizeButton);
 
-            _data.BindTwoWay
+            _data.Bind
             (
                 gameObject,
                 _inputField.onValueChanged,
@@ -32,14 +32,14 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
                 updateSource: x => x
             );
 
-            _data.BindOneWay
+            _data.Bind
             (
                 gameObject,
                 x => x.Input,
                 i => _inputShowcase.text = i
             );
 
-            _data.BindOneWay
+            _data.Bind
             (
                 gameObject,
                 x => x.Input,
@@ -48,9 +48,9 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
                     : "Could not parse"
             );
 
-            _removeLastCharacterButton.onClick.AddWeak(gameObject, _data.RemoveLastCharacter);
+            _removeLastCharacterButton.onClick.Bind(gameObject, _data.RemoveLastCharacter);
 
-            _alphabetizeButton.onClick.AddWeak(gameObject, _data.Alphabetize);
+            _alphabetizeButton.onClick.Bind(gameObject, _data.Alphabetize);
         }
     }
 }

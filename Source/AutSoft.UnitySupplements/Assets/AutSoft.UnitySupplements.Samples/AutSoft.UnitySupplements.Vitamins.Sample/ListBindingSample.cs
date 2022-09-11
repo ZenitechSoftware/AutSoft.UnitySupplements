@@ -35,7 +35,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
 
         private void Start()
         {
-            _data.BindOneWay(gameObject, x => x.Items, items =>
+            _data.Bind(gameObject, x => x.Items, items =>
             {
                 _contentParent.DestroyChildren();
 
@@ -46,7 +46,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
                 }
             });
 
-            _addButton.onClick.AddWeak(gameObject, () =>
+            _addButton.onClick.Bind(gameObject, () =>
             {
                 var item = _newItemParent.transform.GetChild(0).GetComponent<EditableListItem>().Data;
 
@@ -56,8 +56,8 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
                 _data.Add(item);
             });
 
-            _orderButton.onClick.AddWeak(gameObject, _data.Order);
-            _removeButton.onClick.AddWeak(gameObject, _data.RemoveSelected);
+            _orderButton.onClick.Bind(gameObject, _data.Order);
+            _removeButton.onClick.Bind(gameObject, _data.RemoveSelected);
         }
     }
 }

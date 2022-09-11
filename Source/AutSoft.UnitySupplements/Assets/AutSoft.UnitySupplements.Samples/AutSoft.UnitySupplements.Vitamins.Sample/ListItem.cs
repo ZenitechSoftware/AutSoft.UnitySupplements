@@ -25,8 +25,8 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
         {
             _data = data;
 
-            _data.BindOneWay(gameObject, x => x.Title, t => _titleText.text = t);
-            _data.BindOneWay(gameObject, x => x.Number, n => _numberText.text = n.ToString());
+            _data.Bind(gameObject, x => x.Title, t => _titleText.text = t);
+            _data.Bind(gameObject, x => x.Number, n => _numberText.text = n.ToString());
         }
 
         public void OnPointerClick(PointerEventData eventData) => _listData.Selected = _data;
