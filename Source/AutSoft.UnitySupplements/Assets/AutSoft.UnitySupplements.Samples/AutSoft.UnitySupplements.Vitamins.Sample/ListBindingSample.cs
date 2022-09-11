@@ -17,6 +17,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
         [SerializeField] private Button _addButton = default!;
         [SerializeField] private Button _removeButton = default!;
         [SerializeField] private Button _orderButton = default!;
+        [SerializeField] private Button _swapButton = default!;
 
         [SerializeField] private GameObject _itemsPrefab = default!;
 
@@ -28,6 +29,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
             this.CheckSerializedField(x => x._addButton);
             this.CheckSerializedField(x => x._removeButton);
             this.CheckSerializedField(x => x._orderButton);
+            this.CheckSerializedField(x => x._swapButton);
             this.CheckSerializedField(x => x._itemsPrefab);
             this.CheckSerializedField(x => x._newItemParent);
             this.CheckSerializedField(x => x._newItemPrefab);
@@ -49,6 +51,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
 
             _orderButton.onClick.Bind(gameObject, _data.Order);
             _removeButton.onClick.Bind(gameObject, _data.RemoveSelected);
+            _swapButton.onClick.Bind(gameObject, _data.SwapFirstAndLast);
         }
     }
 }

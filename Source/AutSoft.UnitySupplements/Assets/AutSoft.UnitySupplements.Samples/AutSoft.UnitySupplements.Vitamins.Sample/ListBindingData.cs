@@ -41,6 +41,13 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
                 _items.Add(item);
             }
         }
+
+        public void SwapFirstAndLast()
+        {
+            if (_items.Count <= 2) return;
+
+            _items.Move(_items.Count - 1, 0);
+        }
     }
 
     public class ListItemData : ObservableObject

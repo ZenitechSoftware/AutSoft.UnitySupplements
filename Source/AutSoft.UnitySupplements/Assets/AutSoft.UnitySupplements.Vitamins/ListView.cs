@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 using Injecter;
 using Injecter.Unity;
 using System;
@@ -42,6 +42,14 @@ namespace AutSoft.UnitySupplements.Vitamins
                 else if (args.Action == NotifyCollectionChangedAction.Reset)
                 {
                     _contentParent.DestroyChildren();
+                }
+                else if (args.Action == NotifyCollectionChangedAction.Move)
+                {
+                    var child1 = _contentParent.transform.GetChild(args.OldStartingIndex);
+                    var child2 = _contentParent.transform.GetChild(args.NewStartingIndex);
+
+                    child1.SetSiblingIndex(args.NewStartingIndex);
+                    child2.SetSiblingIndex(args.OldStartingIndex);
                 }
                 else
                 {
