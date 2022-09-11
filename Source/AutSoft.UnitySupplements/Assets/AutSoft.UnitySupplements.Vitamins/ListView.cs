@@ -1,4 +1,4 @@
-#nullable enable
+﻿#nullable enable
 using Injecter;
 using Injecter.Unity;
 using System;
@@ -50,6 +50,15 @@ namespace AutSoft.UnitySupplements.Vitamins
 
                     child1.SetSiblingIndex(args.NewStartingIndex);
                     child2.SetSiblingIndex(args.OldStartingIndex);
+                }
+                else if (args.Action == NotifyCollectionChangedAction.Replace)
+                {
+                    var oldChild = _contentParent.transform.GetChild(args.OldStartingIndex);
+                    Destroy(oldChild.gameObject);
+
+                    var itemObject = _factory.Instantiate(_itemPrefab, _contentParent, true);
+                    itemObject.GetComponent<TItemView>().Initialize(args.NewItem);
+                    itemObject.transform.SetSiblingIndex(args.NewStartingIndex);
                 }
                 else
                 {

@@ -23,6 +23,18 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
 
         public void Add(ListItemData item) => _items.Add(item);
 
+        public void ReplaceFirst(ListItemData item)
+        {
+            if (_items.Count == 0)
+            {
+                _items.Add(item);
+            }
+            else
+            {
+                _items[0] = item;
+            }
+        }
+
         public void RemoveSelected()
         {
             if (Selected is null) return;
