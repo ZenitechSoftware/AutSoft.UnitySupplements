@@ -1,9 +1,11 @@
 ﻿#nullable enable
+using AutSoft.UnitySupplements.Vitamins;
+using AutSoft.UnitySupplements.Vitamins.Bindings;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AutSoft.UnitySupplements.Vitamins.Sample
+namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 {
     public class InputBindingSample : MonoBehaviour
     {

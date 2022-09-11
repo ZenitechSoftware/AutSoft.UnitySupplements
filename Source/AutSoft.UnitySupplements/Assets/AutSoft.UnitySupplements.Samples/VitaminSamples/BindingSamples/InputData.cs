@@ -2,7 +2,7 @@
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System.Linq;
 
-namespace AutSoft.UnitySupplements.Vitamins.Sample
+namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 {
     public class InputData : ObservableObject
     {

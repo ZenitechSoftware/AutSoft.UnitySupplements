@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using AutSoft.UnitySupplements.Vitamins.Bindings;
 using Injecter;
 using Injecter.Unity;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
 
-namespace AutSoft.UnitySupplements.Vitamins
+namespace AutSoft.UnitySupplements.Vitamins.UiComponents
 {
     public class ListView : MonoBehaviour
     {

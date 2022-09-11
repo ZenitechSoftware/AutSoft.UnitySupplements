@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace AutSoft.UnitySupplements.Vitamins
+namespace AutSoft.UnitySupplements.Vitamins.Bindings
 {
-    public static class UnityEventExtensions
+    public static partial class Binder
     {
         public static void Bind(this UnityEvent unityEvent, GameObject owner, UnityAction action)
         {

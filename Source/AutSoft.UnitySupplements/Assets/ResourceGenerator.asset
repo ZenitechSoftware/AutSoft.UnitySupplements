@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseNamespace: AutSoft.UnitySupplements.ResourceGenerator.Sample
   _className: ResourcePaths
-  _folderPath: AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.ResourceGenerator.Sample
+  _folderPath: AutSoft.UnitySupplements.Samples/ResourceGeneratorSamples
   _logInfo: 0
   _logError: 1
   _usings:

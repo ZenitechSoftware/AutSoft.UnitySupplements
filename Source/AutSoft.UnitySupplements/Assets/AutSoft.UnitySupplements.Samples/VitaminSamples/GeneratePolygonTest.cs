@@ -1,9 +1,10 @@
 ﻿#nullable enable
+using AutSoft.UnitySupplements.Vitamins;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace AutSoft.UnitySupplements.Vitamins.Sample
+namespace AutSoft.UnitySupplements.Samples.VitaminSamples
 {
     public class GeneratePolygonTest : MonoBehaviour
     {

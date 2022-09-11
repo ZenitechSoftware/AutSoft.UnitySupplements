@@ -1,6 +1,6 @@
 ﻿#nullable enable
 
-namespace AutSoft.UnitySupplements.Vitamins
+namespace AutSoft.UnitySupplements.Vitamins.UiComponents
 {
     public interface IInitialzeViewItem<in T>
     {

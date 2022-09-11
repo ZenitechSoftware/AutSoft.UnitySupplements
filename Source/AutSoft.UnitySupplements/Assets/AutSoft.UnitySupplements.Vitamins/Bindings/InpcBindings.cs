@@ -9,12 +9,12 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace AutSoft.UnitySupplements.Vitamins
+namespace AutSoft.UnitySupplements.Vitamins.Bindings
 {
     /// <summary>
     /// Provide "WPF-like" data binding methods, which connect properties of binding target objects and data sources
     /// </summary>
-    public static class Binder
+    public static partial class Binder
     {
         private static readonly Dictionary<Type, Dictionary<string, PropertyInfo>> _properties = new();
 
@@ -116,26 +116,6 @@ namespace AutSoft.UnitySupplements.Vitamins
 
         private static string GetMemberName<T, R>(Expression<Func<T, R>> memberExpression) => ((MemberExpression)memberExpression.Body).Member.Name;
 
-        private static void BindTargetToSource<TSource, TTarget>
-        (
-            INotifyPropertyChanged source,
-            UnityEvent<TTarget> unityEvent,
-            string propertyName,
-            Func<TTarget, TSource> updateSource,
-            Type sourceType,
-            DestroyDetector destroyDetector
-        )
-        {
-            void UpdateProperty(TTarget value)
-            {
-                var property = _properties[sourceType][propertyName];
-                var nextValue = updateSource(value);
-                property.SetValue(source, nextValue);
-            }
-            unityEvent.AddListener(UpdateProperty);
-            destroyDetector.Destroyed += () => unityEvent.RemoveListener(UpdateProperty);
-        }
-
         private static (Type sourceType, DestroyDetector destroyDetector) BindSourceToTarget<T>
         (
             INotifyPropertyChanged source,
@@ -192,26 +172,5 @@ namespace AutSoft.UnitySupplements.Vitamins
                 return property;
             }
         }
-    }
-
-    public class CollectionChangedArgs<T> where T : class
-    {
-        public CollectionChangedArgs(NotifyCollectionChangedAction action, T? newItem, int newStartingIndex, T? oldItem, int oldStartingIndex, NotifyCollectionChangedEventArgs originalData)
-        {
-            Action = action;
-            NewItem = newItem;
-            NewStartingIndex = newStartingIndex;
-            OldItem = oldItem;
-            OldStartingIndex = oldStartingIndex;
-            OriginalData = originalData;
-        }
-
-        public NotifyCollectionChangedAction Action { get; }
-        public T? NewItem { get; }
-        public int NewStartingIndex { get; }
-        public T? OldItem { get; }
-        public int OldStartingIndex { get; }
-
-        public NotifyCollectionChangedEventArgs OriginalData { get; }
     }
 }

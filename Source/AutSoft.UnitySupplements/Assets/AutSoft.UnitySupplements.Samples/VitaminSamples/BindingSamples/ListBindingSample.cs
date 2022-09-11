@@ -1,11 +1,14 @@
 ﻿#nullable enable
+using AutSoft.UnitySupplements.Vitamins;
+using AutSoft.UnitySupplements.Vitamins.Bindings;
+using AutSoft.UnitySupplements.Vitamins.UiComponents;
 using Injecter;
 using Injecter.Unity;
 using System.Collections.ObjectModel;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AutSoft.UnitySupplements.Vitamins.Sample
+namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 {
     public class ListBindingSample : MonoBehaviour
     {

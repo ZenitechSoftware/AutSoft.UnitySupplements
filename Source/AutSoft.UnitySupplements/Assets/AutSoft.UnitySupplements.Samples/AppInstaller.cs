@@ -1,9 +1,9 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.EventBus;
 using AutSoft.UnitySupplements.ResourceGenerator.Sample;
+using AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples;
 using AutSoft.UnitySupplements.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
-using AutSoft.UnitySupplements.Vitamins.Sample;
 using Injecter;
 using Injecter.Hosting.Unity;
 using Injecter.Unity;

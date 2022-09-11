@@ -1,10 +1,13 @@
 ﻿#nullable enable
+using AutSoft.UnitySupplements.Vitamins;
+using AutSoft.UnitySupplements.Vitamins.Bindings;
+using AutSoft.UnitySupplements.Vitamins.UiComponents;
 using Injecter;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace AutSoft.UnitySupplements.Vitamins.Sample
+namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 {
     public class ListItem : MonoBehaviour, IPointerClickHandler, IInitialzeViewItem<ListItemData>
     {
