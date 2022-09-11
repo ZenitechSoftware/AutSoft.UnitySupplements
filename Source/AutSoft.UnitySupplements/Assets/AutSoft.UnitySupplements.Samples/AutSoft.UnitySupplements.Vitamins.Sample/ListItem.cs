@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace AutSoft.UnitySupplements.Vitamins.Sample
 {
-    public class ListItem : MonoBehaviour, IPointerClickHandler
+    public class ListItem : MonoBehaviour, IPointerClickHandler, IInitialzeViewItem<ListItemData>
     {
         [Inject] private readonly ListBindingData _listData = default!;
 

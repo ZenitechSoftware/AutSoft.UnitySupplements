@@ -1,7 +1,9 @@
 {
     "name": "AutSoft.UnitySupplements.Vitamins",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "Injecter.Unity"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
