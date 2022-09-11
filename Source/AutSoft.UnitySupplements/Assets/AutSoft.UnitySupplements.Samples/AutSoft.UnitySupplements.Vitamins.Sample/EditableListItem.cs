@@ -9,7 +9,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
         [SerializeField] private TMP_InputField _titleText = default!;
         [SerializeField] private TMP_InputField _numberText = default!;
 
-        public ListItemData Data { get; } = new();
+        public ListItemData Data { get; } = new() { Title = null, Number = null };
 
         private void Awake()
         {
