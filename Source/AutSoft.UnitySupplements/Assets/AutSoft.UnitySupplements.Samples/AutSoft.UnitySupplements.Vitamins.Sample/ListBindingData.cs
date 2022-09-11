@@ -16,7 +16,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
             private set => SetProperty(ref _items, value.ToArray());
         }
 
-        private ListItemData? _selected = new();
+        private ListItemData? _selected;
 
         public ListItemData? Selected
         {
