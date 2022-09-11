@@ -25,9 +25,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
                 _transformParent.DestroyChildren();
                 if (s is null) return;
 
-                var item = _factory.Instantiate(_itemPrefab, _transformParent, true);
-
-                item.GetComponent<ListItem>().Initialize(s, false);
+                _factory.Instantiate(_itemPrefab, _transformParent, true).GetComponent<ListItem>().Initialize(s);
             });
     }
 }

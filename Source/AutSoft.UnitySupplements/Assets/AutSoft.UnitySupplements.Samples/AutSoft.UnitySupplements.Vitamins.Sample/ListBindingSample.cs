@@ -1,7 +1,6 @@
 ﻿#nullable enable
 using Injecter;
 using Injecter.Unity;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +19,9 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
 
         [SerializeField] private GameObject _itemsPrefab = default!;
 
+        [SerializeField] private GameObject _newItemParent = default!;
+        [SerializeField] private GameObject _newItemPrefab = default!;
+
         private void Awake()
         {
             this.CheckSerializedField(x => x._contentParent);
@@ -27,6 +29,8 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
             this.CheckSerializedField(x => x._removeButton);
             this.CheckSerializedField(x => x._orderButton);
             this.CheckSerializedField(x => x._itemsPrefab);
+            this.CheckSerializedField(x => x._newItemParent);
+            this.CheckSerializedField(x => x._newItemPrefab);
         }
 
         private void Start()
@@ -35,17 +39,21 @@ namespace AutSoft.UnitySupplements.Vitamins.Sample
             {
                 _contentParent.DestroyChildren();
 
-                foreach(var item in items)
+                foreach (var item in items)
                 {
                     var itemObject = _factory.Instantiate(_itemsPrefab, _contentParent, true);
-                    itemObject.GetComponent<ListItem>().Initialize(item, true);
+                    itemObject.GetComponent<ListItem>().Initialize(item);
                 }
             });
 
             _addButton.onClick.AddWeak(gameObject, () =>
             {
-                var item = Guid.NewGuid();
-                _data.Add(new ListItemData { Title = item.ToString(), Number = item.GetHashCode() });
+                var item = _newItemParent.transform.GetChild(0).GetComponent<EditableListItem>().Data;
+
+                _newItemParent.transform.DestroyChildren();
+                _factory.Instantiate(_newItemPrefab, _newItemParent.transform, true);
+
+                _data.Add(item);
             });
 
             _orderButton.onClick.AddWeak(gameObject, _data.Order);
