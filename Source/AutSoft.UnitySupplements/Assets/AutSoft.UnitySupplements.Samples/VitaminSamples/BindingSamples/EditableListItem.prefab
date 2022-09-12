@@ -1050,7 +1050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7518254088748395158}
   - component: {fileID: 5770618493235135565}
-  - component: {fileID: 828994782425619792}
+  - component: {fileID: 7378121967925376281}
   m_Layer: 5
   m_Name: EditableListItem
   m_TagString: Untagged
@@ -1108,7 +1108,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &828994782425619792
+--- !u!114 &7378121967925376281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1117,7 +1117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7518254088748395157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 577ab1d4d299a5845842a72f0a1489b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cb56e4ad452cf745bcbea8d4c0ffc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _titleText: {fileID: 5555036306068471053}

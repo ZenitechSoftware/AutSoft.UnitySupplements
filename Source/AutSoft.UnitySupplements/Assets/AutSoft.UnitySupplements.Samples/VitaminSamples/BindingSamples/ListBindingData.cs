@@ -56,7 +56,7 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 
         public void SwapFirstAndLast()
         {
-            if (_items.Count <= 2) return;
+            if (_items.Count < 2) return;
 
             _items.Move(_items.Count - 1, 0);
         }
