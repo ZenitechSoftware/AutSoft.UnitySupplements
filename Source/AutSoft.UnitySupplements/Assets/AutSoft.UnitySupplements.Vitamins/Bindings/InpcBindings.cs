@@ -88,32 +88,6 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
             BindTargetToSource(source, unityEvent, propertyName, updateSource, sourceType, destroyDetector);
         }
 
-        /// <summary>
-        /// One-way Collection
-        /// </summary>
-        public static void Bind<TBindingSource, TItem>
-        (
-            this TBindingSource source,
-            GameObject gameObject,
-            Action<CollectionChangedArgs<TItem>> update
-        )
-            where TBindingSource : INotifyCollectionChanged, IEnumerable<TItem>
-            where TItem : class
-        {
-            void CollectionChanged(object _, NotifyCollectionChangedEventArgs e) => update(new CollectionChangedArgs<TItem>
-            (
-                e.Action,
-                e.NewItems?.Cast<TItem>()?.FirstOrDefault(),
-                e.NewStartingIndex,
-                e.OldItems?.Cast<TItem>()?.FirstOrDefault(),
-                e.OldStartingIndex,
-                e
-            ));
-
-            source.CollectionChanged += CollectionChanged;
-            gameObject.GetOrAddComponent<DestroyDetector>().Destroyed += () => source.CollectionChanged -= CollectionChanged;
-        }
-
         private static string GetMemberName<T, R>(Expression<Func<T, R>> memberExpression) => ((MemberExpression)memberExpression.Body).Member.Name;
 
         private static (Type sourceType, DestroyDetector destroyDetector) BindSourceToTarget<T>
@@ -136,6 +110,26 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
             destroyDetector.Destroyed += () => source.PropertyChanged -= UpdateBinding;
             SetValueFirstTime(source, propertyName, update, sourceType);
             return (sourceType, destroyDetector);
+        }
+
+        private static void BindTargetToSource<TSource, TTarget>
+        (
+            INotifyPropertyChanged source,
+            UnityEvent<TTarget> unityEvent,
+            string propertyName,
+            Func<TTarget, TSource> updateSource,
+            Type sourceType,
+            DestroyDetector destroyDetector
+        )
+        {
+            void UpdateProperty(TTarget value)
+            {
+                var property = _properties[sourceType][propertyName];
+                var nextValue = updateSource(value);
+                property.SetValue(source, nextValue);
+            }
+            unityEvent.AddListener(UpdateProperty);
+            destroyDetector.Destroyed += () => unityEvent.RemoveListener(UpdateProperty);
         }
 
         private static void SetValueFirstTime<T>

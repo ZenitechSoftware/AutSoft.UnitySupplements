@@ -1,29 +1,37 @@
 ﻿using System;
-using System.ComponentModel;
-using UnityEngine.Events;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Vitamins.Bindings
 {
     public static partial class Binder
     {
-        private static void BindTargetToSource<TSource, TTarget>
+        /// <summary>
+        /// One-way Collection
+        /// </summary>
+        public static void Bind<TBindingSource, TItem>
         (
-            INotifyPropertyChanged source,
-            UnityEvent<TTarget> unityEvent,
-            string propertyName,
-            Func<TTarget, TSource> updateSource,
-            Type sourceType,
-            DestroyDetector destroyDetector
+            this TBindingSource source,
+            GameObject gameObject,
+            Action<CollectionChangedArgs<TItem>> update
         )
+            where TBindingSource : INotifyCollectionChanged, IEnumerable<TItem>
+            where TItem : class
         {
-            void UpdateProperty(TTarget value)
-            {
-                var property = _properties[sourceType][propertyName];
-                var nextValue = updateSource(value);
-                property.SetValue(source, nextValue);
-            }
-            unityEvent.AddListener(UpdateProperty);
-            destroyDetector.Destroyed += () => unityEvent.RemoveListener(UpdateProperty);
+            void CollectionChanged(object _, NotifyCollectionChangedEventArgs e) => update(new CollectionChangedArgs<TItem>
+            (
+                e.Action,
+                e.NewItems?.Cast<TItem>()?.FirstOrDefault(),
+                e.NewStartingIndex,
+                e.OldItems?.Cast<TItem>()?.FirstOrDefault(),
+                e.OldStartingIndex,
+                e
+            ));
+
+            source.CollectionChanged += CollectionChanged;
+            gameObject.GetOrAddComponent<DestroyDetector>().Destroyed += () => source.CollectionChanged -= CollectionChanged;
         }
     }
 }
