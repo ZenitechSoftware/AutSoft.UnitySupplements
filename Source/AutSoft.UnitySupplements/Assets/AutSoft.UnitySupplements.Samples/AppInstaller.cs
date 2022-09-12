@@ -5,7 +5,6 @@ using AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples;
 using AutSoft.UnitySupplements.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;
-using Injecter.Hosting.Unity;
 using Injecter.Unity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,8 +38,6 @@ namespace AutSoft.UnitySupplements.Samples
                 CompositionRoot.ServiceProvider = serviceProvider;
 
                 Application.quitting += OnQuitting;
-
-                InjectionHelper.RegisterInjectionsOnSceneLoad(serviceProvider);
 
                 void OnQuitting()
                 {

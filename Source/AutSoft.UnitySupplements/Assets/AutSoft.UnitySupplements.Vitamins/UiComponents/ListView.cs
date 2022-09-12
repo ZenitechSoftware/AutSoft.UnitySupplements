@@ -1,7 +1,5 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.Vitamins.Bindings;
-using Injecter;
-using Injecter.Unity;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -11,17 +9,15 @@ namespace AutSoft.UnitySupplements.Vitamins.UiComponents
 {
     public class ListView : MonoBehaviour
     {
-        [Inject] private readonly IGameObjectFactory _factory = default!;
-
         [SerializeField] private Transform _contentParent = default!;
         private GameObject _itemPrefab = default!;
 
         private void Awake() => this.CheckSerializedField(x => x._contentParent);
 
-        public void Initialze<TItem, TCollection, TItemView>(TCollection collection, GameObject itemPrefab)
+        public void Initialze<TItem, TCollection, TItemView>(TCollection collection, GameObject itemPrefab, Action<TItemView, TItem?>? initialize = null)
             where TItem : class
             where TCollection : INotifyCollectionChanged, IEnumerable<TItem>
-            where TItemView : MonoBehaviour, IInitialzeViewItem<TItem>
+            where TItemView : MonoBehaviour
         {
 #if UNITY_EDITOR
             if (!itemPrefab.TryGetComponent<TItemView>(out var _)) throw new ArgumentOutOfRangeException(nameof(itemPrefab), null, $"Could not find component {typeof(TItemView).FullName} on prefab {itemPrefab.name}");
@@ -33,8 +29,8 @@ namespace AutSoft.UnitySupplements.Vitamins.UiComponents
             {
                 if (args.Action == NotifyCollectionChangedAction.Add)
                 {
-                    var itemObject = _factory.Instantiate(_itemPrefab, _contentParent, true);
-                    itemObject.GetComponent<TItemView>().Initialize(args.NewItem);
+                    var itemObject = Instantiate(_itemPrefab, _contentParent);
+                    initialize?.Invoke(itemObject.GetComponent<TItemView>(), args.NewItem);
                 }
                 else if (args.Action == NotifyCollectionChangedAction.Remove)
                 {
@@ -57,8 +53,8 @@ namespace AutSoft.UnitySupplements.Vitamins.UiComponents
                     var oldChild = _contentParent.transform.GetChild(args.OldStartingIndex);
                     Destroy(oldChild.gameObject);
 
-                    var itemObject = _factory.Instantiate(_itemPrefab, _contentParent, true);
-                    itemObject.GetComponent<TItemView>().Initialize(args.NewItem);
+                    var itemObject = Instantiate(_itemPrefab, _contentParent);
+                    initialize?.Invoke(itemObject.GetComponent<TItemView>(), args.NewItem);
                     itemObject.transform.SetSiblingIndex(args.NewStartingIndex);
                 }
                 else

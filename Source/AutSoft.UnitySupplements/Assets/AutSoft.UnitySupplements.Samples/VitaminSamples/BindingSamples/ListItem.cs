@@ -1,15 +1,15 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.Vitamins;
 using AutSoft.UnitySupplements.Vitamins.Bindings;
-using AutSoft.UnitySupplements.Vitamins.UiComponents;
 using Injecter;
+using Injecter.Unity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 {
-    public class ListItem : MonoBehaviour, IPointerClickHandler, IInitialzeViewItem<ListItemData>
+    public class ListItem : MonoBehaviourScoped, IPointerClickHandler
     {
         [Inject] private readonly ListBindingData _listData = default!;
 
@@ -18,8 +18,10 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 
         private ListItemData _data = default!;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             this.CheckSerializedField(x => x._titleText);
             this.CheckSerializedField(x => x._numberText);
         }

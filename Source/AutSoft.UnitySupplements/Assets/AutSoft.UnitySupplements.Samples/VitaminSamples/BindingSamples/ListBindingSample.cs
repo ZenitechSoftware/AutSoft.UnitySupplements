@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 {
-    public class ListBindingSample : MonoBehaviour
+    public class ListBindingSample : MonoBehaviourScoped
     {
         [Inject] private readonly ListBindingData _data = default!;
         [Inject] private readonly IGameObjectFactory _factory = default!;
@@ -28,8 +28,11 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
         [SerializeField] private GameObject _newItemParent = default!;
         [SerializeField] private GameObject _newItemPrefab = default!;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
+            this.CheckSerializedField(x => x._listView);
             this.CheckSerializedField(x => x._addButton);
             this.CheckSerializedField(x => x._removeButton);
             this.CheckSerializedField(x => x._orderButton);
@@ -42,7 +45,10 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 
         private void Start()
         {
-            _listView.Initialze<ListItemData, ReadOnlyObservableCollection<ListItemData>, ListItem>(_data.Items, _itemsPrefab);
+            _listView.Initialze<ListItemData, ReadOnlyObservableCollection<ListItemData>, ListItem>(_data.Items, _itemsPrefab, (itemObject, item) =>
+            {
+                itemObject.Initialize(item);
+            });
 
             _addButton.onClick.Bind(gameObject, () =>
             {

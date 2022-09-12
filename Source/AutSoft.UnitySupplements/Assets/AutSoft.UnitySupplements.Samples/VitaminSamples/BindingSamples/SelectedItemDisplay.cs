@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 {
-    public class SelectedItemDisplay : MonoBehaviour
+    public class SelectedItemDisplay : MonoBehaviourScoped
     {
         [Inject] private readonly ListBindingData _listBindingData = default!;
         [Inject] private readonly IGameObjectFactory _factory = default!;
@@ -15,8 +15,10 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
         [SerializeField] private GameObject _itemPrefab = default!;
         [SerializeField] private Transform _transformParent = default!;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             this.CheckSerializedField(x => x._itemPrefab);
             this.CheckSerializedField(x => x._transformParent);
         }
