@@ -48,44 +48,6 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
             BindTargetToSource(source, unityEvent, propertyName, updateSource, sourceType, destroyDetector);
         }
 
-        /// <summary>
-        /// One-time
-        /// </summary>
-        public static void Bind<TSource, TBindingSource>
-        (
-            this TBindingSource source,
-            Expression<Func<TBindingSource, TSource>> memberExpression,
-            Action<TSource> update
-        )
-            where TBindingSource : INotifyPropertyChanged
-        {
-            var sourceType = source.GetType();
-            SetValueFirstTime(source, GetMemberName(memberExpression), update, sourceType);
-        }
-
-        /// <summary>
-        /// One-way to source
-        /// </summary>
-        public static void Bind<TSource, TTarget, TBindingSource>
-        (
-            this INotifyPropertyChanged source,
-            GameObject gameObject,
-            UnityEvent<TSource> unityEvent,
-            Expression<Func<TBindingSource, TSource>> memberExpression,
-            Func<TSource> getValue,
-            Func<TSource, TTarget> updateSource
-        )
-            where TBindingSource : INotifyPropertyChanged
-        {
-            var propertyName = GetMemberName(memberExpression);
-            var sourceType = source.GetType();
-            var destroyDetector = gameObject.GetOrAddComponent<DestroyDetector>();
-            var property = GetProperty<TSource>(propertyName, sourceType);
-            var value = getValue();
-            property.SetValue(source, value);
-            BindTargetToSource(source, unityEvent, propertyName, updateSource, sourceType, destroyDetector);
-        }
-
         private static string GetMemberName<T, R>(Expression<Func<T, R>> memberExpression) => ((MemberExpression)memberExpression.Body).Member.Name;
 
         private static (Type sourceType, DestroyDetector destroyDetector) BindSourceToTarget<T>
