@@ -524,7 +524,7 @@
       "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "org.nuget.serilog": {
-      "version": "2.11.0",
+      "version": "2.12.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -554,7 +554,7 @@
       "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "org.nuget.sonaranalyzer.csharp": {
-      "version": "8.44.0-52574",
+      "version": "8.45.0-54064",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
