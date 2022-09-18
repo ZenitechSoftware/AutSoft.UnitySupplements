@@ -100,31 +100,24 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
             Type sourceType
         )
         {
-            var property = GetProperty<T>(propertyName, sourceType);
+            var property = GetProperty(propertyName, sourceType);
             update((T)property.GetValue(source));
         }
 
-        private static PropertyInfo GetProperty<T>(string propertyName, Type sourceType)
+        private static PropertyInfo GetProperty(string propertyName, Type sourceType)
         {
             PropertyInfo property;
             if (!_properties.TryGetValue(sourceType, out var properties))
             {
-                property = GetPropertyOrThrow(propertyName, sourceType);
+                property = sourceType.GetProperty(propertyName);
                 _properties.Add(sourceType, new Dictionary<string, PropertyInfo> { { propertyName, property } });
             }
             else if (!properties.TryGetValue(propertyName, out property))
             {
-                property = GetPropertyOrThrow(propertyName, sourceType);
+                property = sourceType.GetProperty(propertyName);
                 properties.Add(propertyName, property);
             }
             return property;
-
-            static PropertyInfo GetPropertyOrThrow(string propertyName, Type sourceType)
-            {
-                var property = sourceType.GetProperty(propertyName) ?? throw new InvalidOperationException($"Could not find Property {propertyName} on Type {sourceType.FullName}");
-                if (!property.PropertyType.IsAssignableFrom(typeof(T))) throw new InvalidOperationException($"Could not bind Property of type {property.PropertyType} to Update type {typeof(T)}");
-                return property;
-            }
         }
     }
 }
