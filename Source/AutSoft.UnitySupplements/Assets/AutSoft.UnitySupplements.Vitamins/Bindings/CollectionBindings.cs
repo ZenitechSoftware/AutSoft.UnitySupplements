@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
 using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Vitamins.Bindings
@@ -18,17 +17,8 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
             Action<CollectionChangedArgs<TItem>> update
         )
             where TBindingSource : INotifyCollectionChanged, IEnumerable<TItem>
-            where TItem : class
         {
-            void CollectionChanged(object _, NotifyCollectionChangedEventArgs e) => update(new CollectionChangedArgs<TItem>
-            (
-                e.Action,
-                e.NewItems?.Cast<TItem>()?.FirstOrDefault(),
-                e.NewStartingIndex,
-                e.OldItems?.Cast<TItem>()?.FirstOrDefault(),
-                e.OldStartingIndex,
-                e
-            ));
+            void CollectionChanged(object _, NotifyCollectionChangedEventArgs e) => update(new CollectionChangedArgs<TItem>(e));
 
             source.CollectionChanged += CollectionChanged;
             gameObject.GetOrAddComponent<DestroyDetector>().Destroyed += () => source.CollectionChanged -= CollectionChanged;

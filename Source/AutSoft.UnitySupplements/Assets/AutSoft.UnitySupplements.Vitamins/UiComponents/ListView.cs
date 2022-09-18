@@ -15,7 +15,6 @@ namespace AutSoft.UnitySupplements.Vitamins.UiComponents
         private void Awake() => this.CheckSerializedField(x => x._contentParent);
 
         public void Initialze<TItem, TCollection, TItemView>(TCollection collection, GameObject itemPrefab, Action<TItemView, TItem?>? initialize = null)
-            where TItem : class
             where TCollection : INotifyCollectionChanged, IEnumerable<TItem>
             where TItemView : MonoBehaviour
         {
@@ -30,7 +29,7 @@ namespace AutSoft.UnitySupplements.Vitamins.UiComponents
                 if (args.Action == NotifyCollectionChangedAction.Add)
                 {
                     var itemObject = Instantiate(_itemPrefab, _contentParent);
-                    initialize?.Invoke(itemObject.GetComponent<TItemView>(), args.NewItem);
+                    initialize?.Invoke(itemObject.GetComponent<TItemView>(), args.NewItems![0]);
                 }
                 else if (args.Action == NotifyCollectionChangedAction.Remove)
                 {
@@ -54,7 +53,7 @@ namespace AutSoft.UnitySupplements.Vitamins.UiComponents
                     Destroy(oldChild.gameObject);
 
                     var itemObject = Instantiate(_itemPrefab, _contentParent);
-                    initialize?.Invoke(itemObject.GetComponent<TItemView>(), args.NewItem);
+                    initialize?.Invoke(itemObject.GetComponent<TItemView>(), args.NewItems![0]);
                     itemObject.transform.SetSiblingIndex(args.NewStartingIndex);
                 }
                 else
