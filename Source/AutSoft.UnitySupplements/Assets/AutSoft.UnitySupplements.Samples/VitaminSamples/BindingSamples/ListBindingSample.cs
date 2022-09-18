@@ -43,10 +43,7 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 
         private void Start()
         {
-            _listView.Initialze<ListItemData, ReadOnlyObservableCollection<ListItemData>, ListItem>(_data.Items, _itemsPrefab, (itemObject, item) =>
-            {
-                itemObject.Initialize(item);
-            });
+            _listView.Initialze<ListItemData, ReadOnlyObservableCollection<ListItemData>, ListItem>(_data.Items, _itemsPrefab, (itemObject, item) => itemObject.Initialize(item));
 
             _addButton.onClick.Bind(gameObject, () =>
             {
