@@ -5,7 +5,6 @@ using AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples;
 using AutSoft.UnitySupplements.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;
-using Injecter.Unity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
@@ -39,13 +38,27 @@ namespace AutSoft.UnitySupplements.Samples
 
                 Application.quitting += OnQuitting;
 
-                void OnQuitting()
+                async void OnQuitting()
                 {
                     Log.CloseAndFlush();
 
-                    serviceProvider = null!;
-
                     Application.quitting -= OnQuitting;
+
+                    try
+                    {
+                        await serviceProvider.DisposeAsync().ConfigureAwait(false);
+                        serviceProvider = null;
+                        CompositionRoot.ServiceProvider = null;
+                    }
+                    catch (Exception e)
+                    {
+                        logger.Fatal(e, "Failed to dispose of composition root");
+                    }
+                    finally
+                    {
+                        logger.Information("Application stopped");
+                        logger.Dispose();
+                    }
                 }
             }
             catch (Exception e)
@@ -77,13 +90,7 @@ namespace AutSoft.UnitySupplements.Samples
         {
             var assemblies = new[] { typeof(AppInstaller).Assembly };
 
-            services.AddSceneInjector(
-                injecterOptions => injecterOptions.UseCaching = true,
-                sceneInjectorOptions =>
-                {
-                    sceneInjectorOptions.DontDestroyOnLoad = true;
-                    sceneInjectorOptions.InjectionBehavior = SceneInjectorOptions.Behavior.CompositionRoot;
-                });
+            services.AddInjecter(o => o.UseCaching = true);
 
             services.AddEventBus(assemblies);
 

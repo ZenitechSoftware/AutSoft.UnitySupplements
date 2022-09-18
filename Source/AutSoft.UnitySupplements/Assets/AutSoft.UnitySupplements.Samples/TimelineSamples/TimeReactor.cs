@@ -10,7 +10,8 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Samples
 {
-    public class TimeReactor : MonoBehaviourScoped
+    [RequireComponent(typeof(MonoInjector))]
+    public class TimeReactor : MonoBehaviour
     {
         [Inject] private readonly IEventBus _eventBus = default!;
 
@@ -23,11 +24,7 @@ namespace AutSoft.UnitySupplements.Samples
             _eventBus.Subscribe<CurrentTimeChanged>(OnTimeChanged);
         }
 
-        protected override void OnDestroy()
-        {
-            _eventBus.UnSubscribe<CurrentTimeChanged>(OnTimeChanged);
-            base.OnDestroy();
-        }
+        private void OnDestroy() => _eventBus.UnSubscribe<CurrentTimeChanged>(OnTimeChanged);
 
         private void OnTimeChanged(CurrentTimeChanged message) => _text.text = message.CurrentTime.ToString(CultureInfo.InvariantCulture);
     }

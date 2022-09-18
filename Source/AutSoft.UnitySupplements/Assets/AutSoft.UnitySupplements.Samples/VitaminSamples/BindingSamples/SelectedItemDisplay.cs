@@ -7,18 +7,16 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 {
-    public class SelectedItemDisplay : MonoBehaviourScoped
+    [RequireComponent(typeof(MonoInjector))]
+    public class SelectedItemDisplay : MonoBehaviour
     {
         [Inject] private readonly ListBindingData _listBindingData = default!;
-        [Inject] private readonly IGameObjectFactory _factory = default!;
 
         [SerializeField] private GameObject _itemPrefab = default!;
         [SerializeField] private Transform _transformParent = default!;
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
-
             this.CheckSerializedField(x => x._itemPrefab);
             this.CheckSerializedField(x => x._transformParent);
         }
@@ -29,7 +27,7 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
                 _transformParent.DestroyChildren();
                 if (s is null) return;
 
-                _factory.Instantiate(_itemPrefab, _transformParent, true).GetComponent<ListItem>().Initialize(s);
+                Instantiate(_itemPrefab, _transformParent).GetComponent<ListItem>().Initialize(s);
             });
     }
 }

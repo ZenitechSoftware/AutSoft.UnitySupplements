@@ -9,7 +9,8 @@ using UnityEngine.EventSystems;
 
 namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 {
-    public class ListItem : MonoBehaviourScoped, IPointerClickHandler
+    [RequireComponent(typeof(MonoInjector))]
+    public class ListItem : MonoBehaviour, IPointerClickHandler
     {
         [Inject] private readonly ListBindingData _listData = default!;
 
@@ -18,10 +19,8 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 
         private ListItemData _data = default!;
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
-
             this.CheckSerializedField(x => x._titleText);
             this.CheckSerializedField(x => x._numberText);
         }

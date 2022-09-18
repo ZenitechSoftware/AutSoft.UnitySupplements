@@ -11,7 +11,8 @@ using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.Timeline
 {
-    public class BasicTimelinePlayer : MonoBehaviourScoped
+    [RequireComponent(typeof(MonoInjector))]
+    public class BasicTimelinePlayer : MonoBehaviour
     {
         [Inject] private readonly IEventBus _eventBus = default!;
         [Inject] private readonly ITimelineCounter _timeLine = default!;
@@ -32,9 +33,8 @@ namespace AutSoft.UnitySupplements.Timeline
         public DateTimeOffset EndTime { get; private set; }
         public DateTimeOffset CurrentTime => _timeLine.CurrentTime;
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
             this.CheckSerializedField(_timeSlider, nameof(_timeSlider));
             this.CheckSerializedField(_sliderEvents, nameof(_sliderEvents));
             this.CheckSerializedField(_playPauseButton, nameof(_playPauseButton));
@@ -62,7 +62,7 @@ namespace AutSoft.UnitySupplements.Timeline
             _currentTimeLabel.text = $"{CurrentTime:G}";
         }
 
-        protected override void OnDestroy()
+        private void OnDestroy()
         {
             _eventBus.UnSubscribe<CurrentTimeChanged>(OnCurrentTimeChanged);
             _eventBus.UnSubscribe<TimeRangeChanged>(OnTimeRangeChanged);
@@ -73,7 +73,6 @@ namespace AutSoft.UnitySupplements.Timeline
 
             _sliderEvents.triggers.ForEach(t => t.callback.RemoveAllListeners());
             _sliderEvents.triggers.Clear();
-            base.OnDestroy();
         }
 
         public void Initialize(DateTimeOffset start, DateTimeOffset end, DateTimeOffset? currentTime = null)

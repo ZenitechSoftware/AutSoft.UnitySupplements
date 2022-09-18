@@ -1480,6 +1480,8 @@ GameObject:
   - component: {fileID: 6191132794205285250}
   - component: {fileID: 532062627224030085}
   - component: {fileID: 922906508}
+  - component: {fileID: 6429792492740662390}
+  - component: {fileID: -8794848604040124603}
   m_Layer: 5
   m_Name: UpmAsset_TimelinePlayer
   m_TagString: Untagged
@@ -1594,6 +1596,30 @@ MonoBehaviour:
   _currentTimeLabel: {fileID: 7527918975854015996}
   _startDateText: {fileID: 166926551827620830}
   _endDateText: {fileID: 6509598303444936105}
+--- !u!114 &6429792492740662390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4895205529499009524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce3f43f610f2e0498d2f640bc419ae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8794848604040124603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4895205529499009524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc01a413a57c8c42a6e4a9c9d9f8b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5147676456539605054
 GameObject:
   m_ObjectHideFlags: 0

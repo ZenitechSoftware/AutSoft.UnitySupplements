@@ -10,10 +10,10 @@ using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 {
-    public class ListBindingSample : MonoBehaviourScoped
+    [RequireComponent(typeof(MonoInjector))]
+    public class ListBindingSample : MonoBehaviour
     {
         [Inject] private readonly ListBindingData _data = default!;
-        [Inject] private readonly IGameObjectFactory _factory = default!;
 
         [SerializeField] private ListView _listView = default!;
 
@@ -28,10 +28,8 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
         [SerializeField] private GameObject _newItemParent = default!;
         [SerializeField] private GameObject _newItemPrefab = default!;
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
-
             this.CheckSerializedField(x => x._listView);
             this.CheckSerializedField(x => x._addButton);
             this.CheckSerializedField(x => x._removeButton);
@@ -56,7 +54,8 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
                 _data.Add(item);
 
                 _newItemParent.transform.DestroyChildren();
-                _factory.Instantiate(_newItemPrefab, _newItemParent.transform, true);
+
+                Instantiate(_newItemPrefab, _newItemParent.transform);
             });
 
             _orderButton.onClick.Bind(gameObject, _data.Order);
@@ -68,7 +67,7 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
                 _data.ReplaceFirst(item);
 
                 _newItemParent.transform.DestroyChildren();
-                _factory.Instantiate(_newItemPrefab, _newItemParent.transform, true);
+                Instantiate(_newItemPrefab, _newItemParent.transform);
             });
         }
     }
