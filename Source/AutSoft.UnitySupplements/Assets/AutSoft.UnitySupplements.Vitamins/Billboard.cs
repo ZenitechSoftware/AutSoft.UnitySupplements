@@ -10,6 +10,8 @@ namespace AutSoft.UnitySupplements.Vitamins
     public class Billboard : MonoBehaviour
     {
         [SerializeField] private Camera _camera = default!;
+        [SerializeField] private PivotAxis _pivotAxis;
+        [SerializeField] private bool _useCameraUpAxis;
 
         private void Awake()
         {
@@ -24,7 +26,16 @@ namespace AutSoft.UnitySupplements.Vitamins
                     fieldName);
         }
 
-        private void Update() => transform.rotation = _camera.transform.rotation;
+        private void Update()
+        {
+            var direction = (_camera.transform.position - transform.position).normalized;
+
+            direction.x = _pivotAxis.HasFlag(PivotAxis.X) ? direction.x : 0;
+            direction.y = _pivotAxis.HasFlag(PivotAxis.Y) ? direction.y : 0;
+            direction.z = _pivotAxis.HasFlag(PivotAxis.Z) ? direction.z : 0;
+
+            transform.rotation = Quaternion.LookRotation(-direction, _useCameraUpAxis ? _camera.transform.up : Vector3.up);
+        }
 
         public void SetCamera(Camera nextCamera)
         {
