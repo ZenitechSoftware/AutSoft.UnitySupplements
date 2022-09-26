@@ -9,13 +9,15 @@ namespace AutSoft.UnitySupplements.Vitamins
     /// </summary>
     public class Billboard : MonoBehaviour
     {
-        [SerializeField] private Camera _camera = default!;
+        [field: SerializeField] private Camera Camera { get; set; } = default!;
+        [field: SerializeField] public PivotAxis PivotAxis { get; set; }
+        [field: SerializeField] private bool UseCameraUpAxis { get; set; } = true;
 
         private void Awake()
         {
-            const string fieldName = nameof(_camera);
+            const string fieldName = nameof(Camera);
             var gameObjectName = gameObject.name;
-            _camera = _camera == null && Camera.main != null
+            Camera = Camera == null && Camera.main != null
                 ? Camera.main
                 : throw new FieldNotSetException(
                     $"Field: {fieldName} is not set on Component: {name} on GameObject: {gameObjectName}",
@@ -24,14 +26,23 @@ namespace AutSoft.UnitySupplements.Vitamins
                     fieldName);
         }
 
-        private void Update() => transform.rotation = _camera.transform.rotation;
+        private void Update()
+        {
+            var direction = (Camera.transform.position - transform.position).normalized;
+
+            direction.x = PivotAxis.HasFlag(PivotAxis.X) ? direction.x : 0;
+            direction.y = PivotAxis.HasFlag(PivotAxis.Y) ? direction.y : 0;
+            direction.z = PivotAxis.HasFlag(PivotAxis.Z) ? direction.z : 0;
+
+            transform.rotation = Quaternion.LookRotation(-direction, UseCameraUpAxis ? Camera.transform.up : Vector3.up);
+        }
 
         public void SetCamera(Camera nextCamera)
         {
 #pragma warning disable IDE0016 // Use 'throw' expression
             if (nextCamera == null) throw new ArgumentNullException(nameof(nextCamera));
 #pragma warning restore IDE0016 // Use 'throw' expression
-            _camera = nextCamera;
+            Camera = nextCamera;
         }
     }
 }

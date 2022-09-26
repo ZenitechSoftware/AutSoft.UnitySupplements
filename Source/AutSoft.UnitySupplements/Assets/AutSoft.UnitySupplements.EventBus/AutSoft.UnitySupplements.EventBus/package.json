@@ -1,6 +1,6 @@
 {
     "name": "com.autsoft.unitysupplements.eventbus",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "displayName": "EventBus",
     "description": "Simple eventbus implementation for Unity",
     "license": "MIT",
@@ -18,6 +18,6 @@
         "url": "https://github.com/AutSoft/AutSoft.UnitySupplements"
     },
     "dependencies": {
-        "com.autsoft.unitysupplements.vitamins": "0.1.3"
+        "com.autsoft.unitysupplements.vitamins": "0.1.4"
     }
 }
