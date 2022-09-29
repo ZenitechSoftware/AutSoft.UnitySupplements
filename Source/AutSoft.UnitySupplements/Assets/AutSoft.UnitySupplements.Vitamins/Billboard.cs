@@ -9,9 +9,9 @@ namespace AutSoft.UnitySupplements.Vitamins
     /// </summary>
     public class Billboard : MonoBehaviour
     {
-        [field: SerializeField] private Camera Camera { get; set; } = default!;
+        [field: SerializeField] public Camera Camera { get; set; } = default!;
         [field: SerializeField] public PivotAxis PivotAxis { get; set; }
-        [field: SerializeField] private bool UseCameraUpAxis { get; set; } = true;
+        [field: SerializeField] public bool UseCameraUpAxis { get; set; } = true;
 
         private void Awake()
         {
