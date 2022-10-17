@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "com.cysharp.unitask": "2.3.1",
-    "com.injecter.hosting.unity": "7.0.2",
-    "com.injecter.unity": "7.0.2",
+    "com.injecter.hosting.unity": "9.1.0",
+    "com.injecter.unity": "9.1.0",
     "com.serilog.sinks.unity3d": "2.0.1",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.16",
@@ -12,7 +12,7 @@
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.toolchain.win-x86_64-linux-x86_64": "1.0.0",
     "com.unity.ugui": "1.0.0",
-    "org.nuget.injecter": "7.0.2",
+    "org.nuget.injecter": "9.1.0",
     "org.nuget.microsoft.extensions.dependencymodel": "6.0.0",
     "org.nuget.microsoft.extensions.hosting": "6.0.1",
     "org.nuget.microsoft.extensions.logging": "6.0.0",
