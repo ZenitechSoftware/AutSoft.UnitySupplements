@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Samples
 {
-    public class TimeReactor : MonoBehaviourScoped
+    public class TimeReactor : MonoBehaviourInjected
     {
         [Inject] private readonly IEventBus _eventBus = default!;
 

@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.Timeline
 {
-    public class BasicTimelinePlayer : MonoBehaviourScoped
+    public class BasicTimelinePlayer : MonoBehaviourInjected
     {
         [Inject] private readonly IEventBus _eventBus = default!;
         [Inject] private readonly ITimelineCounter _timeLine = default!;
