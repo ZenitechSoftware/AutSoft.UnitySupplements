@@ -3,6 +3,7 @@
     "com.cysharp.unitask": "2.3.1",
     "com.injecter.hosting.unity": "9.1.0",
     "com.injecter.unity": "9.1.0",
+    "com.sabresaurus.playerprefseditor": "1.4.1",
     "com.serilog.sinks.unity3d": "2.0.1",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.16",
@@ -12,6 +13,7 @@
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.toolchain.win-x86_64-linux-x86_64": "1.0.0",
     "com.unity.ugui": "1.0.0",
+    "org.nuget.communitytoolkit.mvvm": "8.0.0",
     "org.nuget.injecter": "9.1.0",
     "org.nuget.microsoft.extensions.dependencymodel": "6.0.0",
     "org.nuget.microsoft.extensions.hosting": "6.0.1",
@@ -51,8 +53,7 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0",
-    "com.sabresaurus.playerprefseditor": "1.4.1"
+    "com.unity.modules.xr": "1.0.0"
   },
   "scopedRegistries": [
     {
