@@ -4,7 +4,7 @@ using AutSoft.UnitySupplements.Vitamins;
 using System;
 using UnityEngine;
 
-namespace AutSoft.UnitySupplements.Samples
+namespace AutSoft.UnitySupplements.Samples.TimelineSamples
 {
     public class TimelineInitializer : MonoBehaviour
     {
