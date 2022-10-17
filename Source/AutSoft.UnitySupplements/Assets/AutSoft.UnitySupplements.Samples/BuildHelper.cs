@@ -21,7 +21,7 @@ namespace AutSoft.UnitySupplements.Samples
             }
             else
             {
-                Debug.LogError("Cloud not find Visual Studio installation");
+                Debug.LogError("Could not find Visual Studio installation");
             }
 
             ResourcePaths.KnownEditorPrefs.CodeEditor.Setunity_project_generation_flag(255);
