@@ -1,7 +1,7 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.EventBus;
 
-namespace AutSoft.UnitySupplements.Timeline
+namespace AutSoft.UnitySupplements.UiComponents.Timeline
 {
     public sealed class TimelinePlayingChanged : IEvent
     {

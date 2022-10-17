@@ -1,8 +1,8 @@
 {
-    "name": "com.autsoft.unitysupplements.timeline",
+    "name": "com.autsoft.unitysupplements.uicomponents",
     "version": "0.1.9",
-    "displayName": "Timeline",
-    "description": "Timeline for controlling objects based on time",
+    "displayName": "UI Components",
+    "description": "Handy UI Components",
     "license": "MIT",
     "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/LICENSE.md",
     "changelogUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/CHANGELOG.md",

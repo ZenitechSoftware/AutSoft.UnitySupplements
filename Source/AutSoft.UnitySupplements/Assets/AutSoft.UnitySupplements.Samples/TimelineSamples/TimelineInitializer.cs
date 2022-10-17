@@ -1,5 +1,5 @@
 ﻿#nullable enable
-using AutSoft.UnitySupplements.Timeline;
+using AutSoft.UnitySupplements.UiComponents.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
 using System;
 using UnityEngine;

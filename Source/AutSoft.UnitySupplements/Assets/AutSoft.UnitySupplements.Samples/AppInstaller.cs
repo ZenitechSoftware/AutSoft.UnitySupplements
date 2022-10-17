@@ -2,7 +2,7 @@
 using AutSoft.UnitySupplements.EventBus;
 using AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples;
 using AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples;
-using AutSoft.UnitySupplements.Timeline;
+using AutSoft.UnitySupplements.UiComponents.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;
 using Injecter.Hosting.Unity;

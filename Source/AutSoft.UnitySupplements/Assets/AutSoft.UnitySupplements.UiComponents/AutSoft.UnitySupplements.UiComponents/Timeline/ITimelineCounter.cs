@@ -1,7 +1,7 @@
 ﻿#nullable enable
 using System;
 
-namespace AutSoft.UnitySupplements.Timeline
+namespace AutSoft.UnitySupplements.UiComponents.Timeline
 {
     public interface ITimelineCounter
     {

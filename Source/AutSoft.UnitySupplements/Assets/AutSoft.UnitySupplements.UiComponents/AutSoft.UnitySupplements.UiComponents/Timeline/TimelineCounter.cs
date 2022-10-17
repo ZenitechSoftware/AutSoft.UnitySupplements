@@ -2,7 +2,7 @@
 using AutSoft.UnitySupplements.EventBus;
 using System;
 
-namespace AutSoft.UnitySupplements.Timeline
+namespace AutSoft.UnitySupplements.UiComponents.Timeline
 {
     public sealed class TimelineCounter : ITimelineCounter
     {

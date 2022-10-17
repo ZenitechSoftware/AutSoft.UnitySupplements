@@ -1,4 +1,4 @@
-# Timeline [![openupm](https://img.shields.io/npm/v/com.autsoft.unitysupplements.timeline?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.autsoft.unitysupplements.timeline/)
+# Timeline [![openupm](https://img.shields.io/npm/v/com.autsoft.unitysupplements.uicomponents?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.autsoft.unitysupplements.uicomponents/)
 
 Timeline implementation inside Unity. This package uses [EventBus](../EventBus/EventBus.md) to invoke events whenever the timeline moves, with this you can modify the state of your objects based on time.
 ## Installation
@@ -6,7 +6,7 @@ Timeline implementation inside Unity. This package uses [EventBus](../EventBus/E
 Use [OpenUPM](https://openupm.com/) to install the package.
 
 ```
-openupm add com.autsoft.unitysupplements.timeline
+openupm add com.autsoft.unitysupplements.uicomponents
 ```
 
 ## Getting started

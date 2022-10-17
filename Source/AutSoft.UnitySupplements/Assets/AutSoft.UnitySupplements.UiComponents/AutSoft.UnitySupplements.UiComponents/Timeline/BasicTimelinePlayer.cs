@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace AutSoft.UnitySupplements.Timeline
+namespace AutSoft.UnitySupplements.UiComponents.Timeline
 {
     public class BasicTimelinePlayer : MonoBehaviourInjected
     {

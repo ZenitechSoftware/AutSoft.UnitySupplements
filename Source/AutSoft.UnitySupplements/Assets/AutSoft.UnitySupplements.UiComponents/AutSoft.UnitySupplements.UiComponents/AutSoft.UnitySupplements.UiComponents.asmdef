@@ -1,5 +1,5 @@
 {
-    "name": "AutSoft.UnitySupplements.Timeline",
+    "name": "AutSoft.UnitySupplements.UiComponents",
     "rootNamespace": "",
     "references": [
         "AutSoft.UnitySupplements.EventBus",

@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace AutSoft.UnitySupplements.Timeline
+namespace AutSoft.UnitySupplements.UiComponents.Timeline
 {
 #if UNITY_EDITOR
     public static class CreateMenu

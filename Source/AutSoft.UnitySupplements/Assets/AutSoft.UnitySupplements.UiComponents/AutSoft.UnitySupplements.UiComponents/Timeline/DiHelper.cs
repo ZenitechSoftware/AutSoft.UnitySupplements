@@ -1,7 +1,7 @@
 ﻿#nullable enable
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AutSoft.UnitySupplements.Timeline
+namespace AutSoft.UnitySupplements.UiComponents.Timeline
 {
     public static class DiHelper
     {
