@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
+namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
 {
     public sealed class LoadSceneNext : MonoBehaviour
     {

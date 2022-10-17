@@ -10,28 +10,36 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
+namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
 {
     public static partial class ResourcePaths
     {
         public static partial class Scenes
         {
 
-            public const string TimelineSample = "AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.Timeline.Sample/TimelineSample";
+            public const string TimelineSample = "AutSoft.UnitySupplements.Samples/TimelineSamples/TimelineSample";
             public static void LoadTimelineSample(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(TimelineSample, mode);
             public static AsyncOperation LoadAsyncTimelineSample(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(TimelineSample, mode);
 
-            public const string CreatePrefab = "AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.ResourceGenerator.Sample/Scenes/CreatePrefab";
+            public const string CreatePrefab = "AutSoft.UnitySupplements.Samples/ResourceGeneratorSamples/Scenes/CreatePrefab";
             public static void LoadCreatePrefab(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(CreatePrefab, mode);
             public static AsyncOperation LoadAsyncCreatePrefab(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(CreatePrefab, mode);
 
-            public const string LoadSceneInitial = "AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.ResourceGenerator.Sample/Scenes/LoadSceneInitial";
+            public const string LoadSceneInitial = "AutSoft.UnitySupplements.Samples/ResourceGeneratorSamples/Scenes/LoadSceneInitial";
             public static void LoadLoadSceneInitial(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(LoadSceneInitial, mode);
             public static AsyncOperation LoadAsyncLoadSceneInitial(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(LoadSceneInitial, mode);
 
-            public const string LoadSceneNext = "AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.ResourceGenerator.Sample/Scenes/LoadSceneNext";
+            public const string LoadSceneNext = "AutSoft.UnitySupplements.Samples/ResourceGeneratorSamples/Scenes/LoadSceneNext";
             public static void LoadLoadSceneNext(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(LoadSceneNext, mode);
             public static AsyncOperation LoadAsyncLoadSceneNext(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(LoadSceneNext, mode);
+
+            public const string BillboardTest = "AutSoft.UnitySupplements.Samples/VitaminsSamples/Scenes/BillboardTest";
+            public static void LoadBillboardTest(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(BillboardTest, mode);
+            public static AsyncOperation LoadAsyncBillboardTest(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(BillboardTest, mode);
+
+            public const string GeneratePolygon = "AutSoft.UnitySupplements.Samples/VitaminsSamples/Scenes/GeneratePolygon";
+            public static void LoadGeneratePolygon(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(GeneratePolygon, mode);
+            public static AsyncOperation LoadAsyncGeneratePolygon(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(GeneratePolygon, mode);
 
         }
 
@@ -116,25 +124,37 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
             public static void LoadTimelineSample()
             {
                 UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
-                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\AutSoft.UnitySupplements.Timeline.Sample\TimelineSample.unity");
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\TimelineSamples\TimelineSample.unity");
             }
             [UnityEditor.MenuItem("Load Scene / CreatePrefab")]
             public static void LoadCreatePrefab()
             {
                 UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
-                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\AutSoft.UnitySupplements.ResourceGenerator.Sample\Scenes\CreatePrefab.unity");
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\ResourceGeneratorSamples\Scenes\CreatePrefab.unity");
             }
             [UnityEditor.MenuItem("Load Scene / LoadSceneInitial")]
             public static void LoadLoadSceneInitial()
             {
                 UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
-                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\AutSoft.UnitySupplements.ResourceGenerator.Sample\Scenes\LoadSceneInitial.unity");
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\ResourceGeneratorSamples\Scenes\LoadSceneInitial.unity");
             }
             [UnityEditor.MenuItem("Load Scene / LoadSceneNext")]
             public static void LoadLoadSceneNext()
             {
                 UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
-                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\AutSoft.UnitySupplements.ResourceGenerator.Sample\Scenes\LoadSceneNext.unity");
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\ResourceGeneratorSamples\Scenes\LoadSceneNext.unity");
+            }
+            [UnityEditor.MenuItem("Load Scene / BillboardTest")]
+            public static void LoadBillboardTest()
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\VitaminsSamples\Scenes\BillboardTest.unity");
+            }
+            [UnityEditor.MenuItem("Load Scene / GeneratePolygon")]
+            public static void LoadGeneratePolygon()
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\VitaminsSamples\Scenes\GeneratePolygon.unity");
             }
 
             [UnityEditor.MenuItem("Play Scene / TimelineSample")]
@@ -147,7 +167,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Sample
                 }
 
                 UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
-                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\AutSoft.UnitySupplements.Timeline.Sample\TimelineSample.unity");
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\TimelineSamples\TimelineSample.unity");
                 UnityEditor.EditorApplication.isPlaying = true;
             }
         }
