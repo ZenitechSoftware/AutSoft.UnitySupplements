@@ -1,11 +1,10 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.EventBus;
-using AutSoft.UnitySupplements.ResourceGenerator.Sample;
+using AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples;
 using AutSoft.UnitySupplements.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;
 using Injecter.Hosting.Unity;
-using Injecter.Unity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
@@ -78,13 +77,7 @@ namespace AutSoft.UnitySupplements.Samples
         {
             var assemblies = new[] { typeof(AppInstaller).Assembly };
 
-            services.AddSceneInjector(
-                injecterOptions => injecterOptions.UseCaching = true,
-                sceneInjectorOptions =>
-                {
-                    sceneInjectorOptions.DontDestroyOnLoad = true;
-                    sceneInjectorOptions.InjectionBehavior = SceneInjectorOptions.Behavior.CompositionRoot;
-                });
+            services.AddInjecter(o => o.UseCaching = true);
 
             services.AddEventBus(assemblies);
 

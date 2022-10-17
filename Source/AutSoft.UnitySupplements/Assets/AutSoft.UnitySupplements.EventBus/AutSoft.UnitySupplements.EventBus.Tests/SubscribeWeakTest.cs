@@ -25,13 +25,8 @@ namespace AutSoft.UnitySupplements.EventBus.Tests
             serviceCollection.AddEventBus();
             serviceCollection.AddLogging(builder => builder.AddSerilog(new LoggerConfiguration().WriteTo.Unity3D().CreateLogger()));
             serviceCollection.AddSingleton<EventHandlerCounter>();
-            serviceCollection.AddSceneInjector(
-                injecterOptions => injecterOptions.UseCaching = true,
-                sceneInjectorOptions =>
-                {
-                    sceneInjectorOptions.DontDestroyOnLoad = true;
-                    sceneInjectorOptions.InjectionBehavior = SceneInjectorOptions.Behavior.CompositionRoot;
-                });
+            serviceCollection.AddInjecter(o => o.UseCaching = true);
+
             var serviceProvider = serviceCollection.BuildServiceProvider();
             CompositionRoot.ServiceProvider = serviceProvider;
 
@@ -56,13 +51,13 @@ namespace AutSoft.UnitySupplements.EventBus.Tests
         }
         private class BaseEvent : IEvent { }
 
-        private class TestComponent : MonoBehaviourScoped
+        private class TestComponent : MonoBehaviourInjected
         {
             [Inject] private readonly IEventBus _eventBus = default!;
             [Inject] private readonly EventHandlerCounter _counter = default!;
 
-            [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "False positive")]
             [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S1144:Unused private types or members should be removed", Justification = "False positive")]
+            [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "False positive")]
             private void Start() => _eventBus.SubscribeWeak<BaseEvent>(this, OnBaseCalled);
 
             private void OnBaseCalled(BaseEvent message) => _counter.BaseCalled++;
@@ -71,10 +66,6 @@ namespace AutSoft.UnitySupplements.EventBus.Tests
         private class EventHandlerCounter
         {
             public int BaseCalled { get; set; }
-
-            [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "False positive")]
-            [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S1144:Unused private types or members should be removed", Justification = "Used implicitly")]
-            public int DerivedCalled { get; set; }
         }
     }
 }
