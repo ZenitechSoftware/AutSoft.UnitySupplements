@@ -1,6 +1,6 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.EventBus;
-using AutSoft.UnitySupplements.ResourceGenerator.Sample;
+using AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples;
 using AutSoft.UnitySupplements.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;

@@ -8,7 +8,7 @@ using System.Globalization;
 using TMPro;
 using UnityEngine;
 
-namespace AutSoft.UnitySupplements.Samples
+namespace AutSoft.UnitySupplements.Samples.TimelineSamples
 {
     public class TimeReactor : MonoBehaviourInjected
     {

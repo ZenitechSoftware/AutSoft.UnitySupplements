@@ -30,7 +30,7 @@ namespace AutSoft.UnitySupplements.Samples
                 Debug.LogError("Cloud not find Visual Studio installation");
             }
 
-            EditorPrefs.SetInt("unity_project_generation_flag_h3448460154", 255);
+            EditorPrefs.SetInt("unity_project_generation_flag", 255);
 
             CodeEditor.Editor.CurrentCodeEditor.SyncAll();
         }
