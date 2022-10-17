@@ -28,8 +28,8 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
                 settings.Usings,
                 settings.GenerateLayers,
                 settings.GenerateSceneButtons,
-                settings.SceneNames
-
+                settings.SceneNames,
+                settings.EditorPrefsData
             );
 
             context.Info("Resource Path generation started");

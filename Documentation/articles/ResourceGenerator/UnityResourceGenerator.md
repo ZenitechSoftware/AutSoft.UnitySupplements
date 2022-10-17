@@ -131,6 +131,14 @@ These menus will also be created:
 
 ![PlaySceneButtons](~/images/ResourceGenerator/intro/PlaySceneButtons.png)
 
+### Editor preferences
+
+Generates strongly typed, categorized, static methods to set Editor preferences. Known and useful preferences will be added in later releases. You can use the reset button to generate the current up-to-date version. The keys can be explored through the [platform specific storages explained in the documentation](https://docs.unity3d.com/ScriptReference/EditorPrefs.html).
+
+![EditorPreferences](~images/ResourceGenerator/EditorPreferences.png)
+
+For browsing the current editor preferences it is advised to use the [PlayerPrefsEditor](https://github.com/sabresaurus/PlayerPrefsEditor) project
+
 ## Customization
 
 After pressing the `Generate Resource Paths` button, or visiting the `ResourceGenerator` page in the Project Settings an asset will be generated in the Assets folder, which will contain settings for the code generation.

@@ -51,7 +51,8 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "com.sabresaurus.playerprefseditor": "1.4.1"
   },
   "scopedRegistries": [
     {
@@ -69,6 +70,7 @@
         "com.injecter.hosting.unity",
         "com.injecter.unity",
         "com.openupm",
+        "com.sabresaurus.playerprefseditor",
         "com.serilog.sinks.unity3d"
       ]
     }

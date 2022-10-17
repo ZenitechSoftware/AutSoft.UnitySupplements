@@ -22,7 +22,8 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
             IReadOnlyList<string> usings,
             bool generateLayers,
             bool generateSceneButtons,
-            IReadOnlyList<string> sceneNames)
+            IReadOnlyList<string> sceneNames,
+            EditorPrefsData editorPrefsData)
         {
             AssetsFolder = assetsFolder;
             FolderPath = folderPath;
@@ -33,6 +34,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
             GenerateLayers = generateLayers;
             GenerateSceneButtons = generateSceneButtons;
             SceneNames = sceneNames;
+            EditorPrefsData = editorPrefsData;
             Data = data;
             Usings = usings;
         }
@@ -91,5 +93,10 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
         /// Names of scenes to generate load button for
         /// </summary>
         public IReadOnlyList<string> SceneNames { get; }
+
+        /// <summary>
+        /// Generation data of Editor Preferences
+        /// </summary>
+        public EditorPrefsData EditorPrefsData { get; }
     }
 }
