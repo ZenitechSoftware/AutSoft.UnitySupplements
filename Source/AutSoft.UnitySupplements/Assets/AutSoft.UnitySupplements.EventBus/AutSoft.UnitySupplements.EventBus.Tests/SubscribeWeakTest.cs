@@ -24,13 +24,8 @@ namespace AutSoft.UnitySupplements.EventBus.Tests
             serviceCollection.AddEventBus();
             serviceCollection.AddLogging(builder => builder.AddSerilog(new LoggerConfiguration().WriteTo.Unity3D().CreateLogger()));
             serviceCollection.AddSingleton<EventHandlerCounter>();
-            serviceCollection.AddSceneInjector(
-                injecterOptions => injecterOptions.UseCaching = true,
-                sceneInjectorOptions =>
-                {
-                    sceneInjectorOptions.DontDestroyOnLoad = true;
-                    sceneInjectorOptions.InjectionBehavior = SceneInjectorOptions.Behavior.CompositionRoot;
-                });
+            serviceCollection.AddInjecter(o => o.UseCaching = true);
+
             var serviceProvider = serviceCollection.BuildServiceProvider();
             CompositionRoot.ServiceProvider = serviceProvider;
 
@@ -55,7 +50,7 @@ namespace AutSoft.UnitySupplements.EventBus.Tests
         }
         private class BaseEvent : IEvent { }
 
-        private class TestComponent : MonoBehaviourScoped
+        private class TestComponent : MonoBehaviourInjected
         {
             [Inject] private IEventBus _eventBus = default!;
             [Inject] private EventHandlerCounter _counter = default!;
