@@ -23,6 +23,13 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
+    "com.sabresaurus.playerprefseditor": {
+      "version": "1.4.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "com.serilog.sinks.unity3d": {
       "version": "2.0.1",
       "depth": 0,

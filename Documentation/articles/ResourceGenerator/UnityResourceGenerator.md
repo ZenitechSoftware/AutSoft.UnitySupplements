@@ -137,6 +137,8 @@ Generates strongly typed, categorized, static methods to set Editor preferences.
 
 ![EditorPreferences](~images/ResourceGenerator/EditorPreferences.png)
 
+For browsing the current editor preferences it is advised to use the [PlayerPrefsEditor](https://github.com/sabresaurus/PlayerPrefsEditor) project
+
 ## Customization
 
 After pressing the `Generate Resource Paths` button, or visiting the `ResourceGenerator` page in the Project Settings an asset will be generated in the Assets folder, which will contain settings for the code generation.
