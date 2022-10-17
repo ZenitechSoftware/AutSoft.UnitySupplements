@@ -1,59 +1,59 @@
 ﻿#nullable enable
 using System;
-using System.Linq.Expressions;
+using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace AutSoft.UnitySupplements.Vitamins
 {
     public static class MonoBehaviourExtensions
     {
         /// <summary>
-        /// Check if the given field is set on the component, if not throws an exception. Only runs in the Unity Editor
-        /// <exception cref="FieldNotSetException"></exception>
+        /// Check if fields marked by the <see cref="SerializeField"/> are set. Only runs validations when run inside the Unity Editor
         /// </summary>
-        /// <typeparam name="T">Type of the field</typeparam>
-        /// <param name="component">Owner of the field</param>
-        /// <param name="field">Field to check</param>
-        /// <param name="fieldName">The name of the field. Use the <see cref="nameof"/> expression</param>
-        /// <exception cref="FieldNotSetException">The field in question was not set</exception>
+        /// <param name="self">Self</param>
+        /// <param name="exceptions">Which fields not to check. Use the nameof() expression</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void CheckSerializedField<T>(this MonoBehaviour component, T field, string fieldName) where T : Object
+        public static void CheckSerializedFields(this MonoBehaviour self, params string[] exceptions)
         {
 #if UNITY_EDITOR
-            if (field == null)
+            foreach (var field in GetFields(self)
+                .Where(f => !exceptions.Contains(f.Name) && FilterField(f)))
             {
-                var componentName = component.name;
-                var gameObjectName = component.gameObject.name;
-                throw new FieldNotSetException($"Field: {fieldName} is not set on Component: {componentName} on GameObject: {gameObjectName}", gameObjectName, componentName, fieldName);
+                CheckField(self, field);
             }
 #endif
         }
 
         /// <summary>
-        /// Check if the given field is set on the component, if not throws an exception. Only runs in the Unity Editor
+        /// Check if fields marked by the <see cref="SerializeField"/> are set. Only runs validations when run inside the Unity Editor
         /// </summary>
-        /// <typeparam name="TField">Type of the field</typeparam>
-        /// <typeparam name="TComponent">Type of the component</typeparam>
-        /// <param name="component">Owner of the field</param>
-        /// <param name="fieldExpression">Expression which will return the member to check.</param>
-        /// <exception cref="FieldNotSetException">The field in question was not set</exception>
+        /// <param name="self">Self</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void CheckSerializedField<TField, TComponent>(this TComponent component, Expression<Func<TComponent, TField>> fieldExpression) where TField : Object where TComponent : MonoBehaviour
+        public static void CheckSerializedFields(this MonoBehaviour self)
         {
 #if UNITY_EDITOR
-            var field = fieldExpression.Compile()(component);
-
-            if (field == null)
+            foreach (var field in GetFields(self)
+                .Where(f => FilterField(f)))
             {
-                var fieldName = ((MemberExpression)fieldExpression.Body).Member.Name;
-
-                var componentName = component.name;
-                var gameObjectName = component.gameObject.name;
-                throw new FieldNotSetException($"Field: {fieldName} is not set on Component: {componentName} on GameObject: {gameObjectName}", gameObjectName, componentName, fieldName);
+                CheckField(self, field);
             }
 #endif
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S3011:Reflection should not be used to increase accessibility of classes, methods, or fields", Justification = "We need this")]
+        private static FieldInfo[] GetFields(MonoBehaviour self) => self
+            .GetType()
+            .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+
+        private static bool FilterField(FieldInfo f) => f.FieldType.IsSubclassOf(typeof(Component)) && f.GetCustomAttribute<SerializeField>() != null;
+
+        private static void CheckField(MonoBehaviour self, FieldInfo field)
+        {
+            var fieldValue = field.GetValue(self) as UnityEngine.Object;
+
+            if (fieldValue == null) Debug.LogError($"Field {field.Name} is not set", self);
         }
     }
 }

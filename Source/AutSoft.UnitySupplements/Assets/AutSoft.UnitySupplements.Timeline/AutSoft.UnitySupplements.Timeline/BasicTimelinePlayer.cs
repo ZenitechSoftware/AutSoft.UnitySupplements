@@ -35,14 +35,8 @@ namespace AutSoft.UnitySupplements.Timeline
         protected override void Awake()
         {
             base.Awake();
-            this.CheckSerializedField(_timeSlider, nameof(_timeSlider));
-            this.CheckSerializedField(_sliderEvents, nameof(_sliderEvents));
-            this.CheckSerializedField(_playPauseButton, nameof(_playPauseButton));
-            this.CheckSerializedField(_stopButton, nameof(_stopButton));
-            this.CheckSerializedField(_speedDropdown, nameof(_speedDropdown));
-            this.CheckSerializedField(_currentTimeLabel, nameof(_currentTimeLabel));
-            this.CheckSerializedField(_startDateText, nameof(_startDateText));
-            this.CheckSerializedField(_endDateText, nameof(_endDateText));
+
+            this.CheckSerializedFields();
 
             AddEventTrigger(EventTriggerType.Drag, SetCurrentTimeFromSliderValue);
             AddEventTrigger(EventTriggerType.PointerDown, ClickedOnTimeline);

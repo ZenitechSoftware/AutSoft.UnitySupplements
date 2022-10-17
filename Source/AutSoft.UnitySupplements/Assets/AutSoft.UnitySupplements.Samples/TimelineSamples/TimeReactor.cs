@@ -18,7 +18,7 @@ namespace AutSoft.UnitySupplements.Samples.TimelineSamples
 
         private void Start()
         {
-            this.CheckSerializedField(_text, nameof(_text));
+            this.CheckSerializedFields();
 
             _eventBus.Subscribe<CurrentTimeChanged>(OnTimeChanged);
         }

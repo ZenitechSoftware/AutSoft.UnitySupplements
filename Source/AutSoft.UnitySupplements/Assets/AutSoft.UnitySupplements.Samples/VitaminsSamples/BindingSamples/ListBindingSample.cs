@@ -28,18 +28,7 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
         [SerializeField] private GameObject _newItemParent = default!;
         [SerializeField] private GameObject _newItemPrefab = default!;
 
-        private void Awake()
-        {
-            this.CheckSerializedField(x => x._listView);
-            this.CheckSerializedField(x => x._addButton);
-            this.CheckSerializedField(x => x._removeButton);
-            this.CheckSerializedField(x => x._orderButton);
-            this.CheckSerializedField(x => x._swapButton);
-            this.CheckSerializedField(x => x._replaceButton);
-            this.CheckSerializedField(x => x._itemsPrefab);
-            this.CheckSerializedField(x => x._newItemParent);
-            this.CheckSerializedField(x => x._newItemPrefab);
-        }
+        private void Awake() => this.CheckSerializedFields();
 
         private void Start()
         {

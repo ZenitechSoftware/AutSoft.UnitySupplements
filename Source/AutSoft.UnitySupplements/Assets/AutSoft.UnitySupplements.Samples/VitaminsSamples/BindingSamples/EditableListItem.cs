@@ -15,8 +15,7 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 
         private void Awake()
         {
-            this.CheckSerializedField(x => x._titleText);
-            this.CheckSerializedField(x => x._numberText);
+            this.CheckSerializedFields();
 
             Data.Bind
             (

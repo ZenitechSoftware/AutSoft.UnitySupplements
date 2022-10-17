@@ -15,11 +15,7 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
         [SerializeField] private GameObject _itemPrefab = default!;
         [SerializeField] private Transform _transformParent = default!;
 
-        private void Awake()
-        {
-            this.CheckSerializedField(x => x._itemPrefab);
-            this.CheckSerializedField(x => x._transformParent);
-        }
+        private void Awake() => this.CheckSerializedFields();
 
         private void Start() =>
             _listBindingData.Bind(gameObject, x => x.Selected, s =>

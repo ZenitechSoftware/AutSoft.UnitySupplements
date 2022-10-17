@@ -19,11 +19,7 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 
         private ListItemData _data = default!;
 
-        private void Awake()
-        {
-            this.CheckSerializedField(x => x._titleText);
-            this.CheckSerializedField(x => x._numberText);
-        }
+        private void Awake() => this.CheckSerializedFields();
 
         public void Initialize(ListItemData? data)
         {

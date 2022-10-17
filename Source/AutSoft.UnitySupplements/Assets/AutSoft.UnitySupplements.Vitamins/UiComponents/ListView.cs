@@ -12,7 +12,7 @@ namespace AutSoft.UnitySupplements.Vitamins.UiComponents
         [SerializeField] private Transform _contentParent = default!;
         private GameObject _itemPrefab = default!;
 
-        private void Awake() => this.CheckSerializedField(x => x._contentParent);
+        private void Awake() => this.CheckSerializedFields();
 
         public void Initialze<TItem, TCollection, TItemView>(TCollection collection, GameObject itemPrefab, Action<TItemView, TItem?>? initialize = null)
             where TCollection : INotifyCollectionChanged, IEnumerable<TItem>
