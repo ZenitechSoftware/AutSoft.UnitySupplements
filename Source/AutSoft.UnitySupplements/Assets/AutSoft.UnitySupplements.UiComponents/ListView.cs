@@ -34,7 +34,7 @@ namespace AutSoft.UnitySupplements.UiComponents
                 }
                 else if (args.Action == NotifyCollectionChangedAction.Remove)
                 {
-                    Destroy(_contentParent.transform.GetChild(args.OldStartingIndex).gameObject);
+                    Destroy(_contentParent.GetChild(args.OldStartingIndex).gameObject);
                 }
                 else if (args.Action == NotifyCollectionChangedAction.Reset)
                 {
@@ -42,19 +42,15 @@ namespace AutSoft.UnitySupplements.UiComponents
                 }
                 else if (args.Action == NotifyCollectionChangedAction.Move)
                 {
-                    var child1 = _contentParent.transform.GetChild(args.OldStartingIndex);
-                    var child2 = _contentParent.transform.GetChild(args.NewStartingIndex);
-
-                    child1.SetSiblingIndex(args.NewStartingIndex);
-                    child2.SetSiblingIndex(args.OldStartingIndex);
+                    _contentParent.GetChild(args.OldStartingIndex).SetSiblingIndex(args.NewStartingIndex);
                 }
                 else if (args.Action == NotifyCollectionChangedAction.Replace)
                 {
-                    var oldChild = _contentParent.transform.GetChild(args.OldStartingIndex);
-                    Destroy(oldChild.gameObject);
+                    Destroy(_contentParent.GetChild(args.OldStartingIndex));
 
                     var itemObject = Instantiate(_itemPrefab, _contentParent);
                     initialize?.Invoke(itemObject.GetComponent<TItemView>(), args.NewItems![0]);
+
                     itemObject.transform.SetSiblingIndex(args.NewStartingIndex);
                 }
                 else
