@@ -94,6 +94,7 @@ namespace AutSoft.UnitySupplements.EventBus.Tests
             Assert.AreEqual(1, _counter.DerivedCalled);
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S1144:Unused private types or members should be removed", Justification = "Used by DI")]
         private class BaseTestEventHandler<T> : IEventHandler<T> where T : BaseEvent
         {
             private readonly EventHandlerCounter _counter;
@@ -103,6 +104,7 @@ namespace AutSoft.UnitySupplements.EventBus.Tests
             public void Handle(T message) => _counter.BaseCalled++;
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S1144:Unused private types or members should be removed", Justification = "Used by DI")]
         private class DerivedTestEventHandler : IEventHandler<DerivedEvent>
         {
             private readonly EventHandlerCounter _counter;
