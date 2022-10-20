@@ -4,10 +4,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.UiComponents.Timeline
 {
-#if UNITY_EDITOR
     public static class CreateMenu
     {
-        [MenuItem("GameObject/AutSoft/TimeLine/BasicTimelinePlayer", false,0)]
+        [MenuItem("GameObject/AutSoft/TimeLine/BasicTimelinePlayer", false, 0)]
         public static void CreateTimeLine()
         {
             //Parent
@@ -15,7 +14,7 @@ namespace AutSoft.UnitySupplements.UiComponents.Timeline
             var timelineGuid = findAssets[0];
             var guidToAssetPath = AssetDatabase.GUIDToAssetPath(timelineGuid);
             var prefab = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<Object>(guidToAssetPath));
-            PrefabUtility.UnpackPrefabInstance(prefab,PrefabUnpackMode.Completely,InteractionMode.AutomatedAction);
+            PrefabUtility.UnpackPrefabInstance(prefab, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
             prefab.name = "TimeLinePlayer";
 
             if (Selection.activeTransform != null)
@@ -26,5 +25,4 @@ namespace AutSoft.UnitySupplements.UiComponents.Timeline
             Selection.activeGameObject = prefab;
         }
     }
-#endif
 }
