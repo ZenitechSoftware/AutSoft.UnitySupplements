@@ -46,7 +46,7 @@ namespace AutSoft.UnitySupplements.UiComponents
                 }
                 else if (args.Action == NotifyCollectionChangedAction.Replace)
                 {
-                    Destroy(_contentParent.GetChild(args.OldStartingIndex));
+                    Destroy(_contentParent.GetChild(args.OldStartingIndex).gameObject);
 
                     var itemObject = Instantiate(_itemPrefab, _contentParent);
                     initialize?.Invoke(itemObject.GetComponent<TItemView>(), args.NewItems![0]);
