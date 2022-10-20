@@ -1,7 +1,7 @@
 ﻿#nullable enable
+using AutSoft.UnitySupplements.UiComponents;
 using AutSoft.UnitySupplements.Vitamins;
 using AutSoft.UnitySupplements.Vitamins.Bindings;
-using AutSoft.UnitySupplements.Vitamins.UiComponents;
 using Injecter;
 using Injecter.Unity;
 using System.Collections.ObjectModel;

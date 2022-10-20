@@ -1,11 +1,12 @@
 ﻿#nullable enable
+using AutSoft.UnitySupplements.Vitamins;
 using AutSoft.UnitySupplements.Vitamins.Bindings;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
 
-namespace AutSoft.UnitySupplements.Vitamins.UiComponents
+namespace AutSoft.UnitySupplements.UiComponents
 {
     public class ListView : MonoBehaviour
     {
