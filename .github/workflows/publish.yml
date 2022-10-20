@@ -30,7 +30,7 @@ jobs:
         uses: butlerlogic/action-autotag@stable
         with:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          root: "Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.UiComponents/AutSoft.UnitySupplements.UiComponents"
+          root: "Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.UiComponents"
           tag_prefix: "uicomponents/"
 
       - name: Publish Vitamins to OpenUPM
