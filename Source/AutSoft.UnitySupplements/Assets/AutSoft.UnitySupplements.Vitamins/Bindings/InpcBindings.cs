@@ -21,31 +21,59 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
         /// </summary>
         public static void Bind<TSource, TBindingSource>
         (
-            this TBindingSource source,
-            GameObject gameObject,
-            Expression<Func<TBindingSource, TSource>> memberExpression,
+            this MonoBehaviour lifetimeOwner,
+            TBindingSource source,
+            Expression<Func<TBindingSource, TSource>> targetPropertyExpression,
             Action<TSource> update
         )
             where TBindingSource : INotifyPropertyChanged =>
-            BindSourceToTarget(source, gameObject, GetMemberName(memberExpression), update);
+            lifetimeOwner.gameObject.Bind(source, targetPropertyExpression, update);
+
+        /// <summary>
+        /// One-way
+        /// </summary>
+        public static void Bind<TSource, TBindingSource>
+        (
+            this GameObject lifetimeOwner,
+            TBindingSource source,
+            Expression<Func<TBindingSource, TSource>> targetPropertyExpression,
+            Action<TSource> update
+        )
+            where TBindingSource : INotifyPropertyChanged =>
+            BindSourceToTarget(source, lifetimeOwner, GetMemberName(targetPropertyExpression), update);
 
         /// <summary>
         /// Two-way
         /// </summary>
         public static void Bind<TSource, TTarget, TBindingSource>
         (
-            this TBindingSource source,
-            GameObject gameObject,
-            UnityEvent<TTarget> unityEvent,
-            Expression<Func<TBindingSource, TSource>> memberExpression,
+            this MonoBehaviour lifetimeOwner,
+            TBindingSource source,
+            Expression<Func<TBindingSource, TSource>> targetPropertyExpression,
             Action<TSource> updateTarget,
+            UnityEvent<TTarget> unityEventTarget,
+            Func<TTarget, TSource> updateSource
+        )
+            where TBindingSource : INotifyPropertyChanged =>
+            lifetimeOwner.gameObject.Bind(source, targetPropertyExpression, updateTarget, unityEventTarget, updateSource);
+
+        /// <summary>
+        /// Two-way
+        /// </summary>
+        public static void Bind<TSource, TTarget, TBindingSource>
+        (
+            this GameObject lifetimeOwner,
+            TBindingSource source,
+            Expression<Func<TBindingSource, TSource>> targetPropertyExpression,
+            Action<TSource> updateTarget,
+            UnityEvent<TTarget> unityEventTarget,
             Func<TTarget, TSource> updateSource
         )
             where TBindingSource : INotifyPropertyChanged
         {
-            var propertyName = GetMemberName(memberExpression);
-            var (sourceType, destroyDetector) = BindSourceToTarget(source, gameObject, propertyName, updateTarget);
-            BindTargetToSource(source, unityEvent, propertyName, updateSource, sourceType, destroyDetector);
+            var propertyName = GetMemberName(targetPropertyExpression);
+            var (sourceType, destroyDetector) = BindSourceToTarget(source, lifetimeOwner, propertyName, updateTarget);
+            BindTargetToSource(source, unityEventTarget, propertyName, updateSource, sourceType, destroyDetector);
         }
 
         private static string GetMemberName<T, R>(Expression<Func<T, R>> memberExpression) => ((MemberExpression)memberExpression.Body).Member.Name;

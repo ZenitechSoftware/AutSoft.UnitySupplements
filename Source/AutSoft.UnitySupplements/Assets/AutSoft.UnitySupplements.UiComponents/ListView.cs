@@ -25,7 +25,7 @@ namespace AutSoft.UnitySupplements.UiComponents
 
             _itemPrefab = itemPrefab;
 
-            collection.Bind<TCollection, TItem>(gameObject, args =>
+            this.Bind<TCollection, TItem>(collection, args =>
             {
                 if (args.Action == NotifyCollectionChangedAction.Add)
                 {

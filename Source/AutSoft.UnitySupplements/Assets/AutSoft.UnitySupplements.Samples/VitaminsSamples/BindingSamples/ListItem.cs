@@ -27,8 +27,8 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
 
             _data = data;
 
-            _data.Bind(gameObject, x => x.Title, t => _titleText.text = t);
-            _data.Bind(gameObject, x => x.Number, n => _numberText.text = n.ToString());
+            this.Bind(_data, x => x.Title, t => _titleText.text = t);
+            this.Bind(_data, x => x.Number, n => _numberText.text = n.ToString());
         }
 
         public void OnPointerClick(PointerEventData eventData) => _listData.Selected = _data;

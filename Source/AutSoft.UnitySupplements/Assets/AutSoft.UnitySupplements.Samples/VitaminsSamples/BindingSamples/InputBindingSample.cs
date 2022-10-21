@@ -21,34 +21,34 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
         {
             this.CheckSerializedFields();
 
-            _data.Bind
+            this.Bind
             (
-                gameObject,
-                _inputField.onValueChanged,
+                _data,
                 x => x.Input,
                 updateTarget: x => _inputField.text = x,
+                _inputField.onValueChanged,
                 updateSource: x => x
             );
 
-            _data.Bind
+            this.Bind
             (
-                gameObject,
+                _data,
                 x => x.Input,
                 i => _inputShowcase.text = i
             );
 
-            _data.Bind
+            this.Bind
             (
-                gameObject,
+                _data,
                 x => x.Input,
                 i => _parsedValueText.text = double.TryParse(i, out var result)
                     ? result.ToString()
                     : "Could not parse"
             );
 
-            _removeLastCharacterButton.onClick.Bind(gameObject, _data.RemoveLastCharacter);
+            this.Bind(_removeLastCharacterButton.onClick, _data.RemoveLastCharacter);
 
-            _alphabetizeButton.onClick.Bind(gameObject, _data.Alphabetize);
+            this.Bind(_alphabetizeButton.onClick, _data.Alphabetize);
         }
     }
 }

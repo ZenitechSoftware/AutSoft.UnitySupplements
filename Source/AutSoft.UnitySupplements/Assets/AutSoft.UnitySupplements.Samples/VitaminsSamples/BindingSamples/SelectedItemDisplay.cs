@@ -18,12 +18,18 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
         private void Awake() => this.CheckSerializedFields();
 
         private void Start() =>
-            _listBindingData.Bind(gameObject, x => x.Selected, s =>
-            {
-                _transformParent.DestroyChildren();
-                if (s is null) return;
+            this
+                .Bind
+                (
+                    _listBindingData,
+                    x => x.Selected,
+                    s =>
+                    {
+                        _transformParent.DestroyChildren();
+                        if (s is null) return;
 
-                Instantiate(_itemPrefab, _transformParent).GetComponent<ListItem>().Initialize(s);
-            });
+                        Instantiate(_itemPrefab, _transformParent).GetComponent<ListItem>().Initialize(s);
+                    }
+                );
     }
 }

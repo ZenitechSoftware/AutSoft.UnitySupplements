@@ -12,8 +12,20 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
         /// </summary>
         public static void Bind<TBindingSource, TItem>
         (
-            this TBindingSource source,
-            GameObject gameObject,
+            this MonoBehaviour lifetimeOwner,
+            TBindingSource source,
+            Action<CollectionChangedArgs<TItem>> update
+        )
+            where TBindingSource : INotifyCollectionChanged, IEnumerable<TItem> =>
+            lifetimeOwner.gameObject.Bind(source, update);
+
+        /// <summary>
+        /// One-way Collection
+        /// </summary>
+        public static void Bind<TBindingSource, TItem>
+        (
+            this GameObject lifetimeOwner,
+            TBindingSource source,
             Action<CollectionChangedArgs<TItem>> update
         )
             where TBindingSource : INotifyCollectionChanged, IEnumerable<TItem>
@@ -21,7 +33,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
             void CollectionChanged(object _, NotifyCollectionChangedEventArgs e) => update(new CollectionChangedArgs<TItem>(e));
 
             source.CollectionChanged += CollectionChanged;
-            gameObject.GetOrAddComponent<DestroyDetector>().Destroyed += () => source.CollectionChanged -= CollectionChanged;
+            lifetimeOwner.GetOrAddComponent<DestroyDetector>().Destroyed += () => source.CollectionChanged -= CollectionChanged;
         }
     }
 }

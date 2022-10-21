@@ -17,21 +17,21 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
         {
             this.CheckSerializedFields();
 
-            Data.Bind
+            this.Bind
             (
-                gameObject,
-                _titleText.onValueChanged,
+                Data,
                 x => x.Title,
                 t => _titleText.text = t,
+                _titleText.onValueChanged,
                 i => i
             );
 
-            Data.Bind
+            this.Bind
             (
-                gameObject,
-                _numberText.onValueChanged,
+                Data,
                 x => x.Number,
                 t => _numberText.text = t.ToString(),
+                _numberText.onValueChanged,
                 i => int.TryParse(i, out var result) ? result : null
             );
         }

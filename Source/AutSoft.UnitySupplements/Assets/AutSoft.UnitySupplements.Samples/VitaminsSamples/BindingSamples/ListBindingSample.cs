@@ -34,7 +34,7 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
         {
             _listView.Initialze<ListItemData, ReadOnlyObservableCollection<ListItemData>, ListItem>(_data.Items, _itemsPrefab, (itemObject, item) => itemObject.Initialize(item));
 
-            _addButton.onClick.Bind(gameObject, () =>
+            this.Bind(_addButton.onClick, () =>
             {
                 var item = _newItemParent.transform.GetChild(0).GetComponent<EditableListItem>().Data;
                 _data.Add(item);
@@ -44,10 +44,10 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
                 Instantiate(_newItemPrefab, _newItemParent.transform);
             });
 
-            _orderButton.onClick.Bind(gameObject, _data.Order);
-            _removeButton.onClick.Bind(gameObject, _data.RemoveSelected);
-            _swapButton.onClick.Bind(gameObject, _data.SwapFirstAndLast);
-            _replaceButton.onClick.Bind(gameObject, () =>
+            this.Bind(_orderButton.onClick, _data.Order);
+            this.Bind(_removeButton.onClick, _data.RemoveSelected);
+            this.Bind(_swapButton.onClick, _data.SwapFirstAndLast);
+            this.Bind(_replaceButton.onClick, () =>
             {
                 var item = _newItemParent.transform.GetChild(0).GetComponent<EditableListItem>().Data;
                 _data.ReplaceFirst(item);
