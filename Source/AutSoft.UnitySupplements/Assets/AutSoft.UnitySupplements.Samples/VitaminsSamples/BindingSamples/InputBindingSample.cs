@@ -25,9 +25,9 @@ namespace AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples
             (
                 _data,
                 x => x.Input,
-                updateTarget: x => _inputField.text = x,
+                sourceToTarget: x => _inputField.text = x,
                 _inputField.onValueChanged,
-                updateSource: x => x
+                targetToSource: x => x
             );
 
             this.Bind
