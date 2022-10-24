@@ -1,16 +1,16 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.EventBus;
-using AutSoft.UnitySupplements.ResourceGenerator.Sample;
-using AutSoft.UnitySupplements.Timeline;
+using AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples;
+using AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples;
+using AutSoft.UnitySupplements.UiComponents.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;
-using Injecter.Hosting.Unity;
-using Injecter.Unity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Sinks.Unity3D;
 using System;
+using System.IO;
 using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Samples
@@ -30,23 +30,19 @@ namespace AutSoft.UnitySupplements.Samples
 
             try
             {
-                var host = new HostBuilder()
-                    .ConfigureHost(logger)
-                    .Build();
+                var serviceProvider = new ServiceCollection().Configure(logger).BuildServiceProvider(true);
 
-                CompositionRoot.ServiceProvider = host.Services;
-
-                host.Start();
+                CompositionRoot.ServiceProvider = serviceProvider;
 
                 Application.quitting += OnQuitting;
 
                 void OnQuitting()
                 {
-                    Log.CloseAndFlush();
-
-                    host = null!;
+                    serviceProvider.Dispose();
 
                     Application.quitting -= OnQuitting;
+
+                    Log.CloseAndFlush();
                 }
             }
             catch (Exception e)
@@ -56,41 +52,39 @@ namespace AutSoft.UnitySupplements.Samples
             }
         }
 
-        public static IHostBuilder ConfigureHost(this IHostBuilder builder, Serilog.ILogger logger)
+        public static IServiceCollection Configure(this IServiceCollection serviceCollection, Serilog.ILogger logger)
         {
             var jsons = new[]
             {
                 ResourcePaths.TextAssets.LoadAppSettings()
             };
 
-            return builder
-                .UseUnity(_ => { }, false, false, jsons)
-                .ConfigureServices(ConfigureServices)
-                .UseDefaultServiceProvider(o =>
-                {
-                    o.ValidateOnBuild = true;
-                    o.ValidateScopes = true;
-                })
-                .UseSerilog(logger);
+            var config = new ConfigurationBuilder()
+                .AddJsonStream(new MemoryStream(jsons[0].bytes))
+                .Build();
+
+            return serviceCollection
+                .AddLogging(b => b.AddSerilog(logger))
+                .ConfigureServices(config);
         }
 
-        public static void ConfigureServices(HostBuilderContext builder, IServiceCollection services)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Roslynator", "RCS1163:Unused parameter.", Justification = "Will be used later")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Will be used later")]
+        public static IServiceCollection ConfigureServices(this IServiceCollection services, IConfigurationRoot config)
         {
             var assemblies = new[] { typeof(AppInstaller).Assembly };
 
-            services.AddSceneInjector(
-                injecterOptions => injecterOptions.UseCaching = true,
-                sceneInjectorOptions =>
-                {
-                    sceneInjectorOptions.DontDestroyOnLoad = true;
-                    sceneInjectorOptions.InjectionBehavior = SceneInjectorOptions.Behavior.CompositionRoot;
-                });
+            services.AddInjecter(o => o.UseCaching = true);
 
             services.AddEventBus(assemblies);
 
             services.AddSingleton<ICancellation, Cancellation>();
 
+            services.AddSingleton<ListBindingData>();
+
             services.AddTimeline();
+
+            return services;
         }
     }
 }

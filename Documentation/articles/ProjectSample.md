@@ -65,14 +65,14 @@ Now you can add the following line to the **ConfigureServices** method inside th
     services.AddEventBus();
 ```
 
-## Adding the timeline package
+## Adding the UiComponents package
 Adding more packages becomes more simple after the initial setup,we just need to add the UPM package
 
 ```PowerShell
-openupm add com.autsoft.unitysupplements.timeline
+openupm add com.autsoft.unitysupplements.uicomponents
 ```
 
-And the dependencies found [here](xref:Dependencies.md). Since injecter is already added we can skip that. So we just add  `AutSoft.UnitySupplements.Timeline` to the .asmdef references. And add the following line to **ConfigureServices** method inside the `AppInstallerCompositionRoot.cs` like before:
+And the dependencies found [here](xref:Dependencies.md). Since injecter is already added we can skip that. So we just add  `AutSoft.UnitySupplements.UiComponents` to the .asmdef references. And add the following line to **ConfigureServices** method inside the `AppInstallerCompositionRoot.cs` like before:
 
 ```csharp
     services.AddTimeline();
@@ -87,7 +87,7 @@ To test everything we are going to create a component which uses an injected **e
 #nullable enable
 using System;
 using AutSoft.UnitySupplements.EventBus;
-using AutSoft.UnitySupplements.Timeline;
+using AutSoft.UnitySupplements.UiComponents.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;
 using Injecter.Unity;

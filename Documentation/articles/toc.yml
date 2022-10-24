@@ -7,6 +7,6 @@
 - name: Vitamins
   href: Vitamins/Vitamins.md
 - name: Timeline
-  href: Timeline/Timeline.md
+  href: UiComponents/Timeline.md
 - name: Dependencies
   href: Dependencies.md

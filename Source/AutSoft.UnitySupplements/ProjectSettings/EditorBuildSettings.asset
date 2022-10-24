@@ -5,16 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.Timeline.Sample/TimelineSample.unity
+  - enabled: 1
+    path: Assets/AutSoft.UnitySupplements.Samples/VitaminsSamples/Scenes/Binding.unity
+    guid: f73298950366a9d43836574bbdba2870
+  - enabled: 1
+    path: Assets/AutSoft.UnitySupplements.Samples/TimelineSamples/TimelineSample.unity
     guid: ae5dee00aa6f5bd479103ce417635d68
   - enabled: 1
-    path: Assets/AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.ResourceGenerator.Sample/Scenes/LoadSceneNext.unity
+    path: Assets/AutSoft.UnitySupplements.Samples/ResourceGeneratorSamples/Scenes/LoadSceneNext.unity
     guid: 30c67a1856c767e4ba1c273f5c55bfbb
   - enabled: 1
-    path: Assets/AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.ResourceGenerator.Sample/Scenes/LoadSceneInitial.unity
+    path: Assets/AutSoft.UnitySupplements.Samples/ResourceGeneratorSamples/Scenes/LoadSceneInitial.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/AutSoft.UnitySupplements.Samples/AutSoft.UnitySupplements.ResourceGenerator.Sample/Scenes/CreatePrefab.unity
+  - enabled: 1
+    path: Assets/AutSoft.UnitySupplements.Samples/ResourceGeneratorSamples/Scenes/CreatePrefab.unity
     guid: b8a0a59b303b36644bdbb1b80a2b7273
   m_configObjects: {}
