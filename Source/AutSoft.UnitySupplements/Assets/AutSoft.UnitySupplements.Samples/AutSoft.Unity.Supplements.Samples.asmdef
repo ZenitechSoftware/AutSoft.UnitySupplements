@@ -5,7 +5,6 @@
         "AutSoft.UnitySupplements.UiComponents",
         "AutSoft.UnitySupplements.ResourceGenerator",
         "AutSoft.UnitySupplements.EventBus",
-        "Injecter.Hosting.Unity",
         "Serilog.Sinks.Unity3D",
         "Injecter.Unity",
         "AutSoft.UnitySupplements.Vitamins",
