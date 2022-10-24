@@ -3,3 +3,4 @@
 - Simpler project layout
 - Timeline project -> UiComponents project
 - Add bindings
+- Add editorprefs resource generator
