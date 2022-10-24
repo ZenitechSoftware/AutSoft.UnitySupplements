@@ -1,6 +1,6 @@
 {
     "name": "com.autsoft.unitysupplements.uicomponents",
-    "version": "0.1.9",
+    "version": "0.2.0",
     "displayName": "UI Components",
     "description": "Handy UI Components",
     "license": "MIT",
@@ -18,10 +18,10 @@
         "url": "https://github.com/AutSoft/AutSoft.UnitySupplements"
     },
     "dependencies": {
-        "com.autsoft.unitysupplements.eventbus": "0.1.8",
-        "com.autsoft.unitysupplements.vitamins": "0.1.5",
+        "com.autsoft.unitysupplements.eventbus": "0.2.0",
+        "com.autsoft.unitysupplements.vitamins": "0.2.0",
         "com.cysharp.unitask": "2.2.5",
         "com.unity.textmeshpro": "1.2.1",
-        "com.injecter.unity": "7.1.0"
+        "com.injecter.unity": "9.1.0"
     }
 }
