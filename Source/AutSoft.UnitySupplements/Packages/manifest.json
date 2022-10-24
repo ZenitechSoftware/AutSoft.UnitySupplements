@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "com.cysharp.unitask": "2.3.1",
-    "com.injecter.hosting.unity": "9.1.0",
     "com.injecter.unity": "9.1.0",
     "com.sabresaurus.playerprefseditor": "1.4.1",
     "com.serilog.sinks.unity3d": "2.0.1",
@@ -15,9 +14,11 @@
     "com.unity.ugui": "1.0.0",
     "org.nuget.communitytoolkit.mvvm": "8.0.0",
     "org.nuget.injecter": "9.1.0",
+    "org.nuget.microsoft.extensions.configuration": "6.0.1",
+    "org.nuget.microsoft.extensions.configuration.json": "6.0.0",
     "org.nuget.microsoft.extensions.dependencymodel": "6.0.0",
-    "org.nuget.microsoft.extensions.hosting": "6.0.1",
     "org.nuget.microsoft.extensions.logging": "6.0.0",
+    "org.nuget.microsoft.extensions.options.configurationextensions": "6.0.0",
     "org.nuget.morelinq": "3.3.2",
     "org.nuget.roslynator.analyzers": "4.1.1",
     "org.nuget.serilog": "2.12.0",
