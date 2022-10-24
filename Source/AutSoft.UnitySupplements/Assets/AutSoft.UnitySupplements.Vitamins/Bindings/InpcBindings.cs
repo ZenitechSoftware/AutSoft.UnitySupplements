@@ -9,6 +9,29 @@ using UnityEngine.Events;
 
 namespace AutSoft.UnitySupplements.Vitamins.Bindings
 {
+    public sealed class BindingLifetime : IDisposable
+    {
+        private Action? _unsubscribe;
+
+        internal void AddUnsubscribe(Action action)
+        {
+            if (_unsubscribe == null)
+            {
+                _unsubscribe = action;
+            }
+            else
+            {
+                _unsubscribe += action;
+            }
+        }
+
+        public void Dispose()
+        {
+            _unsubscribe?.Invoke();
+            _unsubscribe = null;
+        }
+    }
+
     /// <summary>
     /// Provide "WPF-like" data binding methods, which connect properties of binding target objects and data sources
     /// </summary>
@@ -25,7 +48,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
         /// <param name="source">The binding source</param>
         /// <param name="sourcePropertyExpression">Defines the property we want to bind to</param>
         /// <param name="sourceToTarget">This method will run when the source property is changed</param>
-        public static void Bind<TSource, TBindingSource>
+        public static BindingLifetime Bind<TSource, TBindingSource>
         (
             this MonoBehaviour lifetimeOwner,
             TBindingSource source,
@@ -44,15 +67,20 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
         /// <param name="source">The binding source</param>
         /// <param name="sourcePropertyExpression">Defines the property we want to bind to</param>
         /// <param name="sourceToTarget">This method will run when the source property is changed</param>
-        public static void Bind<TSource, TBindingSource>
+        public static BindingLifetime Bind<TSource, TBindingSource>
         (
             this GameObject lifetimeOwner,
             TBindingSource source,
             Expression<Func<TBindingSource, TSource>> sourcePropertyExpression,
             Action<TSource> sourceToTarget
         )
-            where TBindingSource : INotifyPropertyChanged =>
-            BindSourceToTarget(source, lifetimeOwner, GetMemberName(sourcePropertyExpression), sourceToTarget);
+            where TBindingSource : INotifyPropertyChanged
+        {
+            var lifetime = new BindingLifetime();
+            BindSourceToTarget(source, lifetimeOwner, GetMemberName(sourcePropertyExpression), sourceToTarget, lifetime);
+
+            return lifetime;
+        }
 
         /// <summary>
         /// Two-way
@@ -66,7 +94,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
         /// <param name="sourceToTarget">This method will run when the source property is changed</param>
         /// <param name="targetEvent">The event which updateds the source property</param>
         /// <param name="targetToSource">Converts the unity event data for the source property</param>
-        public static void Bind<TSource, TTarget, TBindingSource>
+        public static BindingLifetime Bind<TSource, TTarget, TBindingSource>
         (
             this MonoBehaviour lifetimeOwner,
             TBindingSource source,
@@ -90,7 +118,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
         /// <param name="sourceToTarget">This method will run when the source property is changed</param>
         /// <param name="targetEvent">The event which updateds the source property</param>
         /// <param name="targetToSource">Converts the unity event data for the source property</param>
-        public static void Bind<TSource, TTarget, TBindingSource>
+        public static BindingLifetime Bind<TSource, TTarget, TBindingSource>
         (
             this GameObject lifetimeOwner,
             TBindingSource source,
@@ -101,9 +129,13 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
         )
             where TBindingSource : INotifyPropertyChanged
         {
+            var lifetime = new BindingLifetime();
+
             var propertyName = GetMemberName(sourcePropertyExpression);
-            var (sourceType, destroyDetector) = BindSourceToTarget(source, lifetimeOwner, propertyName, sourceToTarget);
-            BindTargetToSource(source, targetEvent, propertyName, targetToSource, sourceType, destroyDetector);
+            var (sourceType, destroyDetector) = BindSourceToTarget(source, lifetimeOwner, propertyName, sourceToTarget, lifetime);
+            BindTargetToSource(source, targetEvent, propertyName, targetToSource, sourceType, destroyDetector, lifetime);
+
+            return lifetime;
         }
 
         private static string GetMemberName<T, R>(Expression<Func<T, R>> memberExpression) => ((MemberExpression)memberExpression.Body).Member.Name;
@@ -113,7 +145,8 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
             INotifyPropertyChanged source,
             GameObject gameObject,
             string propertyName,
-            Action<T> update
+            Action<T> update,
+            BindingLifetime lifetime
         )
         {
             var sourceType = source.GetType();
@@ -123,9 +156,15 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
                 var property = _properties[sourceType][propertyName];
                 update((T)property.GetValue(source));
             }
+
             source.PropertyChanged += UpdateBinding;
             var destroyDetector = gameObject.GetOrAddComponent<DestroyDetector>();
-            destroyDetector.Destroyed += () => source.PropertyChanged -= UpdateBinding;
+
+            void Unsubscribe() => source.PropertyChanged -= UpdateBinding;
+
+            lifetime.AddUnsubscribe(Unsubscribe);
+            destroyDetector.Destroyed += Unsubscribe;
+
             SetValueFirstTime(source, propertyName, update, sourceType);
             return (sourceType, destroyDetector);
         }
@@ -137,7 +176,8 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
             string propertyName,
             Func<TTarget, TSource> updateSource,
             Type sourceType,
-            DestroyDetector destroyDetector
+            DestroyDetector destroyDetector,
+            BindingLifetime lifetime
         )
         {
             void UpdateProperty(TTarget value)
@@ -146,8 +186,13 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
                 var nextValue = updateSource(value);
                 property.SetValue(source, nextValue);
             }
+
             unityEvent.AddListener(UpdateProperty);
-            destroyDetector.Destroyed += () => unityEvent.RemoveListener(UpdateProperty);
+
+            void Unsubscribe() => unityEvent.RemoveListener(UpdateProperty);
+
+            lifetime.AddUnsubscribe(Unsubscribe);
+            destroyDetector.Destroyed += Unsubscribe;
         }
 
         private static void SetValueFirstTime<T>
