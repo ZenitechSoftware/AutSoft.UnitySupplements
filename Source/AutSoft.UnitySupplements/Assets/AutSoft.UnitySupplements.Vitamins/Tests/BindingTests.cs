@@ -14,7 +14,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         {
             // Arrange
             var component = new GameObject().AddComponent<TestBindingComponent>();
-            var vm = new BindingViewModel() { Message = "1" };
+            var vm = new TestBindingViewModel() { Message = "1" };
 
             // Act
             component.BindOneWay(vm);
@@ -28,7 +28,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         {
             // Arrange
             var component = new GameObject().AddComponent<TestBindingComponent>();
-            var vm = new BindingViewModel() { Message = "1" };
+            var vm = new TestBindingViewModel() { Message = "1" };
 
             // Act
             component.BindOneWay(vm);
@@ -43,7 +43,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         {
             // Arrange
             var component = new GameObject().AddComponent<TestBindingComponent>();
-            var vm = new BindingViewModel() { Message = "1" };
+            var vm = new TestBindingViewModel() { Message = "1" };
 
             // Act
             component.BindOneWay(vm);
@@ -60,7 +60,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         {
             // Arrange
             var component = new GameObject().AddComponent<TestBindingComponent>();
-            var vm = new BindingViewModel() { Message = "1" };
+            var vm = new TestBindingViewModel() { Message = "1" };
 
             // Act
             component.BindTwoWay(vm);
@@ -74,7 +74,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         {
             // Arrange
             var component = new GameObject().AddComponent<TestBindingComponent>();
-            var vm = new BindingViewModel() { Message = "1" };
+            var vm = new TestBindingViewModel() { Message = "1" };
 
             // Act
             component.BindTwoWay(vm);
@@ -89,7 +89,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         {
             // Arrange
             var component = new GameObject().AddComponent<TestBindingComponent>();
-            var vm = new BindingViewModel() { Message = "1" };
+            var vm = new TestBindingViewModel() { Message = "1" };
 
             // Act
             component.BindTwoWay(vm);
@@ -104,7 +104,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         {
             // Arrange
             var component = new GameObject().AddComponent<TestBindingComponent>();
-            var vm = new BindingViewModel() { Message = "1" };
+            var vm = new TestBindingViewModel() { Message = "1" };
 
             // Act
             component.BindTwoWay(vm);
@@ -121,7 +121,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         {
             // Arrange
             var component = new GameObject().AddComponent<TestBindingComponent>();
-            var vm = new BindingViewModel() { Message = "1" };
+            var vm = new TestBindingViewModel() { Message = "1" };
 
             // Act
             using (var _ = component.BindTwoWay(vm))
@@ -136,7 +136,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         }
     }
 
-    public sealed class BindingViewModel : ObservableObject
+    public sealed class TestBindingViewModel : ObservableObject
     {
         private string _message;
 
@@ -154,7 +154,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         private readonly UnityEvent<string> _messageEvent = new();
         public string Message { get; set; }
 
-        public BindingLifetime BindOneWay(BindingViewModel viewModel) =>
+        public BindingLifetime BindOneWay(TestBindingViewModel viewModel) =>
             this.Bind
             (
                 viewModel,
@@ -166,7 +166,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
                 }
             );
 
-        public BindingLifetime BindTwoWay(BindingViewModel viewModel) =>
+        public BindingLifetime BindTwoWay(TestBindingViewModel viewModel) =>
             this.Bind
             (
                 viewModel,
