@@ -15,7 +15,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
         /// <param name="lifetimeOwner">The binding is bound to the <see cref="GameObject"/>'s destruction</param>
         /// <param name="source">The binding source</param>
         /// <param name="sourceToTarget"></param>
-        public static void Bind<TBindingSource, TItem>
+        public static BindingLifetime Bind<TBindingSource, TItem>
         (
             this MonoBehaviour lifetimeOwner,
             TBindingSource source,
@@ -32,7 +32,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
         /// <param name="lifetimeOwner">The binding is bound to the <see cref="GameObject"/>'s destruction</param>
         /// <param name="source">The binding source</param>
         /// <param name="sourceToTarget"></param>
-        public static void Bind<TBindingSource, TItem>
+        public static BindingLifetime Bind<TBindingSource, TItem>
         (
             this GameObject lifetimeOwner,
             TBindingSource source,
@@ -43,7 +43,14 @@ namespace AutSoft.UnitySupplements.Vitamins.Bindings
             void CollectionChanged(object _, NotifyCollectionChangedEventArgs e) => sourceToTarget(new CollectionChangedArgs<TItem>(e));
 
             source.CollectionChanged += CollectionChanged;
-            lifetimeOwner.GetOrAddComponent<DestroyDetector>().Destroyed += () => source.CollectionChanged -= CollectionChanged;
+
+            void Unsubscribe() => source.CollectionChanged -= CollectionChanged;
+
+            lifetimeOwner.GetOrAddComponent<DestroyDetector>().Destroyed += Unsubscribe;
+            var lifetime = new BindingLifetime();
+            lifetime.AddUnsubscribe(Unsubscribe);
+
+            return lifetime;
         }
     }
 }
