@@ -13,7 +13,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         public void One_Way_Binding_Sets_Initial_Value()
         {
             // Arrange
-            var component = new GameObject().AddComponent<OneWayComponent>();
+            var component = new GameObject().AddComponent<TestBindingComponent>();
             var vm = new BindingViewModel() { Message = "1" };
 
             // Act
@@ -27,7 +27,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         public void One_Way_Binding_Updates()
         {
             // Arrange
-            var component = new GameObject().AddComponent<OneWayComponent>();
+            var component = new GameObject().AddComponent<TestBindingComponent>();
             var vm = new BindingViewModel() { Message = "1" };
 
             // Act
@@ -42,7 +42,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         public void One_Way_Destroy_Ends_Binding()
         {
             // Arrange
-            var component = new GameObject().AddComponent<OneWayComponent>();
+            var component = new GameObject().AddComponent<TestBindingComponent>();
             var vm = new BindingViewModel() { Message = "1" };
 
             // Act
@@ -59,7 +59,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         public void Two_Way_Binding_Sets_Initial_Value()
         {
             // Arrange
-            var component = new GameObject().AddComponent<OneWayComponent>();
+            var component = new GameObject().AddComponent<TestBindingComponent>();
             var vm = new BindingViewModel() { Message = "1" };
 
             // Act
@@ -73,7 +73,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         public void Two_Way_Binding_Updates_FromSource()
         {
             // Arrange
-            var component = new GameObject().AddComponent<OneWayComponent>();
+            var component = new GameObject().AddComponent<TestBindingComponent>();
             var vm = new BindingViewModel() { Message = "1" };
 
             // Act
@@ -88,7 +88,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         public void Two_Way_Binding_Updates_FromTarget()
         {
             // Arrange
-            var component = new GameObject().AddComponent<OneWayComponent>();
+            var component = new GameObject().AddComponent<TestBindingComponent>();
             var vm = new BindingViewModel() { Message = "1" };
 
             // Act
@@ -103,7 +103,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         public void Two_Way_Destroy_Ends_Binding()
         {
             // Arrange
-            var component = new GameObject().AddComponent<OneWayComponent>();
+            var component = new GameObject().AddComponent<TestBindingComponent>();
             var vm = new BindingViewModel() { Message = "1" };
 
             // Act
@@ -120,7 +120,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         public void Binding_Lifetime_Is_Respected()
         {
             // Arrange
-            var component = new GameObject().AddComponent<OneWayComponent>();
+            var component = new GameObject().AddComponent<TestBindingComponent>();
             var vm = new BindingViewModel() { Message = "1" };
 
             // Act
@@ -147,7 +147,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
         }
     }
 
-    public sealed class OneWayComponent : MonoBehaviour
+    public sealed class TestBindingComponent : MonoBehaviour
     {
         private bool _isDestroyed = false;
 
