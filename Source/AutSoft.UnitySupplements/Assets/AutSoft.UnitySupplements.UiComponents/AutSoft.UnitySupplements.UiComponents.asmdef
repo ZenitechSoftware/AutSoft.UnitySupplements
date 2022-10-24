@@ -1,0 +1,20 @@
+{
+    "name": "AutSoft.UnitySupplements.UiComponents",
+    "rootNamespace": "",
+    "references": [
+        "AutSoft.UnitySupplements.EventBus",
+        "Unity.TextMeshPro",
+        "AutSoft.UnitySupplements.Vitamins",
+        "UniTask",
+        "Injecter.Unity"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

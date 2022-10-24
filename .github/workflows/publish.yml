@@ -26,12 +26,12 @@ jobs:
           root: "Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.EventBus/AutSoft.UnitySupplements.EventBus"
           tag_prefix: "eventbus/"
 
-      - name: Publish Timeline to OpenUPM
+      - name: Publish UiComponents to OpenUPM
         uses: butlerlogic/action-autotag@stable
         with:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          root: "Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.Timeline/AutSoft.UnitySupplements.Timeline"
-          tag_prefix: "timeline/"
+          root: "Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.UiComponents"
+          tag_prefix: "uicomponents/"
 
       - name: Publish Vitamins to OpenUPM
         uses: butlerlogic/action-autotag@stable

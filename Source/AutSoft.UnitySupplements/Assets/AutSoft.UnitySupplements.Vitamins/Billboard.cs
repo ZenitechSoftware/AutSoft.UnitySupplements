@@ -15,15 +15,11 @@ namespace AutSoft.UnitySupplements.Vitamins
 
         private void Awake()
         {
-            const string fieldName = nameof(Camera);
-            var gameObjectName = gameObject.name;
             Camera = Camera == null && Camera.main != null
                 ? Camera.main
-                : throw new FieldNotSetException(
-                    $"Field: {fieldName} is not set on Component: {name} on GameObject: {gameObjectName}",
-                    gameObjectName,
-                    name,
-                    fieldName);
+                : null!;
+
+            if (Camera == null) Debug.LogError("Camera is not set", this);
         }
 
         private void Update()

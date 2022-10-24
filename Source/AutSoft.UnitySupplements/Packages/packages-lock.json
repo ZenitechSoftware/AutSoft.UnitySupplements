@@ -61,8 +61,8 @@
         "com.unity.ide.vscode": "1.2.5",
         "com.unity.editorcoroutines": "1.0.0",
         "com.unity.performance.profile-analyzer": "1.1.1",
-        "com.unity.test-framework": "1.1.31",
-        "com.unity.testtools.codecoverage": "1.0.1"
+        "com.unity.test-framework": "1.1.33",
+        "com.unity.testtools.codecoverage": "1.1.1"
       }
     },
     "com.unity.ide.rider": {
@@ -76,7 +76,7 @@
     },
     "com.unity.ide.visualstudio": {
       "version": "2.0.16",
-      "depth": 1,
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.1.9"
@@ -98,7 +98,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.settings-manager": {
-      "version": "1.0.3",
+      "version": "2.0.1",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
@@ -132,7 +132,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.testtools.codecoverage": {
-      "version": "1.0.1",
+      "version": "1.1.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -168,6 +168,18 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "org.nuget.communitytoolkit.mvvm": {
+      "version": "8.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "org.nuget.microsoft.bcl.asyncinterfaces": "6.0.0",
+        "org.nuget.system.componentmodel.annotations": "5.0.0",
+        "org.nuget.system.memory": "4.5.5",
+        "org.nuget.system.runtime.compilerservices.unsafe": "6.0.0"
+      },
+      "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "org.nuget.injecter": {
       "version": "9.1.0",
@@ -558,7 +570,7 @@
       "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "org.nuget.sonaranalyzer.csharp": {
-      "version": "8.46.0-54807",
+      "version": "8.47.0-55603",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -573,7 +585,7 @@
     },
     "org.nuget.system.componentmodel.annotations": {
       "version": "5.0.0",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://unitynuget-registry.azurewebsites.net"
@@ -598,7 +610,7 @@
       "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "org.nuget.system.memory": {
-      "version": "4.5.4",
+      "version": "4.5.5",
       "depth": 1,
       "source": "registry",
       "dependencies": {

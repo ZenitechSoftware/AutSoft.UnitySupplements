@@ -1,7 +1,8 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.EventBus;
 using AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples;
-using AutSoft.UnitySupplements.Timeline;
+using AutSoft.UnitySupplements.Samples.VitaminSamples.BindingSamples;
+using AutSoft.UnitySupplements.UiComponents.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;
 using Injecter.Hosting.Unity;
@@ -82,6 +83,8 @@ namespace AutSoft.UnitySupplements.Samples
             services.AddEventBus(assemblies);
 
             services.AddSingleton<ICancellation, Cancellation>();
+
+            services.AddSingleton<ListBindingData>();
 
             services.AddTimeline();
         }

@@ -12,7 +12,7 @@ namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
 
         private void Start()
         {
-            this.CheckSerializedField(_loadButton, nameof(_loadButton));
+            this.CheckSerializedFields();
 
             _loadButton.onClick.AddListener(() => SceneManager.LoadScene(ResourcePaths.Scenes.LoadSceneNext));
         }
