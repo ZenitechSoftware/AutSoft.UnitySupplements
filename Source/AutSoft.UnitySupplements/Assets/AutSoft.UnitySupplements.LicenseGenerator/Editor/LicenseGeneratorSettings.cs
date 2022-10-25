@@ -1,5 +1,4 @@
 ﻿#nullable enable
-using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -10,8 +9,9 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
     {
         private const string SettingsPath = "Assets/LicenseGeneratorSettings.asset";
 
-        [Header("Input sources")]
+        [Header("Input assets")]
         [SerializeField] internal bool _isIncludePackageLicensesEnabled;
+        [SerializeField] internal List<string> _ignoredPackages = default!;
         [SerializeField] internal string _includedLicensesFolderPath = default!;
         [SerializeField] internal List<TextAsset> _includedLicenseAssets = default!;
 
@@ -26,6 +26,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
         [SerializeField] internal bool _logError;
 
         public bool IsIncludePackageLicensesEnabled => _isIncludePackageLicensesEnabled;
+        public IReadOnlyList<string> IgnoredPackages => _ignoredPackages;
         public string IncludedLicensesFolderPath => _includedLicensesFolderPath;
         public IReadOnlyList<TextAsset> IncludedLicenseAssets => _includedLicenseAssets;
         public bool IsGenerateMergedFileEnabled => _isGenerateMergedFileEnabled;

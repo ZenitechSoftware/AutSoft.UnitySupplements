@@ -15,7 +15,6 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 
             context.Info("License assets generation started");
             new LicenseGenerator().GenerateAssets(context);
-            context.Info($"Created license assets");
         }
     }
 }

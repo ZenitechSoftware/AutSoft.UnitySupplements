@@ -40,7 +40,9 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 
             var result = await ListInstalledPackages();
             var packages = result
-                .Where(r => !r.name.StartsWith("com.unity.modules."));//filter out built-in modules
+                .Where(r => !r.name.StartsWith("com.unity.modules.")) //filter out built-in modules
+                .Where(r => !r.name.StartsWith("com.unity.feature.")) //filter out built-in features
+                .Where(r => !ctx.Settings.IgnoredPackages.Contains(r.name)); //filter out ignored packages
 
             foreach (var package in packages)
             {
@@ -52,7 +54,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
                     var licensePaths = guids.Select(g => AssetDatabase.GUIDToAssetPath(g)).ToArray();
                     item.LicenseText = ((TextAsset)AssetDatabase.LoadAssetAtPath(licensePaths.Single(), typeof(TextAsset))).text;
                 }
-                else if (package.licensesUrl is not null)
+                else if (!string.IsNullOrEmpty(package.licensesUrl))
                 {//Load license url if available
                     if (package.licensesUrl.StartsWith("https://github.com"))
                     {
@@ -69,7 +71,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
                 }
                 else
                 {
-                    ctx.Error($"Unable to find license for package {package.displayName}");
+                    ctx.Error($"Unable to find license for package {package.displayName} ({package.name})");
                     continue;
                 }
                 packageLicenses.Add(item);

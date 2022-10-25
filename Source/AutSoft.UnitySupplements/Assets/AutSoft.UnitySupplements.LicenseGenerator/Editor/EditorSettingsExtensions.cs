@@ -1,9 +1,4 @@
-﻿using AutSoft.UnitySupplements.LicenseGenerator.Editor;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -22,6 +17,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
                     var settings = new SerializedObject(s);
 
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._isIncludePackageLicensesEnabled)), new GUIContent("Include Package licenses"));
+                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._ignoredPackages)), new GUIContent("Ignored Packages", "Do not add licenses from the following Packages"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._includedLicensesFolderPath)), new GUIContent("Additional licenses folder"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._includedLicenseAssets)), new GUIContent("Additional license text assets"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._isGenerateMergedFileEnabled)), new GUIContent("Generate merged file"));
