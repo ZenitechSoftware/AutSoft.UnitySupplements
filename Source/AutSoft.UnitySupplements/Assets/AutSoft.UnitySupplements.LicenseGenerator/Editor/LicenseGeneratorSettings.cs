@@ -13,7 +13,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
         [Header("Input sources")]
         [SerializeField] internal bool _isIncludePackageLicensesEnabled;
         [SerializeField] internal string _includedLicensesFolderPath = default!;
-        [SerializeField] internal List<string> _includedLicenseFiles = default!;
+        [SerializeField] internal List<TextAsset> _includedLicenseAssets = default!;
 
         [Header("Output assets")]
         [SerializeField] internal bool _isGenerateMergedFileEnabled;
@@ -27,7 +27,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 
         public bool IsIncludePackageLicensesEnabled => _isIncludePackageLicensesEnabled;
         public string IncludedLicensesFolderPath => _includedLicensesFolderPath;
-        public IReadOnlyList<string> IncludedLicenseFiles => _includedLicenseFiles;
+        public IReadOnlyList<TextAsset> IncludedLicenseAssets => _includedLicenseAssets;
         public bool IsGenerateMergedFileEnabled => _isGenerateMergedFileEnabled;
         public string MergedFilePath => _mergedFilePath;
         public bool IsGenerateIndividualFilesEnabled => _isGenerateIndividualFilesEnabled;

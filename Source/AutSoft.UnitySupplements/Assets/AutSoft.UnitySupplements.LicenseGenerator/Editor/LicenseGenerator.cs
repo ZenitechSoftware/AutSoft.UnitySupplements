@@ -21,7 +21,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
                 packageModels.AddRange(await ListPackageLicensesAsync(ctx));
             }
 
-            ctx.Settings.IncludedLicenseFiles.Select(path => ((TextAsset)AssetDatabase.LoadAssetAtPath(path, typeof(TextAsset))).text);
+            ctx.Settings.IncludedLicenseAssets.Select(licenseAsset => licenseAsset.text);
 
             if(!string.IsNullOrEmpty(ctx.Settings.IncludedLicensesFolderPath))
             {
@@ -29,6 +29,8 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
             }
 
             //TODO: implement
+
+
 
         }
 

@@ -23,7 +23,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._isIncludePackageLicensesEnabled)), new GUIContent("Include Package licenses"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._includedLicensesFolderPath)), new GUIContent("Additional licenses folder"));
-                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._includedLicenseFiles)), new GUIContent("Additional license files"));
+                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._includedLicenseAssets)), new GUIContent("Additional license text assets"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._isGenerateMergedFileEnabled)), new GUIContent("Generate merged file"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._mergedFilePath)), new GUIContent("Merged file path"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._isGenerateIndividualFilesEnabled)), new GUIContent("Generate individual files"));
