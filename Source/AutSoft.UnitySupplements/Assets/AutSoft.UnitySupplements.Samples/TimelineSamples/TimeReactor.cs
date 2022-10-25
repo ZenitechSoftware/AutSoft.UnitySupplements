@@ -1,6 +1,6 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.EventBus;
-using AutSoft.UnitySupplements.Timeline;
+using AutSoft.UnitySupplements.UiComponents.Timeline;
 using AutSoft.UnitySupplements.Vitamins;
 using Injecter;
 using Injecter.Unity;
@@ -18,7 +18,7 @@ namespace AutSoft.UnitySupplements.Samples.TimelineSamples
 
         private void Start()
         {
-            this.CheckSerializedField(_text, nameof(_text));
+            this.CheckSerializedFields();
 
             _eventBus.Subscribe<CurrentTimeChanged>(OnTimeChanged);
         }

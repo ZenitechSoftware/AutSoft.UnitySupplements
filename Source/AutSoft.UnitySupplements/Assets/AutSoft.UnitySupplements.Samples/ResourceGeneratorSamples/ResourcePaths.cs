@@ -37,6 +37,10 @@ namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
             public static void LoadBillboardTest(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(BillboardTest, mode);
             public static AsyncOperation LoadAsyncBillboardTest(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(BillboardTest, mode);
 
+            public const string Binding = "AutSoft.UnitySupplements.Samples/VitaminsSamples/Scenes/Binding";
+            public static void LoadBinding(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(Binding, mode);
+            public static AsyncOperation LoadAsyncBinding(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(Binding, mode);
+
             public const string GeneratePolygon = "AutSoft.UnitySupplements.Samples/VitaminsSamples/Scenes/GeneratePolygon";
             public static void LoadGeneratePolygon(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(GeneratePolygon, mode);
             public static AsyncOperation LoadAsyncGeneratePolygon(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(GeneratePolygon, mode);
@@ -216,6 +220,12 @@ namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
             {
                 UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
                 UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\VitaminsSamples\Scenes\BillboardTest.unity");
+            }
+            [UnityEditor.MenuItem("Load Scene / Binding")]
+            public static void LoadBinding()
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\VitaminsSamples\Scenes\Binding.unity");
             }
             [UnityEditor.MenuItem("Load Scene / GeneratePolygon")]
             public static void LoadGeneratePolygon()

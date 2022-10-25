@@ -35,7 +35,7 @@
     },    {
       "src": [
         {
-          "files": "Source/AutSoft.UnitySupplements/AutSoft.UnitySupplements.Timeline.csproj",
+          "files": "Source/AutSoft.UnitySupplements/AutSoft.UnitySupplements.UiComponents.csproj",
           "src": "../",
           "exclude": [
             "**/bin/**",
