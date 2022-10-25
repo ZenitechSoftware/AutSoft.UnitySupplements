@@ -20,16 +20,9 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._ignoredPackages)), new GUIContent("Ignored Packages", "Do not add licenses from the following Packages"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._includedLicensesFolderPath)), new GUIContent("Additional licenses folder"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._includedLicenseAssets)), new GUIContent("Additional license text assets"));
-                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._isGenerateMergedFileEnabled)), new GUIContent("Generate merged file"));
-                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._mergedFilePath)), new GUIContent("Merged file path"));
-                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._isGenerateIndividualFilesEnabled)), new GUIContent("Generate individual files"));
-                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._individualFilesFolderPath)), new GUIContent("Individual files folder"));
-
-                    //if (GUILayout.Button("Reset known Editor preferences"))
-                    //{
-                    //    var preferences = CreateDefaultPreferences();
-                    //    settings.FindProperty(nameof(s._preferences)).SetValue(preferences);
-                    //}
+                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._mergedLicenseAsset)), new GUIContent("Merged license asset"));
+                    if (GUILayout.Button("Generate asset"))
+                        EditorMenuExtensions.GenerateLicenseAsset();
 
                     settings.ApplyModifiedProperties();
                 },

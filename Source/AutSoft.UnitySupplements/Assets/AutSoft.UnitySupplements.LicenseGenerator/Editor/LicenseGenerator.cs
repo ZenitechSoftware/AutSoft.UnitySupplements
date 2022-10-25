@@ -12,31 +12,42 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 {
     public class LicenseGenerator
     {
-        public async UniTask GenerateAssets(LicenseGeneratorContext ctx)
+        private string LicenseSeparator =>
+            Environment.NewLine + $"+ + + + + + + + + + + + + + + +" +
+            Environment.NewLine + Environment.NewLine;
+
+        public async UniTask GenerateAsset(LicenseGeneratorContext ctx)
         {
-            var packageModels = new List<PackageModel>();
+            if (ctx.Settings.MergedLicenseAsset is null)
+                return;
+
+            var licenses = new List<LicenseModel>();
+
+            //Read assets
 
             if(ctx.Settings.IsIncludePackageLicensesEnabled)
-            {
-                packageModels.AddRange(await ListPackageLicensesAsync(ctx));
-            }
+                licenses.AddRange(await ListPackageLicensesAsync(ctx));
 
             ctx.Settings.IncludedLicenseAssets.Select(licenseAsset => licenseAsset.text);
 
             if(!string.IsNullOrEmpty(ctx.Settings.IncludedLicensesFolderPath))
-            {
-                packageModels.AddRange(await ReadLicenseAssetsAsync(ctx.Settings.IncludedLicensesFolderPath));
-            }
+                licenses.AddRange(await ReadLicenseAssetsAsync(ctx.Settings.IncludedLicensesFolderPath));
 
-            //TODO: implement
+            //Write merged asset
 
+            var assetPath = AssetDatabase.GetAssetPath(ctx.Settings.MergedLicenseAsset);
+            AssetDatabase.DeleteAsset(assetPath);
 
+            var mergedContent = string.Join(LicenseSeparator, licenses.Select(l => CreateTextFromLicense(l)));
+            await File.WriteAllTextAsync(assetPath, mergedContent);
 
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
 
-        private async UniTask<List<PackageModel>> ListPackageLicensesAsync(LicenseGeneratorContext ctx)
+        private async UniTask<List<LicenseModel>> ListPackageLicensesAsync(LicenseGeneratorContext ctx)
         {
-            var packageLicenses = new List<PackageModel>();
+            var licenses = new List<LicenseModel>();
 
             var result = await ListInstalledPackages();
             var packages = result
@@ -46,13 +57,12 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 
             foreach (var package in packages)
             {
-                var item = new PackageModel { Name = package.displayName };
-
+                string licenseText;
                 var guids = AssetDatabase.FindAssets("LICENSE", new[] { package.assetPath });
                 if (guids.Length > 0)
                 {//Load local license file if available
                     var licensePaths = guids.Select(g => AssetDatabase.GUIDToAssetPath(g)).ToArray();
-                    item.LicenseText = ((TextAsset)AssetDatabase.LoadAssetAtPath(licensePaths.Single(), typeof(TextAsset))).text;
+                    licenseText = ((TextAsset)AssetDatabase.LoadAssetAtPath(licensePaths.Single(), typeof(TextAsset))).text;
                 }
                 else if (!string.IsNullOrEmpty(package.licensesUrl))
                 {//Load license url if available
@@ -61,7 +71,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
                         var rawUrl = package.licensesUrl
                             .Replace("https://github.com", "https://raw.githubusercontent.com")
                             .Replace("/blob", string.Empty);
-                        item.LicenseText = (await UnityWebRequest.Get(rawUrl).SendWebRequest()).downloadHandler.text;
+                        licenseText = (await UnityWebRequest.Get(rawUrl).SendWebRequest()).downloadHandler.text;
                     }
                     else
                     {
@@ -74,25 +84,30 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
                     ctx.Error($"Unable to find license for package {package.displayName} ({package.name})");
                     continue;
                 }
-                packageLicenses.Add(item);
+                licenses.Add(new LicenseModel
+                {
+                    Text = licenseText,
+                    LicensedWorkName = package.displayName,
+                    HolderName = package.author.name
+                });
             }
-            return packageLicenses;
+            return licenses;
         }
 
-        private async UniTask<List<PackageModel>> ReadLicenseAssetsAsync(string folderPath)
+        private async UniTask<List<LicenseModel>> ReadLicenseAssetsAsync(string folderPath)
         {
-            var packageLicenses = new List<PackageModel>();
+            var licenses = new List<LicenseModel>();
             if(Directory.Exists(folderPath))
             {
-                packageLicenses.AddRange(AssetDatabase
+                licenses.AddRange(AssetDatabase
                     .LoadAllAssetsAtPath(folderPath)
-                    .Select(o => new PackageModel
+                    .Select(o => new LicenseModel
                     {
-                        Name = o.name,
-                        LicenseText = ((TextAsset)o).text
+                        LicensedWorkName = o.name,
+                        Text = ((TextAsset)o).text
                     }));
             }
-            return packageLicenses;
+            return licenses;
         }
 
         /// <summary>
@@ -117,5 +132,13 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
             return tcs.Task;
         }
 
+        /// <summary>
+        /// Creates a license text similar to the format used in Unity's legal text.
+        /// </summary>
+        private string CreateTextFromLicense(LicenseModel license)
+        {
+            var holderText = !string.IsNullOrEmpty(license.HolderName) ? $"({license.HolderName}) " : string.Empty;
+            return $"{license.LicensedWorkName} {holderText}| {license.Text}";
+        }
     }
 }

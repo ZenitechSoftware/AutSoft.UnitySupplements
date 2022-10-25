@@ -15,11 +15,8 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
         [SerializeField] internal string _includedLicensesFolderPath = default!;
         [SerializeField] internal List<TextAsset> _includedLicenseAssets = default!;
 
-        [Header("Output assets")]
-        [SerializeField] internal bool _isGenerateMergedFileEnabled;
-        [SerializeField] internal string _mergedFilePath = default!;
-        [SerializeField] internal bool _isGenerateIndividualFilesEnabled;
-        [SerializeField] internal string _individualFilesFolderPath = default!;
+        [Header("Output asset")]
+        [SerializeField] internal TextAsset _mergedLicenseAsset = default!;
 
         [Header("Other")]
         [SerializeField] internal bool _logInfo;
@@ -29,10 +26,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
         public IReadOnlyList<string> IgnoredPackages => _ignoredPackages;
         public string IncludedLicensesFolderPath => _includedLicensesFolderPath;
         public IReadOnlyList<TextAsset> IncludedLicenseAssets => _includedLicenseAssets;
-        public bool IsGenerateMergedFileEnabled => _isGenerateMergedFileEnabled;
-        public string MergedFilePath => _mergedFilePath;
-        public bool IsGenerateIndividualFilesEnabled => _isGenerateIndividualFilesEnabled;
-        public string IndividualFilesFolderPath => _individualFilesFolderPath;
+        public TextAsset MergedLicenseAsset => _mergedLicenseAsset;
         public bool LogInfo => _logInfo;
         public bool LogError => _logError;
 
@@ -45,8 +39,6 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 
             //set default settings
             settings._isIncludePackageLicensesEnabled = true;
-            settings._isGenerateMergedFileEnabled = true;
-            settings._mergedFilePath = "Licenses/Third-Party-Licenses.txt";
             settings._logError = true;
 
             AssetDatabase.CreateAsset(settings, SettingsPath);
