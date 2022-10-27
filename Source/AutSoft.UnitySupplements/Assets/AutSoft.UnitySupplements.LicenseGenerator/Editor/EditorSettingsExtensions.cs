@@ -17,7 +17,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
                     var settings = new SerializedObject(s);
 
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._isIncludePackageLicensesEnabled)), new GUIContent("Include Package licenses"));
-                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._ignoredPackages)), new GUIContent("Ignored Packages", "Do not add licenses from the following Packages"));
+                    EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._assignments)), new GUIContent("Manual assignments", "Set custom assets for packages with unknown licenses."));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._includedLicensesFolderPath)), new GUIContent("Additional licenses folder"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._includedLicenseAssets)), new GUIContent("Additional license text assets"));
                     EditorGUILayout.PropertyField(settings.FindProperty(nameof(s._mergedLicenseAsset)), new GUIContent("Merged license asset"));

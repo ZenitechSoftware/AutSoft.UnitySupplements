@@ -18,8 +18,12 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 
         public async UniTask GenerateAsset(LicenseGeneratorContext ctx)
         {
-            if (ctx.Settings.MergedLicenseAsset is null)
+            var assetPath = AssetDatabase.GetAssetPath(ctx.Settings.MergedLicenseAsset);
+            if (ctx.Settings.MergedLicenseAsset is null || string.IsNullOrEmpty(assetPath))
+            {
+                ctx.Error("Merged license asset is unset.");
                 return;
+            }
 
             var licenses = new List<LicenseModel>();
 
@@ -34,15 +38,13 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
                 licenses.AddRange(await ReadLicenseAssetsAsync(ctx.Settings.IncludedLicensesFolderPath));
 
             //Write merged asset
-
-            var assetPath = AssetDatabase.GetAssetPath(ctx.Settings.MergedLicenseAsset);
             AssetDatabase.DeleteAsset(assetPath);
-
             var mergedContent = string.Join(LicenseSeparator, licenses.Select(l => CreateTextFromLicense(l)));
             await File.WriteAllTextAsync(assetPath, mergedContent);
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+            ctx.Info("License asset generated.");
         }
 
         private async UniTask<List<LicenseModel>> ListPackageLicensesAsync(LicenseGeneratorContext ctx)
@@ -52,38 +54,37 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
             var result = await ListInstalledPackages();
             var packages = result
                 .Where(r => !r.name.StartsWith("com.unity.modules.")) //filter out built-in modules
-                .Where(r => !r.name.StartsWith("com.unity.feature.")) //filter out built-in features
-                .Where(r => !ctx.Settings.IgnoredPackages.Contains(r.name)); //filter out ignored packages
+                .Where(r => !r.name.StartsWith("com.unity.feature.")); //filter out built-in features
 
             foreach (var package in packages)
             {
                 string licenseText;
-                var guids = AssetDatabase.FindAssets("LICENSE", new[] { package.assetPath });
-                if (guids.Length > 0)
-                {//Load local license file if available
+
+                if (AssetDatabase.FindAssets("LICENSE", new[] { package.assetPath }) is var guids && guids.Length > 0)
+                {//Load local license file from package if available
                     var licensePaths = guids.Select(g => AssetDatabase.GUIDToAssetPath(g)).ToArray();
                     licenseText = ((TextAsset)AssetDatabase.LoadAssetAtPath(licensePaths.Single(), typeof(TextAsset))).text;
                 }
-                else if (!string.IsNullOrEmpty(package.licensesUrl))
+                else if (!string.IsNullOrEmpty(package.licensesUrl) && package.licensesUrl.StartsWith("https://github.com"))
                 {//Load license url if available
-                    if (package.licensesUrl.StartsWith("https://github.com"))
-                    {
-                        var rawUrl = package.licensesUrl
-                            .Replace("https://github.com", "https://raw.githubusercontent.com")
-                            .Replace("/blob", string.Empty);
-                        licenseText = (await UnityWebRequest.Get(rawUrl).SendWebRequest()).downloadHandler.text;
-                    }
-                    else
-                    {
-                        ctx.Error($"Unable to download license for package {package.displayName} from {package.licensesUrl}");
-                        continue;
-                    }
+                    var rawUrl = package.licensesUrl
+                        .Replace("https://github.com", "https://raw.githubusercontent.com")
+                        .Replace("/blob", string.Empty);
+                    licenseText = (await UnityWebRequest.Get(rawUrl).SendWebRequest()).downloadHandler.text;
+                }
+                else if(ctx.Settings.Assignments.FirstOrDefault(a => a.PackageName == package.name) is var assignment
+                    && assignment?.LicenseAsset is var asset && asset != null
+                    && asset.text is not null)
+                {//Load manually assigned license asset if available
+                    licenseText = assignment.LicenseAsset.text;
                 }
                 else
                 {
-                    ctx.Error($"Unable to find license for package {package.displayName} ({package.name})");
+                    ctx.Error($"Unable to find license for package {package.displayName} ({package.name}). Manual assignment required.");
+                    ctx.Settings.AddAssignmentSlot(package.name);
                     continue;
                 }
+
                 licenses.Add(new LicenseModel
                 {
                     Text = licenseText,
