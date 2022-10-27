@@ -9,7 +9,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 {
     public sealed class LicenseGeneratorSettings : ScriptableObject
     {
-        private const string SettingsPath = "Assets/LicenseGeneratorSettings.asset";
+        private const string DefaultSettingsPath = "Assets/LicenseGeneratorSettings.asset";
 
         [Header("Input assets")]
         [SerializeField] internal bool _isIncludePackageLicensesEnabled = true;
@@ -34,10 +34,13 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 
         public static LicenseGeneratorSettings GetOrCreateSettings()
         {
-            var settings = AssetDatabase.LoadAssetAtPath<LicenseGeneratorSettings>(SettingsPath);
-            if (settings != null) return settings;
-            settings = CreateInstance<LicenseGeneratorSettings>();
-            AssetDatabase.CreateAsset(settings, SettingsPath);
+            var existingGuid = AssetDatabase.FindAssets($"t: {typeof(LicenseGeneratorSettings)}").FirstOrDefault();
+            if (existingGuid != null)
+            {
+                return AssetDatabase.LoadAssetAtPath<LicenseGeneratorSettings>(AssetDatabase.GUIDToAssetPath(existingGuid));
+            }
+            var settings = CreateInstance<LicenseGeneratorSettings>();
+            AssetDatabase.CreateAsset(settings, DefaultSettingsPath);
             AssetDatabase.SaveAssets();
             return settings;
         }
