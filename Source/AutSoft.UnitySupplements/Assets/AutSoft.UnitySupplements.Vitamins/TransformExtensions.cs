@@ -66,5 +66,83 @@ namespace AutSoft.UnitySupplements.Vitamins
                 }
             }
         }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position properties coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="x">Unity coordinate</param>
+        public static void SetPositionX(this Transform transform, float x)
+        {
+            var position = transform.position;
+            position.x = x;
+            transform.position = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position properties coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="y">Unity coordinate</param>
+        public static void SetPositionY(this Transform transform, float y)
+        {
+            var position = transform.position;
+            position.y = y;
+            transform.position = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position properties coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="z">Unity coordinate</param>
+        public static void SetPositionZ(this Transform transform, float z)
+        {
+            var position = transform.position;
+            position.z = z;
+            transform.position = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position properties coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="x">Unity coordinate</param>
+        /// <param name="y">Unity coordinate</param>
+        public static void SetPositionXY(this Transform transform, float x, float y)
+        {
+            var position = transform.position;
+            position.x = x;
+            position.y = y;
+            transform.position = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position properties coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="x">Unity coordinate</param>
+        /// <param name="z">Unity coordinate</param>
+        public static void SetPositionXZ(this Transform transform, float x, float z)
+        {
+            var position = transform.position;
+            position.x = x;
+            position.z = z;
+            transform.position = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position properties coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="y">Unity coordinate</param>
+        /// <param name="z">Unity coordinate</param>
+        public static void SetPositionYZ(this Transform transform, float y, float z)
+        {
+            var position = transform.position;
+            position.y = y;
+            position.z = z;
+            transform.position = position;
+        }
     }
 }
