@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using UnityEngine;
 
 namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
@@ -19,11 +20,11 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
         /// <summary>
         /// Info level logger
         /// </summary>
-        public Action<string> Info { get; } = (s) => { };
+        public Action<string> Info { get; } = (_) => { };
 
         /// <summary>
         /// Error level logger
         /// </summary>
-        public Action<string> Error { get; } = (s) => { };
+        public Action<string> Error { get; } = (_) => { };
     }
 }

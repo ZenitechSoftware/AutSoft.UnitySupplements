@@ -13,9 +13,9 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 
         [Header("Input assets")]
         [SerializeField] internal bool _isIncludePackageLicensesEnabled = true;
-        [SerializeField] internal List<ManualLicenseAssignment> _assignments = new();// = default!;
+        [SerializeField] internal List<ManualLicenseAssignment> _assignments = new();
         [SerializeField] internal string _includedLicensesFolderPath = default!;
-        [SerializeField] internal List<TextAsset> _includedLicenseAssets = new();// = default!;
+        [SerializeField] internal List<TextAsset> _includedLicenseAssets = new();
 
         [Header("Output asset")]
         [SerializeField] internal TextAsset _mergedLicenseAsset = default!;
@@ -57,7 +57,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
         public class ManualLicenseAssignment
         {
             [SerializeField] internal string _packageName = default!;
-            [SerializeField] internal TextAsset? _licenseAsset = default!;
+            [SerializeField] internal TextAsset? _licenseAsset;
 
             [Obsolete("Used by serializer")]
             public ManualLicenseAssignment() { }

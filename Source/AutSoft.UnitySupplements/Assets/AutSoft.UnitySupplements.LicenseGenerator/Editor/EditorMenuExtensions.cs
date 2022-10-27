@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using Cysharp.Threading.Tasks;
 using UnityEditor;
 
 namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
@@ -9,11 +10,9 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
         public static void GenerateLicenseAsset()
         {
             var settings = LicenseGeneratorSettings.GetOrCreateSettings();
-            settings._logInfo = true;//debug
             var context = new LicenseGeneratorContext(settings);
-
-            context.Info("License asset generation started");
-            new LicenseGenerator().GenerateAsset(context);
+            LicenseGenerator.GenerateAsset(context)
+                .Forget((ex) => context.Error($"An error occured while generating the license asset: {ex.Message}"));
         }
     }
 }

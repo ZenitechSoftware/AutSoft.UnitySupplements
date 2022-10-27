@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿#nullable enable
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,13 +11,18 @@ using UnityEngine.Networking;
 
 namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 {
-    public class LicenseGenerator
+    public static class LicenseGenerator
     {
-        private string LicenseSeparator =>
-            Environment.NewLine + $"+ + + + + + + + + + + + + + + +" +
+        private static string LicenseSeparator =>
+            Environment.NewLine + "+ + + + + + + + + + + + + + + +" +
             Environment.NewLine + Environment.NewLine;
 
-        public async UniTask GenerateAsset(LicenseGeneratorContext ctx)
+        /// <summary>
+        /// Generates a merged license asset from existing licenses used in the project.
+        /// See the <see cref="LicenseGeneratorSettings"/> asset to configure.
+        /// </summary>
+        /// <param name="ctx">A generator context created from a <see cref="LicenseGeneratorSettings"/> asset.</param>
+        public static async UniTask GenerateAsset(LicenseGeneratorContext ctx)
         {
             var assetPath = AssetDatabase.GetAssetPath(ctx.Settings.MergedLicenseAsset);
             if (ctx.Settings.MergedLicenseAsset is null || string.IsNullOrEmpty(assetPath))
@@ -24,18 +30,19 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
                 ctx.Error("Merged license asset is unset.");
                 return;
             }
+            ctx.Info("License asset generation started...");
 
             var licenses = new List<LicenseModel>();
 
             //Read assets
 
-            if(ctx.Settings.IsIncludePackageLicensesEnabled)
+            if (ctx.Settings.IsIncludePackageLicensesEnabled)
                 licenses.AddRange(await ListPackageLicensesAsync(ctx));
 
             ctx.Settings.IncludedLicenseAssets.Select(licenseAsset => licenseAsset.text);
 
-            if(!string.IsNullOrEmpty(ctx.Settings.IncludedLicensesFolderPath))
-                licenses.AddRange(await ReadLicenseAssetsAsync(ctx.Settings.IncludedLicensesFolderPath));
+            if (!string.IsNullOrEmpty(ctx.Settings.IncludedLicensesFolderPath))
+                licenses.AddRange(ReadLicenseAssets(ctx.Settings.IncludedLicensesFolderPath));
 
             //Write merged asset
             AssetDatabase.DeleteAsset(assetPath);
@@ -44,17 +51,24 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-            ctx.Info("License asset generated.");
+            ctx.Info("License asset generation finished.");
         }
 
-        private async UniTask<List<LicenseModel>> ListPackageLicensesAsync(LicenseGeneratorContext ctx)
+        /// <summary>
+        /// Returns a list of licenses loaded from the project's installed packages.
+        /// </summary>
+        /// <remarks>
+        /// - Ignores packages of built-in Unity modules and features.
+        /// </remarks>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Roslynator", "RCS1146:Use conditional access.", Justification = "Not supported on Unity Object")]
+        private static async UniTask<List<LicenseModel>> ListPackageLicensesAsync(LicenseGeneratorContext ctx)
         {
             var licenses = new List<LicenseModel>();
 
             var result = await ListInstalledPackages();
-            var packages = result
-                .Where(r => !r.name.StartsWith("com.unity.modules.")) //filter out built-in modules
-                .Where(r => !r.name.StartsWith("com.unity.feature.")); //filter out built-in features
+            var packages = result.Where(r => //filter out built-in modules & features
+                !r.name.StartsWith("com.unity.modules.") &&
+                !r.name.StartsWith("com.unity.feature."));
 
             foreach (var package in packages)
             {
@@ -72,11 +86,11 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
                         .Replace("/blob", string.Empty);
                     licenseText = (await UnityWebRequest.Get(rawUrl).SendWebRequest()).downloadHandler.text;
                 }
-                else if(ctx.Settings.Assignments.FirstOrDefault(a => a.PackageName == package.name) is var assignment
+                else if (ctx.Settings.Assignments.FirstOrDefault(a => a.PackageName == package.name) is var assignment
                     && assignment?.LicenseAsset is var asset && asset != null
                     && asset.text is not null)
                 {//Load manually assigned license asset if available
-                    licenseText = assignment.LicenseAsset.text;
+                    licenseText = asset.text;
                 }
                 else
                 {
@@ -95,10 +109,14 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
             return licenses;
         }
 
-        private async UniTask<List<LicenseModel>> ReadLicenseAssetsAsync(string folderPath)
+        /// <summary>
+        /// Returns a list of licenses loaded from all TextAssets in the specified folder.
+        /// </summary>
+        /// <param name="folderPath">A folder containing <see cref="TextAsset"/>s.</param>
+        private static List<LicenseModel> ReadLicenseAssets(string folderPath)
         {
             var licenses = new List<LicenseModel>();
-            if(Directory.Exists(folderPath))
+            if (Directory.Exists(folderPath))
             {
                 licenses.AddRange(AssetDatabase
                     .LoadAllAssetsAtPath(folderPath)
@@ -114,7 +132,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
         /// <summary>
         /// Helper method to hide ugly PackageManager api
         /// </summary>
-        private UniTask<PackageCollection> ListInstalledPackages()
+        private static UniTask<PackageCollection> ListInstalledPackages()
         {
             var tcs = new UniTaskCompletionSource<PackageCollection>();
             var listPackagesRequest = Client.List();
@@ -136,7 +154,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
         /// <summary>
         /// Creates a license text similar to the format used in Unity's legal text.
         /// </summary>
-        private string CreateTextFromLicense(LicenseModel license)
+        private static string CreateTextFromLicense(LicenseModel license)
         {
             var holderText = !string.IsNullOrEmpty(license.HolderName) ? $"({license.HolderName}) " : string.Empty;
             return $"{license.LicensedWorkName} {holderText}| {license.Text}";
