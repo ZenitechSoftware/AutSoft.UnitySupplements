@@ -66,5 +66,161 @@ namespace AutSoft.UnitySupplements.Vitamins
                 }
             }
         }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position property's world coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="x">World coordinate</param>
+        public static void SetPositionX(this Transform transform, float x)
+        {
+            var position = transform.position;
+            position.x = x;
+            transform.position = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position property's world coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="y">World coordinate</param>
+        public static void SetPositionY(this Transform transform, float y)
+        {
+            var position = transform.position;
+            position.y = y;
+            transform.position = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position property's world coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="z">World coordinate</param>
+        public static void SetPositionZ(this Transform transform, float z)
+        {
+            var position = transform.position;
+            position.z = z;
+            transform.position = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position property's world coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="x">World coordinate</param>
+        /// <param name="y">World coordinate</param>
+        public static void SetPositionXY(this Transform transform, float x, float y)
+        {
+            var position = transform.position;
+            position.x = x;
+            position.y = y;
+            transform.position = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position property's world coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="x">World coordinate</param>
+        /// <param name="z">World coordinate</param>
+        public static void SetPositionXZ(this Transform transform, float x, float z)
+        {
+            var position = transform.position;
+            position.x = x;
+            position.z = z;
+            transform.position = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position property's world coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="y">World coordinate</param>
+        /// <param name="z">World coordinate</param>
+        public static void SetPositionYZ(this Transform transform, float y, float z)
+        {
+            var position = transform.position;
+            position.y = y;
+            position.z = z;
+            transform.position = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position property's local coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="x">Local coordinate</param>
+        public static void SetLocalPositionX(this Transform transform, float x)
+        {
+            var position = transform.localPosition;
+            position.x = x;
+            transform.localPosition = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position property's local coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="y">Local coordinate</param>
+        public static void SetLocalPositionY(this Transform transform, float y)
+        {
+            var position = transform.localPosition;
+            position.y = y;
+            transform.localPosition = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position property's local coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="z">Local coordinate</param>
+        public static void SetLocalPositionZ(this Transform transform, float z)
+        {
+            var position = transform.localPosition;
+            position.z = z;
+            transform.localPosition = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position property's local coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="x">Local coordinate</param>
+        /// <param name="y">Local coordinate</param>
+        public static void SetLocalPositionXY(this Transform transform, float x, float y)
+        {
+            var position = transform.localPosition;
+            position.x = x;
+            position.y = y;
+            transform.localPosition = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position property's local coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="x">Local coordinate</param>
+        /// <param name="z">Local coordinate</param>
+        public static void SetLocalPositionXZ(this Transform transform, float x, float z)
+        {
+            var position = transform.localPosition;
+            position.x = x;
+            position.z = z;
+            transform.localPosition = position;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Transform"/> position property's local coordinates
+        /// </summary>
+        /// <param name="transform">Transform</param>
+        /// <param name="y">Local coordinate</param>
+        /// <param name="z">Local coordinate</param>
+        public static void SetLocalPositionYZ(this Transform transform, float y, float z)
+        {
+            var position = transform.localPosition;
+            position.y = y;
+            position.z = z;
+            transform.localPosition = position;
+        }
     }
 }
