@@ -69,7 +69,6 @@ namespace AutSoft.UnitySupplements.Samples
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Roslynator", "RCS1163:Unused parameter.", Justification = "Will be used later")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Will be used later")]
         public static IServiceCollection ConfigureServices(this IServiceCollection services, IConfigurationRoot config)
         {
             var assemblies = new[] { typeof(AppInstaller).Assembly };
