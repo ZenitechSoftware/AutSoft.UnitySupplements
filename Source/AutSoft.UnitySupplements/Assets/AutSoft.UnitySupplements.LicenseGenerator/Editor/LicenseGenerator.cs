@@ -39,7 +39,12 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
             if (ctx.Settings.IsIncludePackageLicensesEnabled)
                 licenses.AddRange(await ListPackageLicensesAsync(ctx));
 
-            ctx.Settings.IncludedLicenseAssets.Select(licenseAsset => licenseAsset.text);
+            licenses.AddRange(ctx.Settings.IncludedLicenseAssets
+                .Select(asset => new LicenseModel
+                {
+                    LicensedWorkName = asset.name,
+                    Text = asset.text
+                }));
 
             if (!string.IsNullOrEmpty(ctx.Settings.IncludedLicensesFolderPath))
                 licenses.AddRange(ReadLicenseAssets(ctx.Settings.IncludedLicensesFolderPath));
@@ -110,7 +115,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
         }
 
         /// <summary>
-        /// Returns a list of licenses loaded from all TextAssets in the specified folder.
+        /// Returns a list of licenses loaded from all TextAssets in the specified folder, including subdirectories.
         /// </summary>
         /// <param name="folderPath">A folder containing <see cref="TextAsset"/>s.</param>
         private static List<LicenseModel> ReadLicenseAssets(string folderPath)
@@ -119,11 +124,12 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
             if (Directory.Exists(folderPath))
             {
                 licenses.AddRange(AssetDatabase
-                    .LoadAllAssetsAtPath(folderPath)
-                    .Select(o => new LicenseModel
+                    .FindAssets("t:TextAsset", new[] { folderPath })
+                    .Select(guid => AssetDatabase.LoadAssetAtPath<TextAsset>(AssetDatabase.GUIDToAssetPath(guid)))
+                    .Select(asset => new LicenseModel
                     {
-                        LicensedWorkName = o.name,
-                        Text = ((TextAsset)o).text
+                        LicensedWorkName = asset.name,
+                        Text = asset.text
                     }));
             }
             return licenses;
