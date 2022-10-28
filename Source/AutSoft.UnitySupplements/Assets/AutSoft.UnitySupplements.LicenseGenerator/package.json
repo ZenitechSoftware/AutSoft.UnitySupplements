@@ -1,8 +1,8 @@
 {
     "name": "com.autsoft.unitysupplements.licensegenerator",
-    "version": "0.1",
+    "version": "0.1.0",
     "displayName": "License Generator",
-    "description": "Generate license file assets from packages.",
+    "description": "Generate a merged license asset from packages and other assets.",
     "license": "MIT",
     "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/LICENSE.md",
     "changelogUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/CHANGELOG.md",
@@ -10,7 +10,8 @@
     "unity": "2021.3",
     "keywords": [
         "Utilities",
-        "Asset Generation"
+        "Asset Generation",
+        "License"
     ],
     "author": {
         "name": "AutSoft Zrt.",
