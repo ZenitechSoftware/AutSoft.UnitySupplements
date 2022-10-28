@@ -17,6 +17,10 @@ namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
         public static partial class Scenes
         {
 
+            public const string LegalsSampleScene = "AutSoft.UnitySupplements.Samples/LicenseGeneratorSample/LegalsSampleScene";
+            public static void LoadLegalsSampleScene(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(LegalsSampleScene, mode);
+            public static AsyncOperation LoadAsyncLegalsSampleScene(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(LegalsSampleScene, mode);
+
             public const string TimelineSample = "AutSoft.UnitySupplements.Samples/TimelineSamples/TimelineSample";
             public static void LoadTimelineSample(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(TimelineSample, mode);
             public static AsyncOperation LoadAsyncTimelineSample(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(TimelineSample, mode);
@@ -94,6 +98,9 @@ namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
 
             public const string LineBreakingLeadingCharacters = "LineBreaking Leading Characters";
             public static TextAsset LoadLineBreakingLeadingCharacters() => Resources.Load<TextAsset>(LineBreakingLeadingCharacters);
+
+            public const string Legal = "Legal";
+            public static TextAsset LoadLegal() => Resources.Load<TextAsset>(Legal);
 
             public const string AppSettings = "AppSettings";
             public static TextAsset LoadAppSettings() => Resources.Load<TextAsset>(AppSettings);
@@ -191,6 +198,12 @@ namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
         public static partial class LoadSceneButtons
         {
 
+            [UnityEditor.MenuItem("Load Scene / LegalsSampleScene")]
+            public static void LoadLegalsSampleScene()
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\LicenseGeneratorSample\LegalsSampleScene.unity");
+            }
             [UnityEditor.MenuItem("Load Scene / TimelineSample")]
             public static void LoadTimelineSample()
             {
