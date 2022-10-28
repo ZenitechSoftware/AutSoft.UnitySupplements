@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cdd186d920f45adb2925f11fda1bdd8, type: 3}
+  m_Name: ResourceGeneratorSettings
+  m_EditorClassIdentifier: 
+  _baseNamespace: AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
+  _className: ResourcePaths
+  _folderPath: AutSoft.UnitySupplements.Samples/ResourceGeneratorSamples
+  _logInfo: 0
+  _logError: 1
+  _usings:
+  - UnityEngine
+  - UnityEngine.SceneManagement
+  _data:
+  - _className: Scenes
+    _fileExtensions:
+    - '*.unity'
+    _dataType: Scene
+  - _className: Prefabs
+    _fileExtensions:
+    - '*.prefab'
+    _dataType: GameObject
+  - _className: Materials
+    _fileExtensions:
+    - '*.mat'
+    _dataType: Material
+  - _className: AudioClips
+    _fileExtensions:
+    - '*.ogg'
+    - '*.aif'
+    - '*.aiff'
+    - '*.flac'
+    - '*.mp3'
+    - '*.mod'
+    - '*.it'
+    - '*.s3m'
+    - '*.xm'
+    - '*.wav'
+    _dataType: AudioClip
+  - _className: Sprites
+    _fileExtensions:
+    - '*.jpg'
+    - '*.jpeg'
+    - '*.tif'
+    - '*.tiff'
+    - '*.tga'
+    - '*.gif'
+    - '*.png'
+    - '*.psd'
+    - '*.bmp'
+    - '*.iff'
+    - '*.pict'
+    - '*.pic'
+    - '*.pct'
+    - '*.exr'
+    - '*.hdr'
+    _dataType: Sprite
+  - _className: TextAssets
+    _fileExtensions:
+    - '*.txt'
+    - '*.html'
+    - '*.htm'
+    - '*.xml'
+    - '*.bytes'
+    - '*.json'
+    - '*.csv'
+    - '*.yaml'
+    - '*.fnt'
+    _dataType: TextAsset
+  - _className: Fonts
+    _fileExtensions:
+    - '*.ttf'
+    - '*.dfont'
+    - '*.otf'
+    - '*.ttc'
+    _dataType: Font
+  _generateLayers: 1
+  _generateSceneButtons: 1
+  _sceneNames:
+  - TimelineSample
+  _generatePreferences: 1
+  _preferences:
+  - _category: Android
+    _key: JdkUseEmbedded
+    _type: 0
+  - _category: Android
+    _key: SdkUseEmbedded
+    _type: 0
+  - _category: Android
+    _key: NdkUseEmbedded
+    _type: 0
+  - _category: Android
+    _key: GradleUseEmbedded
+    _type: 0
+  - _category: Android
+    _key: JdkPath
+    _type: 3
+  - _category: Android
+    _key: AndroidSdkRoot
+    _type: 3
+  - _category: Android
+    _key: AndroidNdkRootR21D
+    _type: 3
+  - _category: Android
+    _key: GradlePath
+    _type: 3
+  - _category: CodeEditor
+    _key: kScriptsDefaultApp
+    _type: 3
+  - _category: CodeEditor
+    _key: unity_project_generation_flag
+    _type: 2
