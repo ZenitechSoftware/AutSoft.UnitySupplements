@@ -51,6 +51,14 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
                 return;
             _assignments.Add(new ManualLicenseAssignment(packageName, null));
             new SerializedObject(this).ApplyModifiedProperties();
+            EditorUtility.SetDirty(this);
+        }
+
+        public void SetOutputAsset(TextAsset asset)
+        {
+            _mergedLicenseAsset = asset;
+            new SerializedObject(this).ApplyModifiedProperties();
+            EditorUtility.SetDirty(this);
         }
 
         [Serializable]

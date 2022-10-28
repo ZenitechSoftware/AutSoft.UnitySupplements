@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: PackagesCase
   m_EditorClassIdentifier: 
   _isIncludePackageLicensesEnabled: 1
-  _assignments: []
+  _assignments:
+  - _packageName: com.cysharp.unitask
+    _licenseAsset: {fileID: 0}
+  - _packageName: com.serilog.sinks.unity3d
+    _licenseAsset: {fileID: 0}
   _includedLicensesFolderPath: 
   _includedLicenseAssets: []
   _mergedLicenseAsset: {fileID: 4900000, guid: 10c9a2e3638a4124e85bfbfae0a7edc8, type: 3}

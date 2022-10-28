@@ -13,6 +13,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 {
     public static class LicenseGenerator
     {
+        private const string DefaultOutputAssetPath = "Assets/Licenses.txt";
         private static string LicenseSeparator =>
             Environment.NewLine + "+ + + + + + + + + + + + + + + +" +
             Environment.NewLine + Environment.NewLine;
@@ -26,10 +27,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
         {
             var assetPath = AssetDatabase.GetAssetPath(ctx.Settings.MergedLicenseAsset);
             if (ctx.Settings.MergedLicenseAsset is null || string.IsNullOrEmpty(assetPath))
-            {
-                ctx.Error("Merged license asset is unset.");
-                return;
-            }
+                assetPath = DefaultOutputAssetPath;
             ctx.Info("License asset generation started...");
 
             var licenses = new List<LicenseModel>();
@@ -53,6 +51,8 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
             AssetDatabase.DeleteAsset(assetPath);
             var mergedContent = string.Join(LicenseSeparator, licenses.Select(l => CreateTextFromLicense(l)));
             await File.WriteAllTextAsync(assetPath, mergedContent);
+            AssetDatabase.Refresh();
+            ctx.Settings.SetOutputAsset(AssetDatabase.LoadAssetAtPath<TextAsset>(assetPath));
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
