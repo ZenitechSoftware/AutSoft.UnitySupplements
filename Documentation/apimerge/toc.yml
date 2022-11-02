@@ -6,3 +6,5 @@
   href: ../api/Timeline/toc.yml
 - name: Vitamins
   href: ../api/Vitamins/toc.yml
+- name: LicenseGenerator
+  href: ../api/LicenseGenerator/toc.yml

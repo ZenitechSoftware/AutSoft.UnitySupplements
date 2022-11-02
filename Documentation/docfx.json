@@ -64,6 +64,22 @@
       "disableGitFeatures": false,
       "disableDefaultFilter": false,
       "filter": "filterConfig.yml"
+    },    {
+      "src": [
+        {
+          "files": "Source/AutSoft.UnitySupplements/AutSoft.UnitySupplements.LicenseGenerator.csproj",
+          "src": "../",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "_site/**"
+          ]
+        }
+      ],
+      "dest": "api/LicenseGenerator",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false,
+      "filter": "filterConfig.yml"
     }
   ],
   "build": {

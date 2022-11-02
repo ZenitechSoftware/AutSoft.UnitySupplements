@@ -20,7 +20,7 @@ The tool will create new button in the Editor at `Tools / Generate Resource Path
 
 ![Generate Button](~/images/ResourceGenerator/intro/GenerateButton.png)
 
-If your click the button the helper class will be generated in the root of the `Assets` folder
+When you click the button the helper class will be generated in the root of the `Assets` folder.
 
 ### Name generation rules
 
@@ -141,7 +141,7 @@ For browsing the current editor preferences it is advised to use the [PlayerPref
 
 ## Customization
 
-After pressing the `Generate Resource Paths` button, or visiting the `ResourceGenerator` page in the Project Settings an asset will be generated in the Assets folder, which will contain settings for the code generation.
+After pressing the `Generate Resource Paths` button, or visiting the `AutSoft/Resource Generator` page in the Project Settings an asset will be generated in the Assets folder, which will contain settings for the code generation.
 
 ### Built-in settings
 
