@@ -79,10 +79,9 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
             {
                 string licenseText;
 
-                if (AssetDatabase.FindAssets("LICENSE", new[] { package.assetPath }) is var guids && guids.Length > 0)
+                if (FindLicenseAtPackageRoot(package.assetPath, out var license))
                 {//Load local license file from package if available
-                    var licensePaths = guids.Select(g => AssetDatabase.GUIDToAssetPath(g)).ToArray();
-                    licenseText = ((TextAsset)AssetDatabase.LoadAssetAtPath(licensePaths.Single(), typeof(TextAsset))).text;
+                    licenseText = license!.text;
                 }
                 else if (!string.IsNullOrEmpty(package.licensesUrl) && package.licensesUrl.StartsWith("https://github.com"))
                 {//Load license url if available
@@ -164,6 +163,26 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
         {
             var holderText = !string.IsNullOrEmpty(license.HolderName) ? $"({license.HolderName}) " : string.Empty;
             return $"{license.LicensedWorkName} {holderText}| {license.Text}";
+        }
+
+        /// <summary>
+        /// Non-recursive search for a license file at given folder.
+        /// </summary>
+        private static bool FindLicenseAtPackageRoot(string packageAssetPath, out TextAsset? license)
+        {
+            var licenseAssetPath = AssetDatabase.FindAssets("LICENSE", new[] { packageAssetPath })
+                .Select(guid => AssetDatabase.GUIDToAssetPath(guid))
+                .FirstOrDefault(path => path.Count(c => c is '/') == 2); // only consider assets in package root
+            if (licenseAssetPath is null)
+            {
+                license = null;
+                return false;
+            }
+            else
+            {
+                license = (TextAsset)AssetDatabase.LoadAssetAtPath(licenseAssetPath, typeof(TextAsset));
+                return true;
+            }
         }
     }
 }
