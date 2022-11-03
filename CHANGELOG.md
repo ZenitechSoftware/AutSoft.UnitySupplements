@@ -1,3 +1,6 @@
+## License Generator 0.1.0
+- Add new supplements package LicenseGenerator
+
 ## Vitamins 0.3.0
 - Add SetX/Y/Z etc. extension methods to Transform
 
