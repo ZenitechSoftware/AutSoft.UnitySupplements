@@ -34,7 +34,7 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 
         public static LicenseGeneratorSettings GetOrCreateSettings()
         {
-            var existingGuid = AssetDatabase.FindAssets($"t: {typeof(LicenseGeneratorSettings)}").FirstOrDefault();
+            var existingGuid = AssetDatabase.FindAssets($"t: {typeof(LicenseGeneratorSettings)}", new[] { "Assets" }).FirstOrDefault();
             if (existingGuid != null)
             {
                 return AssetDatabase.LoadAssetAtPath<LicenseGeneratorSettings>(AssetDatabase.GUIDToAssetPath(existingGuid));
