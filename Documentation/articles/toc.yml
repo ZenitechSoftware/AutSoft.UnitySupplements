@@ -8,5 +8,7 @@
   href: Vitamins/Vitamins.md
 - name: Timeline
   href: UiComponents/Timeline.md
+- name: LicenseGenerator
+  href: LicenseGenerator/LicenseGenerator.md
 - name: Dependencies
   href: Dependencies.md

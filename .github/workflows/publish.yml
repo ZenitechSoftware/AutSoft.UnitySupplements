@@ -39,3 +39,10 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           root: "Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.Vitamins"
           tag_prefix: "vitamins/"
+          
+      - name: Publish LicenseGenerator to OpenUPM
+        uses: butlerlogic/action-autotag@stable
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          root: "Source/AutSoft.UnitySupplements/Assets/AutSoft.UnitySupplements.LicenseGenerator"
+          tag_prefix: "licensegenerator/"

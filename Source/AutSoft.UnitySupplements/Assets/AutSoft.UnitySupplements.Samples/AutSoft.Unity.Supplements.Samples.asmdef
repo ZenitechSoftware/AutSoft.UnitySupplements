@@ -4,6 +4,7 @@
     "references": [
         "AutSoft.UnitySupplements.UiComponents",
         "AutSoft.UnitySupplements.ResourceGenerator",
+        "AutSoft.UnitySupplements.LicenseGenerator",
         "AutSoft.UnitySupplements.EventBus",
         "Serilog.Sinks.Unity3D",
         "Injecter.Unity",

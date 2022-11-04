@@ -34,7 +34,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
             public string DataType => _dataType;
         }
 
-        private const string SettingsPath = "Assets/ResourceGenerator.asset";
+        private const string SettingsPath = "Assets/ResourceGeneratorSettings.asset";
 
         [Header("General settings")]
         [SerializeField] private string _baseNamespace = default!;
@@ -139,9 +139,9 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
 
         [SettingsProvider]
         public static SettingsProvider CreateSettingsProvider() =>
-            new("Project/ResourceGenerator", SettingsScope.Project)
+            new("Project/AutSoft/ResourceGenerator", SettingsScope.Project)
             {
-                label = "ResourceGenerator",
+                label = "Resource Generator",
                 guiHandler = _ =>
                 {
                     var settings = new SerializedObject(GetOrCreateSettings());
