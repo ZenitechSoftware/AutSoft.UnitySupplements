@@ -27,7 +27,7 @@ namespace AutSoft.UnitySupplements.Vitamins
         /// <summary>
         /// Checks if unity objects is null
         /// </summary>
-        /// <exception cref="InvalidOperationException">Thrown when objects is null</exception>
+        /// <exception cref="InvalidOperationException">Thrown when object is null</exception>
         public static void IsObjectNull(this UnityEngine.Object? unityObject)
         {
             if (unityObject == null)
