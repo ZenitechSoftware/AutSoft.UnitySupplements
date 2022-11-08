@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -19,7 +20,20 @@ namespace AutSoft.UnitySupplements.Vitamins
                 component = gameObject.AddComponent<T>();
             }
 
+            component.gameObject.IsObjectNull();
             return component;
+        }
+
+        /// <summary>
+        /// Checks if unity objects is null
+        /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown when objects is null</exception>
+        public static void IsObjectNull(this UnityEngine.Object? unityObject)
+        {
+            if (unityObject == null)
+            {
+                throw new InvalidOperationException($"{nameof(unityObject)} was not initalized before accessing it");
+            }
         }
     }
 }
