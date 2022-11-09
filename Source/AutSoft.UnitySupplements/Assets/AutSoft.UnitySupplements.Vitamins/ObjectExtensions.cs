@@ -16,7 +16,7 @@ namespace AutSoft.UnitySupplements.Vitamins
             obj == null || (obj is UnityObject unityObject && unityObject.IsObjectNull());
 
         /// <summary>
-        /// Checks if unity object is null
+        /// Checks if unity object is nulls
         /// </summary>
         /// <param name="obj"></param>
         /// <returns>True if object is null, else return false</returns>
@@ -27,11 +27,11 @@ namespace AutSoft.UnitySupplements.Vitamins
         /// </summary>
         /// <param name="obj"></param>
         /// <exception cref="InvalidOperationException">Thrown when object is null</exception>
-        public static void IsObjectNullThrow([NotNullWhen(false)] this object? obj)
+        public static void IsObjectNullThrow([NotNull] this object? obj)
         {
             if (obj.IsObjectNull())
             {
-                throw new InvalidOperationException($"{nameof(obj)} was not initalized before accessing it");
+                throw new ArgumentNullException(nameof(obj), $"{nameof(obj)} was not initalized before accessing it");
             }
         }
 
@@ -39,11 +39,11 @@ namespace AutSoft.UnitySupplements.Vitamins
         /// Checks if unity object is null
         /// </summary>
         /// <exception cref="InvalidOperationException">Thrown when object is null</exception>
-        public static void IsObjectNullThrow([NotNullWhen(false)] this UnityObject? obj)
+        public static void IsObjectNullThrow([NotNull] this UnityObject? obj)
         {
             if (obj.IsObjectNull())
             {
-                throw new InvalidOperationException($"{nameof(obj)} was not initalized before accessing it");
+                throw new ArgumentNullException(nameof(obj), $"{nameof(obj)} was not initalized before accessing it");
             }
         }
     }

@@ -32,7 +32,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
             DestroyImmediate(unityObject);
 
             //Assert
-            Assert.Throws<InvalidOperationException>(() => unityObject.IsObjectNullThrow());
+            Assert.Throws<ArgumentNullException>(() => unityObject.IsObjectNullThrow());
         }
 
         [Test]
@@ -46,7 +46,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
             obj = null;
 
             //Assert
-            Assert.Throws<InvalidOperationException>(() => obj.IsObjectNullThrow());
+            Assert.Throws<ArgumentNullException>(() => obj.IsObjectNullThrow());
         }
 
         [Test]
@@ -60,7 +60,7 @@ namespace AutSoft.UnitySupplements.Vitamins.Tests
             unityObject = null;
 
             //Assert
-            Assert.Throws<InvalidOperationException>(() => unityObject.IsObjectNullThrow());
+            Assert.Throws<ArgumentNullException>(() => unityObject.IsObjectNullThrow());
         }
 
         [Test]
