@@ -1,5 +1,6 @@
 ﻿#nullable enable
 using System;
+using System.Diagnostics.CodeAnalysis;
 using UnityObject = UnityEngine.Object;
 
 namespace AutSoft.UnitySupplements.Vitamins
@@ -11,33 +12,26 @@ namespace AutSoft.UnitySupplements.Vitamins
         /// </summary>
         /// <param name="obj"></param>
         /// <returns>True if object is null, else return false</returns>
-        public static bool IsObjectNull(this object obj) => obj == null || ((obj is UnityObject) && ((UnityObject)obj) == null);
+        public static bool IsObjectNull([NotNullWhen(false)] this object? obj) =>
+            obj == null || (obj is UnityObject unityObject && unityObject.IsObjectNull());
 
         /// <summary>
         /// Checks if unity object is null
         /// </summary>
         /// <param name="obj"></param>
         /// <returns>True if object is null, else return false</returns>
-        public static bool IsObjectNull(this UnityObject obj) => obj == null;
+        public static bool IsObjectNull([NotNullWhen(false)] this UnityObject? obj) => obj == null;
 
         /// <summary>
         /// Checks if object or unity object is null
         /// </summary>
         /// <param name="obj"></param>
         /// <exception cref="InvalidOperationException">Thrown when object is null</exception>
-        public static void IsObjectNullThrow(this object obj)
+        public static void IsObjectNullThrow([NotNullWhen(false)] this object? obj)
         {
-            var check = obj as UnityEngine.Object;
-            if (check != null)
+            if (obj.IsObjectNull())
             {
-                check.IsObjectNullThrow();
-            }
-            else
-            {
-                if (obj == null)
-                {
-                    throw new InvalidOperationException($"{nameof(obj)} was not initalized before accessing it");
-                }
+                throw new InvalidOperationException($"{nameof(obj)} was not initalized before accessing it");
             }
         }
 
@@ -45,9 +39,9 @@ namespace AutSoft.UnitySupplements.Vitamins
         /// Checks if unity object is null
         /// </summary>
         /// <exception cref="InvalidOperationException">Thrown when object is null</exception>
-        public static void IsObjectNullThrow(this UnityObject obj)
+        public static void IsObjectNullThrow([NotNullWhen(false)] this UnityObject? obj)
         {
-            if (obj == null)
+            if (obj.IsObjectNull())
             {
                 throw new InvalidOperationException($"{nameof(obj)} was not initalized before accessing it");
             }
