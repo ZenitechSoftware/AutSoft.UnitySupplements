@@ -1,5 +1,6 @@
 ﻿#nullable enable
 using System;
+using UnityObject = UnityEngine.Object;
 
 namespace AutSoft.UnitySupplements.Vitamins
 {
@@ -8,20 +9,34 @@ namespace AutSoft.UnitySupplements.Vitamins
         /// <summary>
         /// Checks if object or unity object is null
         /// </summary>
-        /// <param name="currentObject"></param>
+        /// <param name="obj"></param>
+        /// <returns>True if object is null, else return false</returns>
+        public static bool IsObjectNull(this object obj) => obj == null || ((obj is UnityObject) && ((UnityObject)obj) == null);
+
+        /// <summary>
+        /// Checks if unity object is null
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>True if object is null, else return false</returns>
+        public static bool IsObjectNull(this UnityObject obj) => obj == null;
+
+        /// <summary>
+        /// Checks if object or unity object is null
+        /// </summary>
+        /// <param name="obj"></param>
         /// <exception cref="InvalidOperationException">Thrown when object is null</exception>
-        public static void IsObjectNull(this object currentObject)
+        public static void IsObjectNullThrow(this object obj)
         {
-            var check = currentObject as UnityEngine.Object;
+            var check = obj as UnityEngine.Object;
             if (check != null)
             {
-                check.IsObjectNull();
+                check.IsObjectNullThrow();
             }
             else
             {
-                if (currentObject == null)
+                if (obj == null)
                 {
-                    throw new InvalidOperationException($"{nameof(currentObject)} was not initalized before accessing it");
+                    throw new InvalidOperationException($"{nameof(obj)} was not initalized before accessing it");
                 }
             }
         }
@@ -30,11 +45,11 @@ namespace AutSoft.UnitySupplements.Vitamins
         /// Checks if unity object is null
         /// </summary>
         /// <exception cref="InvalidOperationException">Thrown when object is null</exception>
-        public static void IsObjectNull(this UnityEngine.Object? unityObject)
+        public static void IsObjectNullThrow(this UnityObject obj)
         {
-            if (unityObject == null)
+            if (obj == null)
             {
-                throw new InvalidOperationException($"{nameof(unityObject)} was not initalized before accessing it");
+                throw new InvalidOperationException($"{nameof(obj)} was not initalized before accessing it");
             }
         }
     }
