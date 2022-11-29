@@ -10,6 +10,8 @@ namespace AutSoft.UnitySupplements.Vitamins
     /// </summary>
     public static class PolygonHelper
     {
+        private const float SmallEpsilon = 0.1f;
+
         public static void GenerateTriangulatedMesh(Mesh mesh, Vector3[] vertices)
         {
             var indices = ArrayPool<int>.Shared.Rent((vertices.Length - 2) * 3);
@@ -105,8 +107,14 @@ namespace AutSoft.UnitySupplements.Vitamins
             var A = vertices[V[u]];
             var B = vertices[V[v]];
             var C = vertices[V[w]];
-            if (Mathf.Epsilon > ((B.x - A.x) * (C.z - A.z)) - ((B.z - A.z) * (C.x - A.x)))
+            if (Mathf.Epsilon > ((B.x - A.x) * (C.z - A.z)) - ((B.z - A.z) * (C.x - A.x))
+                && Vector3.SqrMagnitude(A - B) > SmallEpsilon
+                && Vector3.SqrMagnitude(A - C) > SmallEpsilon
+                && Vector3.SqrMagnitude(B - C) > SmallEpsilon)
+            {
                 return false;
+            }
+
             for (p = 0; p < n; p++)
             {
                 if (p == u || p == v || p == w)
