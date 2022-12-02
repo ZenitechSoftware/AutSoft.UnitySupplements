@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="17"
+   height="11"
+   viewBox="0 0 17 11"
+   fill="none"
+   version="1.1"
+   id="svg135"
+   sodipodi:docname="DownArrowTime.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs139" />
+  <sodipodi:namedview
+     id="namedview137"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="73.882353"
+     inkscape:cx="8.5"
+     inkscape:cy="5.4952229"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg135" />
+  <path
+     d="M2.9519 1.25229L8.50716 6.80755L14.0624 1.25229C14.6208 0.693899 15.5228 0.693899 16.0812 1.25229C16.6396 1.81068 16.6396 2.71269 16.0812 3.27108L9.5094 9.84289C8.95101 10.4013 8.04899 10.4013 7.4906 9.84289L0.918792 3.27108C0.360403 2.71269 0.360403 1.81068 0.918792 1.25229C1.47718 0.708216 2.39351 0.693899 2.9519 1.25229Z"
+     fill="#333333"
+     id="path133"
+     style="fill:#ffffff;fill-opacity:1" />
+</svg>
