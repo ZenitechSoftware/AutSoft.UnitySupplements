@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="11"
+   height="5"
+   viewBox="0 0 11 5"
+   fill="none"
+   version="1.1"
+   id="svg1839"
+   sodipodi:docname="DownArrow.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1843" />
+  <sodipodi:namedview
+     id="namedview1841"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="114.18182"
+     inkscape:cx="5.5"
+     inkscape:cy="2.4960191"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1839" />
+  <path
+     fill-rule="evenodd"
+     clip-rule="evenodd"
+     d="M0.5 0L5.5 5L10.5 0H0.5Z"
+     fill="#333333"
+     id="path1837"
+     style="fill:#ffffff;fill-opacity:1" />
+</svg>
