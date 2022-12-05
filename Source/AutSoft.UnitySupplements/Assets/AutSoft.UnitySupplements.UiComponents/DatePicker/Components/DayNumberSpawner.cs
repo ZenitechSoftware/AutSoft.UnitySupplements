@@ -35,17 +35,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                 startDate = firstDayOfMonth;
             }
 
-            var endDate = new DateTimeOffset(
-                firstDayOfMonth.Year,
-                firstDayOfMonth.Month,
-                DateTime.DaysInMonth(firstDayOfMonth.Year, firstDayOfMonth.Month), 0, 0, 0, TimeSpan.Zero);
-            var lastDayOfWeek = startDate.AddDays(6).DayOfWeek;
-            while (endDate.DayOfWeek != lastDayOfWeek)
-            {
-                endDate = endDate.AddDays(1);
-            }
-
-            while (startDate <= endDate)
+            var endDate = startDate.AddDays(6 * 7);
+            while (startDate < endDate)
             {
                 var currentDate = Instantiate(Resources.Load<GameObject>("MonthNumber"), transform);
                 currentDate.GetComponent<Toggle>().group = _toggleGroup;

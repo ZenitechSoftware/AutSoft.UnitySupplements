@@ -23,7 +23,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             //TODO: remove this
             CultureInfo.CurrentCulture = new CultureInfo("en-US");
             //CultureInfo.CurrentCulture = new CultureInfo("sv-SE");
-            _monthYearPicker.SetYearMonthLabel(_pickedDate);
+            _monthYearPicker.InitYearMonth(_pickedDate);
             _weekDaySpwaner.SpawnWeekDayLetters();
             _dayNumberSpawner.SpawnDaysForMonth(new DateTimeOffset(_pickedDate.Year, _pickedDate.Month, 1, 0, 0, 0, TimeSpan.Zero));
             _monthStepper.InitializeMonthStepper();

@@ -26,10 +26,10 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         private void PreviousMonth() => SwitchMonth(_yearMonthPicker.CurrentMonth.AddMonths(-1));
         private void NextMonth() => SwitchMonth(_yearMonthPicker.CurrentMonth.AddMonths(1));
 
-        private void SwitchMonth(DateTimeOffset month)
+        public void SwitchMonth(DateTimeOffset month)
         {
             _dayNumberSpawner.SpawnDaysForMonth(month);
-            _yearMonthPicker.SetYearMonthLabel(month);
+            _yearMonthPicker.InitYearMonth(month);
         }
     }
 }
