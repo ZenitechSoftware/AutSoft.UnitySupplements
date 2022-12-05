@@ -17,6 +17,10 @@ namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
         public static partial class Scenes
         {
 
+            public const string DatePickerSample = "AutSoft.UnitySupplements.Samples/DatePickerSamples/DatePickerSample";
+            public static void LoadDatePickerSample(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(DatePickerSample, mode);
+            public static AsyncOperation LoadAsyncDatePickerSample(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(DatePickerSample, mode);
+
             public const string LegalsSampleScene = "AutSoft.UnitySupplements.Samples/LicenseGeneratorSample/LegalsSampleScene";
             public static void LoadLegalsSampleScene(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadScene(LegalsSampleScene, mode);
             public static AsyncOperation LoadAsyncLegalsSampleScene(LoadSceneMode mode = LoadSceneMode.Single) => SceneManager.LoadSceneAsync(LegalsSampleScene, mode);
@@ -56,6 +60,15 @@ namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
 
             public const string Cube = "Cube";
             public static GameObject LoadCube() => Resources.Load<GameObject>(Cube);
+
+            public const string MonthButton = "MonthButton";
+            public static GameObject LoadMonthButton() => Resources.Load<GameObject>(MonthButton);
+
+            public const string WeekLetter = "WeekLetter";
+            public static GameObject LoadWeekLetter() => Resources.Load<GameObject>(WeekLetter);
+
+            public const string YearButton = "YearButton";
+            public static GameObject LoadYearButton() => Resources.Load<GameObject>(YearButton);
 
         }
 
@@ -198,6 +211,12 @@ namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
         public static partial class LoadSceneButtons
         {
 
+            [UnityEditor.MenuItem("Load Scene / DatePickerSample")]
+            public static void LoadDatePickerSample()
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(@"Assets\AutSoft.UnitySupplements.Samples\DatePickerSamples\DatePickerSample.unity");
+            }
             [UnityEditor.MenuItem("Load Scene / LegalsSampleScene")]
             public static void LoadLegalsSampleScene()
             {

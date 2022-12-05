@@ -27,5 +27,10 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _daySelectorObject.SetActive(!_daySelectorObject.activeInHierarchy);
             _arrowImage.transform.Rotate(new Vector3(0, 0, 180));
         }
+
+        public void SetYearMonthLabel(DateTimeOffset pickedDate)
+        {
+            _yearMonthLabel.text = pickedDate.ToString("Y");
+        }
     }
 }
