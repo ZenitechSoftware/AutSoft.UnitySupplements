@@ -614,6 +614,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _monthYearPicker: {fileID: 5228767482817200820}
   _weekDaySpwaner: {fileID: 6150895442412653977}
+  _dayNumberSpawner: {fileID: 3264651825250467794}
+  _monthStepper: {fileID: 6671287372589357180}
 --- !u!1 &2051607302714156295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,6 +1754,7 @@ GameObject:
   - component: {fileID: 437290338361999971}
   - component: {fileID: 6884521617653364444}
   - component: {fileID: 4525928331840393161}
+  - component: {fileID: 3264651825250467794}
   m_Layer: 5
   m_Name: Dates
   m_TagString: Untagged
@@ -1851,6 +1854,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AllowSwitchOff: 1
+--- !u!114 &3264651825250467794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6303671202184691428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24ad61dfe338cc4fb0088bcfeb3d30f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _otherMonth: {r: 0.85490197, g: 0.85490197, b: 0.85490197, a: 1}
 --- !u!1 &6911305881322201264
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,6 +2202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 625019845214945797}
+  - component: {fileID: 6671287372589357180}
   m_Layer: 5
   m_Name: MonthStepper
   m_TagString: Untagged
@@ -2215,6 +2232,22 @@ RectTransform:
   m_AnchoredPosition: {x: -8, y: -15}
   m_SizeDelta: {x: 53, y: 14}
   m_Pivot: {x: 1, y: 1}
+--- !u!114 &6671287372589357180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8331885767178558983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9fd8f6cdc4eeb4f8fd01eccbb89a1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _yearMonthPicker: {fileID: 5228767482817200820}
+  _dayNumberSpawner: {fileID: 3264651825250467794}
+  _nextMonth: {fileID: 2984194839302298940}
+  _previousMonth: {fileID: 978411307661812311}
 --- !u!1 &8696814318521294843
 GameObject:
   m_ObjectHideFlags: 0
@@ -3100,6 +3133,10 @@ PrefabInstance:
       propertyPath: m_text
       value: T
       objectReference: {fileID: 0}
+    - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
+      propertyPath: m_fontSize
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
@@ -3195,6 +3232,10 @@ PrefabInstance:
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_text
       value: W
+      objectReference: {fileID: 0}
+    - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
+      propertyPath: m_fontSize
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -4652,6 +4693,10 @@ PrefabInstance:
       propertyPath: m_text
       value: S
       objectReference: {fileID: 0}
+    - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
+      propertyPath: m_fontSize
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
@@ -5696,6 +5741,10 @@ PrefabInstance:
       propertyPath: m_text
       value: F
       objectReference: {fileID: 0}
+    - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
+      propertyPath: m_fontSize
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
@@ -6480,6 +6529,10 @@ PrefabInstance:
       propertyPath: m_text
       value: T
       objectReference: {fileID: 0}
+    - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
+      propertyPath: m_fontSize
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
@@ -6851,6 +6904,10 @@ PrefabInstance:
     - target: {fileID: 2538256422632344616, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_Name
       value: WeekLetter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
+      propertyPath: m_fontSize
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -7987,6 +8044,10 @@ PrefabInstance:
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_text
       value: S
+      objectReference: {fileID: 0}
+    - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
+      propertyPath: m_fontSize
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

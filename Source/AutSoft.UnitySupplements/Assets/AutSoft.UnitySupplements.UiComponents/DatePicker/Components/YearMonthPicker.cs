@@ -14,6 +14,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         [SerializeField] private GameObject _yearMonthObject = default!;
         [SerializeField] private GameObject _daySelectorObject = default!;
 
+        public DateTimeOffset CurrentMonth { get; private set; }
+
         private void Awake()
         {
             this.CheckSerializedFields();
@@ -31,6 +33,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         public void SetYearMonthLabel(DateTimeOffset pickedDate)
         {
             _yearMonthLabel.text = pickedDate.ToString("Y");
+            CurrentMonth = new DateTimeOffset(pickedDate.Year, pickedDate.Month, 1, 0, 0, 0, TimeSpan.Zero);
         }
     }
 }

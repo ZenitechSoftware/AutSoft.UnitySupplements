@@ -9,6 +9,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
     {
         [SerializeField] private YearMonthPicker _monthYearPicker = default!;
         [SerializeField] private WeekDaySpwaner _weekDaySpwaner = default!;
+        [SerializeField] private DayNumberSpawner _dayNumberSpawner = default!;
+        [SerializeField] private MonthStepper _monthStepper = default!;
 
         private DateTimeOffset _pickedDate;
 
@@ -16,13 +18,15 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         {
             this.CheckSerializedFields();
 
-            _pickedDate= DateTimeOffset.Now;
+            _pickedDate = DateTimeOffset.Now;
 
             //TODO: remove this
-            //CultureInfo.CurrentCulture = new CultureInfo("en-US");
-            CultureInfo.CurrentCulture = new CultureInfo("sv-SE");
+            CultureInfo.CurrentCulture = new CultureInfo("en-US");
+            //CultureInfo.CurrentCulture = new CultureInfo("sv-SE");
             _monthYearPicker.SetYearMonthLabel(_pickedDate);
             _weekDaySpwaner.SpawnWeekDayLetters();
+            _dayNumberSpawner.SpawnDaysForMonth(new DateTimeOffset(_pickedDate.Year, _pickedDate.Month, 1, 0, 0, 0, TimeSpan.Zero));
+            _monthStepper.InitializeMonthStepper();
         }
     }
 }

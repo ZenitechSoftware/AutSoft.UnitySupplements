@@ -9,7 +9,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
     public class WeekDaySpwaner : MonoBehaviour
     {
-        private Dictionary<DayOfWeek, string> _dayNames = new();
+        private readonly Dictionary<DayOfWeek, string> _dayNames = new();
         private void InitDayNames()
         {
             _dayNames.Clear();
