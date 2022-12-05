@@ -1830,7 +1830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: -10
+    m_Left: -2
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
@@ -1838,7 +1838,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 32, y: 32}
-  m_Spacing: {x: 4, y: 0}
+  m_Spacing: {x: 2, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 7
 --- !u!114 &4525928331840393161
@@ -2168,12 +2168,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: -10
+    m_Left: -3
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_Spacing: 4
+  m_Spacing: 2
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -3131,7 +3131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_text
-      value: T
+      value: Thu
       objectReference: {fileID: 0}
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_fontSize
@@ -3231,7 +3231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_text
-      value: W
+      value: Wed
       objectReference: {fileID: 0}
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_fontSize
@@ -4691,7 +4691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_text
-      value: S
+      value: Sun
       objectReference: {fileID: 0}
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_fontSize
@@ -5739,7 +5739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_text
-      value: F
+      value: Fri
       objectReference: {fileID: 0}
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_fontSize
@@ -6527,7 +6527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_text
-      value: T
+      value: Tue
       objectReference: {fileID: 0}
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_fontSize
@@ -6904,6 +6904,10 @@ PrefabInstance:
     - target: {fileID: 2538256422632344616, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_Name
       value: WeekLetter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
+      propertyPath: m_text
+      value: Mon
       objectReference: {fileID: 0}
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_fontSize
@@ -8043,7 +8047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_text
-      value: S
+      value: Sat
       objectReference: {fileID: 0}
     - target: {fileID: 7805186664737853333, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
       propertyPath: m_fontSize
