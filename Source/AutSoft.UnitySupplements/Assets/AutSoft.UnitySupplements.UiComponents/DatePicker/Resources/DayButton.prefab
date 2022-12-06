@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 92449110064797074}
   - component: {fileID: 1645289044323116064}
   - component: {fileID: 4498811627306564575}
+  - component: {fileID: 3591641099517880511}
   m_Layer: 5
-  m_Name: MonthNumber
+  m_Name: DayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,3 +185,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &3591641099517880511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968885534222861850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a82d1d1df5f6842b631ba8301e3639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dayLabel: {fileID: 1645289044323116064}
+  _otherMonth: {r: 0.7294118, g: 0.7294118, b: 0.7294118, a: 1}

@@ -2,7 +2,6 @@
 using AutSoft.UnitySupplements.Vitamins;
 using System;
 using System.Globalization;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,14 +9,15 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
     public class DayNumberSpawner : MonoBehaviour
     {
-        [SerializeField] private Color _otherMonth;
-
         private ToggleGroup? _toggleGroup;
+        private DatePicker? _datePicker;
+
         private void SetupToggleGroup() => _toggleGroup = GetComponent<ToggleGroup>();
 
         public void SpawnDaysForMonth(DateTimeOffset firstDayOfMonth)
         {
             if (_toggleGroup.IsObjectNull()) SetupToggleGroup();
+            _datePicker.IsObjectNullThrow();
             transform.DestroyChildren();
             var firstDayOfWeek = (int)CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek;
             var currentDay = (int)firstDayOfMonth.DayOfWeek;
@@ -38,16 +38,13 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             var endDate = startDate.AddDays(6 * 7);
             while (startDate < endDate)
             {
-                var currentDate = Instantiate(Resources.Load<GameObject>("MonthNumber"), transform);
+                var currentDate = Instantiate(Resources.Load<GameObject>("DayButton"), transform);
                 currentDate.GetComponent<Toggle>().group = _toggleGroup;
-                var monthNumber = currentDate.GetComponent<TMP_Text>();
-                monthNumber.text = startDate.ToString("dd").TrimStart('0');
-                if (startDate.Month != firstDayOfMonth.Month)
-                {
-                    monthNumber.color = _otherMonth;
-                }
+                currentDate.GetComponent<DayButton>().SetupDayButton(startDate, startDate.Month != firstDayOfMonth.Month, _datePicker);
                 startDate = startDate.AddDays(1);
             }
         }
+
+        public void InitDays(DatePicker datePicker) => _datePicker = datePicker;
     }
 }

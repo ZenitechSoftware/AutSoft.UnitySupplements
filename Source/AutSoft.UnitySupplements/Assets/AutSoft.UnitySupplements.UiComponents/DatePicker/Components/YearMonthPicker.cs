@@ -11,8 +11,9 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         [SerializeField] private TMP_Text _yearMonthLabel = default!;
         [SerializeField] private Image _arrowImage = default!;
         [SerializeField] private Button _arrowButton = default!;
-        [SerializeField] private GameObject _yearMonthObject = default!;
+        [SerializeField] private GameObject _yearsObject = default!;
         [SerializeField] private GameObject _daySelectorObject = default!;
+        [SerializeField] private GameObject _monthSelectorObject = default!;
         [SerializeField] private DayNumberSpawner _dayNumberSpawner = default!;
         [SerializeField] private YearPicker _yearPicker = default!;
 
@@ -27,8 +28,17 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private void ToggleYearMonthPanel()
         {
-            _yearMonthObject.SetActive(!_yearMonthObject.activeInHierarchy);
             _daySelectorObject.SetActive(!_daySelectorObject.activeInHierarchy);
+            if (_yearsObject.activeInHierarchy || _monthSelectorObject.activeInHierarchy)
+            {
+                _yearsObject.SetActive(false);
+                _monthSelectorObject.SetActive(false);
+            }
+            else
+            {
+                _yearsObject.SetActive(true);
+            }
+
             if (_daySelectorObject.activeInHierarchy)
             {
                 _dayNumberSpawner.SpawnDaysForMonth(CurrentMonth);
@@ -44,6 +54,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         public void InitYearMonth(DateTimeOffset currentDate)
         {
             CurrentMonth = new DateTimeOffset(currentDate.Year, currentDate.Month, 1, 0, 0, 0, TimeSpan.Zero);
+            _dayNumberSpawner.SpawnDaysForMonth(CurrentMonth);
             SetYearMonthLabel(CurrentMonth);
         }
 
@@ -53,11 +64,12 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             {
                 _yearMonthLabel.text = currentDate.ToString("Y");
             }
-            else
-            {
-                var yearStart = currentDate.Year - (currentDate.Year % 10);
-                _yearMonthLabel.text = $"{yearStart} - {yearStart + 19}";
-            }
+        }
+
+        public void SetMonthYear(DateTimeOffset dateTimeOffset)
+        {
+            InitYearMonth(dateTimeOffset);
+            ToggleYearMonthPanel();
         }
     }
 }

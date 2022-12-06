@@ -1,11 +1,14 @@
 ﻿using AutSoft.UnitySupplements.Vitamins;
+using TMPro;
 using UnityEngine;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
     public class YearPicker : MonoBehaviour
     {
-        [SerializeField] private Transform _buttonParent;
+        [SerializeField] private Transform _buttonParent = default!;
+        [SerializeField] private MonthPicker _monthPicker = default!;
+        [SerializeField] private TMP_Text _yearMonthLabel = default!;
 
         private int _currentYearStart;
 
@@ -19,8 +22,9 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             for (var i = 0; i < 20; i++)
             {
                 var currentYear = Instantiate(Resources.Load<GameObject>("YearButton"), _buttonParent);
-                currentYear.GetComponent<YearButton>().SetupYearButton(startYear + i);
+                currentYear.GetComponent<YearButton>().SetupYearButton(_currentYearStart + i, _monthPicker, gameObject);
             }
+            _yearMonthLabel.text = $"{_currentYearStart} - {_currentYearStart + 19}";
         }
 
         public void StepYears(int step)

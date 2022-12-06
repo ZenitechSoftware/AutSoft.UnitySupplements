@@ -7,7 +7,6 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
     public class MonthStepper : MonoBehaviour
     {
         [SerializeField] private YearMonthPicker _yearMonthPicker = default!;
-        [SerializeField] private DayNumberSpawner _dayNumberSpawner = default!;
         [SerializeField] private Button _nextMonth = default!;
         [SerializeField] private Button _previousMonth = default!;
 
@@ -26,10 +25,6 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         private void PreviousMonth() => SwitchMonth(_yearMonthPicker.CurrentMonth.AddMonths(-1));
         private void NextMonth() => SwitchMonth(_yearMonthPicker.CurrentMonth.AddMonths(1));
 
-        public void SwitchMonth(DateTimeOffset month)
-        {
-            _dayNumberSpawner.SpawnDaysForMonth(month);
-            _yearMonthPicker.InitYearMonth(month);
-        }
+        public void SwitchMonth(DateTimeOffset month) => _yearMonthPicker.InitYearMonth(month);
     }
 }
