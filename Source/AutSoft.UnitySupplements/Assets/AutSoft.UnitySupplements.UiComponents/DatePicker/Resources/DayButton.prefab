@@ -139,12 +139,13 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.09411765, g: 0.38039216, b: 0.8117647, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 0.7294118, g: 0.7294118, b: 0.7294118, a: 0}
+    m_DisabledColor: {r: 0.7294118, g: 0.7294118, b: 0.7294118, a: 1}
     m_ColorMultiplier: 0
     m_FadeDuration: 0
   _label: {fileID: 7519250368045721995}
   _pressedImage: {fileID: 2571087321577592976}
   _currentToggle: {fileID: 4498811627306564575}
+  _background: {fileID: 6945811719145387681}
 --- !u!114 &6945811719145387681
 MonoBehaviour:
   m_ObjectHideFlags: 0

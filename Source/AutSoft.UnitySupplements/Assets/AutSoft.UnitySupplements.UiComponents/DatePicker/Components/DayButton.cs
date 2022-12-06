@@ -34,6 +34,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             if(otherMonth)
             {
                 _dayButton.interactable = false;
+                _dayButton.GetComponent<DateSelectionHighlighter>().SetColorsByState();
             }
         }
 

@@ -26,9 +26,9 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             SetColorsByState();
         }
 
-        public void HighLightButton()
+        public void HighLightButton(bool highlighted)
         {
-            _highlighted = true;
+            _highlighted = highlighted;
             SetColorsByState();
         }
 

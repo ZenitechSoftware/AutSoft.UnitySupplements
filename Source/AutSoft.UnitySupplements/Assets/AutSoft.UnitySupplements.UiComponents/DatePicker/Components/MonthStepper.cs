@@ -22,8 +22,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _previousMonth.onClick?.RemoveListener(PreviousMonth);
         }
 
-        private void PreviousMonth() => SwitchMonth(_yearMonthPicker.CurrentMonth.AddMonths(-1));
-        private void NextMonth() => SwitchMonth(_yearMonthPicker.CurrentMonth.AddMonths(1));
+        private void PreviousMonth() => SwitchMonth(_yearMonthPicker.CurrentDate.AddMonths(-1));
+        private void NextMonth() => SwitchMonth(_yearMonthPicker.CurrentDate.AddMonths(1));
 
         public void SwitchMonth(DateTimeOffset month) => _yearMonthPicker.InitYearMonth(month);
     }

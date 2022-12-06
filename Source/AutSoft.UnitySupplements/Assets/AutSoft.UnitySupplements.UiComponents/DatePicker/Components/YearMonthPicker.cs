@@ -17,7 +17,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         [SerializeField] private DayNumberSpawner _dayNumberSpawner = default!;
         [SerializeField] private YearPicker _yearPicker = default!;
 
-        public DateTimeOffset CurrentMonth { get; private set; }
+        public DateTimeOffset CurrentDate { get; private set; }
 
         private void Awake()
         {
@@ -41,21 +41,21 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
             if (_daySelectorObject.activeInHierarchy)
             {
-                _dayNumberSpawner.SpawnDaysForMonth(CurrentMonth);
+                _dayNumberSpawner.SpawnDaysForMonth(CurrentDate);
             }
             else
             {
-                _yearPicker.SpawnYears(CurrentMonth.Year);
+                _yearPicker.SpawnYears(CurrentDate.Year, CurrentDate.Month);
             }
             _arrowImage.transform.Rotate(new Vector3(0, 0, 180));
-            SetYearMonthLabel(CurrentMonth);
+            SetYearMonthLabel(CurrentDate);
         }
 
         public void InitYearMonth(DateTimeOffset currentDate)
         {
-            CurrentMonth = new DateTimeOffset(currentDate.Year, currentDate.Month, 1, 0, 0, 0, TimeSpan.Zero);
-            _dayNumberSpawner.SpawnDaysForMonth(CurrentMonth);
-            SetYearMonthLabel(CurrentMonth);
+            CurrentDate = new DateTimeOffset(currentDate.Year, currentDate.Month, 1, 0, 0, 0, TimeSpan.Zero);
+            _dayNumberSpawner.SpawnDaysForMonth(CurrentDate);
+            SetYearMonthLabel(CurrentDate);
         }
 
         private void SetYearMonthLabel(DateTimeOffset currentDate)
