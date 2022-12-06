@@ -23,6 +23,10 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             {
                 var currentYear = Instantiate(Resources.Load<GameObject>("YearButton"), _buttonParent);
                 currentYear.GetComponent<YearButton>().SetupYearButton(_currentYearStart + i, _monthPicker, gameObject);
+                if(_currentYearStart +i == startYear)
+                {
+                    currentYear.GetComponent<YearSelectionHighlighter>().HighLightButton();
+                }
             }
             _yearMonthLabel.text = $"{_currentYearStart} - {_currentYearStart + 19}";
         }

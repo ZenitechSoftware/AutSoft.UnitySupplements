@@ -32,23 +32,12 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _monthStepper.InitializeMonthStepper();
         }
 
-        public void SetDate(DateTimeOffset pickedDate)
-        {
+        public void SetDate(DateTimeOffset pickedDate) => 
             _pickedDate = _pickedDate.AddYears(pickedDate.Year - _pickedDate.Year).AddMonths(pickedDate.Month - _pickedDate.Month).AddDays(pickedDate.Day - _pickedDate.Day);
-            Debug.Log($"Date changed: {_pickedDate}");
-        }
 
-        public void SetHour(int hour)
-        {
-            _pickedDate = _pickedDate.AddHours(hour - _pickedDate.Hour);
-            Debug.Log($"Date changed: {_pickedDate}");
-        }
+        public void SetHour(int hour) => _pickedDate = _pickedDate.AddHours(hour - _pickedDate.Hour);
 
-        public void SetMinute(int minute)
-        {
-            _pickedDate = _pickedDate.AddMinutes(minute - _pickedDate.Minute);
-            Debug.Log($"Date changed: {_pickedDate}");
-        }
+        public void SetMinute(int minute) => _pickedDate = _pickedDate.AddMinutes(minute - _pickedDate.Minute);
 
         public void AddHour(int hour) => _pickedDate = _pickedDate.AddHours(hour);
     }

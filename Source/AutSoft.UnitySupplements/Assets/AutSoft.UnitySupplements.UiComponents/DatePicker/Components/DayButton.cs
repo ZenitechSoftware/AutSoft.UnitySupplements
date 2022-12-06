@@ -12,8 +12,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
     {
         [SerializeField] private TMP_Text _dayLabel = default!;
         [SerializeField] private Color _otherMonth;
+        [SerializeField] private Toggle _dayButton = default!;
 
-        private Toggle _dayButton = default!;
         private DateTimeOffset _currentDate;
         private DatePicker? _datePicker;
 
@@ -21,7 +21,6 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         {
             this.CheckSerializedFields();
 
-            _dayButton = GetComponent<Toggle>();
             _dayButton.onValueChanged.AddListener(DateSelected);
         }
 
@@ -34,7 +33,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _dayLabel.text = currentDate.ToString("dd").TrimStart('0');
             if(otherMonth)
             {
-                _dayLabel.color = _otherMonth;
+                _dayButton.interactable = false;
             }
         }
 

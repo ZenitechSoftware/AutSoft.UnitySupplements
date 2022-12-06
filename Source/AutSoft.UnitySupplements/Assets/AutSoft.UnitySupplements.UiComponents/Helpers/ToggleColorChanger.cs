@@ -45,10 +45,7 @@ namespace AutSoft.UnitySupplements.UiComponents.Helpers
             }
         }
 
-        private void OnDestroy()
-        {
-            _toggle.onValueChanged.RemoveListener(OnToggleChanged);
-        }
+        private void OnDestroy() => _toggle.onValueChanged.RemoveListener(OnToggleChanged);
 
         private void OnToggleChanged(bool isOn) => UpdateVisuals();
 
