@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 8806364489508501340}
   - component: {fileID: 6982202555810148175}
   - component: {fileID: 699141398680640966}
+  - component: {fileID: 1000270146681036712}
   m_Layer: 5
   m_Name: AmPmSelector
   m_TagString: Untagged
@@ -214,6 +215,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1000270146681036712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333732053099780493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e7561e73427bb49bf3d5c57e986065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _amText: {fileID: 6785748692918626510}
+  _pmText: {fileID: 4881888249576607695}
+  _amToggle: {fileID: 8216161224508820305}
+  _pmToggle: {fileID: 1855057865800214870}
 --- !u!1 &2512334384987904797
 GameObject:
   m_ObjectHideFlags: 0

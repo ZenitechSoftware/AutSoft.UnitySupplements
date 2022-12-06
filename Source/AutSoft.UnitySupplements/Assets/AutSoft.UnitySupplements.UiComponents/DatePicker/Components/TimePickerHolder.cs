@@ -12,6 +12,9 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         [SerializeField] private TimePicker _minutePicker = default!;
 
         private DatePicker? _datePicker;
+        private bool _isAmPm;
+        private AmPmSelector? _amPmSelector;
+
         private void Awake()
         {
             this.CheckSerializedFields();
@@ -31,8 +34,10 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _datePicker = datePicker;
             if (CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern.Contains("tt"))
             {
-                Instantiate(Resources.Load<GameObject>("AmPmSelector"), transform);
-                _hourPicker.InitTimePicker(initialTime.Hour, 12);
+                _amPmSelector = Instantiate(Resources.Load<GameObject>("AmPmSelector"), transform).GetComponent<AmPmSelector>();
+                _amPmSelector.InitAmPmSelector(datePicker, initialTime.Hour > 12);
+                _isAmPm = true;
+                _hourPicker.InitTimePicker(initialTime.Hour % 12, 12);
             }
             else
             {
@@ -43,7 +48,15 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         private void SetHour(int hour)
         {
             _datePicker.IsObjectNullThrow();
-            _datePicker.SetHour(hour);
+            if (_isAmPm)
+            {
+                _amPmSelector.IsObjectNullThrow();
+                _datePicker.SetHour(hour + (_amPmSelector.IsAm ? 0 : 12));
+            }
+            else
+            {
+                _datePicker.SetHour(hour);
+            }
         }
 
         private void SetMinute(int minute)

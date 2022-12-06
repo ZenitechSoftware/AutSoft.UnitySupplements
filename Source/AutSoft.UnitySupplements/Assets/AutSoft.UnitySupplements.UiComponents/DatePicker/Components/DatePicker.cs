@@ -23,8 +23,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _pickedDate = _pickedDate.AddSeconds(-_pickedDate.Second);
 
             //TODO: remove this
-            //CultureInfo.CurrentCulture = new CultureInfo("en-US");
-            CultureInfo.CurrentCulture = new CultureInfo("sv-SE");
+            CultureInfo.CurrentCulture = new CultureInfo("en-US");
+            //CultureInfo.CurrentCulture = new CultureInfo("sv-SE");
             _dayNumberSpawner.InitDays(this);
             _timePicker.InitTimePicker(this, _pickedDate);
             _monthYearPicker.InitYearMonth(_pickedDate);
@@ -49,5 +49,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _pickedDate = _pickedDate.AddMinutes(minute - _pickedDate.Minute);
             Debug.Log($"Date changed: {_pickedDate}");
         }
+
+        public void AddHour(int hour) => _pickedDate = _pickedDate.AddHours(hour);
     }
 }
