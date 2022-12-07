@@ -168,6 +168,7 @@ MonoBehaviour:
     m_FadeDuration: 0
   _label: {fileID: 2044230890599273594}
   _pressedImage: {fileID: 7413129376712566378}
+  _background: {fileID: 5986394347589923996}
 --- !u!1 &6911387686792287266
 GameObject:
   m_ObjectHideFlags: 0

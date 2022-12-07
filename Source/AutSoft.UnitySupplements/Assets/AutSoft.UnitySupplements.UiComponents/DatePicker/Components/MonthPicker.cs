@@ -29,10 +29,10 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                 var monthButton = currentMonth.GetComponent<MonthButton>();
                 monthButton.SetupYearButton(monthname, i + 1, _yearMonthPicker, _year);
                 _monthButtons.Add(monthButton);
-                monthButton.GetComponent<YearSelectionHighlighter>().HighLightButton(false);
+                monthButton.GetComponent<YearSelectionHighlighter>().Highlight(false);
             }
 
-            _monthButtons[_currentMonth - 1].GetComponent<YearSelectionHighlighter>().HighLightButton(true);
+            _monthButtons[_currentMonth - 1].GetComponent<YearSelectionHighlighter>().Highlight(true);
         }
 
         public void InitYear(int year)
@@ -42,11 +42,11 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             foreach (var monthButton in _monthButtons)
             {
                 monthButton.UpdateYear(year);
-                monthButton.GetComponent<YearSelectionHighlighter>().HighLightButton(false);
+                monthButton.GetComponent<YearSelectionHighlighter>().Highlight(false);
             }
             if (_monthButtons.Count > 0)
             {
-                _monthButtons[_currentMonth - 1].GetComponent<YearSelectionHighlighter>().HighLightButton(true);
+                _monthButtons[_currentMonth - 1].GetComponent<YearSelectionHighlighter>().Highlight(true);
             }
         }
 

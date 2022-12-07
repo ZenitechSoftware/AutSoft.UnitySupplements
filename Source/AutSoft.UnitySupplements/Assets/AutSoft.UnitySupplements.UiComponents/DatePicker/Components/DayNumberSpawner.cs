@@ -42,7 +42,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                 currentDate.GetComponent<DayButton>().SetupDayButton(startDate, startDate.Month != firstDayOfMonth.Month, _datePicker);
                 if (startDate.Date == _pickedDate.Date)
                 {
-                    currentDate.GetComponent<DateSelectionHighlighter>().HighlightDate();
+                    currentDate.GetComponent<DateSelectionHighlighter>().Highlight(true);
                     inSelectedMonth = true;
                 }
                 startDate = startDate.AddDays(1);

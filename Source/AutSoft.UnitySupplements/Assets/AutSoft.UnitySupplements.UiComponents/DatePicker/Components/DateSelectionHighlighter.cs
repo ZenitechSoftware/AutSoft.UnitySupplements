@@ -1,69 +1,32 @@
-﻿using AutSoft.UnitySupplements.Vitamins;
-using AutSoft.UnitySupplements.Vitamins.Bindings;
-using System;
-using TMPro;
+﻿using AutSoft.UnitySupplements.Vitamins.Bindings;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
-    [RequireComponent(typeof(Image))]
-    public class DateSelectionHighlighter : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
+    public class DateSelectionHighlighter : BaseSelectionHighlighter
     {
-        [SerializeField] private ColorBlock _backgroundColors;
-        [SerializeField] private ColorBlock _textColors;
-        [SerializeField] private TMP_Text _label = default!;
-        [SerializeField] private Image _pressedImage = default!;
         [SerializeField] private Toggle _currentToggle = default!;
-        [SerializeField] private Image _background = default!;
 
-        private void Awake()
+        public override bool IsHighlighted
         {
-            this.CheckSerializedFields();
+            get => _currentToggle.isOn;
+            protected set => _currentToggle.isOn = value;
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
             this.Bind(_currentToggle.onValueChanged, OnToggleChangeForHighlight);
         }
 
-        private void OnDestroy() => _currentToggle.onValueChanged.RemoveListener(OnToggleChangeForHighlight);
-
         private void OnToggleChangeForHighlight(bool _) => SetColorsByState();
 
-        public void SetColorsByState()
+        public override void SetColorsByState()
         {
-            _background.color = _currentToggle.isOn ? _backgroundColors.selectedColor : _backgroundColors.normalColor;
-            _label.color = _currentToggle.isOn ? _textColors.selectedColor : _textColors.normalColor;
-            _label.fontStyle = _currentToggle.isOn ? FontStyles.Bold : FontStyles.Normal;
+            base.SetColorsByState();
             if (!_currentToggle.interactable) _label.color = _textColors.disabledColor;
         }
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            if (_currentToggle.isOn || !_currentToggle.interactable) return;
-            _background.color = _backgroundColors.highlightedColor;
-            _label.color = _textColors.highlightedColor;
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            if (_currentToggle.isOn || !_currentToggle.interactable) return;
-            SetColorsByState();
-        }
-
-        public void OnPointerUp(PointerEventData eventData)
-        {
-            if (!_currentToggle.interactable) return;
-            _pressedImage.gameObject.SetActive(false);
-        }
-
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            if (!_currentToggle.interactable) return;
-            _label.fontStyle = FontStyles.Bold;
-            _label.color = _textColors.pressedColor;
-            _background.color = _backgroundColors.pressedColor;
-            _pressedImage.gameObject.SetActive(true);
-        }
-
-        public void HighlightDate() => _currentToggle.isOn = true;
     }
 }
