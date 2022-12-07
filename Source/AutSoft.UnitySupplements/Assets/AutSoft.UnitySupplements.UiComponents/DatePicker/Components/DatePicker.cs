@@ -1,7 +1,7 @@
 ﻿using AutSoft.UnitySupplements.Vitamins;
 using System;
-using System.Globalization;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
@@ -12,15 +12,16 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         [SerializeField] private DayNumberSpawner _dayNumberSpawner = default!;
         [SerializeField] private MonthStepper _monthStepper = default!;
         [SerializeField] private TimePickerHolder _timePicker = default!;
-
         private DateTimeOffset _pickedDate;
+
+        public UnityEvent<DateTimeOffset> onTimePicked { get; } = new();
 
         public DateTimeOffset PickedDate
         {
             get => _pickedDate; set
             {
                 _pickedDate = value;
-                Debug.Log(_pickedDate.ToString("G"));
+                onTimePicked.Invoke(_pickedDate);
             }
         }
 

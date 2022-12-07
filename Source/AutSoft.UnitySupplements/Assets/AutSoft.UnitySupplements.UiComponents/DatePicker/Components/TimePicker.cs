@@ -1,7 +1,6 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.Vitamins;
 using AutSoft.UnitySupplements.Vitamins.Bindings;
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -18,7 +17,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         private int _limit;
         private int _currentTime;
 
-        public UnityEvent<int> onTimeChanged {get;} = new();
+        public UnityEvent<int> onTimeChanged { get; } = new();
 
         private void Awake() => this.CheckSerializedFields();
 

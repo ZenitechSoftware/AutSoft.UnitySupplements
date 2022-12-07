@@ -14,7 +14,6 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         private DatePicker? _datePicker;
         private DateTimeOffset _pickedDate;
 
-
         public void SpawnDaysForMonth(DateTimeOffset firstDayOfMonth)
         {
             _datePicker.IsObjectNullThrow();

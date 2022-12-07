@@ -1,9 +1,6 @@
 ﻿using AutSoft.UnitySupplements.Vitamins.Bindings;
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
