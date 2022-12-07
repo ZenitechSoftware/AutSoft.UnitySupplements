@@ -21,10 +21,11 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private void Start() => this.Bind(_dayButton.onValueChanged, DateSelected);
 
-        public void SetupDayButton(DateTimeOffset currentDate, bool otherMonth, DatePicker datePicker)
+        public void SetupDayButton(DateTimeOffset currentDate, bool otherMonth, DatePicker datePicker, TMP_FontAsset _font)
         {
             _currentDate = currentDate;
             _datePicker = datePicker;
+            _dayLabel.font = _font;
             _dayLabel.text = currentDate.ToString("dd").TrimStart('0');
             if (otherMonth)
             {

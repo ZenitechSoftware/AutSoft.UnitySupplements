@@ -27,11 +27,12 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private void OnDestroy() => _monthButton.onClick.RemoveListener(SetYearMonth);
 
-        public void SetupYearButton(string monthname, int monthNumber, YearMonthPicker yearMonthPicker, int year)
+        public void SetupYearButton(string monthname, int monthNumber, YearMonthPicker yearMonthPicker, int year, TMP_FontAsset font)
         {
             _yearMonthPicker = yearMonthPicker;
             _monthNumber = monthNumber;
             _buttonLabel.text = monthname;
+            _buttonLabel.font = font;
             _year = year;
         }
 

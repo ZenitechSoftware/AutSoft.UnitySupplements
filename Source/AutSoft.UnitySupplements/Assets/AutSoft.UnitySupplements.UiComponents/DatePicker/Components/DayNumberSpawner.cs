@@ -2,6 +2,7 @@
 using AutSoft.UnitySupplements.Vitamins;
 using System;
 using System.Globalization;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,10 +14,12 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private DatePicker? _datePicker;
         private DateTimeOffset _pickedDate;
+        private TMP_FontAsset? _font;
 
         public void SpawnDaysForMonth(DateTimeOffset firstDayOfMonth)
         {
             _datePicker.IsObjectNullThrow();
+            _font.IsObjectNullThrow();
             transform.DestroyChildren();
             var inSelectedMonth = false;
             var firstDayOfWeek = (int)CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek;
@@ -38,7 +41,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             {
                 var currentDate = Instantiate(Resources.Load<GameObject>("DayButton"), transform);
                 currentDate.GetComponent<Toggle>().group = _toggleGroup;
-                currentDate.GetComponent<DayButton>().SetupDayButton(startDate, startDate.Month != firstDayOfMonth.Month, _datePicker);
+                currentDate.GetComponent<DayButton>()
+                    .SetupDayButton(startDate, startDate.Month != firstDayOfMonth.Month, _datePicker, _font);
                 if (startDate.Date == _pickedDate.Date)
                 {
                     currentDate.GetComponent<DateSelectionHighlighter>().Highlight(true);
@@ -50,7 +54,11 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _toggleGroup.allowSwitchOff = !inSelectedMonth;
         }
 
-        public void InitDays(DatePicker datePicker) => _datePicker = datePicker;
+        public void InitDays(DatePicker datePicker, TMP_FontAsset font)
+        {
+            _datePicker = datePicker;
+            _font = font;
+        }
 
         public void UpdatePickedDate(DateTimeOffset pickedDate) => _pickedDate = pickedDate;
     }

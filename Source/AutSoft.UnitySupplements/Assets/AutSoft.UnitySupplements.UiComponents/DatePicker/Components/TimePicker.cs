@@ -62,10 +62,11 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private void UpdateText() => _timeInput.text = _currentTime.ToString("00");
 
-        public void InitTimePicker(int currentTime, int limit)
+        public void InitTimePicker(int currentTime, int limit, TMP_FontAsset font)
         {
             _limit = limit;
             _currentTime = currentTime;
+            _timeInput.textComponent.font = font;
             UpdateText();
         }
     }

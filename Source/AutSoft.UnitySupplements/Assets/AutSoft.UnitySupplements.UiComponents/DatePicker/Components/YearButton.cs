@@ -13,6 +13,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private Button _yearButton = default!;
         private int _year;
+        private TMP_FontAsset? _font;
         private MonthPicker? _monthPicker;
         private GameObject? _yearPickerObject;
 
@@ -24,11 +25,13 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private void OnDestroy() => _yearButton.onClick.RemoveListener(YearClicked);
 
-        public void SetupYearButton(int startYear, MonthPicker monthPicker, GameObject yearPickerObject)
+        public void SetupYearButton(int startYear, MonthPicker monthPicker, GameObject yearPickerObject, TMP_FontAsset font)
         {
             _year = startYear;
+            _font = font;
             _monthPicker = monthPicker;
             _yearPickerObject = yearPickerObject;
+            _yearLabel.font = font;
             _yearLabel.text = startYear.ToString();
             _yearButton.onClick.AddListener(YearClicked);
         }
@@ -37,7 +40,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         {
             _yearPickerObject.IsObjectNullThrow();
             _monthPicker.IsObjectNullThrow();
-            _monthPicker.InitYear(_year);
+            _font.IsObjectNullThrow();
+            _monthPicker.InitYear(_year, _font);
             _monthPicker.gameObject.SetActive(true);
             _yearPickerObject.SetActive(false);
         }

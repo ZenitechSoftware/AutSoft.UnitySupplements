@@ -18,6 +18,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         [SerializeField] private DayNumberSpawner _dayNumberSpawner = default!;
         [SerializeField] private YearPicker _yearPicker = default!;
 
+        private TMP_FontAsset? _font;
+
         public DateTimeOffset CurrentDate { get; private set; }
 
         private void Awake() => this.CheckSerializedFields();
@@ -43,13 +45,20 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             }
             else
             {
-                _yearPicker.SpawnYears(CurrentDate.Year, CurrentDate.Month);
+                _font.IsObjectNullThrow();
+                _yearPicker.SpawnYears(CurrentDate.Year, CurrentDate.Month, _font);
             }
             _arrowImage.transform.Rotate(new Vector3(0, 0, 180));
             SetYearMonthLabel(CurrentDate);
         }
 
-        public void InitYearMonth(DateTimeOffset currentDate)
+        public void InitYearMonth(DateTimeOffset currentDate, TMP_FontAsset font)
+        {
+            _font = font;
+            SetYearMonth(currentDate);
+        }
+
+        public void SetYearMonth(DateTimeOffset currentDate)
         {
             CurrentDate = new DateTimeOffset(currentDate.Year, currentDate.Month, 1, 0, 0, 0, TimeSpan.Zero);
             _dayNumberSpawner.SpawnDaysForMonth(CurrentDate);
@@ -66,7 +75,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         public void SetMonthYear(DateTimeOffset dateTimeOffset)
         {
-            InitYearMonth(dateTimeOffset);
+            SetYearMonth(dateTimeOffset);
             ToggleYearMonthPanel();
         }
     }

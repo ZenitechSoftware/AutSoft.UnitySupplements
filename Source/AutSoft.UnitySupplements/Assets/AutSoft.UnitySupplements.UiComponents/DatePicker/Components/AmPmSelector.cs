@@ -51,9 +51,11 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             }
         }
 
-        public void InitAmPmSelector(DatePicker datePicker, bool isPm)
+        public void InitAmPmSelector(DatePicker datePicker, bool isPm, TMP_FontAsset font)
         {
             _datePicker = datePicker;
+            _amText.font = font;
+            _pmText.font = font;
             if(isPm) { _pmToggle.SetIsOnWithoutNotify(true); }
         }
     }

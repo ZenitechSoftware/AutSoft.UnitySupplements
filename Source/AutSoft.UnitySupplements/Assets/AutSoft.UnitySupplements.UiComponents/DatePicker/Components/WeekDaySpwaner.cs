@@ -18,7 +18,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                 _dayNames.Add((DayOfWeek)i, CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedDayNames[i]);
             }
         }
-        public void SpawnWeekDayLetters()
+        public void SpawnWeekDayLetters(TMP_FontAsset font)
         {
             InitDayNames();
             transform.DestroyChildren();
@@ -26,7 +26,9 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             for (var i = firstDayOfWeek; i < firstDayOfWeek + 7; i++)
             {
                 var currentLetter = Instantiate(Resources.Load<GameObject>("WeekLetter"), transform);
-                currentLetter.GetComponent<TMP_Text>().text = _dayNames[(DayOfWeek)(i % 7)];
+                var weekText = currentLetter.GetComponent<TMP_Text>();
+                weekText.text = _dayNames[(DayOfWeek)(i % 7)];
+                weekText.font = font;
             }
         }
     }

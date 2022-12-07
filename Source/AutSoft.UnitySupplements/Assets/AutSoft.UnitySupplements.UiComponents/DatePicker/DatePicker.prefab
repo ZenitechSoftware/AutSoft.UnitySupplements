@@ -679,6 +679,7 @@ MonoBehaviour:
   _dayNumberSpawner: {fileID: 3264651825250467794}
   _monthStepper: {fileID: 6671287372589357180}
   _timePicker: {fileID: 3808704934454587011}
+  _font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
 --- !u!1 &2051607302714156295
 GameObject:
   m_ObjectHideFlags: 0

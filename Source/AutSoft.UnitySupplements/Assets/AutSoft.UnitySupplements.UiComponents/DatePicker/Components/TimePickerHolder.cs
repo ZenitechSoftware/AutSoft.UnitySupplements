@@ -3,6 +3,7 @@ using AutSoft.UnitySupplements.Vitamins;
 using AutSoft.UnitySupplements.Vitamins.Bindings;
 using System;
 using System.Globalization;
+using TMPro;
 using UnityEngine;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
@@ -24,21 +25,21 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             this.Bind(_minutePicker.onTimeChanged, SetMinute);
         }
 
-        public void InitTimePicker(DatePicker datePicker, DateTimeOffset initialTime)
+        public void InitTimePicker(DatePicker datePicker, DateTimeOffset initialTime, TMP_FontAsset font)
         {
             _datePicker = datePicker;
             if (CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern.Contains("tt"))
             {
                 _amPmSelector = Instantiate(Resources.Load<GameObject>("AmPmSelector"), transform).GetComponent<AmPmSelector>();
-                _amPmSelector.InitAmPmSelector(datePicker, initialTime.Hour > 12);
+                _amPmSelector.InitAmPmSelector(datePicker, initialTime.Hour > 12, font);
                 _isAmPm = true;
-                _hourPicker.InitTimePicker(initialTime.Hour % 12, 12);
+                _hourPicker.InitTimePicker(initialTime.Hour % 12, 12, font);
             }
             else
             {
-                _hourPicker.InitTimePicker(initialTime.Hour, 24);
+                _hourPicker.InitTimePicker(initialTime.Hour, 24, font);
             }
-            _minutePicker.InitTimePicker(initialTime.Minute, 60);
+            _minutePicker.InitTimePicker(initialTime.Minute, 60, font);
         }
         private void SetHour(int hour)
         {

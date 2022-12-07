@@ -884,9 +884,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3389324591704882307, guid: c0ebf587073ea26469f428fee6d76056, type: 3}
-      propertyPath: _inputField
+      propertyPath: _font
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 3dd13cdd31b8ed144a648c1af4babda3, type: 2}
     - target: {fileID: 3597964144547690502, guid: c0ebf587073ea26469f428fee6d76056, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
