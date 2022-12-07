@@ -1,7 +1,10 @@
-﻿using AutSoft.UnitySupplements.Vitamins;
+﻿#nullable enable
+using AutSoft.UnitySupplements.Vitamins;
+using AutSoft.UnitySupplements.Vitamins.Bindings;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
@@ -15,15 +18,15 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         private int _limit;
         private int _currentTime;
 
-        public event Action<int>? onTimeChanged;
+        public UnityEvent<int> onTimeChanged {get;} = new();
 
-        private void Awake()
+        private void Awake() => this.CheckSerializedFields();
+
+        private void Start()
         {
-            this.CheckSerializedFields();
-
-            _incrementTime.onClick.AddListener(IncrementTime);
-            _reduceTime.onClick.AddListener(ReduceTime);
-            _timeInput.onEndEdit.AddListener(UpdateTime);
+            this.Bind(_incrementTime.onClick, IncrementTime);
+            this.Bind(_reduceTime.onClick, ReduceTime);
+            this.Bind(_timeInput.onEndEdit, UpdateTime);
         }
 
         private void UpdateTime(string input)
@@ -55,7 +58,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                 _currentTime = 0;
             }
             UpdateText();
-            onTimeChanged?.Invoke(_currentTime);
+            onTimeChanged.Invoke(_currentTime);
         }
 
         private void UpdateText() => _timeInput.text = _currentTime.ToString("00");

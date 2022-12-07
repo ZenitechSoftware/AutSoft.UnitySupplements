@@ -1,4 +1,5 @@
 ﻿using AutSoft.UnitySupplements.Vitamins;
+using AutSoft.UnitySupplements.Vitamins.Bindings;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,15 +10,15 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
     {
         [SerializeField] private GameObject _datePicker = default!;
         [SerializeField] private GameObject _timePicker = default!;
-        [SerializeField] private Toggle _timeToggle = default! ;
-        [SerializeField] private Toggle _dateToggle = default! ;
+        [SerializeField] private Toggle _timeToggle = default!;
+        [SerializeField] private Toggle _dateToggle = default!;
 
-        private void Awake()
+        private void Awake() => this.CheckSerializedFields();
+
+        private void Start()
         {
-            this.CheckSerializedFields();
-
-            _timeToggle.onValueChanged.AddListener(OnTimeToggled);
-            _dateToggle.onValueChanged.AddListener(OnDateToggled);
+            this.Bind(_timeToggle.onValueChanged, OnTimeToggled);
+            this.Bind(_dateToggle.onValueChanged, OnDateToggled);
         }
 
         private void OnTimeToggled(bool isOn) => _timePicker.SetActive(isOn);

@@ -1,4 +1,5 @@
 ﻿using AutSoft.UnitySupplements.Vitamins;
+using AutSoft.UnitySupplements.Vitamins.Bindings;
 using System;
 using TMPro;
 using UnityEngine;
@@ -19,12 +20,9 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         public DateTimeOffset CurrentDate { get; private set; }
 
-        private void Awake()
-        {
-            this.CheckSerializedFields();
+        private void Awake() => this.CheckSerializedFields();
 
-            _arrowButton.onClick.AddListener(ToggleYearMonthPanel);
-        }
+        private void Start() => this.Bind(_arrowButton.onClick, ToggleYearMonthPanel);
 
         private void ToggleYearMonthPanel()
         {

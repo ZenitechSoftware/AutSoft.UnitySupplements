@@ -1,5 +1,6 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.Vitamins;
+using AutSoft.UnitySupplements.Vitamins.Bindings;
 using System.Globalization;
 using TMPro;
 using UnityEngine;
@@ -24,9 +25,12 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
             _amText.text = CultureInfo.CurrentCulture.DateTimeFormat.AMDesignator;
             _pmText.text = CultureInfo.CurrentCulture.DateTimeFormat.PMDesignator;
+        }
 
-            _amToggle.onValueChanged.AddListener(AmClicked);
-            _pmToggle.onValueChanged.AddListener(PmClicked);
+        private void Start()
+        {
+            this.Bind(_amToggle.onValueChanged, AmClicked);
+            this.Bind(_pmToggle.onValueChanged, PmClicked);
         }
 
         private void PmClicked(bool clicked)

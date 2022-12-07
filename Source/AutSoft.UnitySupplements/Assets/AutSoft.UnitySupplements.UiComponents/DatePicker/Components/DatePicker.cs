@@ -15,30 +15,43 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private DateTimeOffset _pickedDate;
 
+        public DateTimeOffset PickedDate
+        {
+            get => _pickedDate; set
+            {
+                _pickedDate = value;
+                Debug.Log(_pickedDate.ToString("G"));
+            }
+        }
+
         private void Awake()
         {
             this.CheckSerializedFields();
 
-            _pickedDate = DateTimeOffset.Now;
-            _pickedDate = _pickedDate.AddSeconds(-_pickedDate.Second);
+            PickedDate = DateTimeOffset.Now;
+            PickedDate = PickedDate.AddSeconds(-PickedDate.Second);
 
             //TODO: remove this
             CultureInfo.CurrentCulture = new CultureInfo("en-US");
             //CultureInfo.CurrentCulture = new CultureInfo("sv-SE");
             _dayNumberSpawner.InitDays(this);
-            _timePicker.InitTimePicker(this, _pickedDate);
-            _monthYearPicker.InitYearMonth(_pickedDate);
+            _dayNumberSpawner.UpdatePickedDate(PickedDate);
+            _timePicker.InitTimePicker(this, PickedDate);
+            _monthYearPicker.InitYearMonth(PickedDate);
             _weekDaySpwaner.SpawnWeekDayLetters();
             _monthStepper.InitializeMonthStepper();
         }
 
-        public void SetDate(DateTimeOffset pickedDate) => 
-            _pickedDate = _pickedDate.AddYears(pickedDate.Year - _pickedDate.Year).AddMonths(pickedDate.Month - _pickedDate.Month).AddDays(pickedDate.Day - _pickedDate.Day);
+        public void SetDate(DateTimeOffset pickedDate)
+        {
+            PickedDate = PickedDate.AddYears(pickedDate.Year - PickedDate.Year).AddMonths(pickedDate.Month - PickedDate.Month).AddDays(pickedDate.Day - PickedDate.Day);
+            _dayNumberSpawner.UpdatePickedDate(PickedDate);
+        }
 
-        public void SetHour(int hour) => _pickedDate = _pickedDate.AddHours(hour - _pickedDate.Hour);
+        public void SetHour(int hour) => PickedDate = PickedDate.AddHours(hour - PickedDate.Hour);
 
-        public void SetMinute(int minute) => _pickedDate = _pickedDate.AddMinutes(minute - _pickedDate.Minute);
+        public void SetMinute(int minute) => PickedDate = PickedDate.AddMinutes(minute - PickedDate.Minute);
 
-        public void AddHour(int hour) => _pickedDate = _pickedDate.AddHours(hour);
+        public void AddHour(int hour) => PickedDate = PickedDate.AddHours(hour);
     }
 }

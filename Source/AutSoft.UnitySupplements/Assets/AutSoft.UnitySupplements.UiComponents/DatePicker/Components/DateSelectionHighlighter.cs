@@ -1,4 +1,6 @@
 ﻿using AutSoft.UnitySupplements.Vitamins;
+using AutSoft.UnitySupplements.Vitamins.Bindings;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,9 +21,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         private void Awake()
         {
             this.CheckSerializedFields();
-
-            SetColorsByState();
-            _currentToggle.onValueChanged.AddListener(OnToggleChangeForHighlight);
+            this.Bind(_currentToggle.onValueChanged, OnToggleChangeForHighlight);
         }
 
         private void OnDestroy() => _currentToggle.onValueChanged.RemoveListener(OnToggleChangeForHighlight);
@@ -63,5 +63,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _background.color = _backgroundColors.pressedColor;
             _pressedImage.gameObject.SetActive(true);
         }
+
+        public void HighlightDate() => _currentToggle.isOn = true;
     }
 }

@@ -9,16 +9,17 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
     public class DayNumberSpawner : MonoBehaviour
     {
-        private ToggleGroup? _toggleGroup;
-        private DatePicker? _datePicker;
+        [SerializeField] private ToggleGroup _toggleGroup = default!;
 
-        private void SetupToggleGroup() => _toggleGroup = GetComponent<ToggleGroup>();
+        private DatePicker? _datePicker;
+        private DateTimeOffset _pickedDate;
+
 
         public void SpawnDaysForMonth(DateTimeOffset firstDayOfMonth)
         {
-            if (_toggleGroup.IsObjectNull()) SetupToggleGroup();
             _datePicker.IsObjectNullThrow();
             transform.DestroyChildren();
+            var inSelectedMonth = false;
             var firstDayOfWeek = (int)CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek;
             var currentDay = (int)firstDayOfMonth.DayOfWeek;
             DateTimeOffset startDate;
@@ -26,13 +27,11 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             {
                 startDate = firstDayOfMonth.AddDays(firstDayOfWeek - currentDay);
             }
-            else if (currentDay < firstDayOfWeek)
-            {
-                startDate = firstDayOfMonth.AddDays(-(7 - (firstDayOfWeek - currentDay)));
-            }
             else
             {
-                startDate = firstDayOfMonth;
+                startDate = currentDay < firstDayOfWeek
+                    ? firstDayOfMonth.AddDays(-(7 - (firstDayOfWeek - currentDay))) 
+                    : firstDayOfMonth;
             }
 
             var endDate = startDate.AddDays(6 * 7);
@@ -41,10 +40,19 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                 var currentDate = Instantiate(Resources.Load<GameObject>("DayButton"), transform);
                 currentDate.GetComponent<Toggle>().group = _toggleGroup;
                 currentDate.GetComponent<DayButton>().SetupDayButton(startDate, startDate.Month != firstDayOfMonth.Month, _datePicker);
+                if (startDate.Date == _pickedDate.Date)
+                {
+                    currentDate.GetComponent<DateSelectionHighlighter>().HighlightDate();
+                    inSelectedMonth = true;
+                }
                 startDate = startDate.AddDays(1);
             }
+
+            _toggleGroup.allowSwitchOff = !inSelectedMonth;
         }
 
         public void InitDays(DatePicker datePicker) => _datePicker = datePicker;
+
+        public void UpdatePickedDate(DateTimeOffset pickedDate) => _pickedDate = pickedDate;
     }
 }

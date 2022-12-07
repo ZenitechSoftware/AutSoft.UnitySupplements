@@ -1,5 +1,6 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.Vitamins;
+using AutSoft.UnitySupplements.Vitamins.Bindings;
 using System;
 using System.Globalization;
 using UnityEngine;
@@ -15,18 +16,12 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         private bool _isAmPm;
         private AmPmSelector? _amPmSelector;
 
-        private void Awake()
-        {
-            this.CheckSerializedFields();
+        private void Awake() => this.CheckSerializedFields();
 
-            _hourPicker.onTimeChanged += SetHour;
-            _minutePicker.onTimeChanged += SetMinute;
-        }
-
-        private void OnDestroy()
+        private void Start()
         {
-            _hourPicker.onTimeChanged -= SetHour;
-            _minutePicker.onTimeChanged -= SetMinute;
+            this.Bind(_hourPicker.onTimeChanged, SetHour);
+            this.Bind(_minutePicker.onTimeChanged, SetMinute);
         }
 
         public void InitTimePicker(DatePicker datePicker, DateTimeOffset initialTime)
@@ -64,7 +59,5 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _datePicker.IsObjectNullThrow();
             _datePicker.SetMinute(minute);
         }
-
-
     }
 }
