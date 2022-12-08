@@ -1,17 +1,19 @@
 ﻿#nullable enable
+using AutSoft.UnitySupplements.UiComponents.Helpers;
 using AutSoft.UnitySupplements.Vitamins;
+using AutSoft.UnitySupplements.Vitamins.Bindings;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
-    [RequireComponent(typeof(Button))]
+    [RequireComponent(typeof(Clickable))]
     public class YearButton : MonoBehaviour
     {
         [SerializeField] private TMP_Text _yearLabel = default!;
 
-        private Button _yearButton = default!;
+        private Clickable _yearButton = default!;
         private int _year;
         private TMP_FontAsset? _font;
         private MonthPicker? _monthPicker;
@@ -20,10 +22,9 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         private void Awake()
         {
             this.CheckSerializedFields();
-            _yearButton = GetComponent<Button>();
+            _yearButton = GetComponent<Clickable>();
+            this.Bind(_yearButton.onClick, YearClicked);
         }
-
-        private void OnDestroy() => _yearButton.onClick.RemoveListener(YearClicked);
 
         public void SetupYearButton(int startYear, MonthPicker monthPicker, GameObject yearPickerObject, TMP_FontAsset font)
         {
@@ -33,7 +34,6 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _yearPickerObject = yearPickerObject;
             _yearLabel.font = font;
             _yearLabel.text = startYear.ToString();
-            _yearButton.onClick.AddListener(YearClicked);
         }
 
         private void YearClicked()

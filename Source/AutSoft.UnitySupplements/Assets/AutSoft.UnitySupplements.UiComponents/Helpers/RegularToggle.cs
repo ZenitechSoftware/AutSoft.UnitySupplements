@@ -1,5 +1,6 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.Vitamins;
+using AutSoft.UnitySupplements.Vitamins.Bindings;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,30 +23,26 @@ namespace AutSoft.UnitySupplements.UiComponents.Helpers
             if (!_toggleGroup.IsObjectNull())
                 _toggle.group = _toggleGroup;
 
-            _toggle.onValueChanged.AddListener(OnToggleableValueChanged);
+            this.Bind(onInteractibleChanged, OnInteractableChanged);
             Interactable = _toggle.interactable;
+            this.Bind(onValueChanged, (isOn) =>
+            {
+                _toggle.isOn = isOn;
+            });
+            this.Bind(_toggle.onValueChanged, (isOn) =>
+            {
+                if (IsOn == isOn) return;
+                IsOn = isOn;
+            });
         }
 
-        private void OnDestroy() => _toggle.onValueChanged.RemoveListener(OnToggleableValueChanged);
-
-        public override void ChangeStateWithoutNotifiy(bool isOn)
+        public override void SetIsOnWithoutNotify(bool isOn)
         {
-            base.ChangeStateWithoutNotifiy(isOn);
+            base.SetIsOnWithoutNotify(isOn);
             _toggle.SetIsOnWithoutNotify(isOn);
         }
 
-        protected override void InteractableChanged(bool interactable) => _toggle.interactable = interactable;
-
-        public override void ChangeState(bool isOn)
-        {
-            base.ChangeState(isOn);
-            if (_toggle != null)
-            {
-                _toggle.onValueChanged.RemoveListener(OnToggleableValueChanged);
-                _toggle.isOn = isOn;
-                _toggle.onValueChanged.AddListener(OnToggleableValueChanged);
-            }
-        }
+        protected override void OnInteractableChanged(bool interactable) => _toggle.interactable = interactable;
 
         public override void SetToggleGroup(ToggleGroup toggleGroup)
         {

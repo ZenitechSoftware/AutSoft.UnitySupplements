@@ -18,6 +18,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         public abstract bool IsHighlighted { get; protected set; }
 
+        public abstract bool Interactable { get;}
+
         protected virtual void Awake()
         {
             this.CheckSerializedFields();
@@ -27,7 +29,12 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         public virtual void SetColorsByState()
         {
             _background.color = IsHighlighted ? _backgroundColors.selectedColor : _backgroundColors.normalColor;
-            _label.color = IsHighlighted ? _textColors.selectedColor : _textColors.normalColor;
+            _label.color =   IsHighlighted
+                ? _textColors.selectedColor
+                :!Interactable
+                    ? _textColors.disabledColor
+                    : _textColors.normalColor;
+
             _label.fontStyle = IsHighlighted ? FontStyles.Bold : FontStyles.Normal;
         }
 

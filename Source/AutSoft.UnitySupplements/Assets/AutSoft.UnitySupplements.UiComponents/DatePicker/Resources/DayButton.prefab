@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3591641099517880511}
   - component: {fileID: 1975837877302270944}
   - component: {fileID: 6945811719145387681}
+  - component: {fileID: 1190348245307653396}
   m_Layer: 5
   m_Name: DayButton
   m_TagString: Untagged
@@ -112,8 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayLabel: {fileID: 7519250368045721995}
-  _otherMonth: {r: 0.7294118, g: 0.7294118, b: 0.7294118, a: 1}
-  _dayButton: {fileID: 4498811627306564575}
+  _dayButton: {fileID: 1190348245307653396}
 --- !u!114 &1975837877302270944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,8 +144,8 @@ MonoBehaviour:
     m_FadeDuration: 0
   _label: {fileID: 7519250368045721995}
   _pressedImage: {fileID: 2571087321577592976}
-  _currentToggle: {fileID: 4498811627306564575}
   _background: {fileID: 6945811719145387681}
+  _currentToggle: {fileID: 1190348245307653396}
 --- !u!114 &6945811719145387681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +176,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1190348245307653396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968885534222861850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8789124faa62b324c908247351127bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isOn: 0
 --- !u!1 &4995599867253714724
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +358,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6
+  m_fontSize: 14
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

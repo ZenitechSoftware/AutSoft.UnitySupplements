@@ -13,6 +13,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             protected set => _clicked = value;
         }
 
+        public override bool Interactable => true;
+
         public override void OnPointerUp(PointerEventData eventData)
         {
             _clicked = false;

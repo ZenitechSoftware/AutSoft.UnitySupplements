@@ -1,4 +1,6 @@
-﻿using AutSoft.UnitySupplements.Vitamins;
+﻿#nullable enable
+using AutSoft.UnitySupplements.UiComponents.Helpers;
+using AutSoft.UnitySupplements.Vitamins;
 using AutSoft.UnitySupplements.Vitamins.Bindings;
 using System;
 using TMPro;
@@ -11,7 +13,9 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
     {
         [SerializeField] private TMP_Text _yearMonthLabel = default!;
         [SerializeField] private Image _arrowImage = default!;
-        [SerializeField] private Button _arrowButton = default!;
+        [SerializeField] private Clickable _arrowButton = default!;
+
+        [Header("External")]
         [SerializeField] private GameObject _yearsObject = default!;
         [SerializeField] private GameObject _daySelectorObject = default!;
         [SerializeField] private GameObject _monthSelectorObject = default!;

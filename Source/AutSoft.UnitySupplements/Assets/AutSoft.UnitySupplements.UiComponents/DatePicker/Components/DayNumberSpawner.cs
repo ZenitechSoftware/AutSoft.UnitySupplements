@@ -40,9 +40,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             while (startDate < endDate)
             {
                 var currentDate = Instantiate(Resources.Load<GameObject>("DayButton"), transform);
-                currentDate.GetComponent<Toggle>().group = _toggleGroup;
                 currentDate.GetComponent<DayButton>()
-                    .SetupDayButton(startDate, startDate.Month != firstDayOfMonth.Month, _datePicker, _font);
+                    .SetupDayButton(startDate, startDate.Month != firstDayOfMonth.Month, _datePicker, _font, _toggleGroup);
                 if (startDate.Date == _pickedDate.Date)
                 {
                     currentDate.GetComponent<DateSelectionHighlighter>().Highlight(true);

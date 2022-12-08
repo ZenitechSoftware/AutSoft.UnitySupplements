@@ -1,26 +1,22 @@
-﻿using AutSoft.UnitySupplements.Vitamins;
+﻿using AutSoft.UnitySupplements.UiComponents.Helpers;
+using AutSoft.UnitySupplements.Vitamins;
+using AutSoft.UnitySupplements.Vitamins.Bindings;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
     public class YearBlockStepper : MonoBehaviour
     {
-        [SerializeField] private YearPicker _yearPicker = default!;
-        [SerializeField] private Button _previousButton = default!;
-        [SerializeField] private Button _nextButton = default!;
+        [SerializeField] private Clickable _previousButton = default!;
+        [SerializeField] private Clickable _nextButton = default!;
 
+        [Header("External")]
+        [SerializeField] private YearPicker _yearPicker = default!;
         private void Awake()
         {
             this.CheckSerializedFields();
-            _nextButton.onClick.AddListener(StepForward);
-            _previousButton.onClick.AddListener(StepBack);
-        }
-
-        private void OnDestroy()
-        {
-            _nextButton.onClick.RemoveListener(StepForward);
-            _previousButton.onClick.RemoveListener(StepBack);
+            this.Bind(_previousButton.onClick, StepBack);
+            this.Bind(_nextButton.onClick, StepForward);
         }
 
         private void StepForward() => _yearPicker.StepYears(20);

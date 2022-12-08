@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using AutSoft.UnitySupplements.UiComponents.Helpers;
 using AutSoft.UnitySupplements.Vitamins;
 using AutSoft.UnitySupplements.Vitamins.Bindings;
 using TMPro;
@@ -10,8 +11,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
     public class TimePicker : MonoBehaviour
     {
-        [SerializeField] private Button _incrementTime = default!;
-        [SerializeField] private Button _reduceTime = default!;
+        [SerializeField] private Clickable _incrementTime = default!;
+        [SerializeField] private Clickable _reduceTime = default!;
         [SerializeField] private TMP_InputField _timeInput = default!;
 
         private int _limit;

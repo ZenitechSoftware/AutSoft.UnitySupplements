@@ -7,11 +7,6 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
     public class TimePickerSelectionHighlighter : BaseSelectionHighlighter
     {
         [SerializeField] private TMP_InputField _currentField = default!;
-
-        private void Start() => this.Bind(_currentField.onEndEdit, OnEditEnd);
-
-        private void OnEditEnd(string _) => IsHighlighted = false;
-
         public override bool IsHighlighted
         {
             get => _currentField.isFocused;
@@ -24,5 +19,11 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                 SetColorsByState();
             }
         }
+
+        public override bool Interactable => _currentField.interactable;
+
+        private void Start() => this.Bind(_currentField.onEndEdit, OnEditEnd);
+
+        private void OnEditEnd(string _) => IsHighlighted = false;
     }
 }

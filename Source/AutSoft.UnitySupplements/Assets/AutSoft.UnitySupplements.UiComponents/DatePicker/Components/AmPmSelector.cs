@@ -1,10 +1,10 @@
 ﻿#nullable enable
+using AutSoft.UnitySupplements.UiComponents.Helpers;
 using AutSoft.UnitySupplements.Vitamins;
 using AutSoft.UnitySupplements.Vitamins.Bindings;
 using System.Globalization;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
@@ -12,12 +12,12 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
     {
         [SerializeField] private TMP_Text _amText = default!;
         [SerializeField] private TMP_Text _pmText = default!;
-        [SerializeField] private Toggle _amToggle = default!;
-        [SerializeField] private Toggle _pmToggle = default!;
+        [SerializeField] private Toggleable _amToggle = default!;
+        [SerializeField] private Toggleable _pmToggle = default!;
 
         private DatePicker? _datePicker;
 
-        public bool IsAm => _amToggle.isOn;
+        public bool IsAm => _amToggle.IsOn;
 
         private void Awake()
         {
