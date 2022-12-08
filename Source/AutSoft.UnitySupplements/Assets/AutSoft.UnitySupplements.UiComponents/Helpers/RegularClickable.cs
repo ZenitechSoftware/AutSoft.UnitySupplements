@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using AutSoft.UnitySupplements.Vitamins.Bindings;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;

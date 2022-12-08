@@ -1,5 +1,4 @@
 ﻿#nullable enable
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -12,13 +11,13 @@ namespace AutSoft.UnitySupplements.UiComponents.Helpers
 
         private bool _interactable;
 
-        public UnityEvent<bool> onValueChanged { get; private set; } = new();
-        public event Action<bool>? onInteractibleChanged;
+        public UnityEvent<bool> onValueChanged { get; } = new();
+        public UnityEvent<bool> onInteractibleChanged { get; } = new();
 
         private void OnDestroy()
         {
             onValueChanged.RemoveAllListeners();
-            onInteractibleChanged = null;
+            onInteractibleChanged.RemoveAllListeners();
         }
 
         public bool IsOn

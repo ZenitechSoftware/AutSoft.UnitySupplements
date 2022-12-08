@@ -1,22 +1,22 @@
 ﻿#nullable enable
-using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace AutSoft.UnitySupplements.UiComponents.Helpers
 {
     public abstract class Clickable : MonoBehaviour
     {
-        public event Action? onClick;
-        public event Action? onDeselect;
-        public event Action? onSelect;
-        public event Action? interactableChanged;
+        public UnityEvent onClick { get;} = new();
+        public UnityEvent onDeselect { get; } = new ();
+        public UnityEvent onSelect { get; } = new ();
+        public UnityEvent<bool> interactableChanged { get; } = new ();
 
         private void OnDestroy()
         {
-            onClick = null;
-            onDeselect= null;
-            onSelect = null;
-            interactableChanged = null;
+            onClick.RemoveAllListeners();
+            onDeselect.RemoveAllListeners();
+            onSelect.RemoveAllListeners();
+            interactableChanged.RemoveAllListeners();
         }
 
         private bool _interactable = true;
@@ -28,7 +28,7 @@ namespace AutSoft.UnitySupplements.UiComponents.Helpers
             {
                 _interactable = value;
                 InteractableChanged(_interactable);
-                interactableChanged?.Invoke();
+                interactableChanged.Invoke(value);
             }
         }
 
