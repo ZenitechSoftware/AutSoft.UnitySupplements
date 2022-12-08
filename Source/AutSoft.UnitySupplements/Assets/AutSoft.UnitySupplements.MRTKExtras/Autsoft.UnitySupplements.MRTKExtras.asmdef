@@ -1,0 +1,17 @@
+{
+    "name": "Autsoft.UnitySupplements.MRTKExtras",
+    "rootNamespace": "",
+    "references": [
+        "AutSoft.UnitySupplements.Vitamins",
+        "AutSoft.UnitySupplements.UiComponents"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

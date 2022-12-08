@@ -1,0 +1,23 @@
+{
+    "name": "com.autsoft.unitysupplements.mrtkextras",
+    "version": "0.1.0",
+    "displayName": "MRTKExtras",
+    "description": "Usufuel mrtk components for development",
+    "license": "MIT",
+    "licensesUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/LICENSE.md",
+    "changelogUrl": "https://github.com/AutSoft/AutSoft.UnitySupplements/blob/main/CHANGELOG.md",
+    "documentationUrl": "https://autsoft.github.io/AutSoft.UnitySupplements/",
+    "unity": "2022.1",
+    "keywords": [
+        "Utilities"
+    ],
+    "author": {
+        "name": "AutSoft Zrt.",
+        "email": "info@autsoft.hu",
+        "url": "https://github.com/AutSoft/AutSoft.UnitySupplements"
+    },
+    "dependencies": {
+        "com.autsoft.unitysupplements.uicomponents": "0.2.0",
+        "com.autsoft.unitysupplements.vitamins": "0.2.0"
+    }
+}

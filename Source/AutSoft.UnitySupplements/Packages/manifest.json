@@ -2,6 +2,10 @@
   "dependencies": {
     "com.cysharp.unitask": "2.3.1",
     "com.injecter.unity": "9.1.0",
+    "com.microsoft.mixedreality.toolkit.examples": "2.8.2",
+    "com.microsoft.mixedreality.toolkit.extensions": "2.8.2",
+    "com.microsoft.mixedreality.toolkit.foundation": "2.8.2",
+    "com.microsoft.mixedreality.toolkit.standardassets": "2.8.2",
     "com.sabresaurus.playerprefseditor": "1.4.1",
     "com.serilog.sinks.unity3d": "2.0.1",
     "com.unity.feature.development": "1.0.1",
@@ -58,6 +62,15 @@
     "com.unity.modules.xr": "1.0.0"
   },
   "scopedRegistries": [
+    {
+      "name": "Microsoft Mixed Reality",
+      "url": "https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Unity-packages/npm/registry/",
+      "scopes": [
+        "com.microsoft.mixedreality",
+        "com.microsoft.spatialaudio",
+        "com.microsoft.windows"
+      ]
+    },
     {
       "name": "Unity NuGet",
       "url": "https://unitynuget-registry.azurewebsites.net",
