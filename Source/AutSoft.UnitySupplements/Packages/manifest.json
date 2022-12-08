@@ -2,6 +2,7 @@
   "dependencies": {
     "com.cysharp.unitask": "2.3.1",
     "com.injecter.unity": "9.1.0",
+    "com.microsoft.mixedreality.openxr": "1.5.1",
     "com.microsoft.mixedreality.toolkit.examples": "2.8.2",
     "com.microsoft.mixedreality.toolkit.extensions": "2.8.2",
     "com.microsoft.mixedreality.toolkit.foundation": "2.8.2",
@@ -17,6 +18,7 @@
     "com.unity.toolchain.win-x86_64-linux-x86_64": "1.0.0",
     "com.unity.ugui": "1.0.0",
     "com.unity.vectorgraphics": "2.0.0-preview.20",
+    "com.unity.xr.openxr": "1.6.0",
     "org.nuget.communitytoolkit.mvvm": "8.0.0",
     "org.nuget.injecter": "9.1.0",
     "org.nuget.microsoft.extensions.configuration": "6.0.1",

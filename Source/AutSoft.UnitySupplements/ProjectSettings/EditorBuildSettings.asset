@@ -20,4 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AutSoft.UnitySupplements.Samples/ResourceGeneratorSamples/Scenes/CreatePrefab.unity
     guid: b8a0a59b303b36644bdbb1b80a2b7273
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: fe5f73f5c21a3f54d88c0feaebd17ae0, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 7da1869fa7223bc45946cabd441424f7, type: 2}
