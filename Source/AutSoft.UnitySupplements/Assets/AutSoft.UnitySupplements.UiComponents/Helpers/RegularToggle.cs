@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿#nullable enable
+using AutSoft.UnitySupplements.Vitamins;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.Helpers
@@ -7,7 +9,9 @@ namespace AutSoft.UnitySupplements.UiComponents.Helpers
     public class RegularToggle : Toggleable
     {
         private Toggle _toggle = default!;
-        private ToggleGroup _toggleGroup;
+
+        [Header("Optional")]
+        private ToggleGroup? _toggleGroup;
 
         private void Awake()
         {
@@ -15,7 +19,7 @@ namespace AutSoft.UnitySupplements.UiComponents.Helpers
 
             _toggle.isOn = IsOn;
 
-            if (_toggleGroup != null)
+            if (!_toggleGroup.IsObjectNull())
                 _toggle.group = _toggleGroup;
 
             _toggle.onValueChanged.AddListener(OnToggleableValueChanged);
