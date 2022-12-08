@@ -2015,6 +2015,7 @@ GameObject:
   m_Component:
   - component: {fileID: 364513429984566736}
   - component: {fileID: 453783487548446175}
+  - component: {fileID: 4622432241711133630}
   m_Layer: 0
   m_Name: DateTimeToggler
   m_TagString: Untagged
@@ -2055,6 +2056,22 @@ MonoBehaviour:
   _timeToggle: {fileID: 0}
   _datePicker: {fileID: 0}
   _timePicker: {fileID: 0}
+--- !u!114 &4622432241711133630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804409334167207839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d91802df79cf1854394750735ceb6e73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _allowSwitchOff: 0
+  _toggles:
+  - {fileID: 5480953692582510296}
+  - {fileID: 505972128126089473}
 --- !u!1 &5201203609083645293
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,7 +33,7 @@ namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
             this.Bind(_toggle.OnClick, () =>
             {
                 if (IsOn == _toggle.IsToggled) return;
-                IsOn = !_toggle.IsToggled;
+                IsOn = _toggle.IsToggled;
             });
         }
 
