@@ -3,7 +3,9 @@
     "rootNamespace": "",
     "references": [
         "AutSoft.UnitySupplements.Vitamins",
-        "AutSoft.UnitySupplements.UiComponents"
+        "AutSoft.UnitySupplements.UiComponents",
+        "Microsoft.MixedReality.Toolkit.SDK",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
