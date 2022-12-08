@@ -3,8 +3,6 @@ using AutSoft.UnitySupplements.Vitamins.Bindings;
 using Injecter;
 using Microsoft.Extensions.Logging;
 using Microsoft.MixedReality.Toolkit.UI;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,9 +10,9 @@ namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
 {
     [RequireComponent(typeof(Interactable))]
     [DefaultExecutionOrder(-2)]
-    public class XrToggle : Toggleable
+    public class XrToggleable : Toggleable
     {
-        [Inject] private readonly ILogger<XrToggle> _logger = default!;
+        [Inject] private readonly ILogger<XrToggleable> _logger = default!;
 
         private Interactable _toggle = default!;
 
