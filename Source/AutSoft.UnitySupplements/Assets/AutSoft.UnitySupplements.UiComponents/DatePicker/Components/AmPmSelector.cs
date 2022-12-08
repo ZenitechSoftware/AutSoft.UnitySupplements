@@ -16,6 +16,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         [SerializeField] private Toggleable _pmToggle = default!;
 
         private DatePicker? _datePicker;
+        private bool _isPmInit;
 
         public bool IsAm => _amToggle.IsOn;
 
@@ -31,6 +32,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         {
             this.Bind(_amToggle.onValueChanged, AmClicked);
             this.Bind(_pmToggle.onValueChanged, PmClicked);
+            if(_isPmInit) { _pmToggle.SetIsOnWithoutNotify(true); }
         }
 
         private void PmClicked(bool clicked)
@@ -56,7 +58,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _datePicker = datePicker;
             _amText.font = font;
             _pmText.font = font;
-            if(isPm) { _pmToggle.SetIsOnWithoutNotify(true); }
+            _isPmInit = isPm;
         }
     }
 }

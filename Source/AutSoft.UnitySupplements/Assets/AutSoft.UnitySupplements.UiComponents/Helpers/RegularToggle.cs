@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.Helpers
 {
+    [DefaultExecutionOrder(-1)]
     [RequireComponent(typeof(Toggle))]
     public class RegularToggle : Toggleable
     {
