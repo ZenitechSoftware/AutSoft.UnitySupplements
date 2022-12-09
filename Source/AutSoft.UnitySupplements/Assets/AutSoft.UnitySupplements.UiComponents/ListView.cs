@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace AutSoft.UnitySupplements.UiComponents
 {
@@ -13,7 +14,11 @@ namespace AutSoft.UnitySupplements.UiComponents
         [SerializeField] private Transform _contentParent = default!;
         private GameObject _itemPrefab = default!;
 
+        public UnityEvent CollectionChanged { get; } = new();
+
         private void Awake() => this.CheckSerializedFields();
+
+        private void OnDestroy() => CollectionChanged.RemoveAllListeners();
 
         public void Initialze<TItem, TCollection, TItemView>(TCollection collection, GameObject itemPrefab, Action<TItemView, TItem?>? initialize = null)
             where TCollection : INotifyCollectionChanged, IEnumerable<TItem>
@@ -59,6 +64,8 @@ namespace AutSoft.UnitySupplements.UiComponents
                     throw new ArgumentOutOfRangeException(nameof(args.Action), args.Action, "Could not handle collection change type");
 #pragma warning restore S3928 // Parameter names used into ArgumentException constructors should match an existing one 
                 }
+
+                CollectionChanged.Invoke();
             });
         }
     }
