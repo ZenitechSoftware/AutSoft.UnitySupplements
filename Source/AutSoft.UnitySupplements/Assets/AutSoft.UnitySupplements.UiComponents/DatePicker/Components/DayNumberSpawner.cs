@@ -1,25 +1,23 @@
 ﻿#nullable enable
+using AutSoft.UnitySupplements.UiComponents.Helpers;
 using AutSoft.UnitySupplements.Vitamins;
 using System;
 using System.Globalization;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
-    public class DayNumberSpawner : MonoBehaviour
+    public class DayNumberSpawner : DateSpawner
     {
         [SerializeField] private DayButton _dayButtonPrefab = default!;
-        [SerializeField] private ToggleGroup _toggleGroup = default!;
+        [SerializeField] private ToggleableGroup _toggleGroup = default!;
 
         private DatePicker? _datePicker;
         private DateTimeOffset _pickedDate;
         private TMP_FontAsset? _font;
-        private void Awake()
-        {
-            this.CheckSerializedFields();
-        }
+
+        private void Awake() => this.CheckSerializedFields();
 
         public void SpawnDaysForMonth(DateTimeOffset firstDayOfMonth)
         {
@@ -37,7 +35,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             else
             {
                 startDate = currentDay < firstDayOfWeek
-                    ? firstDayOfMonth.AddDays(-(7 - (firstDayOfWeek - currentDay))) 
+                    ? firstDayOfMonth.AddDays(-(7 - (firstDayOfWeek - currentDay)))
                     : firstDayOfMonth;
             }
 
@@ -49,13 +47,21 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                     .SetupDayButton(startDate, startDate.Month != firstDayOfMonth.Month, _datePicker, _font, _toggleGroup);
                 if (startDate.Date == _pickedDate.Date)
                 {
-                    currentDate.GetComponent<DateSelectionHighlighter>().Highlight(true);
+                    if(currentDate.TryGetComponent<DateSelectionHighlighter>(out var highlighter))
+                    {
+                        highlighter.Highlight(true);
+                    }
+                    else
+                    {
+                        currentDate.SelectDate();
+                    }
                     inSelectedMonth = true;
                 }
                 startDate = startDate.AddDays(1);
             }
 
-            _toggleGroup.allowSwitchOff = !inSelectedMonth;
+            _toggleGroup.AllowSwitchOff = !inSelectedMonth;
+            onSpawned.Invoke();
         }
 
         public void InitDays(DatePicker datePicker, TMP_FontAsset font)

@@ -1,10 +1,7 @@
 ﻿using AutSoft.UnitySupplements.UiComponents.Helpers;
 using AutSoft.UnitySupplements.Vitamins.Bindings;
-using Injecter;
-using Microsoft.Extensions.Logging;
 using Microsoft.MixedReality.Toolkit.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
 {
@@ -12,8 +9,6 @@ namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
     [DefaultExecutionOrder(-2)]
     public class XrToggleable : Toggleable
     {
-        [Inject] private readonly ILogger<XrToggleable> _logger = default!;
-
         private Interactable _toggle = default!;
 
         private void Awake()
@@ -45,7 +40,6 @@ namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
 
         protected override void OnInteractableChanged(bool interactable) => _toggle.IsEnabled = interactable;
 
-        public override void SetToggleGroup(ToggleGroup toggleGroup) =>
-            _logger.LogWarning("MRTK doesn't have a suitable ToggleGroup to use");
+        public override void SetToggleGroup(ToggleableGroup toggleGroup) => ((XrToggleGroup)toggleGroup).RegisterToggleToGroup(this);
     }
 }

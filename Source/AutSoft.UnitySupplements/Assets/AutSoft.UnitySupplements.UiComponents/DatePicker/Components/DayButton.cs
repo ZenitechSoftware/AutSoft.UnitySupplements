@@ -5,11 +5,9 @@ using AutSoft.UnitySupplements.Vitamins.Bindings;
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
-    [RequireComponent(typeof(Toggle))]
     public class DayButton : MonoBehaviour
     {
         [SerializeField] private TMP_Text _dayLabel = default!;
@@ -22,7 +20,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private void Start() => this.Bind(_dayButton.onValueChanged, DateSelected);
 
-        public void SetupDayButton(DateTimeOffset currentDate, bool otherMonth, DatePicker datePicker, TMP_FontAsset _font, ToggleGroup toggleGroup)
+        public void SetupDayButton(DateTimeOffset currentDate, bool otherMonth, DatePicker datePicker, TMP_FontAsset _font, ToggleableGroup toggleGroup)
         {
             _currentDate = currentDate;
             _datePicker = datePicker;
@@ -32,9 +30,14 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             if (otherMonth)
             {
                 _dayButton.Interactable = false;
-                _dayButton.GetComponent<DateSelectionHighlighter>().SetColorsByState();
+                if(_dayButton.TryGetComponent<DateSelectionHighlighter>(out var highlighter))
+                {
+                    highlighter.SetColorsByState();
+                }
             }
         }
+
+        public void SelectDate() => _dayButton.IsOn = true;
 
         private void DateSelected(bool isOn)
         {

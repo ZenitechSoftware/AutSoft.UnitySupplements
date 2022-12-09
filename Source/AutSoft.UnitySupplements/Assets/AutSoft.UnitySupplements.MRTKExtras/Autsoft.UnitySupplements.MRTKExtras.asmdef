@@ -5,7 +5,8 @@
         "AutSoft.UnitySupplements.Vitamins",
         "AutSoft.UnitySupplements.UiComponents",
         "Microsoft.MixedReality.Toolkit.SDK",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "UniTask"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

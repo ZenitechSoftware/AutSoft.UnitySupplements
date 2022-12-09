@@ -7,11 +7,12 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
-    public class WeekDaySpwaner : MonoBehaviour
+    public class WeekDaySpwaner : DateSpawner
     {
         [SerializeField] private WeekLetter _weekDayPrefab = default!;
 
         private readonly Dictionary<DayOfWeek, string> _dayNames = new();
+
         private void InitDayNames()
         {
             _dayNames.Clear();
@@ -30,6 +31,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                 var currentLetter = Instantiate(_weekDayPrefab.gameObject, transform).GetComponent<WeekLetter>();
                 currentLetter.SetWeekText(_dayNames[(DayOfWeek)(i % 7)], font);
             }
+            onSpawned.Invoke();
         }
     }
 }

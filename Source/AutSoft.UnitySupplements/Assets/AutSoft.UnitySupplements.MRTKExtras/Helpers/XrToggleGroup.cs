@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using AutSoft.UnitySupplements.UiComponents.Helpers;
 using AutSoft.UnitySupplements.Vitamins;
 using AutSoft.UnitySupplements.Vitamins.Bindings;
 using System;
@@ -8,7 +9,7 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
 {
-    public class XrToggleGroup : MonoBehaviour
+    public class XrToggleGroup : ToggleableGroup
     {
         [SerializeField] private bool _allowSwitchOff = false;
 
@@ -26,28 +27,29 @@ namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
         }
         private void Start() => EnsureValidState();
 
-        public bool allowSwitchOff
+        public override bool AllowSwitchOff
         {
             get => _allowSwitchOff;
             set => _allowSwitchOff = value;
         }
 
-        public void AddToggleToGroup(XrToggleable interactable)
+        public override void AddToggleToGroup(Toggleable interactable) => interactable.SetToggleGroup(this);
+
+        public void RegisterToggleToGroup(XrToggleable xrToggleable)
         {
-            interactable.Bind(interactable.onValueChanged, OnInteractableClicked);
-            if (!_toggles.Contains(interactable))
+            xrToggleable.Bind(xrToggleable.onValueChanged, OnInteractableClicked);
+            if (!_toggles.Contains(xrToggleable))
             {
-                _toggles.Add(interactable);
+                _toggles.Add(xrToggleable);
             }
         }
-
         private void OnInteractableClicked(bool isOn)
         {
             var turnedOn = _toggles.Find(t => t.IsOn && t != _currentOn);
             if (isOn)
             {
                 NotifyToggleOn(turnedOn);
-                if (!allowSwitchOff)
+                if (!AllowSwitchOff)
                 {
                     if (!_currentOn.IsObjectNull())
                         _currentOn.Interactable = true;
@@ -55,7 +57,7 @@ namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
                 }
                 _currentOn = turnedOn;
             }
-            else if ( allowSwitchOff && turnedOn.IsObjectNull())
+            else if (AllowSwitchOff && turnedOn.IsObjectNull())
             {
                 _currentOn = null;
             }
@@ -99,7 +101,7 @@ namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
 
         public void EnsureValidState()
         {
-            if (!allowSwitchOff && !AnyTogglesOn() && _toggles.Count != 0)
+            if (!AllowSwitchOff && !AnyTogglesOn() && _toggles.Count != 0)
             {
                 _toggles[0].IsOn = true;
                 _currentOn = _toggles[0];

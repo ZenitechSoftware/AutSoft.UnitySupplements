@@ -1,5 +1,4 @@
 ﻿#nullable enable
-using AutSoft.UnitySupplements.Vitamins;
 using AutSoft.UnitySupplements.Vitamins.Bindings;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +11,6 @@ namespace AutSoft.UnitySupplements.UiComponents.Helpers
     {
         private Toggle _toggle = default!;
 
-        [Header("Optional")]
         private ToggleGroup? _toggleGroup;
 
         private void Awake()
@@ -20,9 +18,6 @@ namespace AutSoft.UnitySupplements.UiComponents.Helpers
             _toggle = GetComponent<Toggle>();
 
             _toggle.isOn = IsOn;
-
-            if (!_toggleGroup.IsObjectNull())
-                _toggle.group = _toggleGroup;
 
             this.Bind(onInteractibleChanged, OnInteractableChanged);
             Interactable = _toggle.interactable;
@@ -45,11 +40,11 @@ namespace AutSoft.UnitySupplements.UiComponents.Helpers
 
         protected override void OnInteractableChanged(bool interactable) => _toggle.interactable = interactable;
 
-        public override void SetToggleGroup(ToggleGroup toggleGroup)
+        public override void SetToggleGroup(ToggleableGroup toggleGroup)
         {
-            _toggleGroup = toggleGroup;
+            _toggleGroup = ((RegularToggleableGroup)toggleGroup).Group;
             if (_toggle != null)
-                _toggle.group = toggleGroup;
+                _toggle.group = _toggleGroup;
         }
     }
 }

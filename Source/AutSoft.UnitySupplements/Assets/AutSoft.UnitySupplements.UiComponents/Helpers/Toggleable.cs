@@ -1,7 +1,6 @@
 ﻿#nullable enable
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.Helpers
 {
@@ -46,7 +45,7 @@ namespace AutSoft.UnitySupplements.UiComponents.Helpers
 
         public virtual void SetIsOnWithoutNotify(bool isOn) => _isOn = isOn;
 
-        public abstract void SetToggleGroup(ToggleGroup toggleGroup);
+        public abstract void SetToggleGroup(ToggleableGroup toggleGroup);
         protected abstract void OnInteractableChanged(bool interactable);
     }
 }
