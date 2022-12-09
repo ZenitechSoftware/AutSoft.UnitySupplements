@@ -10,11 +10,16 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
     public class DayNumberSpawner : MonoBehaviour
     {
+        [SerializeField] private DayButton _dayButtonPrefab = default!;
         [SerializeField] private ToggleGroup _toggleGroup = default!;
 
         private DatePicker? _datePicker;
         private DateTimeOffset _pickedDate;
         private TMP_FontAsset? _font;
+        private void Awake()
+        {
+            this.CheckSerializedFields();
+        }
 
         public void SpawnDaysForMonth(DateTimeOffset firstDayOfMonth)
         {
@@ -39,7 +44,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             var endDate = startDate.AddDays(6 * 7);
             while (startDate < endDate)
             {
-                var currentDate = Instantiate(Resources.Load<GameObject>("DayButton"), transform);
+                var currentDate = Instantiate(_dayButtonPrefab, transform);
                 currentDate.GetComponent<DayButton>()
                     .SetupDayButton(startDate, startDate.Month != firstDayOfMonth.Month, _datePicker, _font, _toggleGroup);
                 if (startDate.Date == _pickedDate.Date)

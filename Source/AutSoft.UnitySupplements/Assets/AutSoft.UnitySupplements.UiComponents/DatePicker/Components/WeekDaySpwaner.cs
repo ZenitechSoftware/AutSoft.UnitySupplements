@@ -9,6 +9,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
     public class WeekDaySpwaner : MonoBehaviour
     {
+        [SerializeField] private WeekLetter _weekDayPrefab = default!;
+
         private readonly Dictionary<DayOfWeek, string> _dayNames = new();
         private void InitDayNames()
         {
@@ -25,10 +27,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             var firstDayOfWeek = (int)CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek;
             for (var i = firstDayOfWeek; i < firstDayOfWeek + 7; i++)
             {
-                var currentLetter = Instantiate(Resources.Load<GameObject>("WeekLetter"), transform);
-                var weekText = currentLetter.GetComponent<TMP_Text>();
-                weekText.text = _dayNames[(DayOfWeek)(i % 7)];
-                weekText.font = font;
+                var currentLetter = Instantiate(_weekDayPrefab.gameObject, transform).GetComponent<WeekLetter>();
+                currentLetter.SetWeekText(_dayNames[(DayOfWeek)(i % 7)], font);
             }
         }
     }

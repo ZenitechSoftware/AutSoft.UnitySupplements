@@ -1225,6 +1225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24ad61dfe338cc4fb0088bcfeb3d30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dayButtonPrefab: {fileID: 3591641099517880511, guid: 87f6a9b53e67e8143bd7cc46d9875f27, type: 3}
   _toggleGroup: {fileID: 4525928331840393161}
 --- !u!114 &4609659820464468982
 MonoBehaviour:
@@ -1444,6 +1445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3424a6eac896a1140a48820b81ac63b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weekDayPrefab: {fileID: 2538256422632344616, guid: 5b8bd34375b310b4ab13e9340a857e40, type: 3}
 --- !u!1001 &4269467333565833
 PrefabInstance:
   m_ObjectHideFlags: 0
