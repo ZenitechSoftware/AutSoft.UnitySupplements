@@ -1,4 +1,5 @@
-﻿using AutSoft.UnitySupplements.Vitamins;
+﻿#nullable enable
+using AutSoft.UnitySupplements.Vitamins;
 using TMPro;
 using UnityEngine;
 
@@ -7,8 +8,11 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
     public class YearPicker : MonoBehaviour
     {
         [SerializeField] private Transform _buttonParent = default!;
+
+        [Header("External")]
         [SerializeField] private MonthPicker _monthPicker = default!;
         [SerializeField] private TMP_Text _yearMonthLabel = default!;
+        [SerializeField] private YearMonthPicker _yearMonthPicker = default!;
 
         private int _currentYearStart;
         private int _currentMonth;
@@ -26,7 +30,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             {
                 var currentYear = Instantiate(Resources.Load<GameObject>("YearButton"), _buttonParent);
                 currentYear.GetComponent<YearButton>().SetupYearButton(_currentYearStart + i, _monthPicker, gameObject, _font);
-                if (_currentYearStart + i == startYear)
+                if (_currentYearStart + i == _yearMonthPicker.CurrentDate.Year)
                 {
                     currentYear.GetComponent<YearSelectionHighlighter>().Highlight(true);
                 }

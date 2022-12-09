@@ -1,4 +1,5 @@
 ﻿using AutSoft.UnitySupplements.UiComponents.Helpers;
+using AutSoft.UnitySupplements.Vitamins;
 using AutSoft.UnitySupplements.Vitamins.Bindings;
 using System;
 using UnityEngine;
@@ -13,8 +14,10 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         [Header("External")]
         [SerializeField] private YearMonthPicker _yearMonthPicker = default!;
 
-        public void InitializeMonthStepper()
+        public void Awake()
         {
+            this.CheckSerializedFields();
+
             this.Bind(_nextMonth.onClick, NextMonth);
             this.Bind(_previousMonth.onClick, PreviousMonth);
         }
