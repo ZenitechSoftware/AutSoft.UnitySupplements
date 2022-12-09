@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _yearMonthLabel: {fileID: 1783694334587874916}
-  _arrowImage: {fileID: 531999606888147097}
+  _arrowTransform: {fileID: 4558959596412881324}
   _arrowButton: {fileID: 5357674855498621864}
   _yearsObject: {fileID: 0}
   _daySelectorObject: {fileID: 0}

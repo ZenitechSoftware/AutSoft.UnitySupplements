@@ -16,6 +16,7 @@ MonoBehaviour:
   spriteIcons:
   - {fileID: 3286163911610860551, guid: 099eab2eef19b164398821bc5cfcab12, type: 3}
   - {fileID: 3286163911610860551, guid: 744957d7dacf85f4a8bc8a3c731c32b9, type: 3}
+  - {fileID: 3286163911610860551, guid: 04c8450c1bed02d4ab364f11f266695e, type: 3}
   charIconFont: {fileID: 0}
   charIcons:
   - Name: AppBarAdjust

@@ -5,14 +5,13 @@ using AutSoft.UnitySupplements.Vitamins.Bindings;
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
     public class YearMonthPicker : MonoBehaviour
     {
         [SerializeField] private TMP_Text _yearMonthLabel = default!;
-        [SerializeField] private Image _arrowImage = default!;
+        [SerializeField] private Transform _arrowTransform = default!;
         [SerializeField] private Clickable _arrowButton = default!;
 
         [Header("External")]
@@ -52,7 +51,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                 _font.IsObjectNullThrow();
                 _yearPicker.SpawnYears(CurrentDate.Year, CurrentDate.Month, _font);
             }
-            _arrowImage.transform.Rotate(new Vector3(0, 0, 180));
+            _arrowTransform.Rotate(new Vector3(0, 0, 180));
             SetYearMonthLabel(CurrentDate);
         }
 
