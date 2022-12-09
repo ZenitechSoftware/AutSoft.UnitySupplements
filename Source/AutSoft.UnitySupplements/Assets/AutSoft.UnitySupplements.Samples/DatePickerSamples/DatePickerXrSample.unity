@@ -540,35 +540,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DatePicker
       objectReference: {fileID: 0}
-    - target: {fileID: 5490668957994014759, guid: 6c67c1b3d6abc5f41aa2f6fe6c940707, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6671187659989282402, guid: 6c67c1b3d6abc5f41aa2f6fe6c940707, type: 3}
-      propertyPath: iconSprite
-      value: 
-      objectReference: {fileID: 3286163911610860551, guid: 099eab2eef19b164398821bc5cfcab12, type: 3}
-    - target: {fileID: 6952627950609042490, guid: 6c67c1b3d6abc5f41aa2f6fe6c940707, type: 3}
-      propertyPath: m_Size.x
-      value: 2.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 6952627950609042490, guid: 6c67c1b3d6abc5f41aa2f6fe6c940707, type: 3}
-      propertyPath: m_Size.y
-      value: 5.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6952627950609042490, guid: 6c67c1b3d6abc5f41aa2f6fe6c940707, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 3286163911610860551, guid: 099eab2eef19b164398821bc5cfcab12, type: 3}
-    - target: {fileID: 6952627950609042490, guid: 6c67c1b3d6abc5f41aa2f6fe6c940707, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7342858721442877464, guid: 6c67c1b3d6abc5f41aa2f6fe6c940707, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6662919069943105064, guid: 6c67c1b3d6abc5f41aa2f6fe6c940707, type: 3}
+    m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c67c1b3d6abc5f41aa2f6fe6c940707, type: 3}
