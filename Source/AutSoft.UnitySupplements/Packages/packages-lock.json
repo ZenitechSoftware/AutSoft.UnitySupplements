@@ -261,18 +261,18 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arfoundation": {
-      "version": "4.2.6",
+      "version": "4.2.7",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.xr.arsubsystems": "4.2.6",
+        "com.unity.xr.arsubsystems": "4.2.7",
         "com.unity.xr.management": "4.0.1",
         "com.unity.modules.particlesystem": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arsubsystems": {
-      "version": "4.2.6",
+      "version": "4.2.7",
       "depth": 2,
       "source": "registry",
       "dependencies": {
