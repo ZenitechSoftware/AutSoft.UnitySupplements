@@ -1153,6 +1153,7 @@ GameObject:
   - component: {fileID: 347479943236331773}
   - component: {fileID: 347479943236331762}
   - component: {fileID: 347479943236331653}
+  - component: {fileID: 6689211620501481551}
   m_Layer: 0
   m_Name: DayButtonXR
   m_TagString: Untagged
@@ -1693,6 +1694,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isOn: 0
+--- !u!114 &6689211620501481551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347479943236331763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3118ea9ebaede3940aa2f45df751a6d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _disabledColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  _text: {fileID: 347479942256524161}
 --- !u!1 &347479943262791155
 GameObject:
   m_ObjectHideFlags: 0
