@@ -13,7 +13,7 @@ namespace AutSoft.UnitySupplements.MRTKExtras.UiComponents.DatePicker
         [SerializeField] private TMP_Text _text = default!;
 
         private Color _originalColor;
-        private Toggleable _toggle;
+        private Toggleable _toggle = default!;
 
         private void Awake()
         {

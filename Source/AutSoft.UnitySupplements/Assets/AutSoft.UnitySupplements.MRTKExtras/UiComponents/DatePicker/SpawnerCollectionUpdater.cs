@@ -9,8 +9,8 @@ namespace AutSoft.UnitySupplements.MRTKExtras.UiComponents.DatePicker
 {
     public class SpawnerCollectionUpdater : MonoBehaviour
     {
-        [SerializeField] private BaseObjectCollection _collectionToUpdate;
-        [SerializeField] private DateSpawner _spawner;
+        [SerializeField] private BaseObjectCollection _collectionToUpdate = default!;
+        [SerializeField] private DateSpawner _spawner = default!;
 
         private void Awake()
         {

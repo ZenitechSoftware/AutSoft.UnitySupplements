@@ -12,8 +12,8 @@ namespace AutSoft.UnitySupplements.MRTKExtras.UiComponents.DatePicker
         [SerializeField] private Interactable _interactable = default!;
         [SerializeField] private Theme _selectedDateTheme = default!;
         [SerializeField] private GameObject _backgroundQuad = default!;
-        private InteractableProfileItem _profileToAdd;
-        private Clickable _clickable;
+        private InteractableProfileItem _profileToAdd = default!;
+        private Clickable _clickable = default!;
 
         private void Awake()
         {
