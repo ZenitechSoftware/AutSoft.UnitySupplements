@@ -414,6 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _incrementTime: {fileID: 5480487468640381982}
   _reduceTime: {fileID: 2542836220540957961}
+  _timePickerText: {fileID: 9122753829524197414}
   _timeInput: {fileID: 2559605184786286385}
 --- !u!1 &3151237760038433044
 GameObject:

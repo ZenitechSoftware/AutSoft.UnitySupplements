@@ -12,6 +12,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
     {
         [SerializeField] private Clickable _incrementTime = default!;
         [SerializeField] private Clickable _reduceTime = default!;
+        [SerializeField] private TMP_Text _timePickerText = default!;
 
         [Header("Optional")]
         [SerializeField] private TMP_InputField? _timeInput;
@@ -67,16 +68,28 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private void UpdateText()
         {
-            if (_timeInput.IsObjectNull()) return;
-            _timeInput.text = _currentTime.ToString("00");
+            if (!_timeInput.IsObjectNull())
+            {
+                _timeInput.text = _currentTime.ToString("00");
+            }
+            else
+            {
+                _timePickerText.text = _currentTime.ToString("00");
+            }
         }
 
         public void InitTimePicker(int currentTime, int limit, TMP_FontAsset font)
         {
             _limit = limit;
             _currentTime = currentTime;
-            if (_timeInput.IsObjectNull()) return;
-            _timeInput.textComponent.font = font;
+            if (!_timeInput.IsObjectNull())
+            {
+                _timeInput.textComponent.font = font;
+            }
+            else
+            {
+                _timePickerText.font = font;
+            }
             UpdateText();
         }
     }

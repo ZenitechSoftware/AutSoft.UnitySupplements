@@ -221,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _incrementTime: {fileID: 4718418034415134670}
   _reduceTime: {fileID: 7904640150281866926}
+  _timePickerText: {fileID: 6899007685744504833}
   _timeInput: {fileID: 0}
 --- !u!1001 &4842514379045547873
 PrefabInstance:

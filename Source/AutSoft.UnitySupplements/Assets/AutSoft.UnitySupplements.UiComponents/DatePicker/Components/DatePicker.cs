@@ -1,6 +1,5 @@
 ﻿using AutSoft.UnitySupplements.Vitamins;
 using System;
-using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -34,9 +33,6 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             PickedDate = DateTimeOffset.Now;
             PickedDate = PickedDate.AddSeconds(-PickedDate.Second);
 
-            //TODO: remove this
-            //CultureInfo.CurrentCulture = new CultureInfo("en-US");
-            //CultureInfo.CurrentCulture = new CultureInfo("sv-SE");
             _dayNumberSpawner.InitDays(this, _font);
             _dayNumberSpawner.UpdatePickedDate(PickedDate);
             _timePicker.InitTimePicker(this, PickedDate, _font);
