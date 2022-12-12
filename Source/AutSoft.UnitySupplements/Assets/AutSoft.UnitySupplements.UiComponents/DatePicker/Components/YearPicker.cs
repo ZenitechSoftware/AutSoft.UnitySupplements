@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using AutSoft.UnitySupplements.UiComponents.Helpers;
 using AutSoft.UnitySupplements.Vitamins;
 using TMPro;
 using UnityEngine;
@@ -37,9 +38,9 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                     {
                         highlighter.Highlight(true);
                     }
-                    else
+                    else if (currentYear.TryGetComponent<Clickable>(out var clickable))
                     {
-                        //TODO:: highlight xr button
+                        clickable.Interactable = false;
                     }
                 }
             }

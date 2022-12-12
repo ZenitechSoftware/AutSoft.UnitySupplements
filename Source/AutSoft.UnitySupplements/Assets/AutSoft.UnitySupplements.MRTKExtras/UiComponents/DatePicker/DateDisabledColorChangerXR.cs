@@ -13,14 +13,24 @@ namespace AutSoft.UnitySupplements.MRTKExtras.UiComponents.DatePicker
         [SerializeField] private TMP_Text _text = default!;
 
         private Color _originalColor;
+        private Toggleable _toggle;
 
         private void Awake()
         {
             this.CheckSerializedFields();
-            this.Bind(GetComponent<Toggleable>().onInteractibleChanged, onStateChangedDisabledColor);
+            _toggle = GetComponent<Toggleable>();
+            this.Bind(_toggle.onInteractibleChanged, onStateChangedDisabledColor);
             _originalColor = _text.color;
         }
 
-        private void onStateChangedDisabledColor(bool isOn) => _text.color = isOn ? _originalColor : _disabledColor;
+        private void onStateChangedDisabledColor(bool isOn)
+        {
+            if (_toggle.IsOn)
+            {
+                _text.color = _originalColor;
+                return;
+            }
+            _text.color = isOn ? _originalColor : _disabledColor;
+        }
     }
 }

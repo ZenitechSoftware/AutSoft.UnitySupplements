@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using AutSoft.UnitySupplements.UiComponents.Helpers;
 using AutSoft.UnitySupplements.Vitamins;
 using System.Collections.Generic;
 using System.Globalization;
@@ -40,10 +41,6 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                 {
                     highlighter.Highlight(false);
                 }
-                else
-                {
-                    //TODO:: highlight xr button
-                }
             }
 
             if (_currentYear == _yearMonthPicker.CurrentDate.Year)
@@ -52,9 +49,9 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                 {
                     highlighter.Highlight(true);
                 }
-                else
+                else if (_monthButtons[_currentMonth - 1].TryGetComponent<Clickable>(out var clickable))
                 {
-                    //TODO:: highlight xr button
+                    clickable.Interactable = false;
                 }
             }
             onSpawned.Invoke();
