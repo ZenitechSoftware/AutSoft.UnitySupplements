@@ -767,6 +767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hourPicker: {fileID: 5983556364634978122}
   _minutePicker: {fileID: 4837207344169038206}
+  _amPmSelectorPrefab: {fileID: 1000270146681036712, guid: 0c87768418ee60149a8cb22927494082, type: 3}
 --- !u!1 &4231993336692795504
 GameObject:
   m_ObjectHideFlags: 0
