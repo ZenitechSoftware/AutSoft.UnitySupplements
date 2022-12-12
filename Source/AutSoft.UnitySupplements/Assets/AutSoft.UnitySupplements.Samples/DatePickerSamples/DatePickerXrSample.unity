@@ -540,6 +540,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DatePicker
       objectReference: {fileID: 0}
+    - target: {fileID: 4659839534198596917, guid: 6c67c1b3d6abc5f41aa2f6fe6c940707, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c67c1b3d6abc5f41aa2f6fe6c940707, type: 3}

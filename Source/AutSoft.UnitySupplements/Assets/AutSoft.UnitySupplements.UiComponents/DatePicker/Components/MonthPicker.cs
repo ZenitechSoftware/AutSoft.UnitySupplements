@@ -8,11 +8,14 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
-    public class MonthPicker : MonoBehaviour
+    public class MonthPicker : DateSpawner
     {
         [SerializeField] private Transform _buttonParent = default!;
+
+        [Header("External")]
         [SerializeField] private TMP_Text _yearMonthLabel = default!;
         [SerializeField] private YearMonthPicker _yearMonthPicker = default!;
+        [SerializeField] private MonthButton _monthButtonPrefab = default!;
 
         private int _currentYear;
         private TMP_FontAsset? _font;
@@ -29,17 +32,32 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             for (var i = 0; i < monthnames.Count(m => m != string.Empty); i++)
             {
                 var monthname = monthnames[i];
-                var currentMonth = Instantiate(Resources.Load<GameObject>("MonthButton"), _buttonParent);
+                var currentMonth = Instantiate(_monthButtonPrefab.gameObject, _buttonParent);
                 var monthButton = currentMonth.GetComponent<MonthButton>();
                 monthButton.SetupYearButton(monthname, i + 1, _yearMonthPicker, _currentYear, font);
                 _monthButtons.Add(monthButton);
-                monthButton.GetComponent<YearSelectionHighlighter>().Highlight(false);
+                if (monthButton.TryGetComponent<YearSelectionHighlighter>(out var highlighter))
+                {
+                    highlighter.Highlight(false);
+                }
+                else
+                {
+                    //TODO:: highlight xr button
+                }
             }
 
             if (_currentYear == _yearMonthPicker.CurrentDate.Year)
             {
-                _monthButtons[_currentMonth - 1].GetComponent<YearSelectionHighlighter>().Highlight(true);
+                if (_monthButtons[_currentMonth - 1].TryGetComponent<YearSelectionHighlighter>(out var highlighter))
+                {
+                    highlighter.Highlight(true);
+                }
+                else
+                {
+                    //TODO:: highlight xr button
+                }
             }
+            onSpawned.Invoke();
         }
 
         public void InitYear(int year, TMP_FontAsset font)

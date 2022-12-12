@@ -252,6 +252,7 @@ MonoBehaviour:
   _buttonParent: {fileID: 6361875287829394038}
   _yearMonthLabel: {fileID: 6845383219881002546}
   _yearMonthPicker: {fileID: 5228767482817200820}
+  _monthButtonPrefab: {fileID: 1346636569917231075, guid: 7fa83c02eb066ad48b4e6f9b1902df08, type: 3}
 --- !u!1 &1571570173811310061
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,6 +899,7 @@ MonoBehaviour:
   _monthPicker: {fileID: 1296074127620406813}
   _yearMonthLabel: {fileID: 6845383219881002546}
   _yearMonthPicker: {fileID: 5228767482817200820}
+  _yearButtonPrefab: {fileID: 8132297491583827920, guid: 503775b245ffd8a4e92f24f339a4c276, type: 3}
 --- !u!1 &6039921134429120206
 GameObject:
   m_ObjectHideFlags: 0

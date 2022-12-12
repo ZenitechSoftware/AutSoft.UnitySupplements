@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
-    public class YearPicker : MonoBehaviour
+    public class YearPicker : DateSpawner
     {
         [SerializeField] private Transform _buttonParent = default!;
 
@@ -13,6 +13,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         [SerializeField] private MonthPicker _monthPicker = default!;
         [SerializeField] private TMP_Text _yearMonthLabel = default!;
         [SerializeField] private YearMonthPicker _yearMonthPicker = default!;
+        [SerializeField] private YearButton _yearButtonPrefab = default!;
 
         private int _currentYearStart;
         private int _currentMonth;
@@ -28,15 +29,23 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _currentYearStart = startYear - (startYear % 10);
             for (var i = 0; i < 20; i++)
             {
-                var currentYear = Instantiate(Resources.Load<GameObject>("YearButton"), _buttonParent);
+                var currentYear = Instantiate(_yearButtonPrefab.gameObject, _buttonParent);
                 currentYear.GetComponent<YearButton>().SetupYearButton(_currentYearStart + i, _monthPicker, gameObject, _font);
                 if (_currentYearStart + i == _yearMonthPicker.CurrentDate.Year)
                 {
-                    currentYear.GetComponent<YearSelectionHighlighter>().Highlight(true);
+                    if (currentYear.TryGetComponent<YearSelectionHighlighter>(out var highlighter))
+                    {
+                        highlighter.Highlight(true);
+                    }
+                    else
+                    {
+                        //TODO:: highlight xr button
+                    }
                 }
             }
             _yearMonthLabel.text = $"{_currentYearStart} - {_currentYearStart + 19}";
             _monthPicker.SetCurrentMonth(_currentMonth);
+            onSpawned.Invoke();
         }
 
         public void StepYears(int step)

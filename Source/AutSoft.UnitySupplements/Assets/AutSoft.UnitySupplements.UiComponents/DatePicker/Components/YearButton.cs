@@ -40,8 +40,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _yearPickerObject.IsObjectNullThrow();
             _monthPicker.IsObjectNullThrow();
             _font.IsObjectNullThrow();
-            _monthPicker.InitYear(_year, _font);
             _monthPicker.gameObject.SetActive(true);
+            _monthPicker.InitYear(_year, _font);
             _yearPickerObject.SetActive(false);
         }
     }

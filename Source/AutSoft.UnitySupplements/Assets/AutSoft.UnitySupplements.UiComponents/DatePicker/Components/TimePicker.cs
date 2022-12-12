@@ -5,7 +5,6 @@ using AutSoft.UnitySupplements.Vitamins.Bindings;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
@@ -13,20 +12,25 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
     {
         [SerializeField] private Clickable _incrementTime = default!;
         [SerializeField] private Clickable _reduceTime = default!;
-        [SerializeField] private TMP_InputField _timeInput = default!;
+
+        [Header("Optional")]
+        [SerializeField] private TMP_InputField? _timeInput;
 
         private int _limit;
         private int _currentTime;
 
         public UnityEvent<int> onTimeChanged { get; } = new();
 
-        private void Awake() => this.CheckSerializedFields();
+        private void Awake() => this.CheckSerializedFields(nameof(_timeInput));
 
         private void Start()
         {
             this.Bind(_incrementTime.onClick, IncrementTime);
             this.Bind(_reduceTime.onClick, ReduceTime);
-            this.Bind(_timeInput.onEndEdit, UpdateTime);
+            if (!_timeInput.IsObjectNull())
+            {
+                this.Bind(_timeInput.onEndEdit, UpdateTime);
+            }
         }
 
         private void UpdateTime(string input)
@@ -61,12 +65,17 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             onTimeChanged.Invoke(_currentTime);
         }
 
-        private void UpdateText() => _timeInput.text = _currentTime.ToString("00");
+        private void UpdateText()
+        {
+            if (_timeInput.IsObjectNull()) return;
+            _timeInput.text = _currentTime.ToString("00");
+        }
 
         public void InitTimePicker(int currentTime, int limit, TMP_FontAsset font)
         {
             _limit = limit;
             _currentTime = currentTime;
+            if (_timeInput.IsObjectNull()) return;
             _timeInput.textComponent.font = font;
             UpdateText();
         }

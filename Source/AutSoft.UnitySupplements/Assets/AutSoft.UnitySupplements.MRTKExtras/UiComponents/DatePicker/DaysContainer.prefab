@@ -481,16 +481,6 @@ MonoBehaviour:
     Radius: 0
     Transform: {fileID: 7649238870628381756}
     Colliders: []
-  - Name: DayButtonXR (42)
-    Offset: {x: 0, y: 0}
-    Radius: 0
-    Transform: {fileID: 0}
-    Colliders: []
-  - Name: DayButtonXR (43)
-    Offset: {x: 0, y: 0}
-    Radius: 0
-    Transform: {fileID: 0}
-    Colliders: []
   ignoreInactiveTransforms: 1
   sortType: 1
   surfaceType: 1
@@ -503,7 +493,7 @@ MonoBehaviour:
   radius: 2
   radialRange: 180
   distance: 0
-  rows: 6
+  rows: 7
   columns: 7
   cellWidth: 0.032
   cellHeight: 0.032
@@ -544,6 +534,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (32)
@@ -554,11 +556,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.17600001
+      value: 0.14400001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.080000006
+      value: -0.14400001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -608,6 +610,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (40)
@@ -618,11 +632,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.208
+      value: 0.17600001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14400001
+      value: -0.17600001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -776,6 +790,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (9)
@@ -786,11 +812,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.048
+      value: 0.080000006
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.112
+      value: -0.048
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -840,6 +866,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (3)
@@ -850,11 +888,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.016
+      value: 0.112
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.112
+      value: -0.016
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1008,6 +1046,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR
@@ -1072,6 +1122,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (33)
@@ -1086,7 +1148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.112
+      value: -0.14400001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1240,6 +1302,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (4)
@@ -1250,11 +1324,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.016
+      value: 0.14400001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14400001
+      value: -0.016
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1408,6 +1482,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (14)
@@ -1418,7 +1504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.080000006
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1472,6 +1558,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (30)
@@ -1482,11 +1580,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.17600001
+      value: 0.080000006
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.016
+      value: -0.14400001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1536,6 +1634,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (18)
@@ -1546,11 +1656,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.112
+      value: 0.14400001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.016
+      value: -0.080000006
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1704,6 +1814,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (36)
@@ -1714,11 +1836,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.208
+      value: 0.048
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.016
+      value: -0.17600001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1768,6 +1890,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (12)
@@ -1778,11 +1912,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.080000006
+      value: 0.17600001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.016
+      value: -0.048
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1936,6 +2070,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (10)
@@ -1946,11 +2092,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.048
+      value: 0.112
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14400001
+      value: -0.048
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2104,6 +2250,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (5)
@@ -2114,11 +2272,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.016
+      value: 0.17600001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.17600001
+      value: -0.016
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2168,6 +2326,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (8)
@@ -2182,7 +2352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.080000006
+      value: -0.048
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2232,6 +2402,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (38)
@@ -2242,11 +2424,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.208
+      value: 0.112
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.080000006
+      value: -0.17600001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2296,6 +2478,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (34)
@@ -2306,7 +2500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.17600001
+      value: 0.208
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2360,6 +2554,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (7)
@@ -2370,7 +2576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.048
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2424,6 +2630,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (22)
@@ -2434,11 +2652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.112
+      value: 0.048
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14400001
+      value: -0.112
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2488,6 +2706,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (16)
@@ -2502,7 +2732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14400001
+      value: -0.080000006
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2552,6 +2782,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (6)
@@ -2562,7 +2804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.048
+      value: 0.208
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2616,6 +2858,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (15)
@@ -2626,11 +2880,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.080000006
+      value: 0.048
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.112
+      value: -0.080000006
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2680,6 +2934,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (17)
@@ -2690,11 +2956,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.080000006
+      value: 0.112
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.17600001
+      value: -0.080000006
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2744,6 +3010,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (13)
@@ -2754,7 +3032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.080000006
+      value: 0.208
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2808,6 +3086,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (11)
@@ -2818,11 +3108,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.048
+      value: 0.14400001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.17600001
+      value: -0.048
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2872,6 +3162,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (35)
@@ -2882,7 +3184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.17600001
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2936,6 +3238,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (39)
@@ -2946,11 +3260,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.208
+      value: 0.14400001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.112
+      value: -0.17600001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3000,6 +3314,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (27)
@@ -3010,7 +3336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.14400001
+      value: 0.208
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3064,6 +3390,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (21)
@@ -3074,7 +3412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.112
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3128,6 +3466,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (37)
@@ -3138,11 +3488,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.208
+      value: 0.080000006
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.048
+      value: -0.17600001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3192,6 +3542,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (25)
@@ -3206,7 +3568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.048
+      value: -0.112
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3256,6 +3618,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (23)
@@ -3266,11 +3640,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.112
+      value: 0.080000006
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.17600001
+      value: -0.112
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3320,6 +3694,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (41)
@@ -3384,6 +3770,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (26)
@@ -3394,11 +3792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.14400001
+      value: 0.17600001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.080000006
+      value: -0.112
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3448,6 +3846,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (24)
@@ -3458,11 +3868,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.14400001
+      value: 0.112
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.016
+      value: -0.112
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3512,6 +3922,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (28)
@@ -3522,7 +3944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.14400001
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3576,6 +3998,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (31)
@@ -3586,11 +4020,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.17600001
+      value: 0.112
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.048
+      value: -0.14400001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3640,6 +4074,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (29)
@@ -3650,11 +4096,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.14400001
+      value: 0.048
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.17600001
+      value: -0.14400001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3704,6 +4150,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (2)
@@ -3714,11 +4172,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.016
+      value: 0.080000006
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.080000006
+      value: -0.016
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3812,9 +4270,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1943859833214158389, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3576171296555653404, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3580701732298474551, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3580701732298474551, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3603856898576824784, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4240798691537757019, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4240798691537757019, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6406022990033954494, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
       propertyPath: m_Name
       value: MonthStepper
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524911340075028411, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 7524911340075028411, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 7525631009270953210, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 7525631009270953210, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 7532668498556469339, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 7694381705256157151, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
+      propertyPath: m_Size.x
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7694381705256157151, guid: f98559a79ee642f43b7c6b72efd48af4, type: 3}
+      propertyPath: m_Size.y
+      value: 5.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -3832,6 +4346,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (19)
@@ -3842,11 +4368,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.112
+      value: 0.17600001
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.048
+      value: -0.080000006
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3896,6 +4422,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (20)
@@ -3906,7 +4444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.112
+      value: 0.208
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3960,6 +4498,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5156544550214157613}
     m_Modifications:
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524161, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 347479942256524166, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 347479943236331763, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_Name
       value: DayButtonXR (1)
@@ -3970,11 +4520,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.016
+      value: 0.048
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.048
+      value: -0.016
       objectReference: {fileID: 0}
     - target: {fileID: 347479943236331770, guid: c884831aa6044ea4ca39a0a5b01ad8a8, type: 3}
       propertyPath: m_LocalPosition.z
