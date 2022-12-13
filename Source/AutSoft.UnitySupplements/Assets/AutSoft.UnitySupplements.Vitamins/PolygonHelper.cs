@@ -10,12 +10,10 @@ namespace AutSoft.UnitySupplements.Vitamins
     /// </summary>
     public static class PolygonHelper
     {
-        private const float SmallEpsilon = 0.1f;
-
-        public static void GenerateTriangulatedMesh(Mesh mesh, Vector3[] vertices)
+        public static void GenerateTriangulatedMesh(Mesh mesh, Vector3[] vertices, float smallEpsilon = 0.1f)
         {
             var indices = ArrayPool<int>.Shared.Rent((vertices.Length - 2) * 3);
-            var indicesCount = Triangulate(vertices, indices);
+            var indicesCount = Triangulate(vertices, indices, smallEpsilon);
 
             mesh.Clear();
             mesh.SetVertices(vertices, 0, vertices.Length);
@@ -25,7 +23,7 @@ namespace AutSoft.UnitySupplements.Vitamins
             ArrayPool<int>.Shared.Return(indices);
         }
 
-        private static int Triangulate(Vector3[] vertices, int[] indices)
+        private static int Triangulate(Vector3[] vertices, int[] indices, float smallEpsilon)
         {
             var indicesCount = 0;
             var n = vertices.Length;
@@ -67,7 +65,7 @@ namespace AutSoft.UnitySupplements.Vitamins
                 if (nv <= w)
                     w = 0;
 
-                if (Snip(vertices, u, v, w, nv, V))
+                if (Snip(vertices, u, v, w, nv, V, smallEpsilon))
                 {
                     int a, b, c, s, t;
                     a = V[u];
@@ -101,16 +99,16 @@ namespace AutSoft.UnitySupplements.Vitamins
             return A * 0.5f;
         }
 
-        private static bool Snip(Vector3[] vertices, int u, int v, int w, int n, int[] V)
+        private static bool Snip(Vector3[] vertices, int u, int v, int w, int n, int[] V, float smallEpsilon)
         {
             int p;
             var A = vertices[V[u]];
             var B = vertices[V[v]];
             var C = vertices[V[w]];
             if (Mathf.Epsilon > ((B.x - A.x) * (C.z - A.z)) - ((B.z - A.z) * (C.x - A.x))
-                && Vector3.SqrMagnitude(A - B) > SmallEpsilon
-                && Vector3.SqrMagnitude(A - C) > SmallEpsilon
-                && Vector3.SqrMagnitude(B - C) > SmallEpsilon)
+                && Vector3.SqrMagnitude(A - B) > smallEpsilon
+                && Vector3.SqrMagnitude(A - C) > smallEpsilon
+                && Vector3.SqrMagnitude(B - C) > smallEpsilon)
             {
                 return false;
             }
