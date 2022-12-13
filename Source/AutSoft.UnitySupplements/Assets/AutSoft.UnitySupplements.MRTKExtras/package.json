@@ -18,6 +18,12 @@
     },
     "dependencies": {
         "com.autsoft.unitysupplements.uicomponents": "0.2.0",
-        "com.autsoft.unitysupplements.vitamins": "0.2.0"
+        "com.autsoft.unitysupplements.vitamins": "0.3.0",
+        "com.microsoft.mixedreality.openxr": "1.5.1",
+        "com.microsoft.mixedreality.toolkit.examples": "2.8.3",
+        "com.microsoft.mixedreality.toolkit.extensions": "2.8.3",
+        "com.microsoft.mixedreality.toolkit.foundation": "2.8.3",
+        "com.microsoft.mixedreality.toolkit.standardassets": "2.8.3",
+        "com.microsoft.mixedreality.toolkit.tools": "2.8.3"
     }
 }
