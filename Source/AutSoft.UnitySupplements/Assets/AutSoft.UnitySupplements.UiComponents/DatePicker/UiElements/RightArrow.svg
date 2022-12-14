@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="10"
+   height="15"
+   viewBox="0 0 10 15"
+   fill="none"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="RightArrow.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="58.466667"
+     inkscape:cx="4.9942987"
+     inkscape:cy="7.4914481"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="M1.24144 11.8961L6.10229 7.03524L1.24144 2.17439C0.752852 1.6858 0.752852 0.896538 1.24144 0.407948C1.73003 -0.0806427 2.5193 -0.0806427 3.00789 0.407948L8.75822 6.15828C9.24681 6.64687 9.24681 7.43614 8.75822 7.92473L3.00789 13.6751C2.5193 14.1637 1.73003 14.1637 1.24144 13.6751C0.76538 13.1865 0.752852 12.3847 1.24144 11.8961Z"
+     fill="#333333"
+     id="path2"
+     style="fill:#ffffff;fill-opacity:1" />
+</svg>

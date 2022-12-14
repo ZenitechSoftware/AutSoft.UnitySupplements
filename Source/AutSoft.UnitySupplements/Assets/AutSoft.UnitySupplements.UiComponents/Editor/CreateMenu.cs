@@ -24,5 +24,24 @@ namespace AutSoft.UnitySupplements.UiComponents.Timeline
 
             Selection.activeGameObject = prefab;
         }
+
+        [MenuItem("GameObject/AutSoft/Datepicker", false, 0)]
+        public static void CreateDatePicker()
+        {
+            //Parent
+            var findAssets = AssetDatabase.FindAssets("UpmAsset_DatePicker");
+            var datePickerGuid = findAssets[0];
+            var guidToAssetPath = AssetDatabase.GUIDToAssetPath(datePickerGuid);
+            var prefab = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<Object>(guidToAssetPath));
+            PrefabUtility.UnpackPrefabInstance(prefab, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
+            prefab.name = "DatePicker";
+
+            if (Selection.activeTransform != null)
+            {
+                prefab.transform.SetParent(Selection.activeTransform, false);
+            }
+
+            Selection.activeGameObject = prefab;
+        }
     }
 }

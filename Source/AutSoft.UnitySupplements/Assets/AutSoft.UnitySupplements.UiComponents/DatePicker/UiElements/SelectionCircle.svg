@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="37"
+   height="37"
+   viewBox="0 0 37 37"
+   fill="none"
+   version="1.1"
+   id="svg25"
+   sodipodi:docname="SelectionCircle.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs5" />
+  <sodipodi:namedview
+     id="namedview27"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="16.760342"
+     inkscape:cx="18.675037"
+     inkscape:cy="23.388544"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg25"
+     inkscape:showpageshadow="2" />
+  <circle
+     cx="18.5"
+     cy="18.5"
+     fill="#1861CF"
+     id="circle2"
+     style="fill:#ffffff;fill-opacity:1;stroke-width:1.28571"
+     r="18" />
+</svg>

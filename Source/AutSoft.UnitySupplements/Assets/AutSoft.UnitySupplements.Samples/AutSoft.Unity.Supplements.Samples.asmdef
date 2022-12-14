@@ -9,7 +9,8 @@
         "Serilog.Sinks.Unity3D",
         "Injecter.Unity",
         "AutSoft.UnitySupplements.Vitamins",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "Autsoft.UnitySupplements.MRTKExtras"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
