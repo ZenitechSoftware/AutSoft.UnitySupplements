@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿ #nullable enable
+using AutSoft.UnitySupplements.Vitamins;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.Helpers
@@ -6,7 +8,20 @@ namespace AutSoft.UnitySupplements.UiComponents.Helpers
     [RequireComponent(typeof(ToggleGroup))]
     public class RegularToggleableGroup : ToggleableGroup
     {
-        public ToggleGroup Group { get; private set; } = default!;
+        private ToggleGroup? _group;
+
+        public ToggleGroup Group
+        {
+            get
+            {
+                if (_group.IsObjectNull())
+                {
+                    _group = GetComponent<ToggleGroup>();
+                }
+                return _group;
+            }
+            private set => _group = value;
+        }
 
         private void Awake() => Group = GetComponent<ToggleGroup>();
 
