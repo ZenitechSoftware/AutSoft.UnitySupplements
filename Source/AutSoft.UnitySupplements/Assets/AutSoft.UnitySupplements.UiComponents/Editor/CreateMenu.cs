@@ -14,7 +14,7 @@ namespace AutSoft.UnitySupplements.UiComponents.Editor
             if (findAssets.Length == 0)
             {
                 findAssets =
-                    AssetDatabase.FindAssets("UpmAsset_TimelinePlayer", new string[] { "Packages/AutSoft.UnitySupplements.UiComponents/Timeline" });
+                    AssetDatabase.FindAssets("UpmAsset_TimelinePlayer", new string[] { "Packages/UiComponents/Timeline" });
             }
             var timelineGuid = findAssets[0];
             var guidToAssetPath = AssetDatabase.GUIDToAssetPath(timelineGuid);
@@ -39,7 +39,7 @@ namespace AutSoft.UnitySupplements.UiComponents.Editor
             if (findAssets.Length == 0)
             {
                 findAssets =
-                    AssetDatabase.FindAssets("UpmAsset_DatePicker", new string[] { "Packages/AutSoft.UnitySupplements.UiComponents/Datepicker" });
+                    AssetDatabase.FindAssets("UpmAsset_DatePicker", new string[] { "Packages/UiComponents/Datepicker" });
             }
             var datePickerGuid = findAssets[0];
             var guidToAssetPath = AssetDatabase.GUIDToAssetPath(datePickerGuid);

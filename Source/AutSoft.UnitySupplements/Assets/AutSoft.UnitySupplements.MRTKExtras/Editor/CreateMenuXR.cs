@@ -16,7 +16,7 @@ namespace AutSoft.UnitySupplements.MRTKExtras.Editor
             {
                 findAssets =
                     AssetDatabase
-                    .FindAssets("UpmAsset_DatePickerXR",new string[] { "Packages/AutSoft.UnitySupplements.MRTKExtras/UiComponents/DatePicker" });
+                    .FindAssets("UpmAsset_DatePickerXR",new string[] { "Packages/MRTKExtras/UiComponents/DatePicker" });
             }
             var datePickerGuid = findAssets[0];
             var guidToAssetPath = AssetDatabase.GUIDToAssetPath(datePickerGuid);
