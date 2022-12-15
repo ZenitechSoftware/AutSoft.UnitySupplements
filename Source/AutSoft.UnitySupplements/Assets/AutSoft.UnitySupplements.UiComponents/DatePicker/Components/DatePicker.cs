@@ -12,6 +12,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         [SerializeField] private WeekDaySpwaner _weekDaySpwaner = default!;
         [SerializeField] private DayNumberSpawner _dayNumberSpawner = default!;
         [SerializeField] private TimePickerHolder _timePicker = default!;
+        [SerializeField] private DateTimeToggler _dateTimeToggler = default!;
         [SerializeField] private TMP_FontAsset _font = default!;
         private DateTimeOffset _pickedDate;
 
@@ -42,6 +43,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _timePicker.InitTimePicker(this, PickedDate, _font);
             _monthYearPicker.InitYearMonth(PickedDate, _font);
             _weekDaySpwaner.SpawnWeekDayLetters(_font);
+            _monthYearPicker.ActivateDefault();
+            _dateTimeToggler.ActivateDefault();
         }
         private void OnValidate()
         {

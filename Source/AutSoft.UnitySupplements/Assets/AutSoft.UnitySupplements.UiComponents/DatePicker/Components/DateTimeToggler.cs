@@ -24,5 +24,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private void OnTimeToggled(bool isOn) => _timePicker.SetActive(isOn);
         private void OnDateToggled(bool isOn) => _datePicker.SetActive(isOn);
+
+        public void ActivateDefault() => _dateToggle.IsOn = true;
     }
 }

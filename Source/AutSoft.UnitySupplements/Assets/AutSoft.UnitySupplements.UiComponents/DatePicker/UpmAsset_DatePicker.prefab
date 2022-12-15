@@ -423,6 +423,7 @@ MonoBehaviour:
   _weekDaySpwaner: {fileID: 6150895442412653977}
   _dayNumberSpawner: {fileID: 3264651825250467794}
   _timePicker: {fileID: 3808704934454587011}
+  _dateTimeToggler: {fileID: 988042745623966129}
   _font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
 --- !u!1 &2170566358976281202
 GameObject:
@@ -6659,6 +6660,17 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f4b5183fccaeab349a2cef733173942a, type: 3}
+--- !u!114 &988042745623966129 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5639932023566527443, guid: f4b5183fccaeab349a2cef733173942a, type: 3}
+  m_PrefabInstance: {fileID: 4896305526953548386}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35fc04547f492b48b476f7d09461488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &9206723902734372651 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4339202244001764681, guid: f4b5183fccaeab349a2cef733173942a, type: 3}

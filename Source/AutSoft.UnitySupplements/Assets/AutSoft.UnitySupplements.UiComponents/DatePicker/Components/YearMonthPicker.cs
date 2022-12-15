@@ -81,5 +81,15 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             SetYearMonth(dateTimeOffset);
             ToggleYearMonthPanel();
         }
+
+        public void ActivateDefault()
+        {
+            _daySelectorObject.SetActive(true);
+            if (_yearsObject.activeInHierarchy || _monthSelectorObject.activeInHierarchy)
+            {
+                _yearsObject.SetActive(false);
+                _monthSelectorObject.SetActive(false);
+            }
+        }
     }
 }
