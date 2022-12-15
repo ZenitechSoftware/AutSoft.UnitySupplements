@@ -1825,7 +1825,7 @@ PrefabInstance:
       objectReference: {fileID: 2138298564}
     - target: {fileID: 5472444153387664551, guid: bcdb2b988a73df242994ee1a9f59c357, type: 3}
       propertyPath: _forcedCulture
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

@@ -10,14 +10,16 @@ namespace AutSoft.UnitySupplements.MRTKExtras.Editor
         public static void CreateDatePicker()
         {
             //Parent
-            var findAssets =
-                AssetDatabase.FindAssets("UpmAsset_DatePickerXR", new string[] { "Assets/AutSoft.UnitySupplements.MRTKExtras/UiComponents/DatePicker" });
+            var findAssets = AssetDatabase
+                    .FindAssets("UpmAsset_DatePickerXR", new string[] { "Packages/com.autsoft.unitysupplements.mrtkextras/UiComponents/DatePicker" });
+
             if (findAssets.Length == 0)
             {
                 findAssets =
                     AssetDatabase
-                    .FindAssets("UpmAsset_DatePickerXR",new string[] { "Packages/com.autsoft.unitysupplements.mrtkextras/UiComponents/DatePicker" });
+                    .FindAssets("UpmAsset_DatePickerXR", new string[] { "Assets/AutSoft.UnitySupplements.MRTKExtras/UiComponents/DatePicker" });
             }
+
             var datePickerGuid = findAssets[0];
             var guidToAssetPath = AssetDatabase.GUIDToAssetPath(datePickerGuid);
             var prefab = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<Object>(guidToAssetPath));

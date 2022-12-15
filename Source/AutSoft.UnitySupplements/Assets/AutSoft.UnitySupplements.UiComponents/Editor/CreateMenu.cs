@@ -10,11 +10,11 @@ namespace AutSoft.UnitySupplements.UiComponents.Editor
         public static void CreateTimeLine()
         {
             //Parent
-            var findAssets = AssetDatabase.FindAssets("UpmAsset_TimelinePlayer", new string[] { "AutSoft.UnitySupplements.UiComponents/Timeline" });
+            var findAssets = AssetDatabase.FindAssets("UpmAsset_TimelinePlayer", new string[] { "Packages/UiComponents/Timeline" });
+
             if (findAssets.Length == 0)
             {
-                findAssets =
-                    AssetDatabase.FindAssets("UpmAsset_TimelinePlayer", new string[] { "Packages/UiComponents/Timeline" });
+                findAssets = AssetDatabase.FindAssets("UpmAsset_TimelinePlayer", new string[] { "AutSoft.UnitySupplements.UiComponents/Timeline" });
             }
             var timelineGuid = findAssets[0];
             var guidToAssetPath = AssetDatabase.GUIDToAssetPath(timelineGuid);
@@ -34,12 +34,12 @@ namespace AutSoft.UnitySupplements.UiComponents.Editor
         public static void CreateDatePicker()
         {
             //Parent
-            var findAssets =
-                AssetDatabase.FindAssets("UpmAsset_DatePicker", new string[] { "Assets/AutSoft.UnitySupplements.UiComponents/Datepicker" });
+            var findAssets = 
+                AssetDatabase.FindAssets("UpmAsset_DatePicker", new string[] { "Packages/com.autsoft.unitysupplements.uicomponents/Datepicker" });
             if (findAssets.Length == 0)
             {
                 findAssets =
-                    AssetDatabase.FindAssets("UpmAsset_DatePicker", new string[] { "Packages/com.autsoft.unitysupplements.uicomponents/Datepicker" });
+                    AssetDatabase.FindAssets("UpmAsset_DatePicker", new string[] { "Assets/AutSoft.UnitySupplements.UiComponents/Datepicker" });
             }
             var datePickerGuid = findAssets[0];
             var guidToAssetPath = AssetDatabase.GUIDToAssetPath(datePickerGuid);
