@@ -11,6 +11,11 @@ namespace AutSoft.UnitySupplements.UiComponents.Editor
         {
             //Parent
             var findAssets = AssetDatabase.FindAssets("UpmAsset_TimelinePlayer", new string[] { "AutSoft.UnitySupplements.UiComponents/Timeline" });
+            if (findAssets.Length == 0)
+            {
+                findAssets =
+                    AssetDatabase.FindAssets("UpmAsset_TimelinePlayer", new string[] { "Packages/AutSoft.UnitySupplements.UiComponents/Timeline" });
+            }
             var timelineGuid = findAssets[0];
             var guidToAssetPath = AssetDatabase.GUIDToAssetPath(timelineGuid);
             var prefab = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<Object>(guidToAssetPath));
@@ -29,7 +34,13 @@ namespace AutSoft.UnitySupplements.UiComponents.Editor
         public static void CreateDatePicker()
         {
             //Parent
-            var findAssets = AssetDatabase.FindAssets("UpmAsset_DatePicker",new string[] { "Assets/AutSoft.UnitySupplements.UiComponents/Datepicker"});
+            var findAssets =
+                AssetDatabase.FindAssets("UpmAsset_DatePicker", new string[] { "Assets/AutSoft.UnitySupplements.UiComponents/Datepicker" });
+            if (findAssets.Length == 0)
+            {
+                findAssets =
+                    AssetDatabase.FindAssets("UpmAsset_DatePicker", new string[] { "Packages/AutSoft.UnitySupplements.UiComponents/Datepicker" });
+            }
             var datePickerGuid = findAssets[0];
             var guidToAssetPath = AssetDatabase.GUIDToAssetPath(datePickerGuid);
             var prefab = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<Object>(guidToAssetPath));
