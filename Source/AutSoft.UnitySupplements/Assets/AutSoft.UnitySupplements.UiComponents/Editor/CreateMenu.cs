@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace AutSoft.UnitySupplements.UiComponents.Timeline
+namespace AutSoft.UnitySupplements.UiComponents.Editor
 {
     public static class CreateMenu
     {
@@ -10,7 +10,7 @@ namespace AutSoft.UnitySupplements.UiComponents.Timeline
         public static void CreateTimeLine()
         {
             //Parent
-            var findAssets = AssetDatabase.FindAssets("UpmAsset_TimelinePlayer");
+            var findAssets = AssetDatabase.FindAssets("UpmAsset_TimelinePlayer", new string[] { "AutSoft.UnitySupplements.UiComponents/Timeline" });
             var timelineGuid = findAssets[0];
             var guidToAssetPath = AssetDatabase.GUIDToAssetPath(timelineGuid);
             var prefab = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<Object>(guidToAssetPath));
@@ -29,7 +29,7 @@ namespace AutSoft.UnitySupplements.UiComponents.Timeline
         public static void CreateDatePicker()
         {
             //Parent
-            var findAssets = AssetDatabase.FindAssets("UpmAsset_DatePicker");
+            var findAssets = AssetDatabase.FindAssets("UpmAsset_DatePicker",new string[] { "Assets/AutSoft.UnitySupplements.UiComponents/Datepicker"});
             var datePickerGuid = findAssets[0];
             var guidToAssetPath = AssetDatabase.GUIDToAssetPath(datePickerGuid);
             var prefab = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<Object>(guidToAssetPath));
