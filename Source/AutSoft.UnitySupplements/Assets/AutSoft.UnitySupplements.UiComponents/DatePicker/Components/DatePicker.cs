@@ -29,8 +29,12 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         private void Awake()
         {
             this.CheckSerializedFields();
+            InitWithDate(DateTimeOffset.Now);
+        }
 
-            PickedDate = DateTimeOffset.Now;
+        public void InitWithDate(DateTimeOffset pickedDate)
+        {
+            PickedDate = pickedDate;
             PickedDate = PickedDate.AddSeconds(-PickedDate.Second);
 
             _dayNumberSpawner.InitDays(this, _font);
@@ -39,7 +43,6 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _monthYearPicker.InitYearMonth(PickedDate, _font);
             _weekDaySpwaner.SpawnWeekDayLetters(_font);
         }
-
         private void OnValidate()
         {
             foreach (var font in GetComponentsInChildren<TMP_Text>())
