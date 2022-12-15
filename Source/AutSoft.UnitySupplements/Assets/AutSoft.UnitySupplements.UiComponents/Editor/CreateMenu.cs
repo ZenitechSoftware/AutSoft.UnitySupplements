@@ -39,7 +39,7 @@ namespace AutSoft.UnitySupplements.UiComponents.Editor
             if (findAssets.Length == 0)
             {
                 findAssets =
-                    AssetDatabase.FindAssets("UpmAsset_DatePicker", new string[] { "Packages/UI Components/Datepicker" });
+                    AssetDatabase.FindAssets("UpmAsset_DatePicker", new string[] { "Packages/com.autsoft.unitysupplements.uicomponents/Datepicker" });
             }
             var datePickerGuid = findAssets[0];
             var guidToAssetPath = AssetDatabase.GUIDToAssetPath(datePickerGuid);
