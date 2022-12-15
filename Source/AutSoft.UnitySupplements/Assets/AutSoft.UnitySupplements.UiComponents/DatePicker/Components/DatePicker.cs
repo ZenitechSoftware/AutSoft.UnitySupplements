@@ -38,13 +38,14 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             PickedDate = pickedDate;
             PickedDate = PickedDate.AddSeconds(-PickedDate.Second);
 
+            _monthYearPicker.ActivateDefault();
+            _dateTimeToggler.ActivateDefault();
             _dayNumberSpawner.InitDays(this, _font);
             _dayNumberSpawner.UpdatePickedDate(PickedDate);
             _timePicker.InitTimePicker(this, PickedDate, _font);
             _monthYearPicker.InitYearMonth(PickedDate, _font);
             _weekDaySpwaner.SpawnWeekDayLetters(_font);
-            _monthYearPicker.ActivateDefault();
-            _dateTimeToggler.ActivateDefault();
+
         }
         private void OnValidate()
         {
