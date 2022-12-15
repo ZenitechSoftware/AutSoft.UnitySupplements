@@ -85,11 +85,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         public void ActivateDefault()
         {
             _daySelectorObject.SetActive(true);
-            if (_yearsObject.activeInHierarchy || _monthSelectorObject.activeInHierarchy)
-            {
-                _yearsObject.SetActive(false);
-                _monthSelectorObject.SetActive(false);
-            }
+            _yearsObject.SetActive(false);
+            _monthSelectorObject.SetActive(false);
         }
     }
 }
