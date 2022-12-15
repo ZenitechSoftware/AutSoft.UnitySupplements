@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
 {
+    [DefaultExecutionOrder(-1)]
     [RequireComponent(typeof(Interactable))]
     public class XrClickable : Clickable
     {
