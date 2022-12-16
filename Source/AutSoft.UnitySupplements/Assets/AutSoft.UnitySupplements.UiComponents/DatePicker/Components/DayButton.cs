@@ -15,6 +15,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private DateTimeOffset _currentDate;
         private DatePicker? _datePicker;
+        private bool _isOtherMonth;
 
         private void Awake() => this.CheckSerializedFields();
 
@@ -27,6 +28,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _dayLabel.font = _font;
             _dayButton.SetToggleGroup(toggleGroup);
             _dayLabel.text = currentDate.ToString("dd").TrimStart('0');
+            _isOtherMonth = otherMonth;
             if (otherMonth)
             {
                 _dayButton.Interactable = false;
@@ -41,7 +43,10 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private void DateSelected(bool isOn)
         {
-            _dayButton.Interactable = !isOn;
+            if (!_isOtherMonth)
+            {
+                _dayButton.Interactable = !isOn;
+            }
             if (!isOn) return;
             _datePicker.IsObjectNullThrow();
             _datePicker.SetDate(_currentDate);
