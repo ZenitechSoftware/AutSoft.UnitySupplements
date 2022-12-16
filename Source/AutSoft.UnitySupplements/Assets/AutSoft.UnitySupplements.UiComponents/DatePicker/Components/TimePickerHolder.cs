@@ -33,7 +33,10 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _datePicker = datePicker;
             if (CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern.Contains("tt"))
             {
-                _amPmSelector = Instantiate(_amPmSelectorPrefab.gameObject, transform).GetComponent<AmPmSelector>();
+                if (_amPmSelector.IsObjectNull())
+                {
+                    _amPmSelector = Instantiate(_amPmSelectorPrefab.gameObject, transform).GetComponent<AmPmSelector>();
+                }
                 _amPmSelector.InitAmPmSelector(datePicker, initialTime.Hour > 12, font);
                 _isAmPm = true;
                 _hourPicker.InitTimePicker(initialTime.Hour % 12, 12, font);
