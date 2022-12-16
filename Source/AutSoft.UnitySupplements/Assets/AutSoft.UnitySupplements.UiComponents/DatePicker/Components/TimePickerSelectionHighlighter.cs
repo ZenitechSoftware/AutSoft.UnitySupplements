@@ -1,6 +1,8 @@
 ﻿using AutSoft.UnitySupplements.Vitamins.Bindings;
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
@@ -22,8 +24,13 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         public override bool Interactable => _currentField.interactable;
 
-        private void Start() => this.Bind(_currentField.onEndEdit, OnEditEnd);
+        private void Start()
+        {
+            this.Bind(_currentField.onSubmit, OnSubmittedTime);
+            this.Bind(_currentField.onEndEdit, OnEditEnd);
+        }
 
+        private void OnSubmittedTime(string _) => EventSystem.current.SetSelectedGameObject(null);
         private void OnEditEnd(string _) => IsHighlighted = false;
     }
 }
