@@ -601,6 +601,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpmAsset_DatePicker
       objectReference: {fileID: 0}
+    - target: {fileID: 1823178963058120393, guid: c0ebf587073ea26469f428fee6d76056, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1823178963058120394, guid: c0ebf587073ea26469f428fee6d76056, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1821,7 +1825,7 @@ PrefabInstance:
       objectReference: {fileID: 2138298564}
     - target: {fileID: 5472444153387664551, guid: bcdb2b988a73df242994ee1a9f59c357, type: 3}
       propertyPath: _forcedCulture
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
