@@ -1,5 +1,5 @@
-﻿using AutSoft.UnitySupplements.Vitamins.Bindings;
-using System;
+﻿#nullable enable
+using AutSoft.UnitySupplements.Vitamins.Bindings;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -30,7 +30,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             this.Bind(_currentField.onEndEdit, OnEditEnd);
         }
 
-        private void OnSubmittedTime(string _) => EventSystem.current.SetSelectedGameObject(null);
+        private void OnSubmittedTime(string _) => EventSystem.current.SetSelectedGameObject(null!);
         private void OnEditEnd(string _) => IsHighlighted = false;
     }
 }
