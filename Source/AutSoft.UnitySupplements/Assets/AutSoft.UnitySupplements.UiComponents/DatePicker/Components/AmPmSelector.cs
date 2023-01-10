@@ -16,7 +16,6 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         [SerializeField] private Toggleable _pmToggle = default!;
 
         private DatePicker? _datePicker;
-        private bool _isPmInit;
 
         public bool IsAm => _amToggle.IsOn;
 
@@ -26,13 +25,6 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
             _amText.text = CultureInfo.CurrentCulture.DateTimeFormat.AMDesignator;
             _pmText.text = CultureInfo.CurrentCulture.DateTimeFormat.PMDesignator;
-        }
-
-        private void Start()
-        {
-            this.Bind(_amToggle.onValueChanged, AmClicked);
-            this.Bind(_pmToggle.onValueChanged, PmClicked);
-            if(_isPmInit) { _pmToggle.SetIsOnWithoutNotify(true); }
         }
 
         private void PmClicked(bool clicked)
@@ -47,7 +39,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         private void AmClicked(bool clicked)
         {
             _datePicker.IsObjectNullThrow();
-            if(clicked)
+            if (clicked)
             {
                 _datePicker.AddHour(-12);
             }
@@ -58,7 +50,14 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _datePicker = datePicker;
             _amText.font = font;
             _pmText.font = font;
-            _isPmInit = isPm;
+
+            _amToggle.onValueChanged.RemoveListener(AmClicked);
+            _pmToggle.onValueChanged.RemoveListener(PmClicked);
+
+            if (isPm) _pmToggle.IsOn = true;
+
+            this.Bind(_amToggle.onValueChanged, AmClicked);
+            this.Bind(_pmToggle.onValueChanged, PmClicked);
         }
     }
 }
