@@ -30,9 +30,10 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private void Start()
         {
+            if (_isPmInit) _pmToggle.IsOn = true;
+
             this.Bind(_amToggle.onValueChanged, AmClicked);
             this.Bind(_pmToggle.onValueChanged, PmClicked);
-            if(_isPmInit) { _pmToggle.SetIsOnWithoutNotify(true); }
         }
 
         private void PmClicked(bool clicked)
@@ -47,7 +48,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         private void AmClicked(bool clicked)
         {
             _datePicker.IsObjectNullThrow();
-            if(clicked)
+            if (clicked)
             {
                 _datePicker.AddHour(-12);
             }
