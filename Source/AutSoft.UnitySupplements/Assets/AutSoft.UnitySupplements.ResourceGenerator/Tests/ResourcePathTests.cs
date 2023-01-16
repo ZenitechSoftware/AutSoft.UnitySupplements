@@ -43,16 +43,27 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Tests
         }
 
         [Test]
-        public void LayersWork()
+        public void LayersCorrect()
         {
             var waterLayerFromEnum = ResourcePaths.Layers.Water;
             var waterLayerFromName = LayerMask.GetMask(ResourcePaths.LayerNames.Water);
             Assert.AreEqual(waterLayerFromName, (int)waterLayerFromEnum);
+        }
 
+        [Test]
+        public void LayersReversable()
+        {
+            var waterLayerFromEnum = ResourcePaths.Layers.Water;
+            var waterLayerFromName = LayerMask.GetMask(ResourcePaths.LayerNames.Water);
             var layerFromEnumName = LayerMask.GetMask(waterLayerFromEnum.ToString());
+
             Assert.AreEqual(waterLayerFromName, layerFromEnumName);
             Assert.AreEqual((int)waterLayerFromEnum, layerFromEnumName);
+        }
 
+        [Test]
+        public void AllLayersCorrect()
+        {
             var allLayers = ResourcePaths.Layers.All;
             var layers = Enumerable.Range(0, 32)
                 .Select(l => LayerMask.LayerToName(l))
