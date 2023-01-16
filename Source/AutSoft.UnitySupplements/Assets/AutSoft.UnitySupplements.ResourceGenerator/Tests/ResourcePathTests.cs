@@ -1,6 +1,9 @@
 ﻿#nullable enable
 using AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples;
 using NUnit.Framework;
+using System.Linq;
+using MoreLinq;
+using UnityEngine;
 
 namespace AutSoft.UnitySupplements.ResourceGenerator.Tests
 {
@@ -38,6 +41,25 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Tests
 
             var coinSpin = ResourcePaths.AudioClips.LoadCoinSpin();
             Assert.NotNull(coinSpin);
+        }
+
+        [Test]
+        public void LayersWork()
+        {
+            var waterLayerFromEnum = ResourcePaths.Layers.Water;
+            var waterLayerFromName = LayerMask.GetMask(ResourcePaths.LayerNames.Water);
+            Assert.AreEqual(waterLayerFromName, (int)waterLayerFromEnum);
+
+            var layerFromEnumName = LayerMask.GetMask(waterLayerFromEnum.ToString());
+            Assert.AreEqual(waterLayerFromName, layerFromEnumName);
+            Assert.AreEqual((int)waterLayerFromEnum, layerFromEnumName);
+
+            var allLayers = ResourcePaths.Layers.All;
+            var layers = Enumerable.Range(0, 32)
+                .Select(l => LayerMask.LayerToName(l))
+                .Where(l => !string.IsNullOrWhiteSpace(l))
+                .ToArray();
+            layers.ForEach(l => Assert.IsTrue(allLayers.HasFlag((ResourcePaths.Layers)LayerMask.GetMask(l))));
         }
     }
 }

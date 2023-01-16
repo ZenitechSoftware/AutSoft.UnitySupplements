@@ -16,15 +16,42 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
                 .Select(l => LayerMask.LayerToName(l))
                 .Where(l => !string.IsNullOrWhiteSpace(l))
                 .ToArray();
+            const string enumBegin =
+@"        [Flags]
+        public enum Layers
+        {
+            None = 0,";
+
+            const string enumEnd =
+@"
+        }
+";
 
             const string classBegin =
-@"        public static partial class Layers
+@"        public static partial class LayerNames
         {
-
 ";
             const string classEnd = "        }";
 
             var builder = new StringBuilder();
+
+            builder.AppendLine(enumBegin);
+
+            layers.ForEach(l =>
+            {
+                var layerCsName = PropertyNameGenerator.GeneratePropertyName(l);
+                builder.Append("            ").Append(layerCsName).Append(" = 1 << ").Append(LayerMask.NameToLayer(l)).AppendLine(",");
+            });
+
+            builder.Append("            All = ");
+
+            for (var i = 0; i < layers.Length; ++i)
+            {
+                builder.Append(PropertyNameGenerator.GeneratePropertyName(layers[i]));
+                if (i != layers.Length - 1) builder.Append(" | ");
+            }
+
+            builder.AppendLine(enumEnd);
 
             builder.AppendLine(classBegin);
 
@@ -32,8 +59,6 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
             {
                 var layerCsName = PropertyNameGenerator.GeneratePropertyName(l);
                 builder.Append("            public const string ").Append(layerCsName).Append(" = \"").Append(l).AppendLine("\";");
-                builder.Append("            public static int Get").Append(layerCsName).Append("Index() => LayerMask.NameToLayer(").Append(layerCsName).AppendLine(");");
-                builder.Append("            public static int Get").Append(layerCsName).Append("Mask() => LayerMask.GetMask(").Append(layerCsName).AppendLine(");");
             });
 
             builder.AppendLine(classEnd);
