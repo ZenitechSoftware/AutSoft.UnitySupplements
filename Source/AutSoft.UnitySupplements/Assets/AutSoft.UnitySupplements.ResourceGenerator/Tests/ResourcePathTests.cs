@@ -2,7 +2,6 @@
 using AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples;
 using NUnit.Framework;
 using System.Linq;
-using MoreLinq;
 using UnityEngine;
 
 namespace AutSoft.UnitySupplements.ResourceGenerator.Tests
@@ -58,7 +57,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Tests
             var layers = Enumerable.Range(0, 32)
                 .Select(l => LayerMask.LayerToName(l))
                 .Where(l => !string.IsNullOrWhiteSpace(l))
-                .ToArray();
+                .ToList();
             layers.ForEach(l => Assert.IsTrue(allLayers.HasFlag((ResourcePaths.Layers)LayerMask.GetMask(l))));
         }
     }
