@@ -214,7 +214,7 @@ namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
 #endif
 
         [Flags]
-        public enum Layers
+        public enum LayerMasks
         {
             None = 0,
             Default = 1 << 0,
@@ -224,6 +224,17 @@ namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
             UI = 1 << 5,
             SpatialAwareness = 1 << 31,
             All = Default | TransparentFX | IgnoreRaycast | Water | UI | SpatialAwareness
+        }
+
+        public enum LayerIndices
+        {
+            Default = 0,
+            TransparentFX = 1,
+            IgnoreRaycast = 2,
+            Water = 4,
+            UI = 5,
+            SpatialAwareness = 31,
+
         }
 
         public static partial class LayerNames

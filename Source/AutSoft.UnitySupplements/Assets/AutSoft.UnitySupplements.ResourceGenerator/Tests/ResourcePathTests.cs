@@ -43,17 +43,17 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Tests
         }
 
         [Test]
-        public void LayersCorrect()
+        public void LayersMasksCorrect()
         {
-            var waterLayerFromEnum = ResourcePaths.Layers.Water;
+            var waterLayerFromEnum = ResourcePaths.LayerMasks.Water;
             var waterLayerFromName = LayerMask.GetMask(ResourcePaths.LayerNames.Water);
             Assert.AreEqual(waterLayerFromName, (int)waterLayerFromEnum);
         }
 
         [Test]
-        public void LayersReversable()
+        public void LayersMasksReversable()
         {
-            var waterLayerFromEnum = ResourcePaths.Layers.Water;
+            var waterLayerFromEnum = ResourcePaths.LayerMasks.Water;
             var waterLayerFromName = LayerMask.GetMask(ResourcePaths.LayerNames.Water);
             var layerFromEnumName = LayerMask.GetMask(waterLayerFromEnum.ToString());
 
@@ -62,14 +62,33 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Tests
         }
 
         [Test]
-        public void AllLayersCorrect()
+        public void AllLayerMaskCorrect()
         {
-            var allLayers = ResourcePaths.Layers.All;
+            var allLayers = ResourcePaths.LayerMasks.All;
             var layers = Enumerable.Range(0, 32)
                 .Select(l => LayerMask.LayerToName(l))
                 .Where(l => !string.IsNullOrWhiteSpace(l))
                 .ToList();
-            layers.ForEach(l => Assert.IsTrue(allLayers.HasFlag((ResourcePaths.Layers)LayerMask.GetMask(l))));
+            layers.ForEach(l => Assert.IsTrue(allLayers.HasFlag((ResourcePaths.LayerMasks)LayerMask.GetMask(l))));
+        }
+
+        [Test]
+        public void LayersIndicesCorrect()
+        {
+            var waterLayerIndexFromEnum = ResourcePaths.LayerIndices.Water;
+            var waterLayerIndexFromName = LayerMask.NameToLayer(ResourcePaths.LayerNames.Water);
+            Assert.AreEqual((int)waterLayerIndexFromEnum, waterLayerIndexFromName);
+        }
+
+        [Test]
+        public void LayersIndicesReversable()
+        {
+            var waterLayerIndexFromEnum = ResourcePaths.LayerIndices.Water;
+            var waterLayerIndexFromName = LayerMask.NameToLayer(ResourcePaths.LayerNames.Water);
+            var layerIndexFromEnumName = LayerMask.NameToLayer(waterLayerIndexFromEnum.ToString());
+
+            Assert.AreEqual(waterLayerIndexFromName, layerIndexFromEnumName);
+            Assert.AreEqual((int)waterLayerIndexFromEnum, layerIndexFromEnumName);
         }
     }
 }

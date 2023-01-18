@@ -16,16 +16,25 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
                 .Select(l => LayerMask.LayerToName(l))
                 .Where(l => !string.IsNullOrWhiteSpace(l))
                 .ToArray();
-            const string enumBegin =
+
+            const string enumMasksBegin =
 @"        [Flags]
-        public enum Layers
+        public enum LayerMasks
         {
             None = 0,";
 
-            const string enumEnd =
+            const string enumMasksEnd =
 @"
         }
 ";
+
+            const string enumIndicesBegin =
+@"        public enum LayerIndices
+        {";
+
+            const string enumIndicesEnd =
+@"
+        }";
 
             const string classBegin =
 @"        public static partial class LayerNames
@@ -35,7 +44,8 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
 
             var builder = new StringBuilder();
 
-            builder.AppendLine(enumBegin);
+            // Building LayerMasks enum
+            builder.AppendLine(enumMasksBegin);
 
             layers.ForEach(l =>
             {
@@ -44,15 +54,26 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
             });
 
             builder.Append("            All = ");
-
             for (var i = 0; i < layers.Length; ++i)
             {
                 builder.Append(PropertyNameGenerator.GeneratePropertyName(layers[i]));
                 if (i != layers.Length - 1) builder.Append(" | ");
             }
 
-            builder.AppendLine(enumEnd);
+            builder.AppendLine(enumMasksEnd);
 
+            // Building LayerIndices enum
+            builder.AppendLine(enumIndicesBegin);
+
+            layers.ForEach(l =>
+            {
+                var layerCsName = PropertyNameGenerator.GeneratePropertyName(l);
+                builder.Append("            ").Append(layerCsName).Append(" = ").Append(LayerMask.NameToLayer(l)).AppendLine(",");
+            });
+
+            builder.AppendLine(enumIndicesEnd);
+
+            // Building LayerNames class
             builder.AppendLine(classBegin);
 
             layers.ForEach(l =>
