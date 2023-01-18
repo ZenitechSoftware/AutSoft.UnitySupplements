@@ -234,12 +234,10 @@ namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
             Water = 4,
             UI = 5,
             SpatialAwareness = 31,
-
         }
 
         public static partial class LayerNames
         {
-
             public const string Default = "Default";
             public const string TransparentFX = "TransparentFX";
             public const string IgnoreRaycast = "Ignore Raycast";

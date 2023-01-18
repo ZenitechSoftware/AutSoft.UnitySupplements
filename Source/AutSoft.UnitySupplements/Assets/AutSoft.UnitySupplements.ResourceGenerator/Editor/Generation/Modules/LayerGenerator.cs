@@ -33,13 +33,12 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
         {";
 
             const string enumIndicesEnd =
-@"
-        }";
+@"        }
+";
 
             const string classBegin =
 @"        public static partial class LayerNames
-        {
-";
+        {";
             const string classEnd = "        }";
 
             var builder = new StringBuilder();
