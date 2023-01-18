@@ -9,6 +9,7 @@
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
 {
@@ -80,11 +81,20 @@ namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
             public const string YearButton = "YearButton";
             public static GameObject LoadYearButton() => Resources.Load<GameObject>(YearButton);
 
+            public const string AmPmSelectorXR = "AmPmSelectorXR";
+            public static GameObject LoadAmPmSelectorXR() => Resources.Load<GameObject>(AmPmSelectorXR);
+
             public const string DayButtonXR = "DayButtonXR";
             public static GameObject LoadDayButtonXR() => Resources.Load<GameObject>(DayButtonXR);
 
+            public const string MonthButtonXR = "MonthButtonXR";
+            public static GameObject LoadMonthButtonXR() => Resources.Load<GameObject>(MonthButtonXR);
+
             public const string WeekLetterXR = "WeekLetterXR";
             public static GameObject LoadWeekLetterXR() => Resources.Load<GameObject>(WeekLetterXR);
+
+            public const string YearButtonXR = "YearButtonXR";
+            public static GameObject LoadYearButtonXR() => Resources.Load<GameObject>(YearButtonXR);
 
         }
 
@@ -203,27 +213,37 @@ namespace AutSoft.UnitySupplements.Samples.ResourceGeneratorSamples
         }
 #endif
 
-        public static partial class Layers
+        [Flags]
+        public enum LayerMasks
         {
+            None = 0,
+            Default = 1 << 0,
+            TransparentFX = 1 << 1,
+            IgnoreRaycast = 1 << 2,
+            Water = 1 << 4,
+            UI = 1 << 5,
+            SpatialAwareness = 1 << 31,
+            All = Default | TransparentFX | IgnoreRaycast | Water | UI | SpatialAwareness
+        }
 
+        public enum LayerIndices
+        {
+            Default = 0,
+            TransparentFX = 1,
+            IgnoreRaycast = 2,
+            Water = 4,
+            UI = 5,
+            SpatialAwareness = 31,
+        }
+
+        public static partial class LayerNames
+        {
             public const string Default = "Default";
-            public static int GetDefaultIndex() => LayerMask.NameToLayer(Default);
-            public static int GetDefaultMask() => LayerMask.GetMask(Default);
             public const string TransparentFX = "TransparentFX";
-            public static int GetTransparentFXIndex() => LayerMask.NameToLayer(TransparentFX);
-            public static int GetTransparentFXMask() => LayerMask.GetMask(TransparentFX);
             public const string IgnoreRaycast = "Ignore Raycast";
-            public static int GetIgnoreRaycastIndex() => LayerMask.NameToLayer(IgnoreRaycast);
-            public static int GetIgnoreRaycastMask() => LayerMask.GetMask(IgnoreRaycast);
             public const string Water = "Water";
-            public static int GetWaterIndex() => LayerMask.NameToLayer(Water);
-            public static int GetWaterMask() => LayerMask.GetMask(Water);
             public const string UI = "UI";
-            public static int GetUIIndex() => LayerMask.NameToLayer(UI);
-            public static int GetUIMask() => LayerMask.GetMask(UI);
             public const string SpatialAwareness = "Spatial Awareness";
-            public static int GetSpatialAwarenessIndex() => LayerMask.NameToLayer(SpatialAwareness);
-            public static int GetSpatialAwarenessMask() => LayerMask.GetMask(SpatialAwareness);
         }
 
 #if UNITY_EDITOR

@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 8777822778983391296}
   - component: {fileID: 5446211730866272355}
   m_Layer: 0
-  m_Name: AmPmSelector
+  m_Name: AmPmSelectorXR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

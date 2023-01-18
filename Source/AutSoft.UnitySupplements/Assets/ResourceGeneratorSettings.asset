@@ -20,6 +20,7 @@ MonoBehaviour:
   _usings:
   - UnityEngine
   - UnityEngine.SceneManagement
+  - System
   _data:
   - _className: Scenes
     _fileExtensions:
