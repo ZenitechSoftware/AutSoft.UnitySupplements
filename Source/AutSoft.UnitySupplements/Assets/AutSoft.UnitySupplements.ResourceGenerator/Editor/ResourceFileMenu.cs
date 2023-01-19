@@ -12,10 +12,10 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
         [MenuItem("Tools / Generate Resources Paths")]
         public static void GenerateResources()
         {
+            if (EditorUtility.DisplayCancelableProgressBar("Resource Generator", "Initializing context...", 0.0f)) throw new OperationCanceledException();
+
             var settings = ResourceGeneratorSettings.GetOrCreateSettings();
-
             var assetsFolder = Path.GetFullPath(Application.dataPath);
-
             var context = new ResourceContext
             (
                 assetsFolder,
@@ -32,22 +32,28 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
                 settings.EditorPrefsData
             );
 
+            if (EditorUtility.DisplayCancelableProgressBar("Resource Generator", "Genreating content...", 0.25f)) throw new OperationCanceledException();
             context.Info("Resource Path generation started");
             var fileContent = ResourceFileGenerator.CreateResourceFile(context);
 
+            if (EditorUtility.DisplayCancelableProgressBar("Resource Generator", $"Checking {context.ClassName}.cs...", 0.5f)) throw new OperationCanceledException();
             var filePath = Path.GetFullPath(Path.Combine(context.AssetsFolder, context.FolderPath, $"{context.ClassName}.cs"));
-
             if (File.Exists(filePath))
             {
                 var old = File.ReadAllText(filePath);
                 if (old == fileContent)
                 {
+                    EditorUtility.ClearProgressBar();
                     context.Info("Resource file did not change");
                     return;
                 }
             }
 
+            EditorUtility.DisplayProgressBar("Resource Generator", $"Writing {context.ClassName}.cs...", 0.75f);
+
             File.WriteAllText(filePath, fileContent);
+
+            EditorUtility.ClearProgressBar();
             context.Info($"Created resource file at: {filePath}");
         }
 
