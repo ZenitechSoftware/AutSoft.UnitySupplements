@@ -25,18 +25,21 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
         /// <param name="ctx">A generator context created from a <see cref="LicenseGeneratorSettings"/> asset.</param>
         public static async UniTask GenerateAsset(LicenseGeneratorContext ctx)
         {
-            var assetPath = AssetDatabase.GetAssetPath(ctx.Settings.MergedLicenseAsset);
-            if (ctx.Settings.MergedLicenseAsset is null || string.IsNullOrEmpty(assetPath))
-                assetPath = DefaultOutputAssetPath;
             ctx.Info("License asset generation started...");
+            if (EditorUtility.DisplayCancelableProgressBar("License Generator", "Reading assets...", 0.0f)) throw new OperationCanceledException();
+            var assetPath = AssetDatabase.GetAssetPath(ctx.Settings.MergedLicenseAsset);
+            if (ctx.Settings.MergedLicenseAsset == null || string.IsNullOrEmpty(assetPath))
+                assetPath = DefaultOutputAssetPath;
 
             var licenses = new List<LicenseModel>();
 
             //Read assets
-
             if (ctx.Settings.IsIncludePackageLicensesEnabled)
+            {
                 licenses.AddRange(await ListPackageLicensesAsync(ctx));
+            }
 
+            if (EditorUtility.DisplayCancelableProgressBar("License Generator", "Listing license assets...", 0.25f)) throw new OperationCanceledException();
             licenses.AddRange(ctx.Settings.IncludedLicenseAssets
                 .Select(asset => new LicenseModel
                 {
@@ -48,14 +51,19 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
                 licenses.AddRange(ReadLicenseAssets(ctx.Settings.IncludedLicensesFolderPath));
 
             //Write merged asset
+            if (EditorUtility.DisplayCancelableProgressBar("License Generator", "Writing merged license asset...", 0.5f)) throw new OperationCanceledException();
             AssetDatabase.DeleteAsset(assetPath);
             var mergedContent = string.Join(LicenseSeparator, licenses.Select(l => CreateTextFromLicense(l)));
             await File.WriteAllTextAsync(assetPath, mergedContent);
             AssetDatabase.Refresh();
             ctx.Settings.SetOutputAsset(AssetDatabase.LoadAssetAtPath<TextAsset>(assetPath));
 
+            EditorUtility.DisplayProgressBar("License Generator", "Writing merged license asset...", 0.9f);
+
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+
+            EditorUtility.ClearProgressBar();
             ctx.Info("License asset generation finished.");
         }
 
@@ -71,12 +79,17 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
             var licenses = new List<LicenseModel>();
 
             var result = await ListInstalledPackages();
-            var packages = result.Where(r => //filter out built-in modules & features
-                !r.name.StartsWith("com.unity.modules.") &&
-                !r.name.StartsWith("com.unity.feature."));
+            var packages = result
+                .Where(r => //filter out built-in modules & features
+                    !r.name.StartsWith("com.unity.modules.") &&
+                    !r.name.StartsWith("com.unity.feature."))
+                .ToList();
 
-            foreach (var package in packages)
+            for (var i = 0; i < packages.Count; i++)
             {
+                var package = packages[i];
+                if (EditorUtility.DisplayCancelableProgressBar("License Generator", $"[{i + 1}/{packages.Count}] - {package.name}", ((float)i) / packages.Count * 0.25f))
+                    throw new OperationCanceledException();
                 string licenseText;
 
                 if (FindLicenseAtPackageRoot(package.assetPath, out var license))
