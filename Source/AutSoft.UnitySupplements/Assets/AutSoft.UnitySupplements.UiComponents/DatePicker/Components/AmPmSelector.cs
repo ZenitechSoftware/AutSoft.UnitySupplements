@@ -54,7 +54,14 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _amToggle.onValueChanged.RemoveListener(AmClicked);
             _pmToggle.onValueChanged.RemoveListener(PmClicked);
 
-            if (isPm) _pmToggle.IsOn = true;
+            if (isPm)
+            {
+                _pmToggle.IsOn = true;
+            }
+            else
+            {
+                _amToggle.IsOn = true;
+            }
 
             this.Bind(_amToggle.onValueChanged, AmClicked);
             this.Bind(_pmToggle.onValueChanged, PmClicked);
