@@ -194,7 +194,13 @@ namespace AutSoft.UnitySupplements.Vitamins
             }
         }
 
-        private int PropHashCode() =>
-            _positions.Aggregate(0, (total, it) => total ^ it.GetHashCode()) ^ _segments.GetHashCode() ^ _startWidth.GetHashCode() ^ _endWidth.GetHashCode();
+        private int PropHashCode()
+        {
+            var hash = 0;
+            foreach (var position in _positions)
+                hash ^= position.GetHashCode();
+            hash ^= _segments.GetHashCode() ^ _startWidth.GetHashCode() ^ _endWidth.GetHashCode();
+            return hash;
+        }
     }
 }
