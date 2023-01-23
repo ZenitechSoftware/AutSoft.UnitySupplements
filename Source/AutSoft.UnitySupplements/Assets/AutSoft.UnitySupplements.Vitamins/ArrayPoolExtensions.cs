@@ -8,6 +8,9 @@ namespace AutSoft.UnitySupplements.Vitamins
         public static PooledArray<T> RentDisposable<T>(this ArrayPool<T> pool, int minSize = 200) => new(minSize, pool.Rent(minSize), pool);
     }
 
+    /// <summary>
+    /// A wrapper around <see cref="System.Buffers.ArrayPool{T}"/> to automatically return to the pool upon disposal.
+    /// </summary>
     public sealed class PooledArray<T> : IDisposable
     {
         private readonly ArrayPool<T> _pool;

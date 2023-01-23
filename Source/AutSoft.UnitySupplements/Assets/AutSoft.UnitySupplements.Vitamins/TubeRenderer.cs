@@ -6,6 +6,12 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Vitamins
 {
+    /// <summary>
+    /// Works similarly to Unity's <see cref="LineRenderer"/> component but the segments are made of a mesh of connected tubes.
+    /// </summary>
+    /// <remarks>
+    /// The mesh is generated in the next LateUpdate() after properties have changed.
+    /// </remarks>
     [RequireComponent(typeof(MeshFilter))]
     [ExecuteInEditMode]
     public class TubeRenderer : MonoBehaviour
