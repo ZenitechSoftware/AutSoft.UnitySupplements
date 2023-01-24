@@ -56,11 +56,14 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
             if (isPm)
             {
+                _amToggle.IsOn = false;
                 _pmToggle.IsOn = true;
+
             }
             else
             {
                 _amToggle.IsOn = true;
+                _pmToggle.IsOn = false;
             }
 
             this.Bind(_amToggle.onValueChanged, AmClicked);
