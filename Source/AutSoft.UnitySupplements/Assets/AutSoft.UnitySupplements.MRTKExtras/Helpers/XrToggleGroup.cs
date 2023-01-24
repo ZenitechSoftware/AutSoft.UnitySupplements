@@ -23,7 +23,15 @@ namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
             {
                 toggle.Bind(toggle.onValueChanged, OnInteractableClicked);
             }
-            _currentOn = GetFirstActiveToggle();
+            if (AnyTogglesOn())
+            {
+                _currentOn = GetFirstActiveToggle();
+                _currentOn.Interactable = false;
+            }
+            else
+            {
+                _currentOn = null;
+            }
         }
         private void Start() => EnsureValidState();
 
@@ -73,7 +81,10 @@ namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
         private void ValidateToggleIsInGroup(XrToggleable toggle)
         {
             if (toggle == null || !_toggles.Contains(toggle))
-                throw new ArgumentException($"Toggle is not part of group or null {nameof(toggle)}");
+            {
+                throw new ArgumentException($"Toggle is not part of group or null " +
+                    $"{(toggle.IsObjectNull() ? "null" : toggle.gameObject.name)}");
+            }
         }
 
         public void NotifyToggleOn(XrToggleable toggle)
