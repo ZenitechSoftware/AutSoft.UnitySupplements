@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Buffers;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace AutSoft.UnitySupplements.Vitamins
@@ -197,8 +196,8 @@ namespace AutSoft.UnitySupplements.Vitamins
         private int PropHashCode()
         {
             var hash = 0;
-            foreach (var position in _positions)
-                hash ^= position.GetHashCode();
+            for (var i = 0; i < _positions.Count; i++)
+                hash ^= _positions[i].GetHashCode();
             hash ^= _segments.GetHashCode() ^ _startWidth.GetHashCode() ^ _endWidth.GetHashCode();
             return hash;
         }
