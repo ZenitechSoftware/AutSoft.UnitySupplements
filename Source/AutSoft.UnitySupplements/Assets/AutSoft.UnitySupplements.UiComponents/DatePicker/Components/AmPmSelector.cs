@@ -58,7 +58,6 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             {
                 _amToggle.IsOn = false;
                 _pmToggle.IsOn = true;
-
             }
             else
             {
