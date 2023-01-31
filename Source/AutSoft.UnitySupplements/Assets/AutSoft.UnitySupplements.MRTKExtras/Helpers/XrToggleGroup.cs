@@ -9,6 +9,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
 {
+    /// <summary>
+    /// XR compatible <see cref="ToggleableGroup"/> script.
+    /// </summary>
     public class XrToggleGroup : ToggleableGroup
     {
         [SerializeField] private bool _allowSwitchOff = false;
@@ -135,6 +138,5 @@ namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
                 }
             }
         }
-
     }
 }

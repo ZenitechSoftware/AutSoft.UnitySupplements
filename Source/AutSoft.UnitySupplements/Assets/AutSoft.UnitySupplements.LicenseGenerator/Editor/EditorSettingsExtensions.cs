@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 {
+    /// <summary>
+    /// UnityEditor extension to add License Generator to the project settings.
+    /// </summary>
     public static class EditorSettingsExtensions
     {
         [SettingsProvider]

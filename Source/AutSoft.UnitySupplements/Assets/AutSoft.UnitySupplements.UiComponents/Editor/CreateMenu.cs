@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.UiComponents.Editor
 {
+    /// <summary>
+    /// UnityEditor extensions to add UI components to menu items.
+    /// </summary>
     public static class CreateMenu
     {
         [MenuItem("GameObject/AutSoft/TimeLine/BasicTimelinePlayer", false, 0)]
@@ -34,7 +37,7 @@ namespace AutSoft.UnitySupplements.UiComponents.Editor
         public static void CreateDatePicker()
         {
             //Parent
-            var findAssets = 
+            var findAssets =
                 AssetDatabase.FindAssets("UpmAsset_DatePicker", new string[] { "Packages/com.autsoft.unitysupplements.uicomponents/Datepicker" });
             if (findAssets.Length == 0)
             {

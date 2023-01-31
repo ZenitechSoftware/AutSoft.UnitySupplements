@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.PostProcessors
 {
     /// <summary>
-    /// Removes duplicate newlines
+    /// A PostProcessor that removes duplicate newlines.
     /// </summary>
     public sealed class RemoveDuplicateNewLines : IResourcePostProcessor
     {

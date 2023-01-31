@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
 {
+    /// <summary>
+    /// Generates UnityEditor menu items for each scene asset found in the project.
+    /// </summary>
     public sealed class SceneButtonGenerator : IModuleGenerator
     {
         public string Generate(ResourceContext context)

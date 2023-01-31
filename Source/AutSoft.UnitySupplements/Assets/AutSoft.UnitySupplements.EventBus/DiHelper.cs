@@ -5,8 +5,15 @@ using System.Reflection;
 
 namespace AutSoft.UnitySupplements.EventBus
 {
+    /// <summary>
+    /// Extension methods for <see cref="IServiceCollection"/> to add EventBus functionality.
+    /// </summary>
     public static class DiHelper
     {
+        /// <summary>
+        /// Adds <see cref="IEventBus"/> implemented by <see cref="SimpleEventBus"/> as a singleton service.
+        /// </summary>
+        /// <param name="assemblies">Assemblies where <see cref="IEventHandler{T}"/> is implemented.</param>
         public static void AddEventBus(this IServiceCollection services, params Assembly[] assemblies)
         {
             services.AddSingleton<IEventBus, SimpleEventBus>();

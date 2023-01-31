@@ -6,6 +6,10 @@ using UnityEngine.Events;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
+    /// <summary>
+    /// Simple date and time picker. Initializes to <see cref="DateTimeOffset.Now"/> by default.
+    /// Used on the DatePicker and DatePickerXR prefabs.
+    /// </summary>
     public class DatePicker : MonoBehaviour
     {
         [SerializeField] private YearMonthPicker _monthYearPicker = default!;
@@ -16,11 +20,19 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         [SerializeField] private TMP_FontAsset _font = default!;
         private DateTimeOffset _pickedDate;
 
+        /// <summary>
+        /// Invoked on <see cref="PickedDate"/> change.
+        /// </summary>
         public UnityEvent<DateTimeOffset> onTimePicked { get; } = new();
 
+        /// <summary>
+        /// Gets the currently selected date and time.
+        /// Use <see cref="SetDate"/> to set value.
+        /// </summary>
         public DateTimeOffset PickedDate
         {
-            get => _pickedDate; set
+            get => _pickedDate;
+            private set
             {
                 _pickedDate = value;
                 onTimePicked.Invoke(_pickedDate);
@@ -45,8 +57,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             _timePicker.InitTimePicker(this, PickedDate, _font);
             _monthYearPicker.InitYearMonth(PickedDate, _font);
             _weekDaySpwaner.SpawnWeekDayLetters(_font);
-
         }
+
         private void OnValidate()
         {
             foreach (var font in GetComponentsInChildren<TMP_Text>())

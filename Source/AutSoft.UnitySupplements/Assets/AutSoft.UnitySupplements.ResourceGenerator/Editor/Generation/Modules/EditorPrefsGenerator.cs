@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
 {
+    /// <summary>
+    /// Generates well-known, strongly typed custom Editor Preferences.
+    /// </summary>
     public sealed class EditorPrefsGenerator : IModuleGenerator
     {
         public string Generate(ResourceContext context)

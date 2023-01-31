@@ -9,6 +9,12 @@ using UnityEngine.Events;
 
 namespace AutSoft.UnitySupplements.UiComponents
 {
+    /// <summary>
+    /// Use this script to display items of a collection using a prefab.
+    /// </summary>
+    /// <remarks>
+    /// Assign <see cref="_contentParent"/> before initializing.
+    /// </remarks>
     public class ListView : MonoBehaviour
     {
         [SerializeField] private Transform _contentParent = default!;

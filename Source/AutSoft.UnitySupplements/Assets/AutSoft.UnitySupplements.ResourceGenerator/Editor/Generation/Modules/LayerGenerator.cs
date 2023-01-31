@@ -6,6 +6,14 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
 {
+    /// <summary>
+    /// Generates the following enums and classes based on Unity layers:
+    /// <list type="bullet">
+    /// <item>ResourcePaths.LayerMasks enum</item>
+    /// <item>ResourcePaths.LayerIndices enum</item>
+    /// <item>ResourcePaths.LayerNames class</item>
+    /// </list>
+    /// </summary>
     public sealed class LayerGenerator : IModuleGenerator
     {
         public string Generate(ResourceContext context)

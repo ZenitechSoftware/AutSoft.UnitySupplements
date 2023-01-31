@@ -4,6 +4,10 @@ using UnityEngine.Events;
 
 namespace AutSoft.UnitySupplements.UiComponents.Helpers
 {
+    /// <summary>
+    /// Common base class to handle both XR / non-XR (regular) toggles.
+    /// See <seealso cref="RegularToggle"/> and <seealso cref="XrToggleable"/> scripts.
+    /// </summary>
     public abstract class Toggleable : MonoBehaviour
     {
         [SerializeField] protected bool _isOn = true;

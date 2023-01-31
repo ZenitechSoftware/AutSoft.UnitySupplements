@@ -4,6 +4,10 @@ using UnityEngine.Events;
 
 namespace AutSoft.UnitySupplements.UiComponents.Helpers
 {
+    /// <summary>
+    /// Common base class to handle both XR / non-XR (regular) buttons.
+    /// See <seealso cref="RegularClickable"/> and <seealso cref="XrClickable"/> scripts.
+    /// </summary>
     public abstract class Clickable : MonoBehaviour
     {
         public UnityEvent onClick { get;} = new();
