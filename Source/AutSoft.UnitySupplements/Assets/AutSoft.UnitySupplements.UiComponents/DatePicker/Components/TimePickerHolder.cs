@@ -39,7 +39,7 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                 }
                 _amPmSelector.InitAmPmSelector(datePicker, initialTime.Hour > 12, font);
                 _isAmPm = true;
-                _hourPicker.InitTimePicker((initialTime.Hour % 12) + 1, 1, 12, font);
+                _hourPicker.InitTimePicker(initialTime.Hour % 12, 1, 12, font);
                 _minutePicker.InitTimePicker(initialTime.Minute, 0, 59, font);
             }
             else
@@ -55,7 +55,14 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             if (_isAmPm)
             {
                 _amPmSelector.IsObjectNullThrow();
-                _datePicker.SetHour(hour + (_amPmSelector.IsAm ? 0 : 12));
+                if (hour == 12)
+                {
+                    _datePicker.SetHour(_amPmSelector.IsAm ? 0 : 12);
+                }
+                else
+                {
+                    _datePicker.SetHour(hour + (_amPmSelector.IsAm ? 0 : 12));
+                }
             }
             else
             {
