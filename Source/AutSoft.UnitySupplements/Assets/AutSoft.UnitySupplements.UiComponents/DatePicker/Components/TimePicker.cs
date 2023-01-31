@@ -17,7 +17,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         [Header("Optional")]
         [SerializeField] private TMP_InputField? _timeInput;
 
-        private int _limit;
+        private int _upperLimit;
+        private int _lowerLimit;
         private int _currentTime;
 
         public UnityEvent<int> onTimeChanged { get; } = new();
@@ -54,13 +55,13 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private void CheckLimits()
         {
-            if (_currentTime < 0)
+            if (_currentTime < _lowerLimit)
             {
-                _currentTime = _limit - 1;
+                _currentTime = _upperLimit;
             }
-            if (_currentTime >= _limit)
+            if (_currentTime > _upperLimit)
             {
-                _currentTime = 0;
+                _currentTime = _lowerLimit;
             }
             UpdateText();
             onTimeChanged.Invoke(_currentTime);
@@ -78,9 +79,10 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
             }
         }
 
-        public void InitTimePicker(int currentTime, int limit, TMP_FontAsset font)
+        public void InitTimePicker(int currentTime, int lowerLimit, int upperLimit, TMP_FontAsset font)
         {
-            _limit = limit;
+            _upperLimit = upperLimit;
+            _lowerLimit = lowerLimit;
             _currentTime = currentTime;
             if (!_timeInput.IsObjectNull())
             {
