@@ -37,9 +37,10 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                 {
                     _amPmSelector = Instantiate(_amPmSelectorPrefab.gameObject, transform).GetComponent<AmPmSelector>();
                 }
-                _amPmSelector.InitAmPmSelector(datePicker, initialTime.Hour > 12, font);
+                _amPmSelector.InitAmPmSelector(datePicker, initialTime.Hour >= 12, font);
                 _isAmPm = true;
-                _hourPicker.InitTimePicker(initialTime.Hour % 12, 1, 12, font);
+                var currentHour = initialTime.Hour % 12 == 0 ? 12 : initialTime.Hour % 12;
+                _hourPicker.InitTimePicker(currentHour, 1, 12, font);
                 _minutePicker.InitTimePicker(initialTime.Minute, 0, 59, font);
             }
             else
