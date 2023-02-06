@@ -205,7 +205,7 @@ Transform:
   - {fileID: 733943439328370788}
   - {fileID: 36228390034502464}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8053492897340679375
 MonoBehaviour:
@@ -219,10 +219,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e13e8baf68cd9324fbb3dcc3c8e5bd55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _incrementTime: {fileID: 4718418034415134670}
-  _reduceTime: {fileID: 7904640150281866926}
-  _timePickerText: {fileID: 6899007685744504833}
-  _timeInput: {fileID: 0}
+  _incrementValue: {fileID: 4718418034415134670}
+  _decrementValue: {fileID: 7904640150281866926}
+  _labelText: {fileID: 6899007685744504833}
+  _textInput: {fileID: 0}
 --- !u!1001 &4842514379045547873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -360,7 +360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4878705357547985977, guid: a513e8934f2548347b5216cadd2eafb7, type: 3}
       propertyPath: m_Name
-      value: TimePickerIncrement
+      value: TimePickerIncrease
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
