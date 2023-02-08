@@ -4,6 +4,9 @@ using UnityEditor;
 
 namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 {
+    /// <summary>
+    /// UnityEditor extension to add License Generator shortcut to the menu bar.
+    /// </summary>
     public static class EditorMenuExtensions
     {
         public static bool IsExecuting { get; private set; }

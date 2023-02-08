@@ -9,8 +9,20 @@ namespace AutSoft.UnitySupplements.Vitamins
     /// </summary>
     public class Billboard : MonoBehaviour
     {
+        /// <summary>
+        /// The target camera of the billboard that the billboard is headed towards.
+        /// </summary>
         [field: SerializeField] public Camera Camera { get; set; } = default!;
+
+        /// <summary>
+        /// Gets or sets flags that lock the billboard orientation on the specified axes.
+        /// </summary>
         [field: SerializeField] public PivotAxis PivotAxis { get; set; }
+
+        /// <summary>
+        /// Use the Camera Up vector instead of Vector3.up to orient the billboard.
+        /// This is useful in XR where the camera follows head tilt.
+        /// </summary>
         [field: SerializeField] public bool UseCameraUpAxis { get; set; } = true;
 
         private void Awake()

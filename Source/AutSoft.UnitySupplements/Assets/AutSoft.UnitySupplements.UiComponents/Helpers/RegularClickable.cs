@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.Helpers
 {
+    /// <summary>
+    /// Implements <see cref="Clickable"/> script on a <see cref="Button"/>.
+    /// </summary>
     [DefaultExecutionOrder(-1)]
     [RequireComponent(typeof(Button))]
     public class RegularClickable : Clickable, IDeselectHandler, ISelectHandler

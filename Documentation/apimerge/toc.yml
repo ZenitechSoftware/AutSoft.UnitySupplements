@@ -2,9 +2,11 @@
   href: ../api/EventBus/toc.yml
 - name: ResourceGenerator
   href: ../api/ResourceGenerator/toc.yml
-- name: Timeline
-  href: ../api/Timeline/toc.yml
+- name: UI Components
+  href: ../api/UiComponents/toc.yml
 - name: Vitamins
   href: ../api/Vitamins/toc.yml
 - name: LicenseGenerator
   href: ../api/LicenseGenerator/toc.yml
+- name: MRTKExtras
+  href: ../api/MRTKExtras/toc.yml

@@ -11,6 +11,9 @@ using UnityEngine.Networking;
 
 namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 {
+    /// <summary>
+    /// Contains methods used to generate merged license file based on existing assets and packages.
+    /// </summary>
     public static class LicenseGenerator
     {
         private const string DefaultOutputAssetPath = "Assets/Licenses.txt";

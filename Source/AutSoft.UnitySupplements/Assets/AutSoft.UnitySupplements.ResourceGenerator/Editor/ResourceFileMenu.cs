@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
 {
+    /// <summary>
+    /// UnityEditor extension to add Resource Generator function to the "Tools" menu.
+    /// </summary>
     public static class ResourceFileMenu
     {
         [MenuItem("Tools / Generate Resources Paths")]

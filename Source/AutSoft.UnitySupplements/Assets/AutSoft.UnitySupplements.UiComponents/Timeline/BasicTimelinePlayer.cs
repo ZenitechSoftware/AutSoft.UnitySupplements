@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.Timeline
 {
+    /// <summary>
+    /// Provides a simple implementation of <see cref="TimelinePlayerBase"/> for the TimelinePlayer prefab.
+    /// </summary>
     public class BasicTimelinePlayer : TimelinePlayerBase
     {
         [Header("Controls")]

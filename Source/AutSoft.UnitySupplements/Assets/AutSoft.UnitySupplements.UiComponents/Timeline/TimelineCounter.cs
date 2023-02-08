@@ -4,6 +4,10 @@ using System;
 
 namespace AutSoft.UnitySupplements.UiComponents.Timeline
 {
+    /// <summary>
+    /// The default implementation of <see cref="ITimelineCounter"/>
+    /// that uses <see cref="IEventBus"/> to signal time and playback state changes.
+    /// </summary>
     public sealed class TimelineCounter : ITimelineCounter
     {
         private readonly IEventBus _eventBus;

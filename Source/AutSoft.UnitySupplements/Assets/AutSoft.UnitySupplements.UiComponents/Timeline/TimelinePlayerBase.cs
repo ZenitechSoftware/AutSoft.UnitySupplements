@@ -9,6 +9,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.UiComponents.Timeline
 {
+    /// <summary>
+    /// Provides a base class for TimelinePlayer implentations.
+    /// </summary>
     public abstract class TimelinePlayerBase : MonoBehaviourInjected
     {
         [Inject] private readonly IEventBus _eventBus = default!;

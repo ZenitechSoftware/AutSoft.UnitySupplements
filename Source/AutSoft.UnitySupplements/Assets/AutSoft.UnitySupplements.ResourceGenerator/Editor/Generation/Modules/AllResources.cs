@@ -11,7 +11,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation.Modules
     /// <summary>
     /// Generates code for all known and loadable Unity resource files.
     /// Each loadable type is produced as a static class.
-    /// Also creates code for loading scenes
+    /// Also creates code for loading scenes.
     /// </summary>
     public sealed class AllResources : IModuleGenerator
     {

@@ -8,10 +8,14 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
+    /// <summary>
+    /// Input field for time using hour and minute spinners and an AM/PM selector.
+    /// </summary>
+    /// <remarks>Requires initialization with a <see cref="DatePicker"/> component.</remarks>
     public class TimePickerHolder : MonoBehaviour
     {
-        [SerializeField] private TimePicker _hourPicker = default!;
-        [SerializeField] private TimePicker _minutePicker = default!;
+        [SerializeField] private SpinnerInput _hourPicker = default!;
+        [SerializeField] private SpinnerInput _minutePicker = default!;
 
         [Header("External")]
         [SerializeField] private AmPmSelector _amPmSelectorPrefab = default!;
@@ -24,8 +28,8 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         private void Start()
         {
-            this.Bind(_hourPicker.onTimeChanged, SetHour);
-            this.Bind(_minutePicker.onTimeChanged, SetMinute);
+            this.Bind(_hourPicker.onValueChanged, SetHour);
+            this.Bind(_minutePicker.onValueChanged, SetMinute);
         }
 
         public void InitTimePicker(DatePicker datePicker, DateTimeOffset initialTime, TMP_FontAsset font)
@@ -40,13 +44,13 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
                 _amPmSelector.InitAmPmSelector(datePicker, initialTime.Hour >= 12, font);
                 _isAmPm = true;
                 var currentHour = initialTime.Hour % 12 == 0 ? 12 : initialTime.Hour % 12;
-                _hourPicker.InitTimePicker(currentHour, 1, 12, font);
-                _minutePicker.InitTimePicker(initialTime.Minute, 0, 59, font);
+                _hourPicker.Initialize(currentHour, 1, 12, font);
+                _minutePicker.Initialize(initialTime.Minute, 0, 59, font);
             }
             else
             {
-                _hourPicker.InitTimePicker(initialTime.Hour, 0, 24, font);
-                _minutePicker.InitTimePicker(initialTime.Minute,0, 59, font);
+                _hourPicker.Initialize(initialTime.Hour, 0, 24, font);
+                _minutePicker.Initialize(initialTime.Minute,0, 59, font);
             }
         }
 

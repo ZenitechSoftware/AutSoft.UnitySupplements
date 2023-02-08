@@ -9,6 +9,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.ResourceGenerator.Editor
 {
+    /// <summary>
+    /// ScriptableObject that stores settings for ResourceGenerator.
+    /// </summary>
     public sealed class ResourceGeneratorSettings : ScriptableObject
     {
         [Serializable]

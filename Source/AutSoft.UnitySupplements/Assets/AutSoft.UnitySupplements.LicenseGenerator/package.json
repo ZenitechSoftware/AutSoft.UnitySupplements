@@ -1,6 +1,6 @@
 {
     "name": "com.autsoft.unitysupplements.licensegenerator",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "displayName": "License Generator",
     "description": "Generate a merged license asset from packages and other assets.",
     "license": "MIT",

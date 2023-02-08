@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.MRTKExtras.Editor
 {
+    /// <summary>
+    /// UnityEditor extensions to add XR related menu items.
+    /// </summary>
     public static class CreateMenuXR
     {
         [MenuItem("GameObject/AutSoft/XR/Datepicker", false, 0)]

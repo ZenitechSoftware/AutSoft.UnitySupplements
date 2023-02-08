@@ -35,6 +35,9 @@ namespace AutSoft.UnitySupplements.Vitamins
 
         public T[] Values { get; }
 
+        /// <summary>
+        /// Returns the array to the pool.
+        /// </summary>
         public void Dispose() => _pool.Return(Values);
 
         public T this[int index]

@@ -6,6 +6,10 @@ using UnityEngine.Events;
 
 namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 {
+    /// <summary>
+    /// Simple date and time picker. Initializes to <see cref="DateTimeOffset.Now"/> on Awake() by default.
+    /// Used on the DatePicker and DatePickerXR prefabs.
+    /// </summary>
     public class DatePicker : MonoBehaviour
     {
         [SerializeField] private YearMonthPicker _monthYearPicker = default!;
@@ -16,14 +20,22 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
         [SerializeField] private TMP_FontAsset _font = default!;
         private DateTimeOffset _pickedDate;
 
-        public UnityEvent<DateTimeOffset> onTimePicked { get; } = new();
+        /// <summary>
+        /// Invoked on <see cref="PickedDateTime"/> change.
+        /// </summary>
+        public UnityEvent<DateTimeOffset> onDateTimePicked { get; } = new();
 
-        public DateTimeOffset PickedDate
+        /// <summary>
+        /// Gets the currently selected date and time.
+        /// Use the setter methods or <see cref="InitWithDate"/> to set value.
+        /// </summary>
+        public DateTimeOffset PickedDateTime
         {
-            get => _pickedDate; set
+            get => _pickedDate;
+            private set
             {
                 _pickedDate = value;
-                onTimePicked.Invoke(_pickedDate);
+                onDateTimePicked.Invoke(_pickedDate);
             }
         }
 
@@ -35,36 +47,39 @@ namespace AutSoft.UnitySupplements.UiComponents.DatePicker.Components
 
         public void InitWithDate(DateTimeOffset pickedDate)
         {
-            PickedDate = pickedDate;
-            PickedDate = PickedDate.AddSeconds(-PickedDate.Second);
+            PickedDateTime = pickedDate;
+            PickedDateTime = PickedDateTime.AddSeconds(-PickedDateTime.Second);
 
             _monthYearPicker.ActivateDefault();
             _dateTimeToggler.ActivateDefault();
             _dayNumberSpawner.InitDays(this, _font);
-            _dayNumberSpawner.UpdatePickedDate(PickedDate);
-            _timePicker.InitTimePicker(this, PickedDate, _font);
-            _monthYearPicker.InitYearMonth(PickedDate, _font);
+            _dayNumberSpawner.UpdatePickedDate(PickedDateTime);
+            _timePicker.InitTimePicker(this, PickedDateTime, _font);
+            _monthYearPicker.InitYearMonth(PickedDateTime, _font);
             _weekDaySpwaner.SpawnWeekDayLetters(_font);
-
         }
+
         private void OnValidate()
         {
-            foreach (var font in GetComponentsInChildren<TMP_Text>())
+            foreach (var text in GetComponentsInChildren<TMP_Text>())
             {
-                font.font = _font;
+                text.font = _font;
             }
         }
 
+        /// <summary>
+        /// Sets the current date without changing time of the day.
+        /// </summary>
         public void SetDate(DateTimeOffset pickedDate)
         {
-            PickedDate = PickedDate.AddYears(pickedDate.Year - PickedDate.Year).AddMonths(pickedDate.Month - PickedDate.Month).AddDays(pickedDate.Day - PickedDate.Day);
-            _dayNumberSpawner.UpdatePickedDate(PickedDate);
+            PickedDateTime = PickedDateTime.AddYears(pickedDate.Year - PickedDateTime.Year).AddMonths(pickedDate.Month - PickedDateTime.Month).AddDays(pickedDate.Day - PickedDateTime.Day);
+            _dayNumberSpawner.UpdatePickedDate(PickedDateTime);
         }
 
-        public void SetHour(int hour) => PickedDate = PickedDate.AddHours(hour - PickedDate.Hour);
+        public void SetHour(int hour) => PickedDateTime = PickedDateTime.AddHours(hour - PickedDateTime.Hour);
 
-        public void SetMinute(int minute) => PickedDate = PickedDate.AddMinutes(minute - PickedDate.Minute);
+        public void SetMinute(int minute) => PickedDateTime = PickedDateTime.AddMinutes(minute - PickedDateTime.Minute);
 
-        public void AddHour(int hour) => PickedDate = PickedDate.AddHours(hour);
+        public void AddHour(int hour) => PickedDateTime = PickedDateTime.AddHours(hour);
     }
 }

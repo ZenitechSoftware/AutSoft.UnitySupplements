@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
 {
+    /// <summary>
+    /// Implements <see cref="Clickable"/> script on an <see cref="Interactable"/>.
+    /// </summary>
     [DefaultExecutionOrder(-1)]
     [RequireComponent(typeof(Interactable))]
     public class XrClickable : Clickable

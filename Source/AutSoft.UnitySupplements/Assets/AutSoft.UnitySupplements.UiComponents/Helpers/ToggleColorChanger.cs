@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.Helpers
 {
+    /// <summary>
+    /// Provides custom icon, foreground and background colors for different states of <see cref="Toggle"/>.
+    /// </summary>
     [RequireComponent(typeof(Toggle), typeof(Image))]
     public class ToggleColorChanger : MonoBehaviour
     {

@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.MRTKExtras.Helpers
 {
+    /// <summary>
+    /// XR compatible <see cref="Toggleable"/> script.
+    /// </summary>
     [RequireComponent(typeof(Interactable))]
     [DefaultExecutionOrder(-2)]
     public class XrToggleable : Toggleable

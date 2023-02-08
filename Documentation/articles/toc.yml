@@ -6,9 +6,15 @@
   href: ResourceGenerator/UnityResourceGenerator.md
 - name: Vitamins
   href: Vitamins/Vitamins.md
+- name: UI Components
+  href: UiComponents/UiComponents.md
 - name: Timeline
   href: UiComponents/Timeline.md
+- name: DatePicker
+  href: UiComponents/DatePicker.md
 - name: LicenseGenerator
   href: LicenseGenerator/LicenseGenerator.md
+- name: MRTKExtras
+  href: MRTKExtras/MRTKExtras.md
 - name: Dependencies
   href: Dependencies.md

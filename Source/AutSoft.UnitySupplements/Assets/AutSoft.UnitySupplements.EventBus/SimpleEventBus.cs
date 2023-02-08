@@ -15,6 +15,9 @@ namespace AutSoft.UnitySupplements.EventBus
         public static IEnumerable<T> GetInstances<T>(this ServiceFactory factory) => (IEnumerable<T>)factory(typeof(IEnumerable<T>));
     }
 
+    /// <summary>
+    /// A simple implementation of <see cref="IEventBus"/> with error logging.
+    /// </summary>
     public sealed class SimpleEventBus : IEventBus
     {
         private readonly Dictionary<Type, List<object>> _handlers = new();

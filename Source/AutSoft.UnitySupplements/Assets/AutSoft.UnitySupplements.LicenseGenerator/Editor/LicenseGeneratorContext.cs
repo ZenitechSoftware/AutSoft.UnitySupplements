@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 {
+    /// <summary>
+    /// Context object used by <see cref="LicenseGenerator.GenerateAsset(LicenseGeneratorContext)"/>.
+    /// </summary>
     public class LicenseGeneratorContext
     {
         public LicenseGeneratorSettings Settings { get; }

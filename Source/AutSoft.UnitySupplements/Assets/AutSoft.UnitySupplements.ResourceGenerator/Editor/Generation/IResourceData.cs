@@ -5,12 +5,12 @@ using System.Collections.Generic;
 namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
 {
     /// <summary>
-    /// Data used by <see cref="AllResources"/>
+    /// Data used by <see cref="AllResources"/>.
     /// </summary>
     public interface IResourceData
     {
         /// <summary>
-        /// Name of the generated class
+        /// Name of the generated class.
         /// </summary>
         string ClassName { get; }
 
@@ -20,7 +20,7 @@ namespace AutSoft.UnitySupplements.ResourceGenerator.Editor.Generation
         IReadOnlyList<string> FileExtensions { get; }
 
         /// <summary>
-        /// Data type returned by Resources.Load
+        /// Data type returned by Resources.Load.
         /// </summary>
         string DataType { get; }
     }

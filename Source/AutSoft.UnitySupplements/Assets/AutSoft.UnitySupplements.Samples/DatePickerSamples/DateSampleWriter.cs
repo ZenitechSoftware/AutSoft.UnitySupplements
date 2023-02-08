@@ -16,7 +16,7 @@ namespace AutSoft.UnitySupplements.Samples.DatePickerSamples
         private void Awake()
         {
             this.CheckSerializedFields();
-            this.Bind(_datePicker.onTimePicked, date => _inputField.text = date.ToString("G"));
+            this.Bind(_datePicker.onDateTimePicked, date => _inputField.text = date.ToString("G"));
 
             switch (_forcedCulture)
             {

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace AutSoft.UnitySupplements.UiComponents.Helpers
 {
+    /// <summary>
+    /// Implements <see cref="Toggleable"/> script on a <see cref="Toggle"/>.
+    /// </summary>
     [DefaultExecutionOrder(-1)]
     [RequireComponent(typeof(Toggle))]
     public class RegularToggle : Toggleable

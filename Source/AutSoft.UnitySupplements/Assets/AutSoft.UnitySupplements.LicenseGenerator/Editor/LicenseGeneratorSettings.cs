@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
 {
+    /// <summary>
+    /// ScriptableObject that stores settings for <see cref="LicenseGenerator"/>.
+    /// </summary>
     public sealed class LicenseGeneratorSettings : ScriptableObject
     {
         private const string DefaultSettingsPath = "Assets/LicenseGeneratorSettings.asset";
@@ -32,6 +35,10 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
         public bool LogInfo => _logInfo;
         public bool LogError => _logError;
 
+        /// <summary>
+        /// Finds or creates an asset in <see cref="AssetDatabase"/> of type <see cref="LicenseGeneratorSettings"/>.
+        /// If no asset can been found, a new asset is created in the /Assets folder.
+        /// </summary>
         public static LicenseGeneratorSettings GetOrCreateSettings()
         {
             var existingGuid = AssetDatabase.FindAssets($"t: {typeof(LicenseGeneratorSettings)}", new[] { "Assets" }).FirstOrDefault();
@@ -45,6 +52,10 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
             return settings;
         }
 
+        /// <summary>
+        /// Adds a new slot for manually assigned package licenses using the specified package name and empty assignment.
+        /// If a slot with the given name already exists, no new item is added.
+        /// </summary>
         public void AddAssignmentSlot(string packageName)
         {
             if (_assignments.Any(a => a.PackageName == packageName))
@@ -54,6 +65,9 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
             EditorUtility.SetDirty(this);
         }
 
+        /// <summary>
+        /// Sets the output asset of the generator that will be overwritten at the end of the process.
+        /// </summary>
         public void SetOutputAsset(TextAsset asset)
         {
             _mergedLicenseAsset = asset;
@@ -61,6 +75,9 @@ namespace AutSoft.UnitySupplements.LicenseGenerator.Editor
             EditorUtility.SetDirty(this);
         }
 
+        /// <summary>
+        /// Utility class used to serialize manually assigned package licenses.
+        /// </summary>
         [Serializable]
         public class ManualLicenseAssignment
         {
