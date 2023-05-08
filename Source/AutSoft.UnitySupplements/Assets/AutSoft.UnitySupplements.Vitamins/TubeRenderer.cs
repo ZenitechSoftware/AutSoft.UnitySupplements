@@ -76,7 +76,13 @@ namespace AutSoft.UnitySupplements.Vitamins
 
         private void CreateMesh(int currentHash)
         {
-            if (_positions == null || _positions.Count < 2) return;
+            if (_positions == null || _positions.Count < 2)
+            {
+                _mesh.Clear();
+                _collider.sharedMesh = null;
+                _lastUpdate = currentHash;
+                return;
+            }
 
             var theta = Mathf.PI * 2 / _segments;
 
